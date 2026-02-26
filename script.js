@@ -137,6 +137,8 @@ const i18n = {
     skin_gold_card_desc: '고급 골드 카드 뒷면',
     skin_neon_card: '네온 카드',
     skin_neon_card_desc: '빛나는 네온 카드 디자인',
+    skin_brick_pattern: '벽돌 패턴',
+    skin_brick_pattern_desc: '클래식 벽돌 패턴 카드',
     skin_diamond_card: '다이아몬드 카드',
     skin_diamond_card_desc: 'VIP 한정 다이아몬드 디자인',
     shop_emotes: '이모티콘',
@@ -164,6 +166,17 @@ const i18n = {
     host_search_ph: '게임 제목을 검색하세요.',
     host_search_btn: '검색',
     host_empty: '개설한 토너먼트가 없습니다',
+    mi_title: '내 아이템',
+    mi_desc: '구매한 아이템을 확인하고 장착하세요',
+    mi_tab_all: '전체',
+    mi_tab_table: '테이블 스킨',
+    mi_tab_card: '카드 스킨',
+    mi_tab_emote: '이모티콘',
+    mi_empty: '보유한 아이템이 없습니다',
+    mi_purchased: '구매일',
+    mi_equipped: '장착중',
+    mi_equip: '장착하기',
+    mi_unequip: '장착해제',
     tx_title: '거래 내역',
     tx_desc: '골드와 다이아의 충전·소모 내역을 확인하세요',
     tx_tab_all: '전체',
@@ -433,6 +446,8 @@ const i18n = {
     skin_gold_card_desc: 'Luxury gold card back',
     skin_neon_card: 'Neon Card',
     skin_neon_card_desc: 'Glowing neon card design',
+    skin_brick_pattern: 'Brick Pattern',
+    skin_brick_pattern_desc: 'Classic brick pattern card',
     skin_diamond_card: 'Diamond Card',
     skin_diamond_card_desc: 'VIP exclusive diamond design',
     shop_emotes: 'Emotes',
@@ -460,6 +475,17 @@ const i18n = {
     host_search_ph: 'Search by game title.',
     host_search_btn: 'Search',
     host_empty: 'No hosted tournaments',
+    mi_title: 'My Items',
+    mi_desc: 'View and equip your purchased items',
+    mi_tab_all: 'All',
+    mi_tab_table: 'Table Skins',
+    mi_tab_card: 'Card Skins',
+    mi_tab_emote: 'Emotes',
+    mi_empty: 'No items owned',
+    mi_purchased: 'Purchased',
+    mi_equipped: 'Equipped',
+    mi_equip: 'Equip',
+    mi_unequip: 'Unequip',
     tx_title: 'Transaction History',
     tx_desc: 'View your gold and diamond transaction history',
     tx_tab_all: 'All',
@@ -729,6 +755,8 @@ const i18n = {
     skin_gold_card_desc: '高級ゴールドカード裏面',
     skin_neon_card: 'ネオンカード',
     skin_neon_card_desc: '光るネオンカードデザイン',
+    skin_brick_pattern: 'ブリックパターン',
+    skin_brick_pattern_desc: 'クラシックレンガパターンカード',
     skin_diamond_card: 'ダイヤモンドカード',
     skin_diamond_card_desc: 'VIP限定ダイヤモンドデザイン',
     shop_emotes: 'エモート',
@@ -756,6 +784,17 @@ const i18n = {
     host_search_ph: 'ゲームタイトルを検索してください。',
     host_search_btn: '検索',
     host_empty: '開設したトーナメントがありません',
+    mi_title: 'マイアイテム',
+    mi_desc: '購入したアイテムを確認して装着しましょう',
+    mi_tab_all: '全体',
+    mi_tab_table: 'テーブルスキン',
+    mi_tab_card: 'カードスキン',
+    mi_tab_emote: 'エモート',
+    mi_empty: '所持アイテムがありません',
+    mi_purchased: '購入日',
+    mi_equipped: '装着中',
+    mi_equip: '装着する',
+    mi_unequip: '装着解除',
     tx_title: '取引履歴',
     tx_desc: 'ゴールドとダイヤの入出履歴を確認してください',
     tx_tab_all: '全体',
@@ -946,6 +985,7 @@ function switchPage(p) {
   if (p === 'mailbox') { mbRenderList(); }
   if (p === 'host') { hostRenderList(); }
   if (p === 'transaction') { txRenderList(); }
+  if (p === 'myitems') { miRenderList(); }
 }
 
 // === 인증 시스템 ===
@@ -2087,4 +2127,68 @@ function txRenderList() {
     html += '</div>';
   });
   list.innerHTML = html;
+}
+
+// === 내 아이템 ===
+const demoMyItems = [
+  { id:1, category:'table', icon:'🟢', name:'클래식 그린', nameKey:'skin_classic_green', desc:'전통적인 포커 테이블', descKey:'skin_classic_green_desc', gradient:'linear-gradient(135deg,#065f46,#047857)', purchaseDate:'2026-02-20', equipped:true },
+  { id:2, category:'table', icon:'🔴', name:'로얄 레드', nameKey:'skin_royal_red', desc:'프리미엄 레드 테이블', descKey:'skin_royal_red_desc', gradient:'linear-gradient(135deg,#991b1b,#dc2626)', purchaseDate:'2026-02-18', equipped:false },
+  { id:3, category:'card', icon:'🃏', name:'골드 카드', nameKey:'skin_gold_card', desc:'고급 골드 카드 뒷면', descKey:'skin_gold_card_desc', gradient:'linear-gradient(135deg,#1a1500,#2d2200)', purchaseDate:'2026-02-22', equipped:true },
+  { id:4, category:'card', icon:'🧱', name:'벽돌 패턴', nameKey:'skin_brick_pattern', desc:'클래식 벽돌 패턴 카드', descKey:'skin_brick_pattern_desc', gradient:'linear-gradient(135deg,#78350f,#b45309)', purchaseDate:'2026-02-15', equipped:false },
+  { id:5, category:'emote', icon:'😎', name:'포커페이스 팩', nameKey:'emote_poker_face', desc:'다양한 포커 이모티콘', descKey:'emote_poker_face_desc', gradient:'linear-gradient(135deg,#1e3a5f,#3b82f6)', purchaseDate:'2026-02-24', equipped:true },
+  { id:6, category:'emote', icon:'💥', name:'올인 팩', nameKey:'emote_allin', desc:'올인 전용 이모티콘', descKey:'emote_allin_desc', gradient:'linear-gradient(135deg,#7c2d12,#f97316)', purchaseDate:'2026-02-10', equipped:false },
+];
+
+let miCurrentFilter = 'all';
+
+function miSwitchTab(filter) {
+  miCurrentFilter = filter;
+  document.querySelectorAll('.mi-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  miRenderList();
+}
+
+function miRenderList() {
+  const t = i18n[currentLang] || i18n.ko;
+  const grid = document.getElementById('miGrid');
+  let items = demoMyItems;
+  if (miCurrentFilter !== 'all') {
+    items = items.filter(item => item.category === miCurrentFilter);
+  }
+  if (items.length === 0) {
+    grid.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:40px 0;grid-column:1/-1;">' + t.mi_empty + '</div>';
+    return;
+  }
+  let html = '';
+  items.forEach(item => {
+    const nameText = (t[item.nameKey]) ? t[item.nameKey] : item.name;
+    const descText = (t[item.descKey]) ? t[item.descKey] : item.desc;
+    const equipBtnClass = item.equipped ? 'equipped' : 'not-equipped';
+    const equipBtnText = item.equipped ? t.mi_unequip : t.mi_equip;
+    html += '<div class="mi-card">';
+    if (item.equipped) {
+      html += '<div class="mi-equipped-badge">' + t.mi_equipped + '</div>';
+    }
+    html += '<div class="mi-card-visual" style="background:' + item.gradient + '">' + item.icon + '</div>';
+    html += '<div class="mi-card-info">';
+    html += '<div class="mi-card-name">' + nameText + '</div>';
+    html += '<div class="mi-card-desc">' + descText + '</div>';
+    html += '<div class="mi-card-date">' + t.mi_purchased + ': ' + item.purchaseDate + '</div>';
+    html += '<button class="mi-equip-btn ' + equipBtnClass + '" onclick="miToggleEquip(' + item.id + ')">' + equipBtnText + '</button>';
+    html += '</div></div>';
+  });
+  grid.innerHTML = html;
+}
+
+function miToggleEquip(id) {
+  const item = demoMyItems.find(i => i.id === id);
+  if (!item) return;
+  if (item.equipped) {
+    item.equipped = false;
+  } else {
+    demoMyItems.filter(i => i.category === item.category).forEach(i => i.equipped = false);
+    item.equipped = true;
+  }
+  miRenderList();
 }

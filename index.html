@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POKER LULU - Play Poker with Friends</title>
 <link rel="icon" type="image/svg+xml" href="images/login_icon.svg">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -517,7 +517,7 @@
       </div>
       <div class="shop-grid">
         <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#1a1500,#2d2200)">🃏</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_gold_card">골드 카드</div><div class="shop-item-desc" data-i18n="skin_gold_card_desc">고급 골드 카드 뒷면</div><div class="shop-item-price"><span>💎</span> 80</div></div></div>
-        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#0a0a20,#10103a)">🎴</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_neon_card">네온 카드</div><div class="shop-item-desc" data-i18n="skin_neon_card_desc">빛나는 네온 카드 디자인</div><div class="shop-item-price"><span>💎</span> 120</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#78350f,#b45309)">🧱</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_brick_pattern">벽돌 패턴</div><div class="shop-item-desc" data-i18n="skin_brick_pattern_desc">클래식 벽돌 패턴 카드</div><div class="shop-item-price"><span>💎</span> 120</div></div></div>
         <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#200510,#350a1a)">🎆</div><div class="shop-item-info"><div class="shop-item-tag vip">PREMIUM</div><div class="shop-item-name" data-i18n="skin_diamond_card">다이아몬드 카드</div><div class="shop-item-desc" data-i18n="skin_diamond_card_desc">VIP 한정 다이아몬드 디자인</div><div class="shop-item-price"><span>💎</span> 300</div></div></div>
       </div>
       <div class="shop-grid" style="margin-bottom:40px">
@@ -545,7 +545,7 @@
       <div class="my-menu-item" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15);color:#a855f7">🏠</div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15);color:#14b8a6">📋</div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('transaction')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15);color:var(--accent-gold)">💰</div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(236,72,153,0.15);color:var(--accent-pink)">🎨</div><span class="my-menu-text" data-i18n="my_items">내 아이템</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('myitems')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(236,72,153,0.15);color:var(--accent-pink)">🎨</div><span class="my-menu-text" data-i18n="my_items">내 아이템</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('account-edit')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(249,98,23,0.15);color:var(--accent-orange)">👤</div><span class="my-menu-text" data-i18n="my_profile">회원정보 수정</span></div><span class="my-menu-arrow">›</span></div>
     </div>
   </div>
@@ -839,6 +839,24 @@
       <button class="tx-tab" data-filter="diamond" onclick="txSwitchTab('diamond')">💎 <span data-i18n="tx_tab_diamond">다이아</span></button>
     </div>
     <div class="tx-list" id="txList" style="max-width:700px;margin:0 auto;padding-bottom:48px;"></div>
+  </div>
+</div>
+
+<!-- My Items Page -->
+<div class="page-container" id="page-myitems">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="mi_title">내 아이템</h2>
+      <p data-i18n="mi_desc">구매한 아이템을 확인하고 장착하세요</p>
+    </div>
+    <div class="mi-tabs" style="max-width:700px;margin:0 auto 16px;">
+      <button class="mi-tab active" data-filter="all" onclick="miSwitchTab('all')" data-i18n="mi_tab_all">전체</button>
+      <button class="mi-tab" data-filter="table" onclick="miSwitchTab('table')">🎯 <span data-i18n="mi_tab_table">테이블 스킨</span></button>
+      <button class="mi-tab" data-filter="card" onclick="miSwitchTab('card')">🃏 <span data-i18n="mi_tab_card">카드 스킨</span></button>
+      <button class="mi-tab" data-filter="emote" onclick="miSwitchTab('emote')">😎 <span data-i18n="mi_tab_emote">이모티콘</span></button>
+    </div>
+    <div class="mi-grid" id="miGrid" style="max-width:700px;margin:0 auto;padding-bottom:48px;"></div>
   </div>
 </div>
 
@@ -1257,6 +1275,6 @@
   </div>
 </div>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>
