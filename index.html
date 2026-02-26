@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POKER LULU - Play Poker with Friends</title>
+<link rel="icon" type="image/svg+xml" href="images/login_icon.svg">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-logo" onclick="switchPage('lobby')">
+      <svg width="161" height="32" viewBox="0 0 161 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;"><path d="M2.00925 16.7435C1.60916 16.9749 1.28516 17.4869 1.28516 17.8881C1.28516 18.2869 1.60425 18.794 2.00188 19.0278L7.85352 22.4149C8.25361 22.6463 8.57761 22.5084 8.57761 22.1072V12.9404L2.0117 16.741L2.00925 16.7435Z" fill="#B74325"/><path d="M17.3722 1.16677L2.00925 10.0603C1.60916 10.2917 1.28516 10.8037 1.28516 11.2049V17.888C1.28516 17.4868 1.60916 16.9748 2.00925 16.7434L8.57516 12.9403L17.3673 7.84985C17.7674 7.61846 18.0914 7.10647 18.0914 6.70523V1.47446C18.0914 1.0757 17.7699 0.937849 17.3722 1.16677Z" fill="#F96217"/><path d="M25.1074 15.2568C25.5075 15.0254 25.8315 14.5134 25.8315 14.1122C25.8315 13.7134 25.5124 13.2063 25.1148 12.9725L19.2632 9.58539C18.8631 9.35401 18.5391 9.49185 18.5391 9.89309V19.0599L25.105 15.2592L25.1074 15.2568Z" fill="#B74325"/><path d="M25.1056 15.2564L18.5397 19.0595L9.74753 24.15C9.34744 24.3813 9.02344 24.8933 9.02344 25.2946V30.5278C9.02344 30.9266 9.34498 31.0644 9.74262 30.8355L25.1032 21.942C25.5033 21.7106 25.8273 21.1986 25.8273 20.7973V14.1143C25.8273 14.5155 25.5033 15.0275 25.1032 15.2589L25.1056 15.2564Z" fill="#F96217"/><path d="M15.1258 18.4418C15.4547 18.4418 15.7615 18.3458 16.0217 18.1809C16.3457 17.9889 16.5739 17.6861 16.6918 17.3464C16.758 17.1667 16.7924 16.9723 16.7924 16.7704C16.7924 16.4775 16.7163 16.1993 16.5838 15.9606C16.2278 15.2492 15.462 14.6559 14.7723 13.9495C13.9451 13.1027 13.5622 12.3643 13.5622 12.3643C13.5622 12.3643 13.1793 13.1027 12.3521 13.9495C11.6624 14.6559 10.8966 15.2492 10.5407 15.9606C10.4081 16.2018 10.332 16.4775 10.332 16.7704C10.332 16.9723 10.3688 17.1667 10.4327 17.3464C10.5505 17.6886 10.7788 17.9889 11.1028 18.1809C11.3605 18.3458 11.6673 18.4418 11.9987 18.4418C12.5534 18.4418 13.0443 18.171 13.3487 17.7526C13.248 18.9169 12.5608 19.6135 12.5608 19.6135H14.5612C14.5612 19.6135 13.8764 18.9218 13.7733 17.76C13.7733 17.76 13.7733 17.755 13.7733 17.7526C14.0777 18.171 14.5686 18.4443 15.1233 18.4443L15.1258 18.4418Z" fill="#F96217"/><path d="M54.0332 8C56.0017 8 57.5841 8.61833 58.7803 9.85742C59.9765 11.0967 60.5742 12.6782 60.5742 14.6006H60.5762V17.3994C60.5762 19.3281 59.9811 20.9114 58.7891 22.1465C57.5971 23.3815 56.0019 24 54.0459 24C52.09 24 50.5224 23.3813 49.3408 22.1465C48.1592 20.9114 47.5684 19.3281 47.5684 17.3994V14.6006C47.5684 12.6782 48.1566 11.0967 49.334 9.85742C50.5114 8.61823 52.0647 8.00002 54.0332 8ZM124.356 18.541C124.357 19.5884 124.628 20.3607 125.171 20.8584C125.714 21.3562 126.452 21.6064 127.45 21.6064C128.448 21.6064 129.221 21.3562 129.768 20.8584C130.312 20.3607 130.586 19.5883 130.586 18.541V13.6914H133.724V18.541C133.724 20.3195 133.158 21.6756 132.022 22.6045C130.887 23.5334 129.348 23.9971 127.45 23.9971C125.553 23.9971 124.039 23.5332 122.912 22.6045C121.785 21.6756 121.221 20.3216 121.221 18.541V13.6914H124.356V18.541ZM151.16 18.541C151.16 19.5883 151.432 20.3607 151.975 20.8584C152.517 21.3561 153.256 21.6064 154.254 21.6064C155.252 21.6064 156.024 21.3562 156.571 20.8584C157.116 20.3607 157.39 19.5884 157.39 18.541V13.6914H160.527V18.541C160.527 20.3195 159.962 21.6756 158.826 22.6045C157.691 23.5333 156.151 23.9971 154.254 23.9971C152.357 23.997 150.843 23.5333 149.716 22.6045C148.589 21.6756 148.024 20.3216 148.024 18.541V13.6914H151.16V18.541ZM39.8799 8.22656C41.7065 8.22656 43.1244 8.67458 44.1348 9.57227C45.145 10.4678 45.6504 11.6762 45.6504 13.1924C45.6503 14.7085 45.1451 15.9125 44.1348 16.8018C43.1265 17.6911 41.7065 18.1367 39.8799 18.1367H36.7969V23.7764H33.6719V8.22656H39.8799ZM95.9775 8.22266C97.7747 8.22266 99.1299 8.60761 100.04 9.37598C100.95 10.1466 101.405 11.2757 101.405 12.7627C101.405 13.6333 101.178 14.3443 100.725 14.9004C100.272 15.4562 99.6059 15.9037 98.7295 16.2451V16.2764C99.65 16.5617 100.302 17.0115 100.684 17.6279C101.066 18.2444 101.255 19.032 101.255 19.9941V21.1377C101.255 21.573 101.312 22.0151 101.427 22.4629C101.54 22.9104 101.744 23.2496 102.036 23.4766V23.7764H98.8359C98.5437 23.541 98.3532 23.16 98.2676 22.6289C98.182 22.098 98.1387 21.594 98.1387 21.1172V20.0176C98.1387 19.2199 97.944 18.6112 97.5557 18.1904C97.1653 17.7699 96.5787 17.5596 95.7939 17.5596L95.7959 17.5576H92.9805V23.7725H89.8545V8.22266H95.9775ZM66.2275 14.5801H67.5869L71.7178 8.22559H75.54L70.4023 15.498L75.958 23.7754H72.1475L67.9619 17.2812H66.2275V23.7754H63.1025V8.22559H66.2275V14.5801ZM112.771 21.3818H119.709V23.7744H109.646V8.22461H112.771V21.3818ZM139.576 21.3818H146.514V23.7744H136.451V8.22461H139.576V21.3818ZM87.915 10.626H80.3896V14.5352H86.8447L86.8467 14.5332V16.9365H80.3916V21.3799H87.9385V23.7725H77.2646V8.22266H87.915V10.626ZM54.0332 10.4346C52.954 10.4346 52.1271 10.8203 51.5488 11.5889C50.9708 12.3573 50.6827 13.3547 50.6826 14.5791V17.3994C50.6826 18.6386 50.9733 19.6443 51.5557 20.417C52.136 21.1897 52.9584 21.5752 54.0439 21.5752C55.1294 21.5751 55.9667 21.1897 56.5596 20.417C57.1522 19.6443 57.4482 18.6385 57.4482 17.3994V14.5771C57.4482 13.3609 57.1479 12.3654 56.5488 11.5928C55.9497 10.8201 55.1125 10.4346 54.0332 10.4346ZM36.7969 15.7334H39.8799C40.7713 15.7334 41.4376 15.4997 41.876 15.0332C42.3143 14.5667 42.5332 13.9751 42.5332 13.2129C42.5332 12.4506 42.3143 11.8297 41.876 11.3486C41.4376 10.8675 40.7713 10.6279 39.8799 10.6279H36.7969V15.7334ZM92.9775 15.1582H95.6748C96.5662 15.1582 97.2266 14.9747 97.6504 14.6123C98.0739 14.2479 98.287 13.6898 98.2871 12.957C98.2871 12.2239 98.0862 11.6525 97.6875 11.2422C97.2888 10.8321 96.6647 10.628 95.8154 10.6279H92.9775V15.1582ZM129.347 10.8828C130.282 8.23767 133.293 8.7168 133.293 8.7168C131.798 9.04171 131.32 10.0957 131.32 10.0957C132.742 10.3866 133.218 11.7243 133.228 11.751C131.85 10.4205 129.347 10.8828 129.347 10.8828ZM156.204 10.8828C157.139 8.23767 160.15 8.7168 160.15 8.7168C158.656 9.04171 158.178 10.0957 158.178 10.0957C159.599 10.3865 160.075 11.7236 160.085 11.751C158.707 10.4205 156.204 10.8828 156.204 10.8828ZM123.774 8.64551C124.532 8.64555 125.144 9.33931 125.144 10.1953C125.143 11.0511 124.53 11.7441 123.774 11.7441C123.019 11.7441 122.405 11.0512 122.405 10.1953C122.405 9.33929 123.019 8.64551 123.774 8.64551ZM150.63 8.64551C151.386 8.64551 151.999 9.33929 151.999 10.1953C151.999 11.0512 151.385 11.7441 150.63 11.7441C149.874 11.7441 149.261 11.0511 149.261 10.1953C149.261 9.33932 149.874 8.64556 150.63 8.64551Z" fill="white"/></svg>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link active" data-page="lobby" onclick="switchPage('lobby')" data-i18n="nav_lobby">로비</a>
+      <a class="nav-link" data-page="analytics" onclick="switchPage('analytics')" data-i18n="nav_analytics">통계</a>
+      <a class="nav-link" data-page="shop" onclick="switchPage('shop')" data-i18n="nav_shop">상점</a>
+      <a class="nav-link" data-page="my" onclick="switchPage('my')" data-i18n="nav_my">MY 룰루</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-coins" style="cursor:pointer" onclick="switchPage('shop');setTimeout(()=>switchShopTab('recommend'),50)"><span class="coin-icon">🪙</span><span id="navGold">0</span></div>
+      <div class="nav-coins" style="cursor:pointer;background:rgba(96,165,250,0.1);border-color:rgba(96,165,250,0.2);color:#60a5fa;" onclick="switchPage('shop');setTimeout(()=>switchShopTab('gems'),50)"><span class="coin-icon">💎</span><span id="navDiamond">0</span></div>
+      <select id="langSelect" onchange="changeLang(this.value)" style="padding:6px 12px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;outline:none;">
+        <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option>
+      </select>
+      <button id="navLoginBtn" data-i18n="nav_login" onclick="switchPage('login')" style="padding:7px 18px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dark));color:#fff;font-size:13px;font-weight:700;cursor:pointer;">로그인</button>
+      <button id="navLogoutBtn" onclick="handleLogout()" style="display:none;padding:7px 18px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;">로그아웃</button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-container active" id="page-lobby">
+  <div class="content-wrapper">
+    <section class="hero-section">
+      <div class="banner-carousel" id="bannerCarousel">
+        <div class="banner-slide active"><div class="banner-content"><div class="banner-badge">🔥 Season 3 Open</div><div class="banner-title"><span class="glow">ALL NIGHT<br>POKER PARTY</span></div><div class="banner-sub" data-i18n="banner1_sub">친구들과 함께하는 짜릿한 올나잇 포커</div></div></div>
+        <div class="banner-slide"><div class="banner-content"><div class="banner-badge">🏆 Tournament</div><div class="banner-title"><span class="glow">WEEKLY<br>CHAMPIONSHIP</span></div><div class="banner-sub" data-i18n="banner2_sub">매주 열리는 토너먼트에서 최고의 실력을 증명하세요</div></div></div>
+        <div class="banner-slide"><div class="banner-content"><div class="banner-badge">🎁 Bonus</div><div class="banner-title"><span class="glow">FREE CHIPS<br>10,000 BONUS</span></div><div class="banner-sub" data-i18n="banner3_sub">지금 가입하면 무료 칩 10,000개 즉시 지급!</div></div></div>
+        <div class="banner-slide"><div class="banner-content"><div class="banner-badge">👥 Social</div><div class="banner-title"><span class="glow">FRIENDS<br>PRIVATE ROOM</span></div><div class="banner-sub" data-i18n="banner4_sub">친구를 초대하고 프라이빗 룸에서 자유롭게 즐기세요</div></div></div>
+        <div class="banner-slide"><div class="banner-content"><div class="banner-badge">❤️ Valentine's</div><div class="banner-title"><span class="glow">VALENTINE<br>SPECIAL EVENT</span></div><div class="banner-sub" data-i18n="banner5_sub">발렌타인 시즌 한정 보상과 특별 테이블 오픈!</div></div></div>
+        <div class="banner-slide"><div class="banner-content"><div class="banner-badge">💎 VIP</div><div class="banner-title"><span class="glow">VIP DIAMOND<br>MEMBERSHIP</span></div><div class="banner-sub" data-i18n="banner6_sub">다이아몬드 멤버십으로 독점 혜택을 누리세요</div></div></div>
+        <div class="carousel-arrow left" onclick="prevSlide()">‹</div>
+        <div class="carousel-arrow right" onclick="nextSlide()">›</div>
+        <div class="banner-dots" id="bannerDots"></div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_game_modes">게임 모드</h2><span class="section-more" data-i18n="lobby_view_all">전체보기 →</span></div>
+      <div class="game-modes">
+        <div class="game-card" onclick="switchPage('tournament')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon">🏆</div></div><div class="game-card-info"><div class="game-card-badge">🏆 COMPETITIVE</div><div class="game-card-name" data-i18n="game_tournament">토너먼트</div><div class="game-card-desc" data-i18n="game_tournament_desc">실력을 겨루는 정식 토너먼트. 순위에 따른 보상을 획득하세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_tournament_players">1,247명 참가 중</span></div></div></div>
+        <div class="game-card" onclick="switchPage('game-setup')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon">⚙️</div></div><div class="game-card-info"><div class="game-card-badge">⚙️ CUSTOM</div><div class="game-card-name" data-i18n="game_custom">사용자 게임</div><div class="game-card-desc" data-i18n="game_custom_desc">나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_custom_players">856개 방 운영 중</span></div></div></div>
+      </div>
+    </section>
+    <section class="live-tables">
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_live_tables">라이브 테이블</h2><span class="section-more" data-i18n="lobby_more">더보기 →</span></div>
+      <div class="tables-grid">
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_rookie">🃏 루키 테이블</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">10/20</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">4/9</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value">🪙 500</span></div></div><button class="table-join-btn" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_highroller">♠️ 하이롤러</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">100/200</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">7/9</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value">🪙 10,000</span></div></div><button class="table-join-btn" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_vip">💎 VIP 라운지</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">500/1000</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">5/6</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value">🪙 50,000</span></div></div><button class="table-join-btn" data-i18n="table_join">입장하기</button></div>
+      </div>
+    </section>
+    <section class="stats-section">
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_my_stats">내 통계 요약</h2><span class="section-more" onclick="switchPage('analytics')" data-i18n="lobby_detail">자세히 →</span></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-icon">🎮</div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+        <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
+        <div class="stat-card"><div class="stat-icon">🪙</div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+        <div class="stat-card"><div class="stat-icon">🔥</div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="page-container" id="page-analytics">
+  <div class="content-wrapper">
+    <div class="analytics-hero"><h2 data-i18n="analytics_title">내 통계</h2><p data-i18n="analytics_desc">게임 기록과 성과를 한눈에 확인하세요</p></div>
+    <div class="stats-grid" style="margin-bottom:24px">
+      <div class="stat-card"><div class="stat-icon">🎮</div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+      <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value">86</div><div class="stat-label" data-i18n="stat_wins">승리</div></div>
+      <div class="stat-card"><div class="stat-icon">📉</div><div class="stat-value">42</div><div class="stat-label" data-i18n="stat_losses">패배</div></div>
+      <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-value" style="color:#f59e0b">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+    </div>
+    <div class="chart-container"><div class="chart-title" data-i18n="chart_weekly">📈 주간 성과</div><div class="chart-bar-group">
+      <div class="chart-bar-item"><div class="chart-bar-value">5</div><div class="chart-bar" style="height:50%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_mon">월</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">8</div><div class="chart-bar" style="height:80%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_tue">화</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">3</div><div class="chart-bar" style="height:30%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_wed">수</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">10</div><div class="chart-bar" style="height:100%;background:linear-gradient(180deg,var(--accent-pink),#be185d)"></div><div class="chart-bar-label" data-i18n="day_thu">목</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">7</div><div class="chart-bar" style="height:70%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_fri">금</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">9</div><div class="chart-bar" style="height:90%;background:linear-gradient(180deg,var(--accent-pink),#be185d)"></div><div class="chart-bar-label" data-i18n="day_sat">토</div></div>
+      <div class="chart-bar-item"><div class="chart-bar-value">6</div><div class="chart-bar" style="height:60%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_sun">일</div></div>
+    </div></div>
+    <div class="chart-container" style="margin-bottom:40px"><div class="chart-title" data-i18n="chart_hand">🃏 핸드 분석</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="background:rgba(249,98,23,0.1);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;font-weight:800;color:var(--accent-orange)">AA</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px" data-i18n="hand_best">최다 승리 핸드</div></div>
+      <div style="background:rgba(236,72,153,0.1);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;font-weight:800;color:var(--accent-pink)">72o</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px" data-i18n="hand_worst">최다 패배 핸드</div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="page-container" id="page-shop">
+  <div class="content-wrapper">
+    <div class="shop-hero"><h2 data-i18n="shop_title">상점</h2><p data-i18n="shop_desc">칩, 아이템, 스킨을 구매하세요</p></div>
+
+    <!-- 상점 탭 메뉴 -->
+    <div class="shop-tabs">
+      <button class="shop-tab active" data-shop-tab="recommend" onclick="switchShopTab('recommend')" data-i18n="shop_tab_recommend">⭐ 추천 상품</button>
+      <button class="shop-tab" data-shop-tab="gems" onclick="switchShopTab('gems')" data-i18n="shop_tab_gems">💎 보석</button>
+      <button class="shop-tab" data-shop-tab="avatar" onclick="switchShopTab('avatar')" data-i18n="shop_tab_avatar">👤 아바타</button>
+      <button class="shop-tab" data-shop-tab="items" onclick="switchShopTab('items')" data-i18n="shop_tab_items">🎁 아이템</button>
+    </div>
+
+    <!-- 추천 상품 탭 -->
+    <div class="shop-tab-content active" id="shop-recommend">
+      <div class="pkg-grid">
+
+        <div class="pkg-card pkg-tier-a">
+          <div class="pkg-image"><img src="images/shop_a.png" alt="Package A"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="pkg_a_name">스타터 패키지 A</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_a_item1">아바타 A (15일)</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_a_item2">5억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩1,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card pkg-tier-b">
+          <div class="pkg-image"><img src="images/shop_b.png" alt="Package B"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="pkg_b_name">스타터 패키지 B</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_b_item1">아바타 B (15일)</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_b_item2">15억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩3,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card pkg-tier-c">
+          <div class="pkg-image"><img src="images/shop_c.png" alt="Package C"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="pkg_c_name">스타터 패키지 C</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_c_item1">아바타 C (15일)</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="pkg_c_item2">바이인 티켓 10억</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_c_item3">15억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩5,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card pkg-tier-d">
+          <div class="pkg-image"><img src="images/shop_d.png" alt="Package D"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="pkg_d_name">스타터 패키지 D</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_d_item1">아바타 D (15일)</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="pkg_d_item2">바이인 티켓 20억</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_d_item3">30억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩10,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card pkg-tier-e">
+          <div class="pkg-image"><img src="images/shop_e.png" alt="Package E"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag hot">HOT</div>
+            <div class="pkg-name" data-i18n="pkg_e_name">스타터 패키지 E</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_e_item1">아바타 E (15일)</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="pkg_e_item2">바이인 티켓 60억</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_e_item3">90억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩30,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card pkg-tier-f">
+          <div class="pkg-image"><img src="images/shop_f.png" alt="Package F"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag vip">BEST</div>
+            <div class="pkg-name" data-i18n="pkg_f_name">스타터 패키지 F</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="pkg_f_item1">아바타 F (15일)</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="pkg_f_item2">바이인 티켓 100억</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="pkg_f_item3">150억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩50,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 보석 탭 -->
+    <div class="shop-tab-content" id="shop-gems">
+      <div class="pkg-grid gem-grid">
+
+        <div class="pkg-card gem-tier-1">
+          <div class="pkg-image"><img src="images/gem_1.png" alt="Gem 1"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="gem_1_name">보석 10개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_1_item1">보석 10개</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩1,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-2">
+          <div class="pkg-image"><img src="images/gem_2.png" alt="Gem 2"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="gem_2_name">보석 30개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_2_item1">보석 30개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_2_item2">보너스 보석 +2개</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩3,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-3">
+          <div class="pkg-image"><img src="images/gem_3.png" alt="Gem 3"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="gem_3_name">보석 50개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_3_item1">보석 50개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_3_item2">보너스 보석 +5개</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩5,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-4">
+          <div class="pkg-image"><img src="images/gem_4.png" alt="Gem 4"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="gem_4_name">보석 100개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_4_item1">보석 100개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_4_item2">보너스 보석 +15개</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩10,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-5">
+          <div class="pkg-image"><img src="images/gem_5.png" alt="Gem 5"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag sale">+20%</div>
+            <div class="pkg-name" data-i18n="gem_5_name">보석 300개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_5_item1">보석 300개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_5_item2">보너스 보석 +60개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="gem_5_item3">5억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩30,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-6">
+          <div class="pkg-image"><img src="images/gem_6.png" alt="Gem 6"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag sale">+25%</div>
+            <div class="pkg-name" data-i18n="gem_6_name">보석 500개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_6_item1">보석 500개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_6_item2">보너스 보석 +125개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="gem_6_item3">10억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩50,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-7">
+          <div class="pkg-image"><img src="images/gem_7.png" alt="Gem 7"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag hot">HOT</div>
+            <div class="pkg-name" data-i18n="gem_7_name">보석 1,000개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_7_item1">보석 1,000개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_7_item2">보너스 보석 +300개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="gem_7_item3">30억 골드</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="gem_7_item4">바이인 티켓 10억</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩100,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-8">
+          <div class="pkg-image"><img src="images/gem_8.png" alt="Gem 8"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag hot">BEST</div>
+            <div class="pkg-name" data-i18n="gem_8_name">보석 3,000개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_8_item1">보석 3,000개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_8_item2">보너스 보석 +1,000개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="gem_8_item3">100억 골드</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="gem_8_item4">바이인 티켓 30억</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩300,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card gem-tier-9">
+          <div class="pkg-image"><img src="images/gem_9.png" alt="Gem 9"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag vip">PREMIUM</div>
+            <div class="pkg-name" data-i18n="gem_9_name">보석 5,000개</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">💎</span><span data-i18n="gem_9_item1">보석 5,000개</span></li>
+              <li><span class="pkg-icon">🎁</span><span data-i18n="gem_9_item2">보너스 보석 +2,000개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="gem_9_item3">200억 골드</span></li>
+              <li><span class="pkg-icon">🎫</span><span data-i18n="gem_9_item4">바이인 티켓 50억</span></li>
+              <li><span class="pkg-icon">👤</span><span data-i18n="gem_9_item5">VIP 아바타 (30일)</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩500,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 아바타 탭 -->
+    <div class="shop-tab-content" id="shop-avatar">
+      <div class="pkg-grid avatar-grid">
+
+        <div class="pkg-card avatar-tier-g">
+          <div class="pkg-image"><img src="images/shop_g.png" alt="Avatar G"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="avatar_g_name">아바타 세트 G</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_g_item1">아바타 G (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_g_item2">보석 10개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_g_item3">5억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩1,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-h">
+          <div class="pkg-image"><img src="images/shop_h.png" alt="Avatar H"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="avatar_h_name">아바타 세트 H</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_h_item1">아바타 H (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_h_item2">보석 30개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_h_item3">15억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩3,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-i">
+          <div class="pkg-image"><img src="images/shop_i.png" alt="Avatar I"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="avatar_i_name">아바타 세트 I</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_i_item1">아바타 I (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_i_item2">보석 50개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_i_item3">25억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩5,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-j">
+          <div class="pkg-image"><img src="images/shop_j.png" alt="Avatar J"></div>
+          <div class="pkg-body">
+            <div class="pkg-name" data-i18n="avatar_j_name">아바타 세트 J</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_j_item1">아바타 J (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_j_item2">보석 100개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_j_item3">50억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩10,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-k">
+          <div class="pkg-image"><img src="images/shop_k.png" alt="Avatar K"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag sale">POPULAR</div>
+            <div class="pkg-name" data-i18n="avatar_k_name">아바타 세트 K</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_k_item1">아바타 K (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_k_item2">보석 300개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_k_item3">150억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩30,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-l">
+          <div class="pkg-image"><img src="images/shop_l.png" alt="Avatar L"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag hot">HOT</div>
+            <div class="pkg-name" data-i18n="avatar_l_name">아바타 세트 L</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_l_item1">아바타 L (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_l_item2">보석 500개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_l_item3">250억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩50,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-m">
+          <div class="pkg-image"><img src="images/shop_m.png" alt="Avatar M"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag hot">BEST</div>
+            <div class="pkg-name" data-i18n="avatar_m_name">아바타 세트 M</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_m_item1">아바타 M (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_m_item2">보석 1,000개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_m_item3">500억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩100,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card avatar-tier-n">
+          <div class="pkg-image"><img src="images/shop_n.png" alt="Avatar N"></div>
+          <div class="pkg-body">
+            <div class="shop-item-tag vip">PREMIUM</div>
+            <div class="pkg-name" data-i18n="avatar_n_name">아바타 세트 N</div>
+            <ul class="pkg-contents">
+              <li><span class="pkg-icon">👤</span><span data-i18n="avatar_n_item1">아바타 N (15일)</span></li>
+              <li><span class="pkg-icon">💎</span><span data-i18n="avatar_n_item2">보석 3,000개</span></li>
+              <li><span class="pkg-icon">🪙</span><span data-i18n="avatar_n_item3">1,500억 골드</span></li>
+            </ul>
+            <div class="pkg-bottom">
+              <div class="pkg-price">₩300,000</div>
+              <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 아이템 탭 -->
+    <div class="shop-tab-content" id="shop-items">
+      <div class="shop-grid">
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#0a200a,#0d300d)">🟢</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_classic_green">클래식 그린</div><div class="shop-item-desc" data-i18n="skin_classic_green_desc">전통적인 포커 테이블</div><div class="shop-item-price"><span>🪙</span> 2,000</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#200a0a,#300d0d)">🔴</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_royal_red">로열 레드</div><div class="shop-item-desc" data-i18n="skin_royal_red_desc">프리미엄 레드 테이블</div><div class="shop-item-price"><span>🪙</span> 5,000</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#1a0533,#2d1058)">🌌</div><div class="shop-item-info"><div class="shop-item-tag hot">NEW</div><div class="shop-item-name" data-i18n="skin_cosmic_black">코스믹 블랙</div><div class="shop-item-desc" data-i18n="skin_cosmic_black_desc">우주 컨셉 한정 스킨</div><div class="shop-item-price"><span>🪙</span> 10,000</div></div></div>
+      </div>
+      <div class="shop-grid">
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#1a1500,#2d2200)">🃏</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_gold_card">골드 카드</div><div class="shop-item-desc" data-i18n="skin_gold_card_desc">고급 골드 카드 뒷면</div><div class="shop-item-price"><span>💎</span> 80</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#0a0a20,#10103a)">🎴</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="skin_neon_card">네온 카드</div><div class="shop-item-desc" data-i18n="skin_neon_card_desc">빛나는 네온 카드 디자인</div><div class="shop-item-price"><span>💎</span> 120</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#200510,#350a1a)">🎆</div><div class="shop-item-info"><div class="shop-item-tag vip">PREMIUM</div><div class="shop-item-name" data-i18n="skin_diamond_card">다이아몬드 카드</div><div class="shop-item-desc" data-i18n="skin_diamond_card_desc">VIP 한정 다이아몬드 디자인</div><div class="shop-item-price"><span>💎</span> 300</div></div></div>
+      </div>
+      <div class="shop-grid" style="margin-bottom:40px">
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#1a1000,#2a1a00)">😎</div><div class="shop-item-info"><div class="shop-item-name" data-i18n="emote_pokerface">포커페이스 팩</div><div class="shop-item-desc" data-i18n="emote_pokerface_desc">기본 이모티콘 8종</div><div class="shop-item-price"><span>🪙</span> 1,500</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#100a1a,#1a102a)">🎭</div><div class="shop-item-info"><div class="shop-item-tag sale">30% OFF</div><div class="shop-item-name" data-i18n="emote_drama">드라마 팩</div><div class="shop-item-desc" data-i18n="emote_drama_desc">연기파 이모티콘 12종</div><div class="shop-item-price"><span>🪙</span> 3,000</div></div></div>
+        <div class="shop-item"><div class="shop-item-visual" style="background:linear-gradient(135deg,#1a050a,#2d0a15)">💥</div><div class="shop-item-info"><div class="shop-item-tag hot">NEW</div><div class="shop-item-name" data-i18n="emote_allin">올인 팩</div><div class="shop-item-desc" data-i18n="emote_allin_desc">시즌3 한정 이모티콘 6종</div><div class="shop-item-price"><span>💎</span> 60</div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page-container" id="page-my">
+  <div class="content-wrapper">
+    <div class="my-page-hero"><h2 data-i18n="my_title">MY 룰루</h2><p data-i18n="my_desc">내 프로필과 게임 정보를 관리하세요</p></div>
+    <div class="my-profile-card"><div class="my-hero"><div class="my-avatar-wrap" onclick="openAvatarModal()"><div class="my-avatar"><img src="images/avatar_o.png" alt="Player Avatar"></div><div class="my-avatar-setting"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/></svg></div></div><div class="my-info"><div class="my-nickname"><h2 id="myNickname">두바이쫀득김치</h2><button class="my-nickname-edit" onclick="openNicknameModal()"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-8 9.646a.5.5 0 0 1-.233-.131L1.293 11.854a.5.5 0 0 1-.131-.232l-1 3.5a.5.5 0 0 0 .616.617l3.5-1z"/></svg></button></div><p class="my-email" id="myEmail"><img src="images/google.svg" class="my-email-icon" alt="Google"> kimjjusam@teamlulu.ai</p><p id="myJoinInfo" data-i18n="my_info_sub">가입일: 2025.01.15 · 레벨 23</p></div></div></div>
+    <div class="stats-grid" style="margin:24px 0">
+      <div class="stat-card stat-card-link" onclick="switchPage('ticket')"><div class="stat-icon">🎫</div><div class="stat-value">25 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_chips">티켓</div></div>
+      <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
+      <div class="stat-card"><div class="stat-icon">🎮</div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+      <div class="stat-card"><div class="stat-icon">⭐</div><div class="stat-value">Lv.23</div><div class="stat-label" data-i18n="stat_level">레벨</div></div>
+    </div>
+    <div class="my-menu">
+      <div class="my-menu-item" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15);color:#60a5fa">📩</div><span class="my-menu-text" data-i18n="my_message">우편함</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15);color:#a855f7">🏠</div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15);color:#14b8a6">📋</div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15);color:var(--accent-gold)">💰</div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(236,72,153,0.15);color:var(--accent-pink)">🎨</div><span class="my-menu-text" data-i18n="my_items">내 아이템</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('account-edit')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(249,98,23,0.15);color:var(--accent-orange)">👤</div><span class="my-menu-text" data-i18n="my_profile">회원정보 수정</span></div><span class="my-menu-arrow">›</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="page-container" id="page-login">
+  <div class="login-page">
+    <div class="login-back" onclick="switchPage('lobby')">
+      <span>←</span> <span data-i18n="login_back">돌아가기</span>
+    </div>
+    <!-- 로그인 폼 -->
+    <div id="loginSection">
+      <div class="login-header">
+        <h2 data-i18n="login_title">로그인</h2>
+        <p data-i18n="login_subtitle">무료 플레이, 쉬운 시작 간편하게 친구들과 한판</p>
+      </div>
+      <div class="login-card">
+        <div class="login-logo"><img src="images/login_icon.svg" alt="Poker Lulu"></div>
+        <div class="login-form">
+          <input type="text" id="loginId" class="login-input" placeholder="포커룰루 아이디" data-i18n-placeholder="login_id_placeholder">
+          <input type="password" id="loginPw" class="login-input" placeholder="비밀번호" data-i18n-placeholder="login_pw_placeholder">
+          <div id="loginError" class="login-error" style="display:none;"></div>
+          <button class="login-btn" data-i18n="login_btn" onclick="handleLogin()">로그인</button>
+        </div>
+        <div class="login-divider">
+          <span data-i18n="login_or">또는</span>
+        </div>
+        <div class="login-social">
+          <button class="social-btn google-btn">
+            <img src="images/google.svg" class="social-icon" alt="Google">
+            <span data-i18n="login_google">구글 로그인</span>
+          </button>
+          <button class="social-btn naver-btn">
+            <img src="images/naver.svg" class="social-icon" alt="Naver">
+            <span data-i18n="login_naver">네이버 로그인</span>
+          </button>
+        </div>
+        <div class="login-links">
+          <a data-i18n="login_find_id">아이디 찾기</a>
+          <span class="login-sep">|</span>
+          <a data-i18n="login_reset_pw">비밀번호 재설정</a>
+          <span class="login-sep">|</span>
+          <a onclick="showSignup()" data-i18n="login_signup" style="cursor:pointer;">회원가입</a>
+        </div>
+      </div>
+    </div>
+    <!-- 회원가입 Step1: 약관 동의 -->
+    <div id="signupStep1" style="display:none;">
+      <div class="login-header">
+        <h2 data-i18n="signup_title">회원가입</h2>
+        <p data-i18n="signup_subtitle">포커룰루에 오신 것을 환영합니다</p>
+      </div>
+      <div class="signup-progress">
+        <div class="progress-step active"><div class="progress-dot">1</div><span data-i18n="signup_step1">약관동의</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">2</div><span data-i18n="signup_step2">정보입력</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
+      </div>
+      <div class="signup-content-divider"></div>
+      <div class="login-card">
+        <div class="signup-terms">
+          <label class="signup-term-item">
+            <input type="checkbox" class="term-required" onchange="updateTermsBtn()">
+            <span class="term-check"></span>
+            <span data-i18n="signup_terms_service">[필수] 서비스 이용약관 동의</span>
+          </label>
+          <label class="signup-term-item">
+            <input type="checkbox" class="term-required" onchange="updateTermsBtn()">
+            <span class="term-check"></span>
+            <span data-i18n="signup_terms_privacy">[필수] 개인정보 수집 및 이용 동의</span>
+          </label>
+          <label class="signup-term-item">
+            <input type="checkbox" id="termMarketing" onchange="updateTermsBtn()">
+            <span class="term-check"></span>
+            <span data-i18n="signup_terms_marketing">[선택] 마케팅 정보 수신 동의</span>
+          </label>
+          <div class="signup-term-divider"></div>
+          <label class="signup-term-all">
+            <input type="checkbox" id="termAll" onchange="toggleAllTerms()">
+            <span class="term-check"></span>
+            <span data-i18n="signup_terms_all">전체 동의</span>
+          </label>
+        </div>
+        <button class="login-btn signup-next-btn disabled" id="signupNextBtn" data-i18n="signup_next" onclick="showSignupStep2()">다음</button>
+        <div class="login-links signup-login-link">
+          <span data-i18n="signup_has_account">이미 계정이 있으신가요?</span>
+          <a onclick="showLogin()" data-i18n="signup_go_login" style="cursor:pointer;">로그인</a>
+        </div>
+      </div>
+    </div>
+    <!-- 회원가입 Step2: 계정 정보 입력 -->
+    <div id="signupStep2" style="display:none;">
+      <div class="login-header">
+        <h2 data-i18n="signup_title">회원가입</h2>
+        <p data-i18n="signup_subtitle_step2">계정 정보를 입력하세요</p>
+      </div>
+      <div class="signup-progress">
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step active"><div class="progress-dot">2</div><span data-i18n="signup_step2">정보입력</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
+      </div>
+      <div class="signup-content-divider"></div>
+      <div class="login-card signup-card-padded">
+        <div class="login-form">
+          <div class="signup-inline-row">
+            <input type="email" id="signupEmail" class="login-input" placeholder="이메일" data-i18n-placeholder="signup_email_placeholder">
+            <button type="button" class="signup-inline-btn" id="sendCodeBtn" data-i18n="signup_send_code" onclick="handleSendCode()">코드보내기</button>
+          </div>
+          <div class="signup-inline-row">
+            <input type="text" id="signupCode" class="login-input" placeholder="인증코드" data-i18n-placeholder="signup_code_placeholder" disabled oninput="updateVerifyBtn()">
+            <button type="button" class="signup-inline-btn disabled" id="verifyCodeBtn" data-i18n="signup_verify_code" onclick="handleVerifyCode()" disabled>코드확인</button>
+          </div>
+          <input type="password" id="signupPw" class="login-input" placeholder="비밀번호" data-i18n-placeholder="signup_pw_placeholder">
+          <input type="password" id="signupPwConfirm" class="login-input" placeholder="비밀번호 확인" data-i18n-placeholder="signup_pw_confirm_placeholder">
+          <div id="signupError" class="login-error" style="display:none;"></div>
+          <button class="login-btn" data-i18n="signup_btn" onclick="handleSignup()">다음</button>
+        </div>
+        <div class="login-links">
+          <a onclick="showSignupStep1()" data-i18n="signup_prev" style="cursor:pointer;">이전</a>
+        </div>
+      </div>
+    </div>
+    <!-- 회원가입 Step3: 닉네임 & 아바타 선택 -->
+    <div id="signupStep3" style="display:none;">
+      <div class="login-header">
+        <h2 data-i18n="signup_title">회원가입</h2>
+        <p data-i18n="signup_subtitle_step3">닉네임과 아바타를 선택하세요</p>
+      </div>
+      <div class="signup-progress">
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step2">정보입력</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step active"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
+      </div>
+      <div class="signup-content-divider"></div>
+      <div class="login-card signup-card-padded">
+        <div class="login-form">
+          <input type="text" id="signupNickname" class="login-input" placeholder="닉네임" data-i18n-placeholder="signup_nickname_placeholder">
+        </div>
+        <div class="signup-avatar-section">
+          <p class="signup-avatar-label" data-i18n="signup_avatar_label">아바타 선택</p>
+          <div class="signup-avatar-grid">
+            <div class="signup-avatar-item selected" data-avatar="avatar_o.png" onclick="selectSignupAvatar(this)">
+              <img src="images/avatar_o.png" alt="Avatar O">
+              <div class="signup-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+            </div>
+            <div class="signup-avatar-item" data-avatar="avatar_p.png" onclick="selectSignupAvatar(this)">
+              <img src="images/avatar_p.png" alt="Avatar P">
+              <div class="signup-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div id="signupStep3Error" class="login-error" style="display:none;"></div>
+        <button class="login-btn" data-i18n="signup_next" onclick="handleSignupStep3()">다음</button>
+        <div class="login-links" style="margin-top:24px;">
+          <a onclick="showSignupStep2()" data-i18n="signup_prev" style="cursor:pointer;">이전</a>
+        </div>
+      </div>
+    </div>
+    <!-- 회원가입 Step4: 완료 -->
+    <div id="signupStep4" style="display:none;">
+      <div class="login-header">
+        <h2 data-i18n="signup_title">회원가입</h2>
+        <p data-i18n="signup_subtitle_step4">가입이 완료되었습니다</p>
+      </div>
+      <div class="signup-progress">
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step2">정보입력</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-line done"></div>
+        <div class="progress-step active"><div class="progress-dot">✓</div><span data-i18n="signup_step4">완료</span></div>
+      </div>
+      <div class="signup-content-divider"></div>
+      <div class="login-card signup-card-padded">
+        <div class="signup-complete">
+          <div class="signup-complete-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="var(--accent-orange)"/>
+              <path d="M15 24.5L21.5 31L33 17" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="signup-complete-title" data-i18n="signup_complete_title">회원가입 성공!</h3>
+          <p class="signup-complete-desc" data-i18n="signup_complete_desc">포커룰루에 오신 것을 환영합니다</p>
+        </div>
+        <button class="login-btn" data-i18n="signup_go_mylulu" onclick="switchPage('my')">마이 룰루</button>
+        <div class="login-links" style="margin-top:24px;">
+          <a onclick="switchPage('lobby')" data-i18n="signup_go_home" style="cursor:pointer;">홈으로</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ticket Page -->
+<div class="page-container" id="page-ticket">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="tk_title">티켓</h2>
+      <p data-i18n="tk_desc">보유 중인 티켓을 확인하세요</p>
+    </div>
+    <div class="tk-summary">
+      <span class="tk-summary-icon">🎫</span>
+      <div class="tk-summary-info">
+        <span class="tk-summary-label" data-i18n="tk_summary_label">보유 티켓</span>
+        <span class="tk-summary-value" id="tkTicketCount">25장</span>
+      </div>
+    </div>
+    <div class="tk-list" id="tkTicketList"></div>
+  </div>
+</div>
+
+<!-- Tournament Page -->
+<div class="page-container" id="page-tournament">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="tn_title">토너먼트</h2>
+      <p data-i18n="tn_desc">다양한 토너먼트에 참가하고 보상을 획득하세요</p>
+    </div>
+    <div class="tn-tabs">
+      <button class="tn-tab active" data-tn-tab="all" onclick="switchTournamentTab('all')" data-i18n="tn_tab_all">전체</button>
+      <button class="tn-tab" data-tn-tab="my" onclick="switchTournamentTab('my')" data-i18n="tn_tab_my">내 토너먼트</button>
+      <button class="tn-tab" onclick="switchPage('tn-history')"><span data-i18n="tn_tab_history">히스토리</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></button>
+    </div>
+    <div class="tn-tab-content active" id="tn-all">
+      <div class="tn-list" id="tnAllList"></div>
+    </div>
+    <div class="tn-tab-content" id="tn-my">
+      <div class="tn-list" id="tnMyList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Tournament History Page -->
+<div class="page-container" id="page-tn-history">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="tnh_title">히스토리</h2>
+      <p data-i18n="tnh_desc">종료된 토너먼트 기록을 확인하세요</p>
+    </div>
+    <div class="tn-list" id="tnHistoryList" style="max-width:700px;margin:0 auto;"></div>
+  </div>
+</div>
+
+<!-- Host Page -->
+<div class="page-container" id="page-host">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="host_title">호스트</h2>
+      <p data-i18n="host_desc">내가 개설한 토너먼트를 관리하세요</p>
+    </div>
+    <div style="max-width:700px;margin:0 auto 20px;">
+      <div class="signup-inline-row">
+        <div class="host-input-wrap">
+          <svg class="host-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="login-input" id="hostSearchInput" placeholder="게임 제목을 검색하세요." data-i18n-placeholder="host_search_ph" oninput="hostFilter()" style="margin-bottom:0;padding-left:38px;">
+        </div>
+        <button type="button" class="signup-inline-btn" onclick="hostFilter()" data-i18n="host_search_btn" style="padding:14px 24px;">검색</button>
+      </div>
+    </div>
+    <div class="tn-list" id="hostTnList" style="max-width:700px;margin:0 auto;"></div>
+  </div>
+</div>
+
+<!-- Mailbox Page -->
+<div class="page-container" id="page-mailbox">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="mb_title">우편함</h2>
+      <p data-i18n="mb_desc">받은 우편을 확인하세요</p>
+    </div>
+    <div class="mb-list" id="mbMailList"></div>
+  </div>
+</div>
+
+<!-- Account Edit Page -->
+<div class="page-container" id="page-account-edit">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="ae_title">회원정보 수정</h2>
+      <p data-i18n="ae_desc">비밀번호를 변경할 수 있습니다</p>
+    </div>
+    <div class="ae-form" style="max-width:500px;margin:0 auto;">
+      <!-- 아이디 (고정) -->
+      <div class="ae-section">
+        <h3 class="ae-section-title" data-i18n="ae_id_label">아이디</h3>
+        <input type="text" class="login-input" id="aeCurrentId" readonly disabled style="margin-bottom:0;opacity:0.6;cursor:not-allowed;">
+      </div>
+      <!-- 비밀번호 변경 -->
+      <div class="ae-section">
+        <h3 class="ae-section-title" data-i18n="ae_pw_title">비밀번호 변경</h3>
+        <div class="ae-field">
+          <label class="ae-label" data-i18n="ae_current_pw">현재 비밀번호</label>
+          <input type="password" class="login-input" id="aeCurrentPw" placeholder="현재 비밀번호 입력" data-i18n-placeholder="ae_current_pw_ph">
+        </div>
+        <div class="ae-field">
+          <label class="ae-label" data-i18n="ae_new_pw">새 비밀번호</label>
+          <input type="password" class="login-input" id="aeNewPw" placeholder="새 비밀번호 입력" data-i18n-placeholder="ae_new_pw_ph">
+        </div>
+        <div class="ae-field">
+          <label class="ae-label" data-i18n="ae_confirm_pw">새 비밀번호 확인</label>
+          <input type="password" class="login-input" id="aeConfirmPw" placeholder="새 비밀번호 다시 입력" data-i18n-placeholder="ae_confirm_pw_ph">
+        </div>
+        <button class="login-btn" onclick="aeChangePw()" data-i18n="ae_pw_btn">비밀번호 변경</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Game Setup Page -->
+<div class="page-container" id="page-game-setup">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero"><h2 data-i18n="gs_title">사용자 게임</h2><p data-i18n="gs_desc">나만의 룰로 방을 만들고, 친구를 초대하세요</p></div>
+    <div class="gs-tabs">
+      <button class="gs-tab active" data-gs-tab="general" onclick="switchGameSetupTab('general')" data-i18n="gs_tab_general">일반설정</button>
+      <button class="gs-tab" data-gs-tab="blinds" onclick="switchGameSetupTab('blinds')" data-i18n="gs_tab_blinds">블라인드</button>
+      <button class="gs-tab" data-gs-tab="prize" onclick="switchGameSetupTab('prize')" data-i18n="gs_tab_prize">상금</button>
+      <button class="gs-tab" data-gs-tab="advanced" onclick="switchGameSetupTab('advanced')" data-i18n="gs_tab_advanced">고급설정</button>
+    </div>
+
+    <!-- Tab 1: 일반설정 -->
+    <div class="gs-tab-content active" id="gs-general">
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_title">타이틀</label>
+        <input type="text" class="login-input" id="gsTitle" value="POKER LULU User Custom Game">
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_start_stack">시작 스택</label>
+        <input type="text" class="login-input" id="gsStartStack" value="10,000">
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section gs-section-row">
+        <label class="gs-label" data-i18n="gs_label_rebuy">리바이인</label>
+        <div class="gs-stepper">
+          <button class="gs-stepper-btn" onclick="gsStep('gsRebuy',-1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="gs-stepper-value" id="gsRebuy">3</div>
+          <button class="gs-stepper-btn" onclick="gsStep('gsRebuy',1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section gs-section-row">
+        <label class="gs-label" data-i18n="gs_label_table_type">테이블 종류</label>
+        <div class="gs-stepper">
+          <button class="gs-stepper-btn" onclick="gsStep('gsTableType',-1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="gs-stepper-value" id="gsTableType">6</div>
+          <button class="gs-stepper-btn" onclick="gsStep('gsTableType',1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_start_time">시작 시간 (자동 시작)</label>
+        <div class="login-input dtp-trigger" id="gsStartTimeDisplay" onclick="dtpOpen()">
+          <span id="gsStartTimeText">2025-01-01 14:00</span>
+          <span class="dtp-icon">📅</span>
+        </div>
+        <input type="hidden" id="gsStartTime">
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_action_time">액션 타임 (s)</label>
+        <input type="number" class="login-input" id="gsActionTime" value="10">
+      </div>
+    </div>
+
+    <!-- Tab 2: 블라인드 -->
+    <div class="gs-tab-content" id="gs-blinds">
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_level">Level</label>
+        <select class="login-input" id="gsBlindLevel">
+          <option value="5">Level 5</option>
+          <option value="6">Level 6</option>
+          <option value="7" selected>Level 7</option>
+          <option value="8">Level 8</option>
+          <option value="9">Level 9</option>
+          <option value="10">Level 10</option>
+        </select>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_blind_structure">블라인드 스트럭처</label>
+        <div class="gs-segment" id="gsBlindStructure">
+          <button class="gs-segment-btn" data-value="hyper" onclick="gsSelectSegment('gsBlindStructure',this)" data-i18n="gs_blind_hyper">하이퍼</button>
+          <button class="gs-segment-btn active" data-value="turbo" onclick="gsSelectSegment('gsBlindStructure',this)" data-i18n="gs_blind_turbo">터보</button>
+          <button class="gs-segment-btn" data-value="normal" onclick="gsSelectSegment('gsBlindStructure',this)" data-i18n="gs_blind_normal">보통</button>
+          <button class="gs-segment-btn" data-value="slow" onclick="gsSelectSegment('gsBlindStructure',this)" data-i18n="gs_blind_slow">느리게</button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label">Ante</label>
+        <div class="gs-segment" id="gsAnte">
+          <button class="gs-segment-btn" data-value="none" onclick="gsSelectSegment('gsAnte',this)">None</button>
+          <button class="gs-segment-btn active" data-value="all" onclick="gsSelectSegment('gsAnte',this)">All</button>
+          <button class="gs-segment-btn" data-value="bb" onclick="gsSelectSegment('gsAnte',this)">BB</button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-error" id="gsBlindError"></div>
+      <div class="gs-blind-table-wrap">
+        <table class="gs-blind-table" id="gsBlindTable">
+          <thead>
+            <tr><th>Lv</th><th>SB/BB</th><th data-i18n="gs_th_ante">ALL Ante</th><th data-i18n="gs_th_time">Time</th></tr>
+          </thead>
+          <tbody id="gsBlindTableBody"></tbody>
+        </table>
+      </div>
+      <div class="gs-blind-actions" id="gsBlindActions" style="display:none;">
+        <button class="gs-blind-action-btn delete" onclick="gsDeleteBlindRow()" data-i18n="gs_blind_delete">삭제</button>
+        <button class="gs-blind-action-btn" onclick="gsAddBlindRow()" data-i18n="gs_blind_add">블라인드</button>
+        <button class="gs-blind-action-btn" onclick="gsAddBreakRow()" data-i18n="gs_blind_break">브레이크</button>
+      </div>
+    </div>
+
+    <!-- Tab 3: 상금 -->
+    <div class="gs-tab-content" id="gs-prize">
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_total_buyin">총 바이인</label>
+        <input type="number" class="login-input" id="gsTotalBuyin" value="100">
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_prize_structure">상금 구조</label>
+        <div class="gs-segment" id="gsPrizeStructure">
+          <button class="gs-segment-btn active" data-value="payout" onclick="gsSelectSegment('gsPrizeStructure',this)" data-i18n="gs_prize_payout">지급</button>
+          <button class="gs-segment-btn" data-value="custom" onclick="gsSelectSegment('gsPrizeStructure',this)" data-i18n="gs_prize_custom">커스텀</button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_itm">인더머니</label>
+        <div class="gs-segment" id="gsInTheMoney">
+          <button class="gs-segment-btn" data-value="20" onclick="gsSelectSegment('gsInTheMoney',this)">20%</button>
+          <button class="gs-segment-btn" data-value="15" onclick="gsSelectSegment('gsInTheMoney',this)">15%</button>
+          <button class="gs-segment-btn" data-value="12" onclick="gsSelectSegment('gsInTheMoney',this)">12%</button>
+          <button class="gs-segment-btn active" data-value="10" onclick="gsSelectSegment('gsInTheMoney',this)">10%</button>
+        </div>
+      </div>
+      <div class="gs-divider"></div>
+      <div class="gs-section">
+        <label class="gs-label" data-i18n="gs_label_guarantee">개런티 상금</label>
+        <input type="number" class="login-input" id="gsGuarantee" value="100">
+      </div>
+    </div>
+
+    <!-- Tab 4: 고급설정 -->
+    <div class="gs-tab-content" id="gs-advanced">
+      <div class="gs-section gs-section-row">
+        <label class="gs-label" data-i18n="gs_label_timebank">타임 뱅크</label>
+        <label class="gs-toggle"><input type="checkbox" id="gsTimeBank" checked onchange="gsToggleTimeBank()"><span class="gs-toggle-slider"></span></label>
+      </div>
+      <div id="gsTimeBankOptions">
+        <div class="gs-divider"></div>
+        <div class="gs-section">
+          <label class="gs-label" data-i18n="gs_label_initial_timebank">초기 타임 뱅크</label>
+          <select class="login-input" id="gsInitialTimeBank">
+            <option value="5">5 초</option>
+            <option value="10" selected>10 초</option>
+            <option value="15">15 초</option>
+            <option value="20">20 초</option>
+            <option value="30">30 초</option>
+          </select>
+        </div>
+        <div class="gs-divider"></div>
+        <div class="gs-section">
+          <label class="gs-label" data-i18n="gs_label_extra_time">추가 시간</label>
+          <select class="login-input" id="gsExtraTime">
+            <option value="10-5" selected>10 핸드 수 / 5 초</option>
+            <option value="10-10">10 핸드 수 / 10 초</option>
+            <option value="20-5">20 핸드 수 / 5 초</option>
+            <option value="20-10">20 핸드 수 / 10 초</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="gs-create-wrap">
+      <button class="login-btn gs-create-btn" onclick="gsCreateGame()" data-i18n="gs_create_game">게임 생성</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-left"><div class="footer-brand">POKER LULU</div><div class="footer-copy">© 2026 Poker Lulu. All rights reserved.</div></div><div class="footer-links"><a class="footer-link" data-i18n="footer_terms">이용약관</a><a class="footer-link" data-i18n="footer_privacy">개인정보처리방침</a><a class="footer-link" data-i18n="footer_support">고객센터</a><a class="footer-link" data-i18n="footer_contact">문의하기</a></div></div></footer>
+
+<!-- DateTimePicker Modal -->
+<div class="modal-overlay" id="dtpModal">
+  <div class="dtp-card">
+    <!-- 연/월 네비게이션 -->
+    <div class="dtp-nav">
+      <button class="dtp-nav-btn" onclick="dtpPrevMonth()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="dtp-nav-selectors">
+        <div class="dtp-dropdown" id="dtpYearDropdown">
+          <button class="dtp-dropdown-btn" onclick="dtpToggleYearList()">
+            <span id="dtpYearLabel">2024년</span> ▾
+          </button>
+          <div class="dtp-dropdown-list" id="dtpYearList"></div>
+        </div>
+        <div class="dtp-dropdown" id="dtpMonthDropdown">
+          <button class="dtp-dropdown-btn" onclick="dtpToggleMonthList()">
+            <span id="dtpMonthLabel">12월</span> ▾
+          </button>
+          <div class="dtp-dropdown-list" id="dtpMonthList"></div>
+        </div>
+      </div>
+      <button class="dtp-nav-btn" onclick="dtpNextMonth()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+
+    <!-- 요일 헤더 -->
+    <div class="dtp-weekdays">
+      <span>일</span><span>월</span><span>화</span><span>수</span>
+      <span>목</span><span>금</span><span>토</span>
+    </div>
+
+    <!-- 날짜 그리드 -->
+    <div class="dtp-days" id="dtpDays"></div>
+
+    <!-- 시간 선택 -->
+    <div class="dtp-divider"></div>
+    <div class="dtp-time">
+      <span class="dtp-time-label" data-i18n="gs_label_start_time_short">시작 시간</span>
+      <div class="dtp-time-selects">
+        <div class="dtp-dropdown" id="dtpHourDropdown">
+          <button class="dtp-dropdown-btn" onclick="dtpToggleHourList()">
+            <span id="dtpHourLabel">14시</span> ▾
+          </button>
+          <div class="dtp-dropdown-list" id="dtpHourList"></div>
+        </div>
+        <div class="dtp-dropdown" id="dtpMinuteDropdown">
+          <button class="dtp-dropdown-btn" onclick="dtpToggleMinuteList()">
+            <span id="dtpMinuteLabel">00분</span> ▾
+          </button>
+          <div class="dtp-dropdown-list" id="dtpMinuteList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 버튼 -->
+    <div class="dtp-divider"></div>
+    <div class="dtp-footer">
+      <button class="dtp-btn-outline" onclick="dtpToday()" data-i18n="dtp_today">오늘</button>
+      <div class="dtp-footer-right">
+        <button class="dtp-btn-outline" onclick="dtpClose()" data-i18n="dtp_cancel">취소</button>
+        <button class="dtp-btn-primary" onclick="dtpSelect()" data-i18n="dtp_select">선택</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nickname Edit Modal -->
+<div class="modal-overlay" id="nicknameModal">
+  <div class="modal-card" style="max-width:340px;">
+    <div class="modal-header">
+      <h3 data-i18n="nickname_modal_title">닉네임 수정</h3>
+      <button class="modal-close" onclick="closeNicknameModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.6347 0.234208C14.9471 -0.078008 15.4532 -0.0781309 15.7656 0.234208C16.0779 0.54656 16.0778 1.05263 15.7656 1.36507L9.13275 7.99788L15.7695 14.6346C16.0819 14.947 16.0819 15.454 15.7695 15.7664C15.4571 16.0787 14.951 16.0786 14.6386 15.7664L8.00189 9.12874L1.36517 15.7664C1.05276 16.0786 0.546657 16.0787 0.234315 15.7664C-0.0781139 15.454 -0.0780958 14.947 0.234315 14.6346L6.87006 7.99788L0.238221 1.36507C-0.0740051 1.05263 -0.0741314 0.54656 0.238221 0.234208C0.550579 -0.0781309 1.05665 -0.078008 1.36908 0.234208L8.00189 6.86702L14.6347 0.234208Z" fill="#FEFEFE"/></svg>
+      </button>
+    </div>
+    <div style="padding:20px 24px 24px; display:flex; flex-direction:column; gap:12px;">
+      <input type="text" class="login-input" id="nicknameModalInput" placeholder="닉네임" data-i18n-placeholder="signup_nickname_placeholder" maxlength="20" style="margin-bottom:0;">
+      <p id="nicknameModalError" class="login-error" style="display:none; margin:0;"></p>
+      <button class="modal-apply-btn" data-i18n="nickname_modal_save" onclick="saveNickname()" style="width:100%; margin:0;">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- Avatar Modal -->
+<div class="modal-overlay" id="avatarModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 data-i18n="avatar_modal_title">아바타 선택</h3>
+      <button class="modal-close" onclick="closeAvatarModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.6347 0.234208C14.9471 -0.078008 15.4532 -0.0781309 15.7656 0.234208C16.0779 0.54656 16.0778 1.05263 15.7656 1.36507L9.13275 7.99788L15.7695 14.6346C16.0819 14.947 16.0819 15.454 15.7695 15.7664C15.4571 16.0787 14.951 16.0786 14.6386 15.7664L8.00189 9.12874L1.36517 15.7664C1.05276 16.0786 0.546657 16.0787 0.234315 15.7664C-0.0781139 15.454 -0.0780958 14.947 0.234315 14.6346L6.87006 7.99788L0.238221 1.36507C-0.0740051 1.05263 -0.0741314 0.54656 0.238221 0.234208C0.550579 -0.0781309 1.05665 -0.078008 1.36908 0.234208L8.00189 6.86702L14.6347 0.234208Z" fill="#FEFEFE"/></svg>
+      </button>
+    </div>
+    <div class="modal-preview">
+      <div class="modal-preview-avatar" id="modalPreviewAvatar">
+        <img src="images/avatar_o.png" alt="Current Avatar">
+      </div>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-scroll-area">
+    <div class="modal-avatar-grid" id="modalAvatarGrid">
+      <div class="modal-avatar-item selected" data-avatar="avatar_o.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_o.png" alt="Avatar O">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_p.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_p.png" alt="Avatar P">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_a.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_a.png" alt="Avatar A">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">7일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_b.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_b.png" alt="Avatar B">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">3일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_c.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_c.png" alt="Avatar C">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">15일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_d.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_d.png" alt="Avatar D">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">12일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_e.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_e.png" alt="Avatar E">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">5일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_f.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_f.png" alt="Avatar F">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">9일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_g.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_g.png" alt="Avatar G">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">2일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_h.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_h.png" alt="Avatar H">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">30일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_i.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_i.png" alt="Avatar I">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">10일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_j.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_j.png" alt="Avatar J">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">20일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_k.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_k.png" alt="Avatar K">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">8일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_l.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_l.png" alt="Avatar L">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">14일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_m.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_m.png" alt="Avatar M">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">6일</span>
+      </div>
+      <div class="modal-avatar-item" data-avatar="avatar_n.png" onclick="selectAvatar(this)">
+        <img src="images/avatar_n.png" alt="Avatar N">
+        <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
+        <span class="modal-avatar-badge">25일</span>
+      </div>
+    </div>
+    <button class="modal-apply-btn" data-i18n="avatar_modal_apply" onclick="applyAvatar()">아바타 착용</button>
+    <div class="modal-bottom-links">
+      <div class="modal-bottom-row">
+        <span data-i18n="avatar_modal_quit_text">게임 탈퇴를 하려면?</span>
+        <button class="modal-link-btn" data-i18n="avatar_modal_quit_btn">계정삭제</button>
+      </div>
+      <div class="modal-bottom-row">
+        <span data-i18n="avatar_modal_limit_text">1일 한도를 바꾸고 싶다면?</span>
+        <button class="modal-link-btn" data-i18n="avatar_modal_limit_btn">한도설정</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=7"></script>
+</body>
+</html>
