@@ -164,6 +164,13 @@ const i18n = {
     host_search_ph: '게임 제목을 검색하세요.',
     host_search_btn: '검색',
     host_empty: '개설한 토너먼트가 없습니다',
+    tx_title: '거래 내역',
+    tx_desc: '골드와 다이아의 충전·소모 내역을 확인하세요',
+    tx_tab_all: '전체',
+    tx_tab_gold: '골드',
+    tx_tab_diamond: '다이아',
+    tx_empty: '거래 내역이 없습니다',
+    tx_after: '잔액',
     mb_title: '우편함',
     mb_desc: '받은 우편을 확인하세요',
     mb_btn_claim: '아이템 받기',
@@ -453,6 +460,13 @@ const i18n = {
     host_search_ph: 'Search by game title.',
     host_search_btn: 'Search',
     host_empty: 'No hosted tournaments',
+    tx_title: 'Transaction History',
+    tx_desc: 'View your gold and diamond transaction history',
+    tx_tab_all: 'All',
+    tx_tab_gold: 'Gold',
+    tx_tab_diamond: 'Diamond',
+    tx_empty: 'No transactions',
+    tx_after: 'Balance',
     mb_title: 'Mailbox',
     mb_desc: 'Check your received mail',
     mb_btn_claim: 'Claim',
@@ -742,6 +756,13 @@ const i18n = {
     host_search_ph: 'ゲームタイトルを検索してください。',
     host_search_btn: '検索',
     host_empty: '開設したトーナメントがありません',
+    tx_title: '取引履歴',
+    tx_desc: 'ゴールドとダイヤの入出履歴を確認してください',
+    tx_tab_all: '全体',
+    tx_tab_gold: 'ゴールド',
+    tx_tab_diamond: 'ダイヤ',
+    tx_empty: '取引履歴がありません',
+    tx_after: '残高',
     mb_title: '郵便箱',
     mb_desc: '届いた郵便を確認してください',
     mb_btn_claim: '受け取る',
@@ -924,6 +945,7 @@ function switchPage(p) {
   if (p === 'account-edit') { aeInit(); }
   if (p === 'mailbox') { mbRenderList(); }
   if (p === 'host') { hostRenderList(); }
+  if (p === 'transaction') { txRenderList(); }
 }
 
 // === 인증 시스템 ===
@@ -2007,4 +2029,62 @@ function hostRenderList(keyword) {
 function hostFilter() {
   const v = document.getElementById('hostSearchInput').value.trim();
   hostRenderList(v);
+}
+
+// === 거래 내역 ===
+const demoTransactions = [
+  { id:1, type:'gold', direction:'plus', amount:10000, after:52400, label:'토너먼트 우승 보상', sub:'주간 챔피언십', date:'2026-02-26' },
+  { id:2, type:'diamond', direction:'minus', amount:50, after:450, label:'아이템 구매', sub:'프리미엄 카드 스킨', date:'2026-02-26' },
+  { id:3, type:'gold', direction:'minus', amount:500, after:42400, label:'토너먼트 참가비', sub:'하이롤러 토너먼트', date:'2026-02-25' },
+  { id:4, type:'gold', direction:'plus', amount:2000, after:42900, label:'일일 출석 보상', sub:'7일 연속 출석', date:'2026-02-25' },
+  { id:5, type:'diamond', direction:'plus', amount:100, after:500, label:'다이아 충전', sub:'상점 구매', date:'2026-02-25' },
+  { id:6, type:'gold', direction:'minus', amount:1000, after:40900, label:'게임 바이인', sub:'VIP 라운지', date:'2026-02-24' },
+  { id:7, type:'gold', direction:'plus', amount:5500, after:41900, label:'게임 승리 보상', sub:'하이롤러 테이블', date:'2026-02-24' },
+  { id:8, type:'diamond', direction:'minus', amount:30, after:400, label:'이모티콘 구매', sub:'럭키 이모티콘 팩', date:'2026-02-24' },
+  { id:9, type:'gold', direction:'plus', amount:500, after:36400, label:'친구 초대 보상', sub:'신규 유저 초대', date:'2026-02-23' },
+  { id:10, type:'gold', direction:'minus', amount:2000, after:35900, label:'토너먼트 참가비', sub:'루키 토너먼트', date:'2026-02-23' },
+  { id:11, type:'diamond', direction:'plus', amount:200, after:430, label:'시즌 보상', sub:'시즌 3 달성 보상', date:'2026-02-22' },
+  { id:12, type:'gold', direction:'plus', amount:3000, after:37900, label:'이벤트 보상', sub:'발렌타인 특별 이벤트', date:'2026-02-22' },
+];
+
+let txCurrentFilter = 'all';
+
+function txSwitchTab(filter) {
+  txCurrentFilter = filter;
+  document.querySelectorAll('.tx-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  txRenderList();
+}
+
+function txRenderList() {
+  const t = i18n[currentLang] || i18n.ko;
+  const list = document.getElementById('txList');
+  let items = demoTransactions;
+  if (txCurrentFilter !== 'all') {
+    items = items.filter(tx => tx.type === txCurrentFilter);
+  }
+  if (items.length === 0) {
+    list.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:40px 0;">' + t.tx_empty + '</div>';
+    return;
+  }
+  let html = '';
+  let lastDate = '';
+  items.forEach(tx => {
+    if (tx.date !== lastDate) {
+      lastDate = tx.date;
+      html += '<div class="tx-date-group">' + tx.date + '</div>';
+    }
+    const icon = tx.type === 'gold' ? '🪙' : '💎';
+    const iconClass = tx.type === 'gold' ? 'gold' : 'diamond';
+    const sign = tx.direction === 'plus' ? '+' : '-';
+    const amountStr = sign + tx.amount.toLocaleString();
+    html += '<div class="tx-item">';
+    html += '<div class="tx-icon ' + iconClass + '">' + icon + '</div>';
+    html += '<div class="tx-body"><div class="tx-label">' + tx.label + '</div><div class="tx-sub">' + tx.sub + '</div></div>';
+    html += '<div class="tx-amount"><div class="tx-amount-value ' + tx.direction + '">' + amountStr + '</div>';
+    html += '<div class="tx-amount-after">' + t.tx_after + ' ' + tx.after.toLocaleString() + '</div></div>';
+    html += '</div>';
+  });
+  list.innerHTML = html;
 }

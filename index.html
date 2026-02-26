@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POKER LULU - Play Poker with Friends</title>
 <link rel="icon" type="image/svg+xml" href="images/login_icon.svg">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -544,7 +544,7 @@
       <div class="my-menu-item" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15);color:#60a5fa">📩</div><span class="my-menu-text" data-i18n="my_message">우편함</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15);color:#a855f7">🏠</div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15);color:#14b8a6">📋</div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15);color:var(--accent-gold)">💰</div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('transaction')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15);color:var(--accent-gold)">💰</div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(236,72,153,0.15);color:var(--accent-pink)">🎨</div><span class="my-menu-text" data-i18n="my_items">내 아이템</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('account-edit')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(249,98,23,0.15);color:var(--accent-orange)">👤</div><span class="my-menu-text" data-i18n="my_profile">회원정보 수정</span></div><span class="my-menu-arrow">›</span></div>
     </div>
@@ -822,6 +822,23 @@
       </div>
     </div>
     <div class="tn-list" id="hostTnList" style="max-width:700px;margin:0 auto;"></div>
+  </div>
+</div>
+
+<!-- Transaction History Page -->
+<div class="page-container" id="page-transaction">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="tx_title">거래 내역</h2>
+      <p data-i18n="tx_desc">골드와 다이아의 충전·소모 내역을 확인하세요</p>
+    </div>
+    <div class="tx-tabs" style="max-width:700px;margin:0 auto 16px;">
+      <button class="tx-tab active" data-filter="all" onclick="txSwitchTab('all')" data-i18n="tx_tab_all">전체</button>
+      <button class="tx-tab" data-filter="gold" onclick="txSwitchTab('gold')">🪙 <span data-i18n="tx_tab_gold">골드</span></button>
+      <button class="tx-tab" data-filter="diamond" onclick="txSwitchTab('diamond')">💎 <span data-i18n="tx_tab_diamond">다이아</span></button>
+    </div>
+    <div class="tx-list" id="txList" style="max-width:700px;margin:0 auto;padding-bottom:48px;"></div>
   </div>
 </div>
 
@@ -1240,6 +1257,6 @@
   </div>
 </div>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
