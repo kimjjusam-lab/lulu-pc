@@ -177,6 +177,22 @@ const i18n = {
     mi_equipped: '장착중',
     mi_equip: '장착하기',
     mi_unequip: '장착해제',
+    mi_discard: '버리기',
+    mi_discard_title: '아이템 버리기',
+    mi_discard_confirm: '정말 이 아이템을 버리시겠습니까?',
+    sp_confirm_title: '구매 확인',
+    sp_price: '가격',
+    sp_balance: '보유',
+    sp_cancel: '취소',
+    sp_confirm: '구매',
+    sp_success: '구매가 완료되었습니다!',
+    sp_insufficient_gold: '골드가 부족합니다',
+    sp_insufficient_diamond: '다이아가 부족합니다',
+    sp_already_owned: '이미 보유한 아이템입니다',
+    sp_login_required: '로그인이 필요합니다',
+    sp_pay_title: '결제 확인',
+    sp_pay_notice: '결제 페이지로 이동합니다',
+    sp_pay_btn: '결제하기',
     tx_title: '거래 내역',
     tx_desc: '골드와 다이아의 충전·소모 내역을 확인하세요',
     tx_tab_all: '전체',
@@ -486,6 +502,22 @@ const i18n = {
     mi_equipped: 'Equipped',
     mi_equip: 'Equip',
     mi_unequip: 'Unequip',
+    mi_discard: 'Discard',
+    mi_discard_title: 'Discard Item',
+    mi_discard_confirm: 'Are you sure you want to discard this item?',
+    sp_confirm_title: 'Confirm Purchase',
+    sp_price: 'Price',
+    sp_balance: 'Balance',
+    sp_cancel: 'Cancel',
+    sp_confirm: 'Buy',
+    sp_success: 'Purchase complete!',
+    sp_insufficient_gold: 'Not enough gold',
+    sp_insufficient_diamond: 'Not enough diamonds',
+    sp_already_owned: 'You already own this item',
+    sp_login_required: 'Login required',
+    sp_pay_title: 'Confirm Payment',
+    sp_pay_notice: 'You will be redirected to the payment page',
+    sp_pay_btn: 'Pay Now',
     tx_title: 'Transaction History',
     tx_desc: 'View your gold and diamond transaction history',
     tx_tab_all: 'All',
@@ -795,6 +827,22 @@ const i18n = {
     mi_equipped: '装着中',
     mi_equip: '装着する',
     mi_unequip: '装着解除',
+    mi_discard: '捨てる',
+    mi_discard_title: 'アイテムを捨てる',
+    mi_discard_confirm: '本当にこのアイテムを捨てますか？',
+    sp_confirm_title: '購入確認',
+    sp_price: '価格',
+    sp_balance: '所持',
+    sp_cancel: 'キャンセル',
+    sp_confirm: '購入',
+    sp_success: '購入が完了しました！',
+    sp_insufficient_gold: 'ゴールドが不足しています',
+    sp_insufficient_diamond: 'ダイヤが不足しています',
+    sp_already_owned: 'すでに所持しているアイテムです',
+    sp_login_required: 'ログインが必要です',
+    sp_pay_title: '決済確認',
+    sp_pay_notice: '決済ページに移動します',
+    sp_pay_btn: '決済する',
     tx_title: '取引履歴',
     tx_desc: 'ゴールドとダイヤの入出履歴を確認してください',
     tx_tab_all: '全体',
@@ -2129,6 +2177,19 @@ function txRenderList() {
   list.innerHTML = html;
 }
 
+// === 상점 아이템 데이터 ===
+const shopItemsData = [
+  { id:101, nameKey:'skin_classic_green', descKey:'skin_classic_green_desc', category:'table', icon:'🟢', gradient:'linear-gradient(135deg,#0a200a,#0d300d)', currency:'gold', price:2000 },
+  { id:102, nameKey:'skin_royal_red', descKey:'skin_royal_red_desc', category:'table', icon:'🔴', gradient:'linear-gradient(135deg,#200a0a,#300d0d)', currency:'gold', price:5000 },
+  { id:103, nameKey:'skin_cosmic_black', descKey:'skin_cosmic_black_desc', category:'table', icon:'🌌', gradient:'linear-gradient(135deg,#1a0533,#2d1058)', currency:'gold', price:10000 },
+  { id:104, nameKey:'skin_gold_card', descKey:'skin_gold_card_desc', category:'card', icon:'🃏', gradient:'linear-gradient(135deg,#1a1500,#2d2200)', currency:'diamond', price:80 },
+  { id:105, nameKey:'skin_brick_pattern', descKey:'skin_brick_pattern_desc', category:'card', icon:'🧱', gradient:'linear-gradient(135deg,#78350f,#b45309)', currency:'diamond', price:120 },
+  { id:106, nameKey:'skin_diamond_card', descKey:'skin_diamond_card_desc', category:'card', icon:'🎆', gradient:'linear-gradient(135deg,#200510,#350a1a)', currency:'diamond', price:300 },
+  { id:107, nameKey:'emote_pokerface', descKey:'emote_pokerface_desc', category:'emote', icon:'😎', gradient:'linear-gradient(135deg,#1a1000,#2a1a00)', currency:'gold', price:1500 },
+  { id:108, nameKey:'emote_drama', descKey:'emote_drama_desc', category:'emote', icon:'🎭', gradient:'linear-gradient(135deg,#100a1a,#1a102a)', currency:'gold', price:3000 },
+  { id:109, nameKey:'emote_allin', descKey:'emote_allin_desc', category:'emote', icon:'💥', gradient:'linear-gradient(135deg,#1a050a,#2d0a15)', currency:'diamond', price:60 },
+];
+
 // === 내 아이템 ===
 const demoMyItems = [
   { id:1, category:'table', icon:'🟢', name:'클래식 그린', nameKey:'skin_classic_green', desc:'전통적인 포커 테이블', descKey:'skin_classic_green_desc', gradient:'linear-gradient(135deg,#065f46,#047857)', purchaseDate:'2026-02-20', equipped:true },
@@ -2175,7 +2236,10 @@ function miRenderList() {
     html += '<div class="mi-card-name">' + nameText + '</div>';
     html += '<div class="mi-card-desc">' + descText + '</div>';
     html += '<div class="mi-card-date">' + t.mi_purchased + ': ' + item.purchaseDate + '</div>';
+    html += '<div class="mi-btn-row">';
     html += '<button class="mi-equip-btn ' + equipBtnClass + '" onclick="miToggleEquip(' + item.id + ')">' + equipBtnText + '</button>';
+    html += '<button class="mi-discard-btn" onclick="miDiscardItem(' + item.id + ')">' + t.mi_discard + '</button>';
+    html += '</div>';
     html += '</div></div>';
   });
   grid.innerHTML = html;
@@ -2192,3 +2256,189 @@ function miToggleEquip(id) {
   }
   miRenderList();
 }
+
+let discardTargetId = null;
+
+function miDiscardItem(id) {
+  const t = i18n[currentLang] || i18n.ko;
+  const item = demoMyItems.find(i => i.id === id);
+  if (!item) return;
+  discardTargetId = id;
+
+  const iconEl = document.getElementById('discardItemIcon');
+  iconEl.textContent = item.icon;
+  iconEl.style.background = item.gradient;
+  document.getElementById('discardItemName').textContent = t[item.nameKey] || item.name;
+  document.getElementById('discardItemDesc').textContent = t[item.descKey] || item.desc;
+
+  const scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('discardModal').classList.add('active');
+}
+
+function closeDiscardModal() {
+  document.getElementById('discardModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  discardTargetId = null;
+}
+
+function confirmDiscard() {
+  if (discardTargetId === null) return;
+  const idx = demoMyItems.findIndex(i => i.id === discardTargetId);
+  if (idx !== -1) demoMyItems.splice(idx, 1);
+  closeDiscardModal();
+  miRenderList();
+}
+
+document.getElementById('discardModal').addEventListener('click', function(e) { if (e.target === this) closeDiscardModal(); });
+
+// === 구매 팝업 ===
+function parseGoldValue(str) {
+  if (!str) return 0;
+  str = String(str).replace(/,/g, '');
+  if (str.endsWith('억')) return parseFloat(str.replace('억', '')) * 100000000;
+  return parseFloat(str) || 0;
+}
+function formatGoldValue(num) {
+  if (num >= 100000000) return (num / 100000000).toLocaleString(undefined, { maximumFractionDigits: 0 }) + '억';
+  return num.toLocaleString();
+}
+function parseDiamondValue(str) { return parseInt(String(str || 0).replace(/,/g, ''), 10) || 0; }
+function formatDiamondValue(num) { return num.toLocaleString(); }
+
+let currentPurchaseItem = null;
+
+function openPurchaseModal(itemId) {
+  const t = i18n[currentLang] || i18n.ko;
+  const session = getSession();
+  if (!session) { alert(t.sp_login_required); switchPage('login'); return; }
+
+  const item = shopItemsData.find(i => i.id === itemId);
+  if (!item) return;
+  currentPurchaseItem = item;
+
+  const alreadyOwned = demoMyItems.some(i => i.nameKey === item.nameKey);
+
+  const iconEl = document.getElementById('spItemIcon');
+  iconEl.textContent = item.icon;
+  iconEl.style.background = item.gradient;
+  document.getElementById('spItemName').textContent = t[item.nameKey] || item.nameKey;
+  document.getElementById('spItemDesc').textContent = t[item.descKey] || item.descKey;
+
+  const cIcon = item.currency === 'gold' ? '🪙' : '💎';
+  document.getElementById('spPriceValue').textContent = cIcon + ' ' + item.price.toLocaleString();
+
+  const balance = item.currency === 'gold'
+    ? parseGoldValue(session.gold || '1,250억')
+    : parseDiamondValue(session.diamond || '300');
+  const balDisplay = item.currency === 'gold'
+    ? '🪙 ' + formatGoldValue(balance)
+    : '💎 ' + formatDiamondValue(balance);
+  document.getElementById('spBalanceValue').textContent = balDisplay;
+
+  const errorEl = document.getElementById('spError');
+  errorEl.style.display = 'none';
+  document.getElementById('spSuccess').style.display = 'none';
+  document.getElementById('spModalBody').style.display = '';
+  const confirmBtn = document.getElementById('spConfirmBtn');
+  confirmBtn.disabled = false;
+
+  if (alreadyOwned) {
+    errorEl.textContent = t.sp_already_owned;
+    errorEl.style.display = '';
+    confirmBtn.disabled = true;
+  } else if (balance < item.price) {
+    errorEl.textContent = item.currency === 'gold' ? t.sp_insufficient_gold : t.sp_insufficient_diamond;
+    errorEl.style.display = '';
+    confirmBtn.disabled = true;
+  }
+
+  const scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('purchaseModal').classList.add('active');
+}
+
+function closePurchaseModal() {
+  document.getElementById('purchaseModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  currentPurchaseItem = null;
+}
+
+function confirmPurchase() {
+  const t = i18n[currentLang] || i18n.ko;
+  if (!currentPurchaseItem) return;
+  const session = getSession();
+  if (!session) return;
+  const item = currentPurchaseItem;
+
+  if (item.currency === 'gold') {
+    let bal = parseGoldValue(session.gold || '1,250억');
+    if (bal < item.price) return;
+    session.gold = formatGoldValue(bal - item.price);
+  } else {
+    let bal = parseDiamondValue(session.diamond || '300');
+    if (bal < item.price) return;
+    session.diamond = formatDiamondValue(bal - item.price);
+  }
+  saveSession(session);
+
+  const today = new Date();
+  const dateStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+  demoMyItems.push({
+    id: item.id, category: item.category, icon: item.icon,
+    name: t[item.nameKey] || item.nameKey, nameKey: item.nameKey,
+    desc: t[item.descKey] || item.descKey, descKey: item.descKey,
+    gradient: item.gradient, purchaseDate: dateStr, equipped: false
+  });
+
+  updateAuthUI();
+
+  document.getElementById('spModalBody').style.display = 'none';
+  document.getElementById('spSuccess').style.display = '';
+  setTimeout(closePurchaseModal, 1500);
+}
+
+function openPackagePayModal(name, price) {
+  document.getElementById('spPkgName').textContent = name;
+  document.getElementById('spPkgPrice').textContent = price;
+  const scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('packagePayModal').classList.add('active');
+}
+function closePackagePayModal() {
+  document.getElementById('packagePayModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function confirmPackagePayment() {
+  var name = document.getElementById('spPkgName').textContent;
+  var price = document.getElementById('spPkgPrice').textContent;
+  closePackagePayModal();
+  alert('[' + name + '] ' + price + '\nPG사 결제 페이지로 이동합니다.');
+}
+
+document.getElementById('purchaseModal').addEventListener('click', function(e) { if (e.target === this) closePurchaseModal(); });
+document.getElementById('packagePayModal').addEventListener('click', function(e) { if (e.target === this) closePackagePayModal(); });
+
+document.querySelectorAll('#shop-items .shop-item').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var id = parseInt(this.dataset.itemId, 10);
+    if (id) openPurchaseModal(id);
+  });
+});
+
+document.querySelectorAll('.pkg-buy-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var card = this.closest('.pkg-card');
+    var name = card.querySelector('.pkg-name') ? card.querySelector('.pkg-name').textContent : '';
+    var price = card.querySelector('.pkg-price') ? card.querySelector('.pkg-price').textContent : '';
+    openPackagePayModal(name, price);
+  });
+});
