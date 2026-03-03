@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POKER LULU - Play Poker with Friends</title>
 <link rel="icon" type="image/svg+xml" href="images/login_icon.svg">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 
@@ -792,6 +792,154 @@
   </div>
 </div>
 
+<!-- Tournament Detail Page -->
+<div class="page-container" id="page-tn-detail">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('tournament')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="td-header">
+      <h2 id="tdTournamentName"></h2>
+      <span class="tn-badge" id="tdStatusBadge"></span>
+    </div>
+
+    <div class="td-tabs">
+      <button class="td-tab active" data-td-tab="info" onclick="switchTnDetailTab('info')" data-i18n="td_tab_info">자세히</button>
+      <button class="td-tab" data-td-tab="players" onclick="switchTnDetailTab('players')" data-i18n="td_tab_players">플레이어</button>
+      <button class="td-tab" data-td-tab="blinds" onclick="switchTnDetailTab('blinds')" data-i18n="td_tab_blinds">블라인드</button>
+      <button class="td-tab" data-td-tab="payout" onclick="switchTnDetailTab('payout')" data-i18n="td_tab_payout">지급</button>
+    </div>
+
+    <!-- 자세히 탭 -->
+    <div class="td-tab-content active" id="td-info">
+      <div class="td-section">
+        <div class="td-info-grid">
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_blinds">블라인드</span>
+            <span class="td-info-value" id="tdBlinds"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_next">다음</span>
+            <span class="td-info-value" id="tdNext"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_players_info">플레이어</span>
+            <span class="td-info-value" id="tdPlayersInfo"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_unique_reentry">유니크 | 리엔트리</span>
+            <span class="td-info-value" id="tdUniqueReentry"></span>
+          </div>
+        </div>
+      </div>
+      <div class="td-section">
+        <div class="td-info-grid">
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_start_time">시작 시간</span>
+            <span class="td-info-value" id="tdStartTime"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_start_chips">시작 칩</span>
+            <span class="td-info-value" id="tdStartChips"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_late_reg">추가 등록</span>
+            <span class="td-info-value" id="tdLateReg"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_buyin">바이인</span>
+            <span class="td-info-value" id="tdBuyin"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_table_type">테이블 종류</span>
+            <span class="td-info-value" id="tdTableType"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_rebuy">리바이인</span>
+            <span class="td-info-value" id="tdRebuy"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_timebank">타임 뱅크</span>
+            <span class="td-info-value" id="tdTimebank"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_extra_time">추가 시간</span>
+            <span class="td-info-value" id="tdExtraTime"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_action_time">액션 타임</span>
+            <span class="td-info-value" id="tdActionTime"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label">Ante</span>
+            <span class="td-info-value" id="tdAnte"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_cancel_reg">등록 취소</span>
+            <span class="td-info-value" id="tdCancelReg"></span>
+          </div>
+          <div class="td-info-row">
+            <span class="td-info-label" data-i18n="td_blind_interval">블라인드 간격</span>
+            <span class="td-info-value" id="tdBlindInterval"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 플레이어 탭 -->
+    <div class="td-tab-content" id="td-players">
+      <div class="td-section">
+        <div class="td-players-header">
+          <span class="td-players-count" id="tdPlayersCount"></span>
+        </div>
+        <div class="td-player-list" id="tdPlayerList"></div>
+      </div>
+    </div>
+
+    <!-- 블라인드 탭 -->
+    <div class="td-tab-content" id="td-blinds">
+      <div class="td-section">
+        <div class="td-blind-table-wrap">
+          <table class="td-blind-table">
+            <thead>
+              <tr>
+                <th>Lv</th>
+                <th>SB / BB</th>
+                <th>Ante</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="tdBlindTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지급 탭 -->
+    <div class="td-tab-content" id="td-payout">
+      <div class="td-section">
+        <div class="td-payout-total" id="tdPayoutTotal"></div>
+        <div class="td-payout-table-wrap">
+          <table class="td-payout-table">
+            <thead>
+              <tr>
+                <th data-i18n="td_rank">순위</th>
+                <th data-i18n="td_payout_amount">지급 금액</th>
+                <th data-i18n="td_payout_percent">비율</th>
+              </tr>
+            </thead>
+            <tbody id="tdPayoutTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 참가 버튼 -->
+    <div class="td-bottom-bar">
+      <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">등록</button>
+      <button class="td-spectate-btn" id="tdSpectateBtn" onclick="tdSpectate()" data-i18n="td_spectate">관전하기</button>
+    </div>
+  </div>
+</div>
+
 <!-- Tournament History Page -->
 <div class="page-container" id="page-tn-history">
   <div class="content-wrapper">
@@ -1081,7 +1229,842 @@
   </div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-left"><div class="footer-brand">POKER LULU</div><div class="footer-copy">© 2026 Poker Lulu. All rights reserved.</div></div><div class="footer-links"><a class="footer-link" data-i18n="footer_terms">이용약관</a><a class="footer-link" data-i18n="footer_privacy">개인정보처리방침</a><a class="footer-link" data-i18n="footer_support">고객센터</a><a class="footer-link" data-i18n="footer_contact">문의하기</a></div></div></footer>
+<!-- 이용약관 -->
+<div class="page-container" id="page-terms">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_terms">이용약관</h2>
+    </div>
+    <div class="legal-content" id="termsContent">
+      <h3>제1장 총칙</h3>
+      <h4>제1조(목적)</h4>
+      <p>본 약관은 주식회사 룰루닷에이아이(이하 "회사")가 제공하는 게임, 플랫폼 및 기타 제반 서비스(이하 "서비스")의 이용과 관련하여, 회사와 회원의 권리·의무, 책임 및 기타 필요한 사항을 정함을 목적으로 합니다.</p>
+
+      <h4>제2조(정의)</h4>
+      <ol>
+        <li>서비스: 단말 종류와 무관하게 회사가 제공하는 게임, 플랫폼 및 기타 제반 서비스 일체</li>
+        <li>제휴서비스: 회사를 통해 연동되는 서비스로, 회사와 제휴 관계에 있는 제3자가 제공하는 서비스</li>
+        <li>회원: 본 약관에 동의하여 회사와 이용계약을 체결하고 서비스를 이용하는 자</li>
+        <li>계정(ID): 회원 식별과 서비스 이용을 위해 회원이 정하고 회사가 승인한 문자·숫자의 조합</li>
+        <li>비밀번호: 회원의 계정과 일치되는 회원임을 확인하고 회원 자신이 선정하여 비밀로 관리하는 문자·숫자·특수문자의 조합</li>
+        <li>닉네임: 회원이 다른 이용자에게 본인을 표시할 수단으로서 정한 문자·숫자 등의 조합</li>
+        <li>개인정보: 회사 또는 제3자가 단독으로 또는 다른 정보와 결합해 회원의 신원을 특정할 수 있는 정보</li>
+        <li>서비스정보: 회사 또는 제3자가 단독으로 또는 다른 정보와 결합하여도 회원의 신원을 특정할 수 없는 정보 (예시: 회원이 정한 닉네임이 아닌, 완벽히 익명화된 임의의 닉네임으로 표기된 게임 히스토리, 게임 내용, 전적, 이용 패턴, 채팅 내역 등)</li>
+        <li>무상재화: 서비스 또는 제휴서비스를 이용하기 위해 사용되는 가상의 데이터로서, 회원의 효율적 이용을 위해 회사가 임의로 책정하고 무료로 지급하는 일체의 재산적 가치가 없는 것</li>
+        <li>유상재화: 서비스 또는 제휴서비스를 이용하기 위해 사용되는 가상의 데이터로서, 회원이 회사가 제공하는 결제 방식을 통해 유료로 구매한 것</li>
+        <li>유료서비스: 회원이 회사가 제공하는 결제 방식을 통해 유료로 구매 후 이용할 수 있는 서비스 또는 제휴서비스</li>
+        <li>충전: 회원이 회사가 제공하는 결제 방식을 통해 유상재화를 구매하는 행위</li>
+        <li>정기결제: 일정 주기마다 회원이 입력한 결제 수단 등의 결제 정보로 유상재화를 자동으로 충전하거나, 유료서비스를 자동으로 이용하는 행위</li>
+        <li>운영정책: 약관 위임사항 및 질서 유지를 위해 회사가 정하여 공지하는 세부 기준</li>
+      </ol>
+      <p>이 약관에서 사용하는 용어의 정의는 위 각 항에서 정하는 것을 제외하고는 관계법령 및 기타 일반적인 상관례에 의합니다.</p>
+
+      <h4>제3조(약관의 게시와 개정)</h4>
+      <ol>
+        <li>회사는 약관을 서비스나 제휴서비스의 초기화면 또는 연결화면을 통해 회원에게 공지합니다.</li>
+        <li>회사는 관계 법령을 위배하지 않는 범위에서 약관을 개정할 수 있습니다.</li>
+        <li>회사가 이 약관을 개정하는 경우, 적용일자·개정내용·개정사유를 그 적용일자로부터 최소 7일 전(회원에게 불리하거나 중대한 변경은 최소 30일 전)부터 공지합니다.</li>
+        <li>회사가 이 약관을 개정하는 경우, 개정된 약관의 적용에 대한 개개 회원의 동의 여부를 확인합니다.</li>
+        <li>회원은 4항의 확인에 동의하지 않을 수 있으며, 동의하지 않는 경우, 회사 또는 회원은 이용계약을 해지할 수 있습니다. 또한, 회원이 공지된 시행일까지 동의 또는 거부의 의사 표시를 하지 않으면 동의한 것으로 간주됩니다.</li>
+      </ol>
+
+      <h4>제4조(운영정책)</h4>
+      <ol>
+        <li>회사는 이 약관이 위임한 사항과 서비스 내 질서를 유지하기 위해 운영정책을 규정할 수 있습니다.</li>
+        <li>회사는 운영정책을 서비스나 제휴서비스의 초기화면 또는 연결화면을 통해 회원에게 공지합니다.</li>
+        <li>운영정책의 개정 및 폐기는 이 약관에 위배되지 않는 한 제2항의 방법으로 사전에 공지합니다.</li>
+      </ol>
+
+      <h4>제5조(개별 약관 및 운영정책)</h4>
+      <ol>
+        <li>회사는 개별 서비스에 대해서 각각 개별적인 이용약관 및 운영정책을 둘 수 있으며, 해당 내용이 이 약관 및 이 약관의 위임을 받은 운영정책과 상충할 경우, 개별 이용약관 및 운영정책이 우선하여 적용됩니다.</li>
+        <li>이 약관에 정하지 아니한 사항은 "전자상거래 등에서의 소비자보호에 관한 법률", "약관의 규제에 관한 법률", "게임산업진흥에 관한 법률", "정보통신망 이용촉진 및 정보 보호 등에 관한 법률", "콘텐츠산업 진흥법" 등 관련 법령과 일반 상관례에 따릅니다.</li>
+      </ol>
+
+      <h3>제2장 이용계약</h3>
+      <h4>제6조(이용신청)</h4>
+      <ol>
+        <li>서비스 및 제휴서비스(이하 "서비스"로 통칭)를 이용하고자 하는 자는 이 약관에 동의하고, 회사가 제시한 절차에 따라 이용신청을 하여야 합니다.</li>
+        <li>회원은 진실한 본인 정보를 제공해야 하며, 허위 기재 또는 타인 정보 도용 시 권리를 주장할 수 없고, 회사는 환급 없이 이용계약을 취소하거나 해지할 수 있습니다.</li>
+        <li>청소년 보호 관련 제한은 관계 법령 및 등급분류 결과에 따르며, 필요한 경우 법정대리인 동의 절차를 진행할 수 있습니다.</li>
+      </ol>
+
+      <h4>제7조(승낙과 제한)</h4>
+      <ol>
+        <li>이 약관에 따른 이용계약의 성립 시기는 회사가 이용신청절차 상에서 회원가입 완료를 표시한 시점으로 합니다.</li>
+        <li>다음 각 호의 경우 승낙을 거절하거나 유보할 수 있습니다.
+          <ul>
+            <li>설비 부족 또는 기술적 한계</li>
+            <li>허위·도용·위법 목적의 이용신청</li>
+            <li>회원 및 제3자에 대한 영리·불법 활동을 위한 이용신청</li>
+            <li>결제 수단의 장애, 결제 정보의 불일치, 제3자의 결제 수단 무단 도용 등으로 인해 정상적인 결제가 이루어지지 않은 경우</li>
+            <li>대한민국 이외의 국가 중 아직 회사에서 서비스를 제공하기로 결정하지 않은 국가에서의 이용신청</li>
+            <li>이전에 회원자격을 상실한 적이 있는 자로서, 회사로부터 회원 재가입 승낙을 얻지 못한 경우</li>
+            <li>청소년이 법정대리인의 동의를 얻지 않았거나, 동의를 얻었음에도 회사가 확인할 수 없는 경우</li>
+            <li>기타 회사의 승낙이 부적절하다고 판단되는 경우</li>
+          </ul>
+        </li>
+        <li>회사는 관계법령 및 회사의 운영정책에 따라 회원 별로 서비스의 이용 가능한 범위, 시간, 횟수 등을 세분하여 이용에 차등을 두어 승낙할 수 있습니다.</li>
+      </ol>
+
+      <h4>제8조(계정 및 보안)</h4>
+      <ol>
+        <li>계정 및 비밀번호 관리 책임은 회원에게 있습니다.</li>
+        <li>계정 및 비밀번호의 도용 또는 비정상 사용 인지 시 즉시 회사에 통지하고 안내에 따라야 합니다.</li>
+        <li>회사 귀책이 없는 계정 도용, 개인정보 노출 등에 따른 손해는 회원이 부담합니다.</li>
+        <li>원칙적으로 계정은 회원이 정하고 회사가 승인하여 결정되나, 회원이 정하지 않은 경우, 회사가 임의로 정할 수 있습니다.</li>
+      </ol>
+
+      <h3>제3장 권리와 의무</h3>
+      <h4>제9조(회사의 의무)</h4>
+      <ol>
+        <li>회사는 법령과 이 약관에 따라 안정적인 서비스를 제공하기 위해 최선을 다합니다.</li>
+        <li>회사는 회원의 명시적 동의 없이 영리성 광고성 정보를 전송하지 않습니다(법령상 허용 범위 제외).</li>
+        <li>회사는 회원의 개인정보 보호를 위해 개인정보처리방침을 공시하고 준수합니다.</li>
+      </ol>
+
+      <h4>제10조(회원의 의무)</h4>
+      <p>회원은 다음 행위를 해서는 안 됩니다.</p>
+      <ol>
+        <li>신청·변경 시 허위 기재, 타인 정보 도용</li>
+        <li>회사 임직원·운영자 사칭</li>
+        <li>서비스 화면·프로그램 무단 변조·침해</li>
+        <li>비정상적 접근, 자동화 스크립트·비인가 프로그램 사용</li>
+        <li>회사가 금지한 정보 등의 송신 또는 게시</li>
+        <li>서비스 정보의 무단 복제·배포·영리 이용</li>
+        <li>타인 권리(저작권·상표권 등) 침해, 명예훼손, 모욕·혐오·음란·폭력 정보 유포</li>
+        <li>회사의 동의 없는 영리, 영업, 광고, 정치활동 등</li>
+        <li>스팸, 서비스 운영 방해, 범죄 또는 위법 행위 유도</li>
+        <li>서비스와 관련된 계정, 캐릭터, 무상재화, 유상재화 등을 유상으로 처분(양도, 매매 등)하거나 권리의 객체(담보제공, 대여, 신탁 등)로 제공하는 행위</li>
+        <li>기타 법령·약관·운영정책에 위반되는 행위</li>
+        <li>기타 선량한 풍속 및 사회통념상 부당한 행위</li>
+      </ol>
+
+      <h3>제4장 서비스 이용</h3>
+      <h4>제11조(서비스 및 제휴서비스의 제공·변경)</h4>
+      <ol>
+        <li>서비스 및 제휴서비스는 원칙적으로 연중무휴 24시간 제공되지만, 점검·업데이트·장애·천재지변·기타 경영상 중대한 필요에 의한 경우 등의 사유로 중단될 수 있습니다.</li>
+        <li>회사는 운영·기술상 필요에 따라 서비스의 전부 또는 일부를 변경할 수 있습니다.</li>
+        <li>무상으로 제공되는 서비스와 관련하여, 회사는 고의 또는 중과실이 없는 한 손해를 배상하지 않습니다.</li>
+      </ol>
+
+      <h4>제12조(테스트 목적 서비스)</h4>
+      <p>테스트(베타) 운영 시 데이터 초기화, 기능 추가·삭제·변경이 발생할 수 있으며, 회사는 테스트 기간 중 생성된 데이터 복구 의무를 부담하지 않습니다.</p>
+
+      <h4>제13조(정보 제공 및 통지)</h4>
+      <ol>
+        <li>회사는 서비스 운영상 필요한 정보를 공지·팝업·전자우편 등으로 제공할 수 있습니다.</li>
+        <li>불특정 다수에 대한 통지는 서비스 내 공지로 갈음할 수 있습니다.</li>
+      </ol>
+
+      <h4>제14조(게시물 관리 및 라이선스)</h4>
+      <ol>
+        <li>회사는 법령·약관·운영정책을 위반한 게시물에 대해 사전 통지 없이 삭제·이동·게시 중단 조치를 할 수 있습니다.</li>
+        <li>회원이 서비스에 업로드한 게시물(텍스트·이미지 등) 및 회원의 게임 데이터, 히스토리, 이용내역 등은 회사가 무상·비독점적으로 이용(편집·복제·전송·게시 포함)할 수 있고, 회원 탈퇴 후에도 존속될 수 있습니다.</li>
+        <li>회원은 자신의 게시물에 대한 제3자 권리 침해에 관하여 단독 책임을 부담합니다.</li>
+      </ol>
+
+      <h4>제15조(지식재산권)</h4>
+      <ol>
+        <li>서비스 및 제공 콘텐츠에 대한 저작권 등 일체의 권리는 회사에 귀속합니다.</li>
+        <li>회원의 서비스정보와 관련된 일체의 권리는 회사에 귀속됩니다.</li>
+        <li>회사는 회원에게 서비스 이용에 필요한 양도불가·(회사가)회수가능한 사용권만을 부여합니다.</li>
+        <li>회원은 회사에게 귀속된 지식재산권을 회사의 사전 승낙 없이 복제, 전송, 출판, 배포, 방송 및 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 할 수 없습니다.</li>
+      </ol>
+
+      <h4>제16조(정보의 수집)</h4>
+      <ol>
+        <li>회사는 서비스의 운영, 안정적 서비스, 오류개선 등의 서비스 품질 개선 목적으로 개인정보 및 단말기 설정, 사양정보, 시스템정보, 오류정보 등을 수집 및 활용할 수 있습니다.</li>
+        <li>회사는 서비스 내에 이루어지는 모든 채팅 내용을 저장, 보관할 수 있습니다.</li>
+      </ol>
+
+      <h3>제5장 유료서비스 및 유상재화</h3>
+      <h4>제17조(구매·결제)</h4>
+      <ol>
+        <li>유상재화 및 유료서비스의 결제 수단은 회사가 제안한 방식에 따릅니다.</li>
+        <li>유상재화 및 유료서비스의 결제 한도, 인증 절차 등은 관계 법령과 결제대행사 기준에 따릅니다.</li>
+      </ol>
+
+      <h4>제18조(청약철회·환불)</h4>
+      <ol>
+        <li>회원은 구매일 또는 이용 가능일로부터 7일 이내에 청약을 철회할 수 있습니다.</li>
+        <li>다음의 경우에는 회사의 의사에 반하여 청약철회가 제한됩니다.
+          <ul>
+            <li>결제 후 즉시 제공·적용되는 일회적 전자적 콘텐츠로서 이용이 개시된 경우</li>
+            <li>추가 혜택이 사용되거나 일부가 사용된 묶음형 서비스</li>
+            <li>법령상 청약철회가 제한되는 유형</li>
+          </ul>
+        </li>
+        <li>표시·광고 내용과 다른 이행 또는 계약과 다른 이행의 경우, 회원은 3개월 이내, 그 사실을 안 날부터 30일 이내에 청약철회를 할 수 있습니다.</li>
+        <li>부분 이용이 있는 경우(예시: 이용 개시 후 기간 중 해지) 회사는 잔여 기간에 상응하는 금액을 기준으로 환불합니다.</li>
+        <li>환불은 대금의 결제와 동일한 방법으로 환불됩니다. 다만, 동일한 수단으로 환불이 불가능할 때는 이를 사전에 고지하고, 합리적 방법으로 환불합니다.</li>
+        <li>환불은 환불 가액의 최초 결제 및 환불 과정 상 발생한 수수료가 공제된 후 환불됩니다.</li>
+        <li>미성년자 결제는 법정대리인 동의가 없으면 취소될 수 있으며, 회사는 미성년자 및 법정대리인임을 확인하기 위한 자료 제출을 요청할 수 있습니다.</li>
+        <li>회원이 과오금을 지급한 경우 회사는 대금의 결제와 동일한 방법으로 과오금을 환급합니다. 다만, 동일한 수단으로 환급이 불가능할 때는 이를 사전에 고지하고, 합리적 방법으로 환급합니다.</li>
+        <li>과오금 가액의 최초 결제 및 환급 과정 상 발생한 비용은 과오금의 책임 사유가 있는 자가 부담합니다.</li>
+      </ol>
+
+      <h4>제19조(정기결제 전환 고지)</h4>
+      <ol>
+        <li>회사는 정기결제 상품을 운영할 수 있으며, 과금 주기·요금·해지 방법 등을 포함한 주요 내용을 사전 고지하고 회원 동의를 별도로 받습니다.</li>
+        <li>회사는 정기결제일에 정상적으로 결제가 이루어지지 않은 경우, 정기결제를 해지할 수 있습니다.</li>
+      </ol>
+
+      <h3>제6장 이용제한·계약해지·책임</h3>
+      <h4>제20조(이용제한)</h4>
+      <ol>
+        <li>회사는 다음 사유가 있는 경우 경중에 따라 경고, 일부 권한 제한, 계정 정지, 회원 자격 정지·해지 등의 조치를 할 수 있습니다.
+          <ul>
+            <li>제10조 위반</li>
+            <li>법령 위반 또는 위법행위로 합리적 의심이 있는 경우</li>
+            <li>비인가 프로그램·자동화 도구 사용, 서비스 운영 방해</li>
+            <li>아이디 및 닉네임에 대한 회사의 방침에 위반되는 경우</li>
+            <li>회원이 서비스를 1년 이상 이용하지 않은 경우</li>
+            <li>회원의 서비스 과몰입 방지를 위해 제한이 필요한 경우</li>
+            <li>기타 약관·운영정책 위반</li>
+          </ul>
+        </li>
+        <li>회사는 이용제한 사유, 유형·기간, 이의신청 방법을 합리적 방법으로 통지합니다.</li>
+        <li>회원은 통지 수령 후 15일 이내에 이의신청을 할 수 있으며, 회사는 15일 이내 답변합니다(부득이한 지연의 경우 사유 통지).</li>
+        <li>1항의 조치가 취해진 경우, 회사의 고의 또는 과실이 없는 한, 회사는 유상재화 또는 유료서비스에 대한 보상 및 배상을 하지 않습니다.</li>
+      </ol>
+
+      <h4>제21조(계약해지)</h4>
+      <ol>
+        <li>회원은 서비스 내 절차를 통해 언제든지 탈퇴를 신청할 수 있습니다.</li>
+        <li>회원 탈퇴 시, 법령 및 개인정보처리방침에서 정한 보관을 제외하고 개인정보는 삭제됩니다.</li>
+        <li>회원 탈퇴 시, 서비스 정보는 삭제되지 않을 수 있습니다.</li>
+        <li>회사는 회원이 현저히 약관을 위반한 경우 계약해지 후 사후 통지 할 수 있습니다.</li>
+      </ol>
+
+      <h4>제22조(손해배상 및 면책)</h4>
+      <ol>
+        <li>회원의 귀책으로 회사에 손해가 발생한 경우 회원은 그 손해를 배상해야 합니다.</li>
+        <li>다음 사유로 인한 손해에 대하여 회사는 책임을 지지 않습니다.
+          <ul>
+            <li>천재지변, 정전, 통신 장애 등 불가항력으로 인한 서비스 장애</li>
+            <li>회원의 단말 환경·네트워크 문제, 계정 관리 소홀</li>
+            <li>회원의 귀책사유로 인한 서비스 이용의 중지, 이용장애 및 계약 해지</li>
+            <li>회사의 서비스에 대해 제3자가 게시·전송한 정보의 신뢰성·정확성</li>
+            <li>무료로 제공되는 서비스에서 발생한 손해</li>
+            <li>서비스의 합리적 변경·중단으로 인한 비재산적 기대 이익 상실</li>
+            <li>회원간 또는 회원과 제3자 상호간에 회사의 서비스를 매개로 하여 거래한 경우</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>제7장 기타</h3>
+      <h4>제23조(통지)</h4>
+      <ol>
+        <li>회사의 개별 통지는 회원이 등록한 전자우편·서비스 내 알림 등으로 할 수 있습니다.</li>
+        <li>전체 통지는 서비스 내 공지로 갈음할 수 있습니다.</li>
+      </ol>
+
+      <h4>제24조(관할 및 준거법)</h4>
+      <p>본 약관은 대한민국법을 준거법으로 하며, 분쟁이 발생할 경우 소송의 관할은 서울중앙지방법원으로 합니다.</p>
+
+      <h4>부칙</h4>
+      <p>본 약관은 2026년 1월 15일부터 시행합니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 개인정보처리방침 -->
+<div class="page-container" id="page-privacy">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_privacy">개인정보처리방침</h2>
+    </div>
+    <div class="legal-content" id="privacyContent">
+      <p>주식회사 룰루닷에이아이(이하 "회사")는 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 국내 관련 법령을 준수하며, 이용자의 개인정보 보호에 최선을 다하고 있습니다.</p>
+
+      <h3>1. 수집하는 개인정보의 항목 및 수집방법</h3>
+      <h4>1) 수집 항목</h4>
+      <p>아래 항목 가운데 실제 운영에 필요한 최소한만을 수집·이용합니다. 회사는 인종·민족, 사상·신조, 정치적 견해, 건강·성생활 등 민감정보를 수집하지 않습니다.</p>
+      <ul>
+        <li><strong>회원가입/로그인</strong>
+          <ul>
+            <li>(이메일로 가입) 아이디, 이메일, 비밀번호, 닉네임 수집/저장</li>
+            <li>(외부 플랫폼으로 로그인) OAuth 식별자(예: 공급자 회원번호/서브ID), 이메일(공급 동의 시), 프로필 닉네임(공급 동의 시) 수집/저장</li>
+            <li>(제휴서비스로 로그인) 계정 식별자, 연동 토큰 수집/저장</li>
+            <li>(본인인증 사용 시) 성명, 생년월일, 성별, 내·외국인정보, 휴대전화번호, 통신사 정보, 중복가입확인정보(DI), 암호화된 동일인 식별정보(CI) 수집/저장</li>
+          </ul>
+        </li>
+        <li><strong>서비스 이용 중 자동수집</strong>
+          <ul>
+            <li>접속기록(접속 일시/빈도), IP 주소, User-Agent(브라우저/OS), 디바이스 모델/OS 버전, 언어·국가, 앱 버전, 쿠키/유사기술 식별자, 서비스 이용/행동 로그, 오류·충돌 로그</li>
+          </ul>
+        </li>
+        <li><strong>결제/정산</strong>
+          <ul>
+            <li>주문ID, 거래 식별자, 결제수단 식별 토큰, 승인/취소 기록, PG 응답코드, 주문·결제·환불·환급 처리 이력, 현금영수증 번호, (환불·환급받을 자의 동의하에) 환불·환급시 필요한 결제정보(휴대전화번호/카드정보/계좌정보 등)</li>
+            <li>※ 카드번호 등 민감 결제정보는 회사가 직접 저장하지 않으며, NHN KCP 등 결제대행사가 처리·보관합니다.</li>
+          </ul>
+        </li>
+        <li><strong>고객지원/문의</strong>
+          <ul>
+            <li>이메일, 성명(선택), 연락처(선택), 계정 식별자, 문의/신고 내용 및 첨부파일, 처리 기록(응답/해결 내역)</li>
+          </ul>
+        </li>
+        <li><strong>이벤트/마케팅(선택 동의 시)</strong>
+          <ul>
+            <li>이름, 닉네임, 이메일, 휴대전화번호, 수신여부, 이벤트 참여/당첨 이력, 배송지(경품 배송 시: 수령인 이름, 주소, 연락처), (원천징수 제세공과금 발생시) 주민등록번호</li>
+          </ul>
+        </li>
+        <li><strong>분석/품질</strong>
+          <ul>
+            <li>서비스 성능 및 품질 개선을 위한 로그·통계 데이터(예: 페이지/화면 뷰, 전환, 기능 사용 빈도, 오류 스택/Crash 로그 등)</li>
+            <li>회사는 합법적 범위 내에서 분석 도구(예: Google Analytics, 자체 로그, Sentry/Crashlytics 등) 중 일부를 사용할 수 있으며, 구체 목록·수집항목은 서비스 내 고지/본 방침 갱신으로 안내합니다.</li>
+          </ul>
+        </li>
+        <li><strong>광고/리타게팅(선택)</strong>
+          <ul>
+            <li>광고 식별자(ADID/IDFA 등), 쿠키/유사기술, 이용기록·접속기록 기반의 행태정보</li>
+            <li>온라인 맞춤형 광고 도입 시 제공자(예: 대형 광고 플랫폼/SDK)·항목·거부 방법을 본 방침 및 서비스 내 안내에 최신화합니다.</li>
+          </ul>
+        </li>
+      </ul>
+      <h4>2) 수집 방법</h4>
+      <ul>
+        <li>회원 가입/로그인(이메일, 외부 플랫폼으로 로그인, 제휴서비스로 로그인), 본인인증, 결제/환불 처리, 고객센터(웹폼/이메일) 응대, 이벤트 응모</li>
+        <li>서비스 이용 과정에서 자동 생성/수집(쿠키·유사기술, 분석·Crash SDK 등)</li>
+        <li>채널링/제휴 회사를 통한 제공(이용자 사전 동의 또는 법령 근거가 있는 경우에 한함)</li>
+      </ul>
+
+      <h3>2. 개인정보의 이용 목적</h3>
+      <ul>
+        <li><strong>회원관리:</strong> 가입/탈퇴 의사 확인, 본인확인 및 성인(만 19세 이상) 여부 확인, 계정 식별/인증, 부정가입·도용 방지, 문의/민원 처리, 공지 전달</li>
+        <li><strong>서비스 제공:</strong> 핵심 서비스 제공, 제휴 서비스 제공, 콘텐츠·기능 개선, 장애/오류 대응, 이용 기록 통계·분석</li>
+        <li><strong>결제/정산:</strong> 유료 서비스 및 유상재화 충전 (웹 결제, NHN KCP) 이용에 따른 결제 승인·취소·환불, 이용 요금 정산, 과오납 처리</li>
+        <li><strong>안전/법규 준수:</strong> 약관·정책 위반 행위 대응, 부정 이용 방지·제재, 분쟁 대응 및 기록 보존, 법령상 의무 이행</li>
+        <li><strong>마케팅(선택):</strong> 이벤트 운영, 광고성 정보 전송, 맞춤형 서비스·광고 제공(동의 철회 가능)</li>
+      </ul>
+
+      <h3>3. 보유 및 이용 기간</h3>
+      <ul>
+        <li><strong>원칙:</strong> 수집·이용 목적 달성 시 지체 없이 파기</li>
+        <li><strong>회원탈퇴 유예:</strong> 도용/오탈퇴 방지를 위해 탈퇴 요청 후 7일간 최소 정보 임시 보관 후 파기</li>
+        <li><strong>휴면 정책(표준):</strong> 최종 로그인 후 1년간 미이용 시 휴면 전환 및 분리 보관(전환 30일 전 통지). 재이용 시 본인확인 후 해제</li>
+      </ul>
+      <h4>내부 방침</h4>
+      <ul>
+        <li>부정이용 기록: 최대 5년</li>
+        <li>서비스 이용 제한/제재 이력: 정책상 필요한 기간</li>
+        <li>본인인증 이력: 회원탈퇴 또는 수집일로부터 최대 3년</li>
+      </ul>
+      <h4>법정 보존(예시)</h4>
+      <ul>
+        <li>계약/청약철회 등: 5년</li>
+        <li>대금결제·재화공급: 5년</li>
+        <li>소비자 불만·분쟁 처리: 3년</li>
+        <li>접속기록(통신비밀보호법): 3개월</li>
+      </ul>
+      <p>해당 기간 경과 시 지체 없이 파기하며, 다른 법령에 따라 계속 보존해야 하는 경우 별도 DB로 분리 저장합니다.</p>
+
+      <h3>4. 파기 절차 및 방법</h3>
+      <ul>
+        <li><strong>절차:</strong> 보유기간 만료 또는 처리 목적 달성 시 파기 대상으로 분류 후 내부 승인 절차를 거쳐 지체 없이 파기</li>
+        <li><strong>방법:</strong>
+          <ul>
+            <li>전자파일: 복구/재생 불가한 기술적 방법으로 영구 삭제</li>
+            <li>출력물: 분쇄 및 소각</li>
+            <li>기술적 특성상 즉시 파기가 곤란한 경우 지연 없이 가명/익명 처리 후 복원 불가능 조치</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>5. 제3자 제공</h3>
+      <ul>
+        <li>회사는 이용자 동의 또는 법령 근거 없이 개인정보를 제3자에게 제공하지 않습니다.</li>
+        <li><strong>채널링/제휴 회사 제공(계획):</strong> 채널링/제휴 서비스 제공 시, 사전 동의를 받아 서비스 제공에 필요한 항목을 제휴 회사에 제공할 수 있습니다. 제공받는 자·목적·항목·보유기간을 개별 화면/공지로 안내하고 동의 획득 후 제공합니다.</li>
+        <li>구체 업체 도입 시 본 방침 또는 서비스 내 공지로 최신화합니다.</li>
+        <li><strong>법령/사법기관:</strong> 법령에 따른 요청 또는 수사기관의 적법한 절차에 따른 요구가 있는 경우에 한해 제공합니다.</li>
+      </ul>
+
+      <h3>6. 처리 위탁(수탁자)</h3>
+      <p>회사는 서비스 운영의 효율성을 위해 개인정보 처리 업무의 일부를 위탁하며, 위탁계약 체결 시 「개인정보 보호법」 제26조에 따른 안전성 확보 조치를 계약에 반영하고 관리·감독합니다.</p>
+      <ul>
+        <li><strong>수탁 업체:</strong> NHN KCP</li>
+        <li><strong>위탁업무:</strong> 전자결제 대행(PG), 결제 승인/취소/환불 처리, 본인인증(성인인증, 실명확인)</li>
+        <li><strong>보유·이용 기간:</strong> 위탁 계약 종료 또는 목적 달성 시</li>
+      </ul>
+      <p>구체 업체/SDK 도입 시 본 방침 또는 서비스 내 공지로 최신화합니다.</p>
+
+      <h3>7. 안전성 확보 조치</h3>
+      <ul>
+        <li><strong>내부관리:</strong> 개인정보 내부관리계획 수립·시행, 정기 점검/교육, 최소 권한 원칙 적용, 취급기록 보관</li>
+        <li><strong>접근통제:</strong> 네트워크/시스템 접근통제(방화벽/접근통제시스템), 계정·권한 분리, 정기 권한 검토, 비인가 접근 차단</li>
+        <li><strong>암호화:</strong> 전송 구간 TLS 적용, 비밀번호/민감항목 법령 기준 암호화 저장, 키 관리 분리</li>
+        <li><strong>로그/모니터링:</strong> 접근·처리 로그 보관 및 이상 징후 점검(필요 시 알림), 백업 및 무결성 점검</li>
+        <li><strong>악성코드 대응:</strong> 백신 등 보안프로그램 설치·업데이트</li>
+        <li><strong>물리적 보호:</strong> IDC/클라우드 내 출입통제, 매체 반출통제, 잠금장치 보관</li>
+        <li><strong>클라우드 보안:</strong> AWS 서울 리전 활용, 클라우드 보안기능과 회사 정책을 병행 적용</li>
+        <li><strong>보안/개인정보 관련 외부 인증:</strong> 현재 없음</li>
+      </ul>
+
+      <h3>8. 쿠키(및 유사기술) 운영 및 거부</h3>
+      <ul>
+        <li><strong>목적:</strong> 로그인 상태 유지, 기본 설정 저장, 트래픽/품질 분석, 맞춤형 콘텐츠/광고 제공(선택)</li>
+        <li><strong>설정 방법(브라우저 예시)</strong>
+          <ul>
+            <li>Chrome: 설정 > 개인정보 및 보안 > 쿠키 및 기타 사이트 데이터</li>
+            <li>Edge: 설정 > 개인정보, 검색 및 서비스 > 쿠키 및 사이트 권한</li>
+            <li>Safari(iOS): 설정 > Safari > 모두 차단/추적 방지 등</li>
+          </ul>
+        </li>
+        <li><strong>동의 관리:</strong> 현재 별도 동의관리 솔루션은 미도입이며, 브라우저 설정 및 서비스 내 수신 설정으로 관리할 수 있습니다. 동의관리 솔루션 도입 시 본 방침에 반영합니다.</li>
+        <li><strong>거부 영향:</strong> 일부 기능/로그인 기반 서비스 이용에 제한이 있을 수 있습니다.</li>
+      </ul>
+
+      <h3>9. 행태정보(온라인 맞춤형 광고) 수집·이용 및 거부</h3>
+      <ul>
+        <li><strong>수집 항목:</strong> 광고 식별자(ADID/IDFA), 쿠키/유사기술, 서비스 이용기록, 접속기록 등</li>
+        <li><strong>이용 목적:</strong> 관심사 기반 콘텐츠/광고 제공, 캠페인 효과 분석</li>
+        <li><strong>거부 방법</strong>
+          <ul>
+            <li>Android: 설정 > Google > 광고(또는 개인정보) > 광고 개인화 선택 해제/광고 ID 재설정</li>
+            <li>iOS: 설정 > 개인정보 보호 및 보안 > 추적/광고 > 앱별 추적 허용/광고 추적 제한</li>
+            <li>브라우저: '추적 금지(Do Not Track)' 설정, 쿠키 차단/삭제</li>
+          </ul>
+        </li>
+        <li><strong>광고 사업자/도구:</strong> 도입·변경 시 제공자, 수집항목, 수집 목적, 보유기간, 거부 방법을 본 방침/서비스 내 공지에 최신화합니다.</li>
+      </ul>
+
+      <h3>10. 국외 이전</h3>
+      <ul>
+        <li><strong>원칙:</strong> 현재 국내 보관/처리를 원칙으로 합니다.</li>
+        <li>분석/헬프데스크/광고 등 국외 사업자 서비스 도입 시, 이전 국가·시점·목적·항목·보유기간·거부권 및 영향 등을 본 방침에 사전 고지하고, 필요한 경우 별도 동의를 받습니다.</li>
+      </ul>
+
+      <h3>11. 이용자 및 법정대리인의 권리와 행사 방법</h3>
+      <ul>
+        <li>언제든지 자신의 개인정보에 대해 <strong>열람, 정정, 삭제, 처리정지, 동의 철회(회원탈퇴)</strong>를 요청할 수 있습니다.</li>
+        <li><strong>방법:</strong> 서비스 내 계정 메뉴 또는 고객센터(웹폼/이메일)로 신청 → 본인 확인 후 지체 없이 조치</li>
+        <li>오류 정정 요청 시 정정 완료 전까지 해당 정보를 이용/제공하지 않습니다. 이미 제3자에게 제공된 경우 정정 결과를 제3자에게 통지합니다.</li>
+        <li>서비스가 만 19세 이상 대상이므로, 미성년자는 이용이 제한되며, 본인인증을 통해 성인 여부를 확인합니다.</li>
+      </ul>
+
+      <h3>12. 개인정보 열람청구 창구</h3>
+      <p>「개인정보 보호법」 제35조에 따른 열람 청구는 아래로 접수 가능합니다.</p>
+      <ul>
+        <li><strong>담당 부서:</strong> 고객 관리팀</li>
+        <li><strong>문의 채널:</strong> help@pokerlulu.com</li>
+      </ul>
+      <p>회사는 신속히 처리되도록 최선을 다합니다.</p>
+
+      <h3>13. 개인정보 보호책임자(DPO) 및 연락처</h3>
+      <ul>
+        <li><strong>개인정보 보호책임자(DPO):</strong> 장한(PO)</li>
+        <li><strong>이메일:</strong> help@pokerlulu.com</li>
+        <li><strong>이용자 문의 전용:</strong> help@pokerlulu.com</li>
+        <li><strong>고객센터 채널:</strong> help@pokerlulu.com</li>
+      </ul>
+
+      <h3>14. 권익침해 구제 방법(대한민국)</h3>
+      <p>아래 기관을 통해 상담/분쟁조정 등을 신청할 수 있습니다.</p>
+      <ul>
+        <li>개인정보침해신고센터: 국번없이 118, privacy.kisa.or.kr</li>
+        <li>개인정보분쟁조정위원회: 1833-6972, www.kopico.go.kr</li>
+        <li>대검찰청 사이버수사과: 국번없이 1301, www.spo.go.kr</li>
+        <li>경찰청 사이버수사국: 국번없이 182, ecrm.cyber.go.kr</li>
+      </ul>
+
+      <h3>15. 고지 및 변경</h3>
+      <ul>
+        <li>본 방침 내용 추가/삭제/수정 시 시행 최소 7일 전 서비스 내 공지로 변경 사유 및 주요 내용을 고지합니다.</li>
+        <li>수집 항목·이용 목적의 중대한 변경 등 이용자 권리에 중요한 영향이 있을 경우 30일 전 고지합니다.</li>
+      </ul>
+
+      <h3>16. 회사 정보</h3>
+      <ul>
+        <li><strong>회사 정식 명칭/대표자:</strong> 주식회사 룰루닷에이아이 / 대표자 이대형</li>
+        <li><strong>클라우드/호스팅:</strong> AWS 서울 리전</li>
+      </ul>
+
+      <h3>부칙</h3>
+      <ul>
+        <li>공고일자: 2026-01-15</li>
+        <li>시행일자: 2026-01-15</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 청소년보호정책 -->
+<div class="page-container" id="page-youth">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_youth">청소년보호정책</h2>
+    </div>
+    <div class="legal-content" id="youthContent">
+      <p>주식회사 룰루닷에이아이("회사")는 청소년보호법 등 관계 법령을 준수하며 청소년이 유해정보에 노출되지 않도록 다음과 같이 운영합니다.</p>
+
+      <h3>1. 적용 대상</h3>
+      <ul>
+        <li>회사가 제공하는 모든 웹/모바일 서비스, 고객센터(웹폼·이메일).</li>
+      </ul>
+
+      <h3>2. 이용 연령</h3>
+      <ul>
+        <li>서비스 만 19세 이상 전용.</li>
+        <li>가입·이용 시 본인인증을 통해 성인 여부 확인. 미성년 확인 시 가입·이용 제한.</li>
+      </ul>
+
+      <h3>3. 유해정보 차단</h3>
+      <ul>
+        <li>유해·불법 정보(청소년유해매체물 등) 노출 금지.</li>
+        <li>키워드/패턴 필터링, 신고 즉시 임시차단, 검수 후 삭제·차단·연령제한.</li>
+        <li>반복·중대 위반 계정은 경고→이용제한→영구정지.</li>
+      </ul>
+
+      <h3>4. 제휴/채널링</h3>
+      <ul>
+        <li>제휴·채널링 콘텐츠에도 동일 기준 적용, 위반 시 시정 요구·연동 제한.</li>
+      </ul>
+
+      <h3>5. 임직원·수탁사 관리</h3>
+      <ul>
+        <li>관련 법령·대응 절차 정기 교육. 계약에 청소년보호 의무 반영 및 감독.</li>
+      </ul>
+
+      <h3>6. 신고·상담</h3>
+      <ul>
+        <li><strong>접수:</strong> help@pokerlulu.com</li>
+        <li><strong>조치:</strong> 접수 즉시 임시차단 → 사실확인 → 결과 안내(이의제기 가능).</li>
+      </ul>
+
+      <h3>7. 개인정보 처리 연계</h3>
+      <ul>
+        <li>청소년보호 조치 과정의 개인정보는 최소한으로 처리, 목적 달성·보존기간 경과 시 파기. (자세한 내용: 개인정보 처리방침)</li>
+      </ul>
+
+      <h3>8. 고지·변경</h3>
+      <ul>
+        <li>정책 변경 시 시행 7일 전 공지(중대한 변경: 30일 전).</li>
+      </ul>
+
+      <h3>9. 책임자 및 회사 정보</h3>
+      <ul>
+        <li><strong>청소년보호 책임자:</strong> 장한(PO) / help@pokerlulu.com</li>
+        <li><strong>고객센터:</strong> help@pokerlulu.com</li>
+        <li><strong>회사/대표자:</strong> 주식회사 룰루닷에이아이 / 이대형</li>
+        <li><strong>본점 주소:</strong> 서울특별시 강남구 역삼로 215, 2층 201-에이69호 남국빌딩 (역삼동)</li>
+      </ul>
+
+      <h3>부칙</h3>
+      <ul>
+        <li>공고일자: 2026-01-15</li>
+        <li>시행일자: 2026-01-15</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 심의정책 -->
+<div class="page-container" id="page-rating">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_rating">심의정보</h2>
+    </div>
+    <div class="legal-content" id="ratingContent">
+      <div class="rating-badges">
+        <img src="images/rating_19.png" alt="청소년이용불가" class="rating-badge-img">
+        <img src="images/rating_gambling.png" alt="사행성" class="rating-badge-img">
+      </div>
+      <div class="rating-info">
+        <div class="rating-info-row">
+          <span class="rating-info-label">제명</span>
+          <span class="rating-info-value">포커룰루</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">상호</span>
+          <span class="rating-info-value">주식회사 룰루닷에이아이</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">이용등급</span>
+          <span class="rating-info-value">청소년 이용불가</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">등급 분류 번호</span>
+          <span class="rating-info-value">00-00-000000-000</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">제작년월일</span>
+          <span class="rating-info-value">2026-01-15</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">제작업 신고번호</span>
+          <span class="rating-info-value">제2025-53호</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">배급업 신고번호</span>
+          <span class="rating-info-value">제2025-37호</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 회사정보 -->
+<div class="page-container" id="page-company">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_company">회사정보</h2>
+    </div>
+    <div class="legal-content" id="companyContent">
+      <div class="rating-info">
+        <div class="rating-info-row">
+          <span class="rating-info-label">회사명</span>
+          <span class="rating-info-value">주식회사 룰루닷에이아이</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">대표자</span>
+          <span class="rating-info-value">이대형</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">주소</span>
+          <span class="rating-info-value">서울특별시 강남구 역삼로 215, 2층 201-에이69호 남국빌딩 (역삼동)</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">연락처</span>
+          <span class="rating-info-value">help@pokerlulu.com</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">홈페이지</span>
+          <span class="rating-info-value">www.pokerlulu.com</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">사업자 등록번호</span>
+          <span class="rating-info-value">413-81-09870</span>
+        </div>
+        <div class="rating-info-row">
+          <span class="rating-info-label">통신판매업 신고번호</span>
+          <span class="rating-info-value">제 2025-서울강남-05619 호</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 자주묻는질문 -->
+<div class="page-container" id="page-faq">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_support">자주묻는질문</h2>
+    </div>
+    <div class="legal-content" id="faqContent">
+
+      <!-- 검색바 -->
+      <div class="signup-inline-row" style="margin-bottom:16px;">
+        <div class="host-input-wrap">
+          <svg class="host-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="login-input" id="faqSearchInput" placeholder="질문을 검색하세요." oninput="faqSearch()" style="margin-bottom:0;padding-left:38px;">
+        </div>
+        <button type="button" class="signup-inline-btn" onclick="faqSearch()" style="padding:14px 24px;">검색</button>
+      </div>
+
+      <!-- 탭 -->
+      <div class="faq-tabs">
+        <button class="faq-tab active" data-faq-tab="all" onclick="switchFaqTab('all')">전체</button>
+        <button class="faq-tab" data-faq-tab="general" onclick="switchFaqTab('general')">일반</button>
+        <button class="faq-tab" data-faq-tab="hosting" onclick="switchFaqTab('hosting')">호스팅</button>
+        <button class="faq-tab" data-faq-tab="other" onclick="switchFaqTab('other')">기타</button>
+      </div>
+
+      <!-- 검색 결과 없음 -->
+      <div class="faq-empty" id="faqEmpty" style="display:none;">검색 결과가 없습니다.</div>
+
+      <!-- 일반 -->
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>홀덤의 게임 방법은 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>게임 시작 시 딜러를 지정하고, 딜러 왼쪽 첫 번째와 두 번째 플레이어가 각각 스몰 블라인드와 빅 블라인드를 베팅합니다. 이후, 판마다 시계 방향으로 딜러가 바뀌며, 모든 플레이어는 공평하게 딜러 역할을 맡게 됩니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>내가 하지 않은 경기도 볼 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>네, 등록하지 않아도 테이블을 관전하실 수 있습니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>베팅 라운드는 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer">
+          <p>포커룰루에는 4개의 베팅 라운드가 있습니다.</p>
+          <ol>
+            <li><strong>프리 플랍</strong> — 사전 플랍은 플레이어가 홀 카드를 받은 후에 진행되는 베팅 라운드입니다.</li>
+            <li><strong>플랍</strong> — 플랍은 5장의 커뮤니티 카드 중 처음 3장을 공개하는 것을 의미합니다. 플랍 이후 포스트 플랍으로 진행되며, 플레이어는 3장의 커뮤니티 카드가 자신의 핸드 카드와 어떤 조합이 되었는지에 따라 체크, 베팅, 콜, 폴드 또는 레이즈를 할 수 있습니다.</li>
+            <li><strong>턴</strong> — 턴은 4번째 커뮤니티 카드를 의미하며 플랍 후 오픈되며, 3번째 베팅이 시작됩니다.</li>
+            <li><strong>리버</strong> — 리버는 5번째 커뮤니티 카드를 의미하며, 리버가 오픈되면 플레이어는 자신의 족보가 어떻게 완성되었는지 알게됩니다. 리버의 액션이 종료 된 후 2명 이상의 플레이어가 있을 경우, 쇼다운을 진행합니다.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>쇼다운은 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>쇼다운은 게임에 최소 2명의 플레이어가 남아있을 때 발생하며, 핸드와 커뮤니티 카드 5장을 조합하여 가장 높은 족보를 가진 플레이어가 팟을 차지합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커에서 핸드 순위가 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer">
+          <p>포커에서 족보는 총 10가지로 아래와 같습니다.</p>
+          <ol>
+            <li><strong>로얄 플러시</strong> — 5장의 무늬가 같으며 A, K, Q, J, 10 으로 이루어진 족보입니다.</li>
+            <li><strong>스트레이트 플러시</strong> — 5장의 무늬가 같으며 연속된 숫자 5장으로 이루어진 족보입니다.</li>
+            <li><strong>포 카드</strong> — 동일한 숫자 4장으로 이루어진 족보입니다.</li>
+            <li><strong>풀 하우스</strong> — 3장의 동일한 숫자(트리플)와 2장의 동일한 숫자(원 페어)로 이루어진 족보입니다.</li>
+            <li><strong>플러시</strong> — 5장의 무늬가 같은 카드로 이루어진 족보입니다.</li>
+            <li><strong>스트레이트</strong> — 무늬에 상관 없이 연속된 숫자 5장으로 이루어진 족보입니다.</li>
+            <li><strong>쓰리 카드</strong> — 동일한 숫자 3장으로 이루어진 족보입니다.</li>
+            <li><strong>투 페어</strong> — 동일한 숫자 2장이 2쌍으로 이루어진 족보입니다.</li>
+            <li><strong>원 페어</strong> — 동일한 숫자 2장이 1쌍으로 이루어진 족보입니다.</li>
+            <li><strong>하이 카드</strong> — 위의 9개의 족보에 해당되지 않는 경우입니다.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>블라인드가 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>블라인드에는 스몰 블라인드(SB) 와 빅 블라인드(BB) 두 가지가 있습니다. 딜러의 위치를 기준으로 좌측에는 스몰 블라인드, 스몰 블라인드의 좌측에는 빅 블라인드가 위치하게 됩니다. 이 위치는 매번 카드를 딜링할 때마다 시계방향으로 한 칸씩 이동합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>앤티(ANTE)란 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>핸드가 시작되기 전에 모든 혹은 특정 플레이어에게 걷는 블라인드를 제외한 참가비(강제 베팅)를 말합니다. 앤티는 호스트가 None, BB, All 중 설정할 수 있습니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>게임에서 할 수 있는 액션은 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer">
+          <ul>
+            <li><strong>체크:</strong> 앞에서 베팅이 없을 경우, 체크를 통해 다음 플레이어에게 액션을 넘길 수 있습니다.</li>
+            <li><strong>콜:</strong> 앞의 베팅에 따라가는 것을 말합니다.</li>
+            <li><strong>레이즈:</strong> 앞의 플레이어의 베팅을 받아들이고, 거기서 추가로 더 베팅하는 것을 말합니다.</li>
+            <li><strong>올인:</strong> 플레이어가 자신의 모든 칩을 베팅하는 것을 말합니다.</li>
+            <li><strong>폴드:</strong> 핸드를 버리고 현재 팟에 있는 금액을 포기하는 것을 말합니다.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>토너먼트 등록 후 취소하고 싶으면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>해당 게임의 참가 페이지에 가서 등록 취소 버튼을 통해 등록 취소가 가능하나 등록이 마감됐거나 이미 게임이 시작됐을 경우 등록 취소가 불가합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>친구들을 어떻게 초대하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>직접 방을 생성하여 참가 페이지의 링크를 통해 지인들을 초대하여 함께 게임을 즐길 수 있습니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>내 프로필을 맞춤 설정할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>현재 포커룰루 사이트 로그인 시 16개의 프로필 중 선택 가능합니다. 사이트에서 설정한 프로필은 게임 이용 시 본인의 프로필로 연동됩니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>한 계정으로 여러 개의 포커 게임에 동시에 참여할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>한개의 계정으로 여러 개의 포커 게임에 참가할 수 있습니다. 단, 한 계정으로 동일한 포커 게임에서 한 명 이상의 플레이어 역할을 수행할 수 없습니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 국가 제한이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>포커룰루는 무료 게임으로 어떠한 글로벌 제약도 받지 않으며 자유롭게 모든 국가에서 이용 가능합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 얼마나 안전하고 공정한가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>포커룰루의 모든 카드는 컴퓨터 난수 알고리즘을 사용하여 모두 무작위로 생성되며, 포커룰루는 플레이어들에게 공정한 게임 환경을 제공하는 것을 최우선으로 생각합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 무료인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>현재 포커룰루는 무료로 참여 가능합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 어떤 기기에서 사용할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>PC와 모바일등 모든 기기에서 이용 가능합니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 앱이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>현재는 웹사이트만 존재하며, PC와 모바일등 모든 기기에서 이용 가능합니다. 앱도 추후 개발될 예정입니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="general">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 비디오나 오디오 채팅 기능이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>채팅 기능은 있지만 비디오나 오디오 채팅은 아직 없습니다. 추후 업데이트 될 예정입니다.</p></div>
+      </div>
+
+      <!-- 호스팅 -->
+      <div class="faq-item" data-faq-cat="hosting">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>호스트의 경우 플레이어를 강퇴시킬 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>네. 퇴장시키고 싶은 선수의 프로필을 클릭하고 '좌석 퇴장' 버튼을 클릭하세요.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="hosting">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>호스트가 토너먼트 정보를 수정하려면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>My → Hosted → Edit을 통해 수정 가능합니다.</p></div>
+      </div>
+
+      <!-- 기타 -->
+      <div class="faq-item" data-faq-cat="other">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>문의했으나 답변을 받지 못했습니다.</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>답변은 영업일 기준 최대 7일가량 소요될 수 있습니다. 지속적으로 답변을 받지 못할 경우 번거로우시겠지만 다시 한번 문의 부탁드립니다.</p></div>
+      </div>
+      <div class="faq-item" data-faq-cat="other">
+        <div class="faq-question" onclick="toggleFaq(this)"><span>게임의 버그 및 문제는 어디에 신고할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-answer"><p>Contact us를 통해 문의 부탁드립니다.</p></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Contact Page -->
+<div class="page-container" id="page-contact">
+  <div class="content-wrapper">
+    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="footer_contact">문의하기</h2>
+      <p data-i18n="contact_desc">궁금한 점이나 불편한 사항을 보내주세요.</p>
+    </div>
+    <div class="contact-form">
+      <div class="contact-field">
+        <label class="contact-label" data-i18n="contact_email">이메일</label>
+        <input type="email" class="login-input" id="contactEmail" placeholder="이메일을 입력하세요" data-i18n-placeholder="contact_email_ph" style="margin-bottom:0;">
+      </div>
+      <div class="contact-field">
+        <label class="contact-label" data-i18n="contact_subject">제목</label>
+        <input type="text" class="login-input" id="contactSubject" placeholder="제목을 입력하세요" data-i18n-placeholder="contact_subject_ph" style="margin-bottom:0;">
+      </div>
+      <div class="contact-field">
+        <label class="contact-label" data-i18n="contact_message">내용</label>
+        <textarea class="contact-textarea" id="contactMessage" placeholder="내용을 입력하세요" data-i18n-placeholder="contact_message_ph"></textarea>
+      </div>
+      <button class="login-btn" onclick="submitContact()" data-i18n="contact_submit">보내기</button>
+      <div class="contact-success" id="contactSuccess" style="display:none;">
+        <div class="contact-success-icon">✓</div>
+        <p data-i18n="contact_success">문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-area">
+        <div class="footer-brand">POKER LULU</div>
+        <div class="footer-company-info">주식회사 룰루닷에이아이</div>
+      </div>
+      <div class="footer-copy">© 2026 Poker Lulu. All rights reserved.</div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <a class="footer-link" onclick="switchPage('company')" data-i18n="footer_company">회사정보</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('rating')" data-i18n="footer_rating">심의정보</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('terms')" data-i18n="footer_terms">이용약관</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('privacy')" data-i18n="footer_privacy">개인정보처리방침</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('youth')" data-i18n="footer_youth">청소년보호정책</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('faq')" data-i18n="footer_support">자주묻는질문</a>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" onclick="switchPage('contact')" data-i18n="footer_contact">문의하기</a>
+    </div>
+  </div>
+</footer>
 
 <!-- DateTimePicker Modal -->
 <div class="modal-overlay" id="dtpModal">
@@ -1312,6 +2295,40 @@
   </div>
 </div>
 
+<!-- Tournament Register Modal -->
+<div class="modal-overlay" id="tdRegisterModal">
+  <div class="modal-card" style="max-width:380px;">
+    <div class="modal-header">
+      <h3 data-i18n="td_reg_title">등록하기</h3>
+      <button class="modal-close" onclick="closeTdRegisterModal()">✕</button>
+    </div>
+    <div class="tdr-modal-body">
+      <div class="tdr-watermark">LULU</div>
+      <div class="tdr-header">
+        <span class="tdr-badge" id="tdrBadge">00:00 등록중</span>
+      </div>
+      <div class="tdr-name" id="tdrName"></div>
+      <div class="sp-divider"></div>
+      <div class="sp-price-row">
+        <span data-i18n="td_start_time">시작 시간</span>
+        <span class="tdr-value" id="tdrStartTime"></span>
+      </div>
+      <div class="sp-price-row">
+        <span data-i18n="tdr_payment_option">결제 옵션</span>
+        <span class="tdr-value" id="tdrPaymentOption"></span>
+      </div>
+      <div class="sp-price-row">
+        <span data-i18n="td_buyin">바이인</span>
+        <span class="tdr-value tdr-fee" id="tdrFee"></span>
+      </div>
+      <div class="sp-buttons">
+        <button class="sp-cancel-btn" onclick="closeTdRegisterModal()" data-i18n="sp_cancel">취소</button>
+        <button class="sp-confirm-btn" id="tdrConfirmBtn" onclick="confirmTdRegister()" data-i18n="td_register">등록</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Discard Confirm Modal -->
 <div class="modal-overlay" id="discardModal">
   <div class="modal-card" style="max-width:360px;">
@@ -1361,6 +2378,6 @@
   </div>
 </div>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>

@@ -52,6 +52,43 @@ const i18n = {
     tn_fee_free: '무료',
     tn_empty: '등록된 토너먼트가 없습니다',
     tn_history_empty: '완료된 토너먼트가 없습니다',
+    td_tab_info: '자세히',
+    td_tab_players: '플레이어',
+    td_tab_blinds: '블라인드',
+    td_tab_payout: '지급',
+    td_blinds: '블라인드',
+    td_next: '다음',
+    td_players_info: '플레이어',
+    td_unique_reentry: '유니크 | 리엔트리',
+    td_start_time: '시작 시간',
+    td_start_chips: '시작 칩',
+    td_late_reg: '추가 등록',
+    td_buyin: '바이인',
+    td_table_type: '테이블 종류',
+    td_rebuy: '리바이인',
+    td_timebank: '타임 뱅크',
+    td_extra_time: '추가 시간',
+    td_action_time: '액션 타임',
+    td_cancel_reg: '등록 취소',
+    td_blind_interval: '블라인드 간격',
+    td_allowed: '허용',
+    td_not_allowed: '불가',
+    td_players_label: '참가자',
+    td_no_players: '아직 참가자가 없습니다',
+    td_sec: '초',
+    td_hands: '핸드 수',
+    td_late_reg_suffix: '레벨 이전',
+    td_table_size_suffix: '인',
+    td_register: '등록',
+    td_spectate: '관전하기',
+    td_spectate_msg: '관전 모드 준비 중입니다',
+    td_full: '정원이 가득 찼습니다',
+    td_reg_title: '등록하기',
+    tdr_payment_option: '결제 옵션',
+    tdr_balance: '밸런스',
+    tdr_registered: '등록이 완료되었습니다',
+    td_sit_down: '착석하기',
+    td_game_start: '게임 시작',
     game_custom: '사용자 게임',
     game_custom_desc: '나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.',
     game_custom_players: '856개 방 운영 중',
@@ -319,10 +356,25 @@ const i18n = {
     gs_create_game: '게임 생성',
 
     // 푸터
+    footer_company: '회사정보',
     footer_terms: '이용약관',
     footer_privacy: '개인정보처리방침',
-    footer_support: '고객센터',
+    footer_youth: '청소년보호정책',
+    footer_rating: '심의정보',
+    footer_support: '자주묻는질문',
     footer_contact: '문의하기',
+    contact_desc: '궁금한 점이나 불편한 사항을 보내주세요.',
+    contact_email: '이메일',
+    contact_email_ph: '이메일을 입력하세요',
+    contact_subject: '제목',
+    contact_subject_ph: '제목을 입력하세요',
+    contact_message: '내용',
+    contact_message_ph: '내용을 입력하세요',
+    contact_submit: '보내기',
+    contact_success: '문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.',
+    contact_valid_email: '올바른 이메일 주소를 입력하세요.',
+    contact_valid_subject: '제목을 입력하세요.',
+    contact_valid_message: '내용을 입력하세요.',
   },
 
   en: {
@@ -377,6 +429,43 @@ const i18n = {
     tn_fee_free: 'Free',
     tn_empty: 'No registered tournaments',
     tn_history_empty: 'No completed tournaments',
+    td_tab_info: 'Details',
+    td_tab_players: 'Players',
+    td_tab_blinds: 'Blinds',
+    td_tab_payout: 'Payout',
+    td_blinds: 'Blinds',
+    td_next: 'Next',
+    td_players_info: 'Players',
+    td_unique_reentry: 'Unique | Re-entry',
+    td_start_time: 'Start Time',
+    td_start_chips: 'Starting Chips',
+    td_late_reg: 'Late Registration',
+    td_buyin: 'Buy-in',
+    td_table_type: 'Table Type',
+    td_rebuy: 'Re-buy',
+    td_timebank: 'Time Bank',
+    td_extra_time: 'Extra Time',
+    td_action_time: 'Action Time',
+    td_cancel_reg: 'Cancel Registration',
+    td_blind_interval: 'Blind Interval',
+    td_allowed: 'Allowed',
+    td_not_allowed: 'Not Allowed',
+    td_players_label: 'Players',
+    td_no_players: 'No players yet',
+    td_sec: 'sec',
+    td_hands: 'hands',
+    td_late_reg_suffix: ' levels before',
+    td_table_size_suffix: ' players',
+    td_register: 'Register',
+    td_spectate: 'Spectate',
+    td_spectate_msg: 'Spectate mode coming soon',
+    td_full: 'Tournament is full',
+    td_reg_title: 'Register',
+    tdr_payment_option: 'Payment',
+    tdr_balance: 'Balance',
+    tdr_registered: 'Registration complete',
+    td_sit_down: 'Sit Down',
+    td_game_start: 'Game Start',
     game_custom: 'Custom Game',
     game_custom_desc: 'Create rooms with your own rules and invite friends.',
     game_custom_players: '856 rooms active',
@@ -644,10 +733,25 @@ const i18n = {
     gs_create_game: 'Create Game',
 
     // Footer
+    footer_company: 'Company Info',
     footer_terms: 'Terms of Service',
     footer_privacy: 'Privacy Policy',
-    footer_support: 'Support',
+    footer_youth: 'Youth Protection Policy',
+    footer_rating: 'Rating Information',
+    footer_support: 'FAQ',
     footer_contact: 'Contact Us',
+    contact_desc: 'Send us your questions or concerns.',
+    contact_email: 'Email',
+    contact_email_ph: 'Enter your email',
+    contact_subject: 'Subject',
+    contact_subject_ph: 'Enter subject',
+    contact_message: 'Message',
+    contact_message_ph: 'Enter your message',
+    contact_submit: 'Send',
+    contact_success: 'Your inquiry has been submitted successfully. We will respond as soon as possible.',
+    contact_valid_email: 'Please enter a valid email address.',
+    contact_valid_subject: 'Please enter a subject.',
+    contact_valid_message: 'Please enter a message.',
   },
 
   ja: {
@@ -702,6 +806,43 @@ const i18n = {
     tn_fee_free: '無料',
     tn_empty: '登録済みのトーナメントはありません',
     tn_history_empty: '完了したトーナメントはありません',
+    td_tab_info: '詳細',
+    td_tab_players: 'プレイヤー',
+    td_tab_blinds: 'ブラインド',
+    td_tab_payout: '配当',
+    td_blinds: 'ブラインド',
+    td_next: '次',
+    td_players_info: 'プレイヤー',
+    td_unique_reentry: 'ユニーク | リエントリー',
+    td_start_time: '開始時間',
+    td_start_chips: '開始チップ',
+    td_late_reg: '追加登録',
+    td_buyin: 'バイイン',
+    td_table_type: 'テーブル種類',
+    td_rebuy: 'リバイイン',
+    td_timebank: 'タイムバンク',
+    td_extra_time: '追加時間',
+    td_action_time: 'アクションタイム',
+    td_cancel_reg: '登録キャンセル',
+    td_blind_interval: 'ブラインド間隔',
+    td_allowed: '許可',
+    td_not_allowed: '不可',
+    td_players_label: '参加者',
+    td_no_players: 'まだ参加者がいません',
+    td_sec: '秒',
+    td_hands: 'ハンド数',
+    td_late_reg_suffix: 'レベル前',
+    td_table_size_suffix: '人',
+    td_register: '登録',
+    td_spectate: '観戦する',
+    td_spectate_msg: '観戦モード準備中です',
+    td_full: '定員に達しました',
+    td_reg_title: '登録する',
+    tdr_payment_option: '決済オプション',
+    tdr_balance: 'バランス',
+    tdr_registered: '登録が完了しました',
+    td_sit_down: '着席する',
+    td_game_start: 'ゲーム開始',
     game_custom: 'カスタムゲーム',
     game_custom_desc: '自分だけのルールで部屋を作り、友達を招待して楽しもう。',
     game_custom_players: '856部屋が稼働中',
@@ -969,10 +1110,25 @@ const i18n = {
     gs_create_game: 'ゲーム作成',
 
     // フッター
+    footer_company: '会社情報',
     footer_terms: '利用規約',
     footer_privacy: 'プライバシーポリシー',
-    footer_support: 'サポート',
+    footer_youth: '青少年保護方針',
+    footer_rating: '審査情報',
+    footer_support: 'よくある質問',
     footer_contact: 'お問い合わせ',
+    contact_desc: 'ご質問やご不便な点をお送りください。',
+    contact_email: 'メールアドレス',
+    contact_email_ph: 'メールアドレスを入力してください',
+    contact_subject: '件名',
+    contact_subject_ph: '件名を入力してください',
+    contact_message: '内容',
+    contact_message_ph: '内容を入力してください',
+    contact_submit: '送信',
+    contact_success: 'お問い合わせが正常に送信されました。できるだけ早くご回答いたします。',
+    contact_valid_email: '正しいメールアドレスを入力してください。',
+    contact_valid_subject: '件名を入力してください。',
+    contact_valid_message: '内容を入力してください。',
   }
 };
 
@@ -1034,6 +1190,7 @@ function switchPage(p) {
   if (p === 'host') { hostRenderList(); }
   if (p === 'transaction') { txRenderList(); }
   if (p === 'myitems') { miRenderList(); }
+  if (p === 'tn-detail') { tdRenderDetail(); }
 }
 
 // === 인증 시스템 ===
@@ -1451,13 +1608,13 @@ document.getElementById('dtpModal').addEventListener('click', function(e) {
 
 // === TOURNAMENT ===
 const demoTournaments = [
-  { id:1,  name:'POKER LULU Weekly Championship', status:'registering', startType:'manual', fee:'free', players:3, maxPlayers:10, prize:'500,000G', registered:true },
-  { id:2,  name:'Friday Night Holdem', status:'registering', startType:'manual', fee:'free', players:1, maxPlayers:6, prize:'-', registered:false },
-  { id:3,  name:'POKER LULU User Custom Game', status:'registering', startType:'manual', fee:'free', players:0, maxPlayers:8, prize:'-', registered:false },
-  { id:4,  name:'High Roller Tournament', status:'ongoing', startType:'2025-02-24 20:00', fee:'10,000G', players:8, maxPlayers:10, prize:'1,000,000G', registered:true },
-  { id:5,  name:'Beginner Friendly Open', status:'registering', startType:'manual', fee:'free', players:5, maxPlayers:12, prize:'100,000G', registered:false },
-  { id:6,  name:'POKER LULU Daily Freeroll', status:'registering', startType:'2025-02-25 12:00', fee:'free', players:12, maxPlayers:50, prize:'200,000G', registered:true },
-  { id:7,  name:'VIP Invitational', status:'ongoing', startType:'2025-02-24 19:00', fee:'50,000G', players:6, maxPlayers:6, prize:'5,000,000G', registered:false },
+  { id:1,  name:'POKER LULU Weekly Championship', status:'registering', startType:'manual', fee:'free', players:3, maxPlayers:10, prize:'500,000G', registered:true, details:{ blindLevel:1, unique:3, reentry:0, startChips:'10000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'불가', lateRegLevel:8, blindMin:10, breakMin:5 } },
+  { id:2,  name:'Friday Night Holdem', status:'registering', startType:'manual', fee:'free', players:1, maxPlayers:6, prize:'-', registered:false, details:{ blindLevel:1, unique:1, reentry:0, startChips:'5000', tableSize:6, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:6, blindMin:8, breakMin:4 } },
+  { id:3,  name:'POKER LULU User Custom Game', status:'registering', startType:'manual', fee:'free', players:0, maxPlayers:8, prize:'-', registered:false, details:{ blindLevel:1, unique:0, reentry:0, startChips:'10000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
+  { id:4,  name:'High Roller Tournament', status:'ongoing', startType:'2025-02-24 20:00', fee:'10,000G', players:8, maxPlayers:10, prize:'1,000,000G', registered:true, details:{ blindLevel:5, unique:8, reentry:2, startChips:'50000', tableSize:9, rebuyCount:3, timebankSec:30, extraTimeSec:10, extraTimeHands:15, actionTimeSec:20, anteRate:'0.2BB', anteType:'All', cancelReg:'불가', lateRegLevel:5, blindMin:12, breakMin:5 } },
+  { id:5,  name:'Beginner Friendly Open', status:'registering', startType:'manual', fee:'free', players:5, maxPlayers:12, prize:'100,000G', registered:false, details:{ blindLevel:1, unique:5, reentry:0, startChips:'8000', tableSize:9, rebuyCount:0, timebankSec:15, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
+  { id:6,  name:'POKER LULU Daily Freeroll', status:'registering', startType:'2025-02-25 12:00', fee:'free', players:12, maxPlayers:50, prize:'200,000G', registered:true, details:{ blindLevel:1, unique:12, reentry:0, startChips:'10000', tableSize:9, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'불가', lateRegLevel:10, blindMin:10, breakMin:5 } },
+  { id:7,  name:'VIP Invitational', status:'ongoing', startType:'2025-02-24 19:00', fee:'50,000G', players:6, maxPlayers:6, prize:'5,000,000G', registered:false, details:{ blindLevel:7, unique:6, reentry:3, startChips:'100000', tableSize:6, rebuyCount:5, timebankSec:60, extraTimeSec:15, extraTimeHands:20, actionTimeSec:25, anteRate:'0.5BB', anteType:'All', cancelReg:'불가', lateRegLevel:4, blindMin:15, breakMin:5 } },
   { id:8,  name:'POKER LULU User Custom Game', status:'registering', startType:'manual', fee:'free', players:2, maxPlayers:6, prize:'-', registered:false },
   { id:9,  name:'Sunday Special MTT', status:'finished', startType:'2025-02-23 18:00', fee:'5,000G', players:20, maxPlayers:20, prize:'2,000,000G', registered:true },
   { id:10, name:'Turbo Knockout Bounty', status:'registering', startType:'2025-02-26 21:00', fee:'20,000G', players:0, maxPlayers:16, prize:'3,000,000G', registered:false },
@@ -1493,7 +1650,7 @@ function tnRenderList() {
     const s = statusMap[item.status] || statusMap.registering;
     const fee = item.fee === 'free' ? feeLabel : item.fee;
     const startVal = item.startType === 'manual' ? manualLabel : item.startType;
-    return `<div class="tn-card">
+    return `<div class="tn-card" onclick="openTnDetail(${item.id})">
       <div class="tn-card-left">
         <span class="tn-badge ${s.cls}">${s.label}</span>
         <span class="tn-starts-label">${startsLabel}</span>
@@ -1522,6 +1679,299 @@ function tnRenderList() {
   document.getElementById('tnMyList').innerHTML = myHtml;
 }
 
+// === TOURNAMENT DETAIL PAGE ===
+
+let currentTnDetailId = null;
+
+function openTnDetail(tournamentId) {
+  currentTnDetailId = tournamentId;
+  switchPage('tn-detail');
+}
+
+function tdRenderDetail() {
+  const t = i18n[currentLang] || i18n.ko;
+  const item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
+  if (!item) return;
+
+  // 헤더
+  document.getElementById('tdTournamentName').textContent = item.name;
+  var statusMap = {
+    registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
+    ongoing: { label: t.tn_status_ongoing || '진행중', cls: 'ongoing' },
+    finished: { label: t.tn_status_finished || '종료', cls: 'finished' },
+  };
+  var s = statusMap[item.status] || statusMap.registering;
+  var badge = document.getElementById('tdStatusBadge');
+  badge.textContent = s.label;
+  badge.className = 'tn-badge ' + s.cls;
+
+  // 자세히 탭 - 상단 현황
+  var details = item.details || {};
+  var blindLv = details.blindLevel || 1;
+  var bl = defaultBlindLevels[blindLv - 1] || defaultBlindLevels[0];
+  var nextLv = blindLv + 1;
+  var nextBl = defaultBlindLevels[blindLv] || defaultBlindLevels[defaultBlindLevels.length - 1];
+  document.getElementById('tdBlinds').textContent = 'Lv.' + blindLv + ' ' + bl.sb.toLocaleString() + '/' + bl.bb.toLocaleString() + '(' + bl.ante + ')' + '[-]';
+  document.getElementById('tdNext').textContent = 'Lv.' + nextLv + ' ' + nextBl.sb.toLocaleString() + '/' + nextBl.bb.toLocaleString() + '(' + nextBl.ante + ')';
+  document.getElementById('tdPlayersInfo').textContent = item.players + ' / ' + item.maxPlayers;
+  document.getElementById('tdUniqueReentry').textContent = (details.unique || item.players) + ' | ' + (details.reentry || 0);
+
+  // 자세히 탭 - 하단 설정
+  var feeLabel = item.fee === 'free' ? (t.tn_fee_free || '무료') : item.fee;
+  document.getElementById('tdBuyin').textContent = feeLabel;
+  var startVal = item.startType === 'manual' ? (t.tn_manual_start || '호스트 수동시작') : item.startType;
+  document.getElementById('tdStartTime').textContent = startVal;
+  var startChipsNum = parseInt(String(details.startChips || '10000').replace(/,/g, ''));
+  var bbCount = Math.round(startChipsNum / bl.bb);
+  document.getElementById('tdStartChips').textContent = (startChipsNum >= 10000 ? (startChipsNum / 10000) + '만' : startChipsNum.toLocaleString()) + ' (' + bbCount + 'BB)';
+  document.getElementById('tdLateReg').textContent = (details.lateRegLevel || 8) + (t.td_late_reg_suffix || '레벨 이전');
+  document.getElementById('tdTableType').textContent = (details.tableSize || item.maxPlayers) + (t.td_table_size_suffix || '인');
+  document.getElementById('tdRebuy').textContent = String(details.rebuyCount != null ? details.rebuyCount : 0);
+  document.getElementById('tdTimebank').textContent = (details.timebankSec || 10) + ' ' + (t.td_sec || '초');
+  document.getElementById('tdExtraTime').textContent = (details.extraTimeSec || 5) + ' ' + (t.td_sec || '초') + ' / ' + (details.extraTimeHands || 10) + ' ' + (t.td_hands || '핸드 수');
+  document.getElementById('tdActionTime').textContent = (details.actionTimeSec || 15) + ' ' + (t.td_sec || '초');
+  document.getElementById('tdAnte').textContent = (details.anteRate || '0.1BB') + ' / ' + (details.anteType || 'All');
+  document.getElementById('tdCancelReg').textContent = details.cancelReg || (t.td_not_allowed || '불가');
+  document.getElementById('tdBlindInterval').textContent = (details.blindMin || 10) + ' / ' + (details.breakMin || 5);
+
+  // 플레이어 탭
+  var playersText = (t.td_players_label || '참가자') + ' ' + item.players + '/' + item.maxPlayers;
+  document.getElementById('tdPlayersCount').textContent = playersText;
+  tdRenderPlayerList(item);
+
+  // 블라인드 탭
+  tdRenderBlindTable();
+
+  // 지급 탭
+  tdRenderPayoutTable(item);
+
+  // 하단 버튼
+  tdUpdateButtons(item);
+
+  // 첫 번째 탭으로 리셋
+  switchTnDetailTab('info');
+}
+
+function switchTnDetailTab(tab) {
+  document.querySelectorAll('.td-tab').forEach(function(e) { e.classList.remove('active'); });
+  document.querySelectorAll('.td-tab-content').forEach(function(e) { e.classList.remove('active'); });
+  document.querySelector('.td-tab[data-td-tab="' + tab + '"]').classList.add('active');
+  document.getElementById('td-' + tab).classList.add('active');
+}
+
+function tdRenderPlayerList(item) {
+  var t = i18n[currentLang] || i18n.ko;
+  var playerNames = ['Player_Kim', 'LuckyAce77', 'PokerKing', 'BluffMaster', 'RoyalFlush',
+    'CardShark99', 'AllInHero', 'ChipLeader', 'NightOwl', 'HighRoller_J', 'ProPlayer_X', 'SmartBet'];
+  var demoPlayers = [];
+  for (var i = 0; i < item.players; i++) {
+    demoPlayers.push({
+      name: playerNames[i % playerNames.length],
+      level: Math.floor(Math.random() * 20) + 5,
+      chips: (Math.floor(Math.random() * 50) + 10) * 1000,
+    });
+  }
+
+  var list = document.getElementById('tdPlayerList');
+  if (demoPlayers.length === 0) {
+    list.innerHTML = '<div class="tn-empty">' + (t.td_no_players || '아직 참가자가 없습니다') + '</div>';
+    return;
+  }
+
+  list.innerHTML = demoPlayers.map(function(p, idx) {
+    return '<div class="td-player-item">' +
+      '<div class="td-player-rank">' + (idx + 1) + '</div>' +
+      '<div class="td-player-avatar">👤</div>' +
+      '<div class="td-player-info">' +
+        '<div class="td-player-name">' + p.name + '</div>' +
+        '<div class="td-player-level">Lv.' + p.level + '</div>' +
+      '</div>' +
+      '<div class="td-player-chips">' + p.chips.toLocaleString() + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function tdRenderBlindTable() {
+  var tbody = document.getElementById('tdBlindTableBody');
+  tbody.innerHTML = defaultBlindLevels.map(function(row) {
+    return '<tr>' +
+      '<td>' + row.lv + '</td>' +
+      '<td>' + row.sb.toLocaleString() + ' / ' + row.bb.toLocaleString() + '</td>' +
+      '<td>' + row.ante.toLocaleString() + '</td>' +
+      '<td>' + row.time + 'min</td>' +
+    '</tr>';
+  }).join('');
+}
+
+function tdRenderPayoutTable(item) {
+  var t = i18n[currentLang] || i18n.ko;
+
+  document.getElementById('tdPayoutTotal').innerHTML =
+    '<span class="td-payout-total-label">' + (t.td_total_prize || '총 상금') + '</span>' +
+    '<span class="td-payout-total-value">' + item.prize + '</span>';
+
+  var payouts = [
+    { rank: '1st', percent: 50 },
+    { rank: '2nd', percent: 30 },
+    { rank: '3rd', percent: 20 },
+  ];
+
+  var prizeNum = parseInt(item.prize.replace(/[^0-9]/g, '')) || 0;
+  var tbody = document.getElementById('tdPayoutTableBody');
+  tbody.innerHTML = payouts.map(function(p) {
+    return '<tr>' +
+      '<td class="td-rank-cell">' + p.rank + '</td>' +
+      '<td class="td-amount-cell">' + (prizeNum * p.percent / 100).toLocaleString() + 'G</td>' +
+      '<td class="td-percent-cell">' + p.percent + '%</td>' +
+    '</tr>';
+  }).join('');
+}
+
+function tdUpdateButtons(item) {
+  var registerBtn = document.getElementById('tdRegisterBtn');
+  var spectateBtn = document.getElementById('tdSpectateBtn');
+  var t = i18n[currentLang] || i18n.ko;
+
+  if (item.status === 'finished') {
+    registerBtn.style.display = 'none';
+    spectateBtn.style.display = '';
+    return;
+  }
+
+  registerBtn.style.display = '';
+  spectateBtn.style.display = '';
+
+  if (item.registered) {
+    registerBtn.textContent = t.td_sit_down || '착석하기';
+  } else {
+    registerBtn.textContent = t.td_register || '등록';
+  }
+}
+
+function tdRegister() {
+  var item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
+  if (!item || item.status === 'finished') return;
+
+  var session = getSession();
+  var t = i18n[currentLang] || i18n.ko;
+  if (!session) { alert(t.sp_login_required || '로그인이 필요합니다'); switchPage('login'); return; }
+
+  if (item.registered) {
+    alert(t.td_game_start || '게임 시작');
+    return;
+  }
+
+  if (item.players >= item.maxPlayers) { alert(t.td_full || '정원이 가득 찼습니다'); return; }
+
+  openTdRegisterModal(item);
+}
+
+function openTdRegisterModal(item) {
+  var t = i18n[currentLang] || i18n.ko;
+
+  // 배지: 상태
+  var statusText = t['tn_status_' + item.status] || item.status;
+  document.getElementById('tdrBadge').textContent = '00:00 ' + statusText;
+
+  // 토너먼트명
+  document.getElementById('tdrName').textContent = item.name;
+
+  // 시작 시간
+  var startVal = item.startType === 'manual' ? (t.tn_manual_start || '호스트 수동시작') : item.startType;
+  document.getElementById('tdrStartTime').textContent = startVal;
+
+  // 결제 옵션
+  document.getElementById('tdrPaymentOption').textContent = t.tdr_balance || '밸런스';
+
+  // 바이인
+  var feeLabel = item.fee === 'free' ? (t.tn_fee_free || '무료') : item.fee;
+  document.getElementById('tdrFee').textContent = feeLabel;
+
+  var scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('tdRegisterModal').classList.add('active');
+}
+
+// === FAQ 아코디언 / 탭 / 검색 ===
+var currentFaqTab = 'all';
+
+function toggleFaq(el) {
+  var item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+function switchFaqTab(tab) {
+  currentFaqTab = tab;
+  document.querySelectorAll('.faq-tab').forEach(function(e) { e.classList.remove('active'); });
+  document.querySelector('.faq-tab[data-faq-tab="' + tab + '"]').classList.add('active');
+  document.getElementById('faqSearchInput').value = '';
+  faqFilter();
+}
+
+function faqSearch() {
+  faqFilter();
+}
+
+function faqFilter() {
+  var query = (document.getElementById('faqSearchInput').value || '').toLowerCase().trim();
+  var items = document.querySelectorAll('#faqContent .faq-item');
+  var visibleCount = 0;
+  items.forEach(function(item) {
+    var cat = item.getAttribute('data-faq-cat');
+    var text = item.textContent.toLowerCase();
+    var catMatch = (currentFaqTab === 'all') || (cat === currentFaqTab);
+    var searchMatch = !query || text.indexOf(query) !== -1;
+    if (catMatch && searchMatch) {
+      item.classList.remove('faq-hidden');
+      visibleCount++;
+    } else {
+      item.classList.add('faq-hidden');
+      item.classList.remove('open');
+    }
+  });
+  document.getElementById('faqEmpty').style.display = visibleCount === 0 ? '' : 'none';
+}
+
+/* Contact Form */
+function submitContact() {
+  var lang = i18n[currentLang] || i18n.ko;
+  var email = document.getElementById('contactEmail').value.trim();
+  var subject = document.getElementById('contactSubject').value.trim();
+  var message = document.getElementById('contactMessage').value.trim();
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) { alert(lang.contact_valid_email); return; }
+  if (!subject) { alert(lang.contact_valid_subject); return; }
+  if (!message) { alert(lang.contact_valid_message); return; }
+  document.getElementById('contactEmail').value = '';
+  document.getElementById('contactSubject').value = '';
+  document.getElementById('contactMessage').value = '';
+  document.getElementById('contactSuccess').style.display = '';
+  document.querySelector('.contact-form .login-btn').style.display = 'none';
+  document.querySelectorAll('.contact-field').forEach(function(f) { f.style.display = 'none'; });
+}
+
+function closeTdRegisterModal() {
+  document.getElementById('tdRegisterModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function confirmTdRegister() {
+  var item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
+  if (!item) return;
+
+  item.registered = true;
+  item.players++;
+  closeTdRegisterModal();
+  tdRenderDetail();
+}
+
+function tdSpectate() {
+  var t = i18n[currentLang] || i18n.ko;
+  alert(t.td_spectate_msg || '관전 모드 준비 중입니다');
+}
+
 // === TOURNAMENT HISTORY PAGE ===
 
 function tnRenderHistory() {
@@ -1539,7 +1989,7 @@ function tnRenderHistory() {
     const s = statusMap[item.status] || { label: '종료', cls: 'finished' };
     const fee = item.fee === 'free' ? feeLabel : item.fee;
     const startVal = item.startType === 'manual' ? manualLabel : item.startType;
-    return `<div class="tn-card">
+    return `<div class="tn-card" onclick="openTnDetail(${item.id})">
       <div class="tn-card-left">
         <span class="tn-badge ${s.cls}">${s.label}</span>
         <span class="tn-starts-label">${startsLabel}</span>
@@ -2085,7 +2535,7 @@ function hostRenderList(keyword) {
     const s = statusMap[item.status] || statusMap.registering;
     const fee = item.fee === 'free' ? feeLabel : item.fee;
     const startVal = item.startType === 'manual' ? manualLabel : item.startType;
-    return '<div class="tn-card">' +
+    return '<div class="tn-card" onclick="openTnDetail(' + item.id + ')">' +
       '<div class="tn-card-left">' +
         '<span class="tn-badge ' + s.cls + '">' + s.label + '</span>' +
         '<span class="tn-starts-label">' + startsLabel + '</span>' +
@@ -2425,6 +2875,7 @@ function confirmPackagePayment() {
 
 document.getElementById('purchaseModal').addEventListener('click', function(e) { if (e.target === this) closePurchaseModal(); });
 document.getElementById('packagePayModal').addEventListener('click', function(e) { if (e.target === this) closePackagePayModal(); });
+document.getElementById('tdRegisterModal').addEventListener('click', function(e) { if (e.target === this) closeTdRegisterModal(); });
 
 document.querySelectorAll('#shop-items .shop-item').forEach(function(el) {
   el.addEventListener('click', function() {
