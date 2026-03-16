@@ -2571,13 +2571,14 @@ var demoMails = [
 ];
 
 function updateAvatarReddot() {
-  if (typeof demoMails === 'undefined') return;
+  if (typeof demoMails === 'undefined' || !demoMails) return;
   var unread = demoMails.some(function(m) { return !m.read; });
   var pcDot = document.getElementById('navAvatarDot');
   var mDot = document.getElementById('mNavAvatarDot');
   if (pcDot) pcDot.style.display = unread ? '' : 'none';
   if (mDot) mDot.style.display = unread ? '' : 'none';
 }
+updateAvatarReddot();
 
 function mbRenderList() {
   const t = i18n[currentLang] || i18n.ko;

@@ -1221,7 +1221,7 @@ body.light-mode .theme-icon-moon { display:none; }
     z-index:101;
   }
   .m-statusbar-time {
-    font-size:15px;
+    font-size:14px;
     font-weight:600;
     color:#fff;
     letter-spacing:0.3px;
