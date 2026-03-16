@@ -1355,8 +1355,8 @@ body.light-mode .theme-icon-moon { display:none; }
   .content-wrapper { padding:16px 16px 0; }
 
   /* --- Banner mobile --- */
-  .hero-section { padding-top:0; margin-bottom:20px; }
-  .banner-carousel { height:180px; border-radius:16px; }
+  .hero-section { padding-top:0; margin-bottom:20px; margin-left:-16px; margin-right:-16px; margin-top:-16px; }
+  .banner-carousel { height:180px; border-radius:0; }
   .banner-content { padding:16px; gap:8px; }
   .banner-badge { padding:4px 12px; font-size:10px; }
   .banner-title { font-size:22px; letter-spacing:-0.5px; }
