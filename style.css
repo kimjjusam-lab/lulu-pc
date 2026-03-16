@@ -1314,9 +1314,10 @@ body.light-mode .theme-icon-moon { display:none; }
     align-items:flex-start;
     padding-top:8px;
     justify-content:space-around;
-    background:rgba(13,13,24,0.97);
-    backdrop-filter:blur(20px);
-    border-top:1px solid var(--border-color);
+    background:rgba(13,13,24,0.65);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    border-top:1px solid rgba(255,255,255,0.08);
     padding-bottom:env(safe-area-inset-bottom, 0);
   }
   .m-tab {
@@ -1476,7 +1477,7 @@ body.light-mode .theme-icon-moon { display:none; }
   body.light-mode .m-battery-tip { background:#1a1a2e; }
   body.light-mode .m-nav { background:rgba(255,255,255,0.95); }
   body.light-mode .m-nav .logo-text { fill:#1a1a2e; }
-  body.light-mode .m-tabbar { background:rgba(255,255,255,0.97); }
+  body.light-mode .m-tabbar { background:rgba(255,255,255,0.65); border-top-color:rgba(0,0,0,0.06); }
   body.light-mode .m-nav-coins { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.15); }
 
   /* --- Safe area --- */
