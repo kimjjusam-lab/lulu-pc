@@ -1237,6 +1237,20 @@ function mSyncNavCoins() {
   if (diaEl && mDia) mDia.textContent = diaEl.textContent;
 }
 
+// === 모바일 상태바 시계 ===
+(function() {
+  function updateStatusTime() {
+    var el = document.getElementById('mStatusTime');
+    if (!el) return;
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    el.textContent = h + ':' + (m < 10 ? '0' : '') + m;
+  }
+  updateStatusTime();
+  setInterval(updateStatusTime, 30000);
+})();
+
 // === 인증 시스템 ===
 function getUsers() {
   return JSON.parse(localStorage.getItem('lulu_users') || '[]');
@@ -1466,21 +1480,32 @@ function handleLogout() {
 function updateAuthUI() {
   const session = getSession();
   const loginBtn = document.getElementById('navLoginBtn');
-  const logoutBtn = document.getElementById('navLogoutBtn');
   const goldEl = document.getElementById('navGold');
   const diamondEl = document.getElementById('navDiamond');
+  var pcAvatar = document.getElementById('navAvatar');
+  var pcAvatarImg = document.getElementById('navAvatarImg');
+  var mAvatar = document.getElementById('mNavAvatar');
+  var mLoginBtn = document.getElementById('mNavLoginBtn');
+  var mAvatarImg = document.getElementById('mNavAvatarImg');
   if (session) {
     if (loginBtn) loginBtn.style.display = 'none';
-    if (logoutBtn) logoutBtn.style.display = '';
     if (goldEl) goldEl.textContent = session.gold || '1,250억';
     if (diamondEl) diamondEl.textContent = session.diamond || '300';
+    if (pcAvatar) pcAvatar.style.display = '';
+    if (pcAvatarImg && session.avatar) pcAvatarImg.src = 'images/' + session.avatar;
+    if (mAvatar) mAvatar.style.display = '';
+    if (mLoginBtn) mLoginBtn.style.display = 'none';
+    if (mAvatarImg && session.avatar) mAvatarImg.src = 'images/' + session.avatar;
   } else {
     if (loginBtn) loginBtn.style.display = '';
-    if (logoutBtn) logoutBtn.style.display = 'none';
     if (goldEl) goldEl.textContent = '0';
     if (diamondEl) diamondEl.textContent = '0';
+    if (pcAvatar) pcAvatar.style.display = 'none';
+    if (mAvatar) mAvatar.style.display = 'none';
+    if (mLoginBtn) mLoginBtn.style.display = '';
   }
   mSyncNavCoins();
+  updateAvatarReddot();
 }
 
 function updateMyPage() {
@@ -2535,7 +2560,7 @@ function aeChangePw() {
 }
 
 /* ── Mailbox ── */
-const demoMails = [
+var demoMails = [
   { id:1, title:'컴포즈 기프티콘 당첨', reward:'🎁', expireHours: 17*24, read:false },
   { id:2, title:'주간 출석 보상', reward:'🪙', expireHours: 9, read:true },
   { id:3, title:'토너먼트 입상 보상', reward:'🏆', expireHours: 3*24, read:false },
@@ -2544,6 +2569,15 @@ const demoMails = [
   { id:6, title:'친구 초대 리워드', reward:'🎫', expireHours: 12*24, read:true },
   { id:7, title:'시즌 종료 보상', reward:'👑', expireHours: 2, read:false },
 ];
+
+function updateAvatarReddot() {
+  if (typeof demoMails === 'undefined') return;
+  var unread = demoMails.some(function(m) { return !m.read; });
+  var pcDot = document.getElementById('navAvatarDot');
+  var mDot = document.getElementById('mNavAvatarDot');
+  if (pcDot) pcDot.style.display = unread ? '' : 'none';
+  if (mDot) mDot.style.display = unread ? '' : 'none';
+}
 
 function mbRenderList() {
   const t = i18n[currentLang] || i18n.ko;

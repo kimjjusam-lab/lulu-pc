@@ -38,6 +38,10 @@ body {
 .nav-link:hover { color:var(--text-primary); background:rgba(249,98,23,0.06); }
 .nav-link.active { color:var(--accent-orange); background:rgba(249,98,23,0.12); font-weight:700; }
 .nav-right { display:flex; align-items:center; gap:12px; }
+.nav-avatar { width:34px; height:34px; border-radius:50%; cursor:pointer; border:2px solid rgba(249,98,23,0.4); flex-shrink:0; position:relative; }
+.nav-avatar img { border-radius:50%; }
+.nav-avatar img { width:100%; height:100%; object-fit:cover; }
+.avatar-reddot { position:absolute; top:0; right:0; width:8px; height:8px; background:#ef4444; border-radius:50%; border:1.5px solid var(--bg-nav); }
 .nav-coins { display:flex; align-items:center; gap:6px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); padding:6px 14px; border-radius:20px; font-size:13px; font-weight:700; color:var(--accent-gold); }
 .coin-icon { font-size:16px; }
 .content-wrapper { max-width:var(--content-width); margin:0 auto; padding:0 24px; }
@@ -416,7 +420,7 @@ body {
 .my-info p { font-size:13px; color:var(--text-muted); }
 .my-email { display:flex; align-items:center; gap:5px; font-size:13px; color:var(--text-secondary); }
 .my-email-icon { width:14px; height:14px; object-fit:contain; flex-shrink:0; }
-.my-menu { margin:24px 0 40px; }
+.my-menu { margin:24px 0; }
 .my-menu-item { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; margin-bottom:10px; cursor:pointer; transition:all 0.2s; }
 .my-menu-item:hover { border-color:rgba(249,98,23,0.3); background:var(--bg-card-hover); }
 .my-menu-left { display:flex; align-items:center; gap:14px; }
@@ -1189,6 +1193,7 @@ body.light-mode .theme-icon-moon { display:none; }
 /* ===================== */
 /* MOBILE: hidden by default */
 /* ===================== */
+.m-statusbar { display:none; }
 .m-nav { display:none; }
 .m-tabbar { display:none; }
 .m-game-grid { display:none; }
@@ -1202,11 +1207,64 @@ body.light-mode .theme-icon-moon { display:none; }
   .footer { display:none !important; }
   .game-modes { display:none !important; }
 
+  /* --- Mobile status bar --- */
+  .m-statusbar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 24px;
+    height:32px;
+    background:rgba(13,13,24,0.95);
+    backdrop-filter:blur(20px);
+    position:sticky;
+    top:0;
+    z-index:101;
+  }
+  .m-statusbar-time {
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    letter-spacing:0.3px;
+  }
+  .m-statusbar-right {
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .m-sb-signal { color:#fff; }
+  .m-sb-wifi { color:#fff; }
+  .m-statusbar-battery {
+    display:flex;
+    align-items:center;
+    gap:1.5px;
+    margin-left:1px;
+  }
+  .m-battery-body {
+    width:25px;
+    height:12px;
+    border:1.5px solid rgba(255,255,255,0.5);
+    border-radius:3px;
+    padding:2px;
+  }
+  .m-battery-level {
+    width:100%;
+    height:100%;
+    background:#fff;
+    border-radius:1px;
+  }
+  .m-battery-tip {
+    width:2.5px;
+    height:5px;
+    background:#fff;
+    border-radius:0 1.5px 1.5px 0;
+    opacity:0.5;
+  }
+
   /* --- Show mobile elements --- */
   .m-nav {
     display:flex;
     position:sticky;
-    top:0;
+    top:32px;
     z-index:100;
     height:52px;
     align-items:center;
@@ -1226,6 +1284,20 @@ body.light-mode .theme-icon-moon { display:none; }
   }
   .m-nav-coins.diamond { background:rgba(96,165,250,0.1); border-color:rgba(96,165,250,0.2); color:#60a5fa; }
   .m-coin-icon { font-size:13px; }
+  .m-nav-avatar {
+    width:30px; height:30px; border-radius:50%; position:relative;
+    border:2px solid rgba(249,98,23,0.4); cursor:pointer;
+    transition:all 0.2s; -webkit-tap-highlight-color:transparent; flex-shrink:0;
+  }
+  .m-nav-avatar img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+  .m-nav-avatar:active { transform:scale(0.9); }
+  .m-nav-login {
+    padding:5px 12px; border:none; border-radius:14px;
+    background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dark));
+    color:#fff; font-size:11px; font-weight:700; cursor:pointer;
+    white-space:nowrap; -webkit-tap-highlight-color:transparent; flex-shrink:0;
+  }
+  .m-nav-login:active { transform:scale(0.95); opacity:0.9; }
 
   /* --- Mobile tabbar --- */
   .m-tabbar {
@@ -1233,8 +1305,9 @@ body.light-mode .theme-icon-moon { display:none; }
     position:fixed;
     bottom:0; left:0; right:0;
     z-index:100;
-    height:60px;
-    align-items:center;
+    height:72px;
+    align-items:flex-start;
+    padding-top:8px;
     justify-content:space-around;
     background:rgba(13,13,24,0.97);
     backdrop-filter:blur(20px);
@@ -1252,8 +1325,26 @@ body.light-mode .theme-icon-moon { display:none; }
   .m-tab.active svg { stroke:var(--accent-orange); filter:drop-shadow(0 0 6px rgba(249,98,23,0.4)); }
   .m-tab:active { transform:scale(0.9); }
 
+  /* --- Home indicator bar --- */
+  .m-home-indicator {
+    position:absolute;
+    bottom:6px;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+  }
+  .m-home-bar {
+    width:134px;
+    height:5px;
+    border-radius:3px;
+    background:rgba(255,255,255,0.25);
+  }
+  body.light-mode .m-home-bar { background:rgba(0,0,0,0.2); }
+
   /* --- Body padding for fixed tabbar --- */
-  body { padding-bottom:60px; }
+  body { padding-bottom:72px; }
 
   /* --- Content wrapper mobile --- */
   .content-wrapper { padding:0 16px; }
@@ -1366,6 +1457,13 @@ body.light-mode .theme-icon-moon { display:none; }
   .gs-back { padding-top:16px; font-size:13px; }
 
   /* --- Light mode mobile nav --- */
+  body.light-mode .m-statusbar { background:rgba(255,255,255,0.95); }
+  body.light-mode .m-statusbar-time { color:#1a1a2e; }
+  body.light-mode .m-sb-signal { color:#1a1a2e; }
+  body.light-mode .m-sb-wifi { color:#1a1a2e; }
+  body.light-mode .m-battery-body { border-color:rgba(26,26,46,0.5); }
+  body.light-mode .m-battery-level { background:#1a1a2e; }
+  body.light-mode .m-battery-tip { background:#1a1a2e; }
   body.light-mode .m-nav { background:rgba(255,255,255,0.95); }
   body.light-mode .m-nav .logo-text { fill:#1a1a2e; }
   body.light-mode .m-tabbar { background:rgba(255,255,255,0.97); }
@@ -1374,7 +1472,7 @@ body.light-mode .theme-icon-moon { display:none; }
   /* --- Safe area --- */
   @supports (padding-top: env(safe-area-inset-top)) {
     .m-nav { padding-top:env(safe-area-inset-top); height:calc(52px + env(safe-area-inset-top)); }
-    .m-tabbar { height:calc(60px + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom); }
-    body { padding-bottom:calc(60px + env(safe-area-inset-bottom)); }
+    .m-tabbar { height:calc(72px + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom); }
+    body { padding-bottom:calc(72px + env(safe-area-inset-bottom)); }
   }
 }
