@@ -1269,9 +1269,9 @@ function mSyncNavTitle(page) {
     logo.style.display = '';
     title.style.display = 'none';
   }
-  // 로그인 페이지에서는 로그인 버튼 숨김
+  // 로그인 페이지이거나 로그인 상태면 로그인 버튼 숨김
   var loginBtn = document.getElementById('mNavLoginBtn');
-  if (loginBtn) loginBtn.style.display = (page === 'login') ? 'none' : '';
+  if (loginBtn) loginBtn.style.display = (page === 'login' || getSession()) ? 'none' : '';
 }
 
 // 모바일 네비 골드/다이아 동기화
@@ -1531,31 +1531,34 @@ function updateAuthUI() {
   const diamondEl = document.getElementById('navDiamond');
   var pcAvatar = document.getElementById('navAvatar');
   var pcAvatarImg = document.getElementById('navAvatarImg');
-  var mAvatar = document.getElementById('mNavAvatar');
   var mLoginBtn = document.getElementById('mNavLoginBtn');
-  var mAvatarImg = document.getElementById('mNavAvatarImg');
   var mGoldWrap = document.getElementById('mNavGoldWrap');
   var mDiaWrap = document.getElementById('mNavDiamondWrap');
+  var tabMyIcon = document.querySelector('.m-tab-my-icon');
+  var tabMyAvatar = document.getElementById('mTabMyAvatar');
   if (session) {
     if (loginBtn) loginBtn.style.display = 'none';
     if (goldEl) goldEl.textContent = session.gold || '1,250억';
     if (diamondEl) diamondEl.textContent = session.diamond || '300';
     if (pcAvatar) pcAvatar.style.display = '';
     if (pcAvatarImg && session.avatar) pcAvatarImg.src = 'images/' + session.avatar;
-    if (mAvatar) mAvatar.style.display = '';
     if (mLoginBtn) mLoginBtn.style.display = 'none';
-    if (mAvatarImg && session.avatar) mAvatarImg.src = 'images/' + session.avatar;
     if (mGoldWrap) mGoldWrap.style.display = '';
     if (mDiaWrap) mDiaWrap.style.display = '';
+    // 탭바 MY 아이콘을 아바타로 전환
+    if (tabMyIcon) tabMyIcon.style.display = 'none';
+    if (tabMyAvatar) { tabMyAvatar.style.display = ''; if (session.avatar) tabMyAvatar.src = 'images/' + session.avatar; }
   } else {
     if (loginBtn) loginBtn.style.display = '';
     if (goldEl) goldEl.textContent = '0';
     if (diamondEl) diamondEl.textContent = '0';
     if (pcAvatar) pcAvatar.style.display = 'none';
-    if (mAvatar) mAvatar.style.display = 'none';
     if (mLoginBtn) mLoginBtn.style.display = '';
     if (mGoldWrap) mGoldWrap.style.display = 'none';
     if (mDiaWrap) mDiaWrap.style.display = 'none';
+    // 탭바 MY 아이콘을 기본 사람 아이콘으로
+    if (tabMyIcon) tabMyIcon.style.display = '';
+    if (tabMyAvatar) tabMyAvatar.style.display = 'none';
   }
   mSyncNavCoins();
   updateAvatarReddot();
@@ -1692,7 +1695,7 @@ function toggleSlideMenu() {
   if (!isOpen) {
     var session = getSession();
     if (session) {
-      document.getElementById('slideMenuAvatarImg').src = document.getElementById('mNavAvatarImg').src;
+      document.getElementById('slideMenuAvatarImg').src = session.avatar ? 'images/' + session.avatar : 'images/avatar_o.png';
       document.getElementById('slideMenuName').textContent = session.nickname || session.id || 'Guest';
       document.getElementById('slideMenuId').textContent = 'ID: ' + (session.id || '-');
     }

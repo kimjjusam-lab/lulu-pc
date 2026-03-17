@@ -34,7 +34,7 @@
   <div class="m-nav-right">
     <div class="m-nav-coins" id="mNavGoldWrap" onclick="switchPage('shop')"><span class="m-coin-icon">🪙</span><span id="mNavGold">0</span></div>
     <div class="m-nav-coins diamond" id="mNavDiamondWrap" onclick="switchPage('shop')"><span class="m-coin-icon">💎</span><span id="mNavDiamond">0</span></div>
-    <div class="m-nav-avatar" id="mNavAvatar" onclick="toggleSlideMenu()"><img src="images/avatar_o.png" alt="MY" id="mNavAvatarImg"><span class="avatar-reddot" id="mNavAvatarDot" style="display:none;"></span></div>
+    <div class="m-nav-menu" id="mNavMenu" onclick="toggleSlideMenu()"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg><span class="avatar-reddot" id="mNavAvatarDot" style="display:none;"></span></div>
     <button class="m-nav-login" id="mNavLoginBtn" onclick="switchPage('login')">로그인</button>
   </div>
 </nav>
@@ -2246,7 +2246,8 @@
     <span>통계</span>
   </div>
   <div class="m-tab" data-tab="my" onclick="mTabSwitch(this,'my')">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5z"/></svg>
+    <svg class="m-tab-my-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5z"/></svg>
+    <img class="m-tab-my-avatar" id="mTabMyAvatar" src="images/avatar_o.png" alt="MY" style="display:none;">
     <span>MY 룰루</span>
   </div>
   <div class="m-home-indicator"><div class="m-home-bar"></div></div>
