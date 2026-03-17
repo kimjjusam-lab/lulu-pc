@@ -1578,6 +1578,11 @@ let autoTimer;
 
 const slides = document.querySelectorAll('.banner-slide');
 const dotsContainer = document.getElementById('bannerDots');
+const bannerTrack = document.getElementById('bannerTrack');
+
+function isMobile() {
+  return window.matchMedia('(max-width:768px)').matches;
+}
 
 for (let i = 0; i < TOTAL_SLIDES; i++) {
   const dot = document.createElement('div');
@@ -1594,6 +1599,9 @@ function goSlide(n) {
   currentSlide = ((n % TOTAL_SLIDES) + TOTAL_SLIDES) % TOTAL_SLIDES;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
+  if (isMobile()) {
+    bannerTrack.style.transform = 'translateX(-' + (currentSlide * 100 / TOTAL_SLIDES) + '%)';
+  }
   resetAutoPlay();
 }
 
@@ -1611,6 +1619,48 @@ function resetAutoPlay() {
 }
 
 resetAutoPlay();
+
+// === TOUCH SWIPE (mobile only) ===
+(function() {
+  let startX = 0, startTime = 0, dragging = false;
+  const carousel = document.getElementById('bannerCarousel');
+
+  carousel.addEventListener('touchstart', function(e) {
+    if (!isMobile()) return;
+    startX = e.touches[0].clientX;
+    startTime = Date.now();
+    dragging = true;
+    bannerTrack.classList.add('swiping');
+  }, { passive: true });
+
+  carousel.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    var dx = e.touches[0].clientX - startX;
+    var baseOffset = -(currentSlide * 100 / TOTAL_SLIDES);
+    var dragPercent = (dx / carousel.offsetWidth) * (100 / TOTAL_SLIDES);
+    bannerTrack.style.transform = 'translateX(' + (baseOffset + dragPercent) + '%)';
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    bannerTrack.classList.remove('swiping');
+    var dx = e.changedTouches[0].clientX - startX;
+    var dt = Date.now() - startTime;
+    var velocity = Math.abs(dx) / dt;
+    if (Math.abs(dx) > 50 || velocity > 0.3) {
+      if (dx < 0 && currentSlide < TOTAL_SLIDES - 1) {
+        nextSlide();
+      } else if (dx > 0 && currentSlide > 0) {
+        prevSlide();
+      } else {
+        goSlide(currentSlide);
+      }
+    } else {
+      goSlide(currentSlide);
+    }
+  });
+})();
 
 // === SHOP TABS ===
 function switchShopTab(tab) {
