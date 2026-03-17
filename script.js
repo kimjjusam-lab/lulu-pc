@@ -1234,14 +1234,14 @@ function mSyncNavTitle(page) {
   var logo = document.getElementById('mNavLogo');
   var title = document.getElementById('mNavTitle');
   if (!logo || !title) return;
-  var mainTabs = ['lobby', 'shop', 'analytics', 'my'];
+  var mainTabs = ['lobby', 'shop', 'analytics', 'my', 'login'];
   var titles = {
     shop: '상점', my: 'MY 룰루', analytics: '통계',
     mailbox: '우편함', myitems: '내 아이템',
     transaction: '거래 내역', host: '호스트',
     ticket: '티켓', tournament: '토너먼트',
     'tn-history': '히스토리', 'tn-detail': '토너먼트',
-    'game-setup': '사용자 게임',
+    'game-setup': '사용자 게임', login: '로그인',
     'account-edit': '회원정보 수정',
     terms: '이용약관', privacy: '개인정보처리방침',
     youth: '청소년 보호정책', rating: '게임등급분류',
