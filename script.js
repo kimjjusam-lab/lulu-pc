@@ -1241,7 +1241,7 @@ function mSyncNavTitle(page) {
     transaction: '거래 내역', host: '호스트',
     ticket: '티켓', tournament: '토너먼트',
     'tn-history': '히스토리', 'tn-detail': '토너먼트',
-    'game-setup': '사용자 게임', login: '로그인',
+    'game-setup': '사용자 게임',
     'account-edit': '회원정보 수정',
     terms: '이용약관', privacy: '개인정보처리방침',
     youth: '청소년 보호정책', rating: '게임등급분류',
@@ -1252,7 +1252,6 @@ function mSyncNavTitle(page) {
     host: 'my', ticket: 'my', 'account-edit': 'my',
     tournament: 'lobby', 'tn-history': 'my',
     'tn-detail': 'tournament', 'game-setup': 'lobby',
-    login: 'lobby',
     terms: 'lobby', privacy: 'lobby', youth: 'lobby',
     rating: 'lobby', company: 'lobby', faq: 'lobby', contact: 'lobby'
   };
@@ -1270,6 +1269,9 @@ function mSyncNavTitle(page) {
     logo.style.display = '';
     title.style.display = 'none';
   }
+  // 로그인 페이지에서는 로그인 버튼 숨김
+  var loginBtn = document.getElementById('mNavLoginBtn');
+  if (loginBtn) loginBtn.style.display = (page === 'login') ? 'none' : '';
 }
 
 // 모바일 네비 골드/다이아 동기화
