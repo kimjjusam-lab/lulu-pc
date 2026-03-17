@@ -1536,6 +1536,7 @@ function updateAuthUI() {
   var mDiaWrap = document.getElementById('mNavDiamondWrap');
   var tabMyIcon = document.querySelector('.m-tab-my-icon');
   var tabMyAvatar = document.getElementById('mTabMyAvatar');
+  var mNavMenu = document.getElementById('mNavMenu');
   if (session) {
     if (loginBtn) loginBtn.style.display = 'none';
     if (goldEl) goldEl.textContent = session.gold || '1,250억';
@@ -1543,6 +1544,7 @@ function updateAuthUI() {
     if (pcAvatar) pcAvatar.style.display = '';
     if (pcAvatarImg && session.avatar) pcAvatarImg.src = 'images/' + session.avatar;
     if (mLoginBtn) mLoginBtn.style.display = 'none';
+    if (mNavMenu) mNavMenu.style.display = '';
     if (mGoldWrap) mGoldWrap.style.display = '';
     if (mDiaWrap) mDiaWrap.style.display = '';
     // 탭바 MY 아이콘을 아바타로 전환
@@ -1554,6 +1556,7 @@ function updateAuthUI() {
     if (diamondEl) diamondEl.textContent = '0';
     if (pcAvatar) pcAvatar.style.display = 'none';
     if (mLoginBtn) mLoginBtn.style.display = '';
+    if (mNavMenu) mNavMenu.style.display = 'none';
     if (mGoldWrap) mGoldWrap.style.display = 'none';
     if (mDiaWrap) mDiaWrap.style.display = 'none';
     // 탭바 MY 아이콘을 기본 사람 아이콘으로
