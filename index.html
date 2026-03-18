@@ -80,6 +80,15 @@
         <div class="banner-dots" id="bannerDots"></div>
       </div>
     </section>
+    <section class="quick-banner" onclick="switchPage('tournament')" style="cursor:pointer">
+      <div class="quick-banner-inner">
+        <div class="quick-banner-left">
+          <div class="quick-banner-top"><span class="quick-banner-date">[3.5~5.3]</span> HPT 3회</div>
+          <div class="quick-banner-bottom">총상금 10억원!</div>
+        </div>
+        <div class="quick-banner-logo">HPT</div>
+      </div>
+    </section>
     <section>
       <div class="section-header"><h2 class="section-title" data-i18n="lobby_game_modes">게임 모드</h2><span class="section-more" data-i18n="lobby_view_all" onclick="switchPage('tournament')" style="cursor:pointer">빠른 시작 →</span></div>
       <div class="game-modes">
@@ -111,10 +120,10 @@
     <section class="stats-section">
       <div class="section-header"><h2 class="section-title" data-i18n="lobby_my_stats">내 통계 요약</h2><span class="section-more" onclick="switchPage('analytics')" data-i18n="lobby_detail">자세히 →</span></div>
       <div class="stats-grid">
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon">🎮</div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon">🏆</div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon">🪙</div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon">🔥</div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
+        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
+        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
       </div>
     </section>
   </div>
@@ -124,10 +133,10 @@
   <div class="content-wrapper">
     <div class="analytics-hero"><h2 data-i18n="analytics_title">내 통계</h2><p data-i18n="analytics_desc">게임 기록과 성과를 한눈에 확인하세요</p></div>
     <div class="stats-grid" style="margin-bottom:24px">
-      <div class="stat-card"><div class="stat-icon">🎮</div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
-      <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value">86</div><div class="stat-label" data-i18n="stat_wins">승리</div></div>
-      <div class="stat-card"><div class="stat-icon">📉</div><div class="stat-value">42</div><div class="stat-label" data-i18n="stat_losses">패배</div></div>
-      <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-value" style="color:#f59e0b">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+      <div class="stat-card"><div class="stat-icon"><img src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+      <div class="stat-card"><div class="stat-icon"><img src="images/stat_winrate.png" alt="wins"></div><div class="stat-value">86</div><div class="stat-label" data-i18n="stat_wins">승리</div></div>
+      <div class="stat-card"><div class="stat-icon"><img src="images/stat_streak.png" alt="losses"></div><div class="stat-value">42</div><div class="stat-label" data-i18n="stat_losses">패배</div></div>
+      <div class="stat-card"><div class="stat-icon"><img src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:#f59e0b">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
     </div>
     <div class="chart-container"><div class="chart-title" data-i18n="chart_weekly">📈 주간 성과</div><div class="chart-bar-group">
       <div class="chart-bar-item"><div class="chart-bar-value">5</div><div class="chart-bar" style="height:50%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_mon">월</div></div>
