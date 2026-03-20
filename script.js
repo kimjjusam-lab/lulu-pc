@@ -1269,6 +1269,13 @@ function mSyncNavTitle(page) {
     logo.style.display = '';
     title.style.display = 'none';
   }
+  // 법적고지 페이지에서 골드/다이아 숨김
+  var legalPages = ['terms','privacy','youth','rating','company','faq','contact'];
+  var isLegal = legalPages.indexOf(page) !== -1;
+  var mGoldWrap = document.getElementById('mNavGoldWrap');
+  var mDiaWrap = document.getElementById('mNavDiamondWrap');
+  if (mGoldWrap) mGoldWrap.style.display = isLegal ? 'none' : '';
+  if (mDiaWrap) mDiaWrap.style.display = isLegal ? 'none' : '';
   // 로그인 페이지이거나 로그인 상태면 로그인 버튼 숨김
   var loginBtn = document.getElementById('mNavLoginBtn');
   if (loginBtn) loginBtn.style.display = (page === 'login' || getSession()) ? 'none' : '';
