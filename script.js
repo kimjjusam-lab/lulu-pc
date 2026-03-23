@@ -1208,6 +1208,15 @@ function switchPage(p) {
   if (p === 'transaction') { txRenderList(); }
   if (p === 'myitems') { miRenderList(); }
   if (p === 'tn-detail') { tdRenderDetail(); }
+  if (p === 'my') { updateMyMailBadge(); }
+}
+
+function updateMyMailBadge() {
+  var badge = document.getElementById('myMailBadge');
+  if (!badge || typeof demoMails === 'undefined') return;
+  var count = demoMails.filter(function(m) { return !m.read; }).length;
+  badge.textContent = count > 0 ? count : '';
+  badge.style.display = count > 0 ? '' : 'none';
 }
 
 // === 모바일 하단 탭바 ===
@@ -1643,8 +1652,24 @@ function resetAutoPlay() {
 
 resetAutoPlay();
 
+// === 모바일 구매버튼 가격 표시 ===
+function updateBuyBtnPrice() {
+  document.querySelectorAll('.pkg-bottom').forEach(function(el) {
+    var price = el.querySelector('.pkg-price');
+    var btn = el.querySelector('.pkg-buy-btn');
+    if (!price || !btn) return;
+    if (isMobile()) {
+      btn.innerHTML = price.innerHTML;
+    } else {
+      btn.textContent = btn.getAttribute('data-i18n') ? (translations[currentLang] || {})[btn.getAttribute('data-i18n')] || '구매하기' : '구매하기';
+    }
+  });
+}
+updateBuyBtnPrice();
+
 // === RESIZE: 모바일↔PC 전환 시 캐러셀 상태 리셋 ===
 window.addEventListener('resize', function() {
+  updateBuyBtnPrice();
   if (!isMobile()) {
     bannerTrack.style.transform = '';
     bannerTrack.classList.remove('swiping');

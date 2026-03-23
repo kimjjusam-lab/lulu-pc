@@ -743,7 +743,7 @@
       <div class="stat-card stat-card-link" onclick="switchPage('myitems')"><div class="stat-icon"><img src="images/stat_item.png" alt="item"></div><div class="stat-value">6 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_item">내 아이템</div></div>
     </div>
     <div class="my-menu">
-      <div class="my-menu-item" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15)"><img src="images/my_mailbox.png" alt="우편함"></div><span class="my-menu-text" data-i18n="my_message">우편함</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15)"><img src="images/my_mailbox.png" alt="우편함"></div><span class="my-menu-text" data-i18n="my_message">우편함</span><span class="my-mail-badge" id="myMailBadge" style="display:none"></span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15)"><img src="images/my_host.png" alt="호스트"></div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15)"><img src="images/menu_terms.png" alt="히스토리"></div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
       <div class="my-menu-item" onclick="switchPage('transaction')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15)"><img src="images/my_transaction.png" alt="거래내역"></div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
@@ -2265,12 +2265,12 @@
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
     <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img class="slide-menu-icon" src="images/menu_my.png" alt="MY 룰루">MY 룰루<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('support')"><img class="slide-menu-icon" src="images/menu_support.png" alt="Support">Support</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('faq')"><img class="slide-menu-icon" src="images/menu_support.png" alt="자주묻는 질문">자주묻는 질문</a>
   </div>
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
-    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu()"><img class="slide-menu-icon" src="images/menu_privacy.png" alt="Privacy Policy">Privacy Policy</a>
-    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu()"><img class="slide-menu-icon" src="images/menu_terms.png" alt="Terms of Service">Terms of Service</a>
+    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('terms')"><img class="slide-menu-icon" src="images/menu_terms.png" alt="이용약관">이용약관</a>
+    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('privacy')"><img class="slide-menu-icon" src="images/menu_privacy.png" alt="개인정보처리방침">개인정보처리방침</a>
   </div>
 </div>
 
