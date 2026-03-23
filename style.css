@@ -476,6 +476,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .my-menu-item:hover { border-color:rgba(249,98,23,0.3); background:var(--bg-card-hover); }
 .my-menu-left { display:flex; align-items:center; gap:14px; }
 .my-menu-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.my-menu-icon img { width:22px; height:22px; object-fit:contain; }
 .my-menu-text { font-size:15px; font-weight:600; }
 .my-menu-arrow { color:var(--text-muted); font-size:18px; }
 
