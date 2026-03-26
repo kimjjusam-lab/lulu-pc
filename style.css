@@ -1277,6 +1277,7 @@ body.light-mode .theme-icon-moon { display:none; }
 .m-statusbar { display:none; }
 .m-nav { display:none; }
 .m-tabbar { display:none; }
+.m-fab-status { display:none; }
 .m-game-grid { display:none; }
 
 /* ===================== */
@@ -1477,6 +1478,36 @@ body.light-mode .theme-icon-moon { display:none; }
     background:rgba(255,255,255,0.25);
   }
   body.light-mode .m-home-bar { background:rgba(0,0,0,0.2); }
+
+  /* --- Floating action button: statusbar toggle --- */
+  .m-fab-status {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    right:16px;
+    bottom:110px;
+    z-index:101;
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:rgba(13,13,24,0.7);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.05);
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background 0.2s, transform 0.15s;
+  }
+  .m-fab-status:active { transform:scale(0.9); }
+  .m-fab-status.active { background:var(--accent-orange); box-shadow:0 2px 16px rgba(249,98,23,0.4); }
+  body.light-mode .m-fab-status { background:rgba(255,255,255,0.8); color:#1a1a2e; box-shadow:0 2px 12px rgba(0,0,0,0.12); }
+  body.light-mode .m-fab-status.active { background:var(--accent-orange); color:#fff; }
 
   /* --- Body padding for fixed tabbar --- */
   body { padding-bottom:94px; }

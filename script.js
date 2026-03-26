@@ -1300,6 +1300,19 @@ function mSyncNavCoins() {
   if (diaEl && mDia) mDia.textContent = diaEl.textContent;
 }
 
+// === 모바일 상태바 토글 FAB ===
+function toggleMobileStatusbar() {
+  var sb = document.querySelector('.m-statusbar');
+  var nav = document.querySelector('.m-nav');
+  var fab = document.getElementById('mFabStatus');
+  if (!sb || !fab) return;
+  var hidden = sb.style.display === 'none';
+  sb.style.display = hidden ? '' : 'none';
+  if (nav) nav.style.top = hidden ? '' : '0';
+  fab.classList.toggle('active', hidden);
+  fab.textContent = hidden ? 'ON' : 'OFF';
+}
+
 // === 모바일 상태바 시계 ===
 (function() {
   function updateStatusTime() {
