@@ -82,8 +82,8 @@ body {
 .carousel-arrow.left { left:16px; }
 .carousel-arrow.right { right:16px; }
 .banner-particles { display:none; }
-.banner-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; padding:6px 12px; border-radius:20px; }
-.dot { width:11px; height:4px; border-radius:1px; background:rgba(255,255,255,0.5); cursor:pointer; transition:all 0.3s; }
+.banner-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:10; padding:6px 12px; border-radius:20px; }
+.dot { width:11px; height:4px; border-radius:3px; background:rgba(255,255,255,0.5); cursor:pointer; transition:all 0.3s; }
 .dot.active { background:rgba(255,255,255,0.9); width:46px; }
 
 /* SECTIONS */

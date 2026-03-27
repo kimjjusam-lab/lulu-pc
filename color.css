@@ -1,0 +1,122 @@
+:root {
+  /* ========================================
+     Primary / Secondary
+     ======================================== */
+  --color-primary: #F96217;
+  --color-secondary: #FF7C1D;
+
+  /* ========================================
+     Accent
+     ======================================== */
+  --color-accent-100: #A72FC5;
+  --color-accent-200: #D030D6;
+
+  /* ========================================
+     Neutral
+     ======================================== */
+  --color-neutral-black: #000000;
+  --color-neutral-95: #DCDCDC;
+  --color-neutral-800: #161D24;
+  --color-neutral-700: #29313B;
+  --color-neutral-600: #3C434D;
+  --color-neutral-500: #6A717A;
+  --color-neutral-400: #878D91;
+  --color-neutral-300: #A9AFB3;
+  --color-neutral-200: #D9DBE9;
+  --color-neutral-100: #F1F3F4;
+
+  /* ========================================
+     Label (Semantic)
+     ======================================== */
+  --color-label-strong: #000000;
+  --color-label-normal: #171719;
+
+  /* ========================================
+     Text
+     ======================================== */
+  --color-text-title: #FEFEFE;
+  --color-text-100: #E0E0E0;
+  --color-text-200: #A0A0A0;
+  --color-text-300: #818181;
+  --color-text-400: #515151;
+  --color-text-gold: #FFD230;
+
+  /* ========================================
+     Line (Semantic)
+     ======================================== */
+  --color-line-normal: #70737C38;
+  --color-line-neutral: #70737C29;
+
+  /* ========================================
+     Background
+     ======================================== */
+  --color-bg-body: #121212;
+  --color-bg-body-point: #202020;
+  --color-bg-nav: #101010;
+  --color-bg-depth-200: #212121;
+  --color-bg-depth-250: #171717;
+  --color-bg-depth-300: #292929;
+  --color-bg-depth-400: #343434;
+  --color-bg-normal: #FFFFFF;
+
+  /* ========================================
+     Background Border
+     ======================================== */
+  --color-bg-border-300: #343434;
+  --color-bg-border-400: #404040;
+  --color-bg-border-600: #515151;
+
+  /* ========================================
+     Fill
+     ======================================== */
+  --color-fill-selected: #404040;
+  --color-fill-cancel: #565656;
+  --color-fill-disable: #747474;
+  --color-fill-input-box: #E0E0E0;
+
+  /* ========================================
+     System - Error
+     ======================================== */
+  --color-sys-error-100: #CD0C0C;
+  --color-sys-error-20: #E1524133;
+  --color-sys-error-5: #E152410D;
+
+  /* ========================================
+     System - Success
+     ======================================== */
+  --color-sys-success-100: #3363DB;
+  --color-sys-success-20: #4779F233;
+  --color-sys-success-5: #4779F20D;
+
+  /* ========================================
+     System - Process
+     ======================================== */
+  --color-sys-process-100: #48D481;
+  --color-sys-process-20: #70D28C33;
+  --color-sys-process-5: #70D28C0D;
+
+  /* ========================================
+     System - Warning
+     ======================================== */
+  --color-sys-warning-100: #F7DF4E;
+  --color-sys-warning-20: #E6D54B33;
+  --color-sys-warning-5: #E6D54B0D;
+
+  /* ========================================
+     Opacity
+     ======================================== */
+  --opacity-5: 0.05;
+  --opacity-8: 0.08;
+  --opacity-12: 0.12;
+  --opacity-16: 0.16;
+  --opacity-22: 0.22;
+  --opacity-28: 0.28;
+  --opacity-35: 0.35;
+  --opacity-43: 0.43;
+  --opacity-52: 0.52;
+  --opacity-61: 0.61;
+  --opacity-74: 0.74;
+  --opacity-88: 0.88;
+  --opacity-97: 0.97;
+  --opacity-100: 1;
+}
