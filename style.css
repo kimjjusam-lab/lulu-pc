@@ -1292,7 +1292,7 @@ body.light-mode .theme-icon-moon { display:none; }
 .m-footer-brand { text-align:center; padding-top:16px; }
 .m-footer-brand-name { font-size:14px; font-weight:700; color:var(--text-primary); }
 .m-footer-company { font-size:11px; color:var(--text-muted); margin-top:2px; }
-.m-footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 6px; padding:12px 0 0; }
+.m-footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 6px; padding:12px 0 0; }
 .m-footer-link { font-size:12px; color:var(--text-secondary); cursor:pointer; text-decoration:none; }
 .m-footer-link:hover { color:var(--text-secondary); }
 .m-footer-sep { font-size:11px; color:var(--text-muted); opacity:0.4; }
