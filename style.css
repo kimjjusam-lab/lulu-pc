@@ -52,7 +52,7 @@ body {
 .slide-menu, .slide-menu-overlay { display:none; }
 
 /* BANNER */
-.hero-section { padding-top:32px; margin-bottom:40px; }
+.hero-section { padding-top:32px; margin-bottom:20px; }
 .banner-carousel { position:relative; width:100%; height:360px; border-radius:20px; overflow:hidden; }
 .banner-track { position:relative; width:100%; height:100%; }
 .banner-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; background-size:cover; background-position:center; }
@@ -91,7 +91,7 @@ body {
 .section-title { font-size:22px; font-weight:800; letter-spacing:-0.5px; }
 .section-more { font-size:13px; color:var(--text-muted); cursor:pointer; transition:color 0.2s; }
 .section-more:hover { color:var(--accent-orange); }
-.quick-banner { margin-bottom:20px; margin-left:16px; margin-right:16px; }
+.quick-banner { margin-bottom:40px; margin-left:16px; margin-right:16px; }
 .quick-banner-inner { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; border-radius:12px; background:linear-gradient(135deg,#1a1040 0%,#2a1a5e 50%,#1a1040 100%); border:1px solid rgba(139,92,246,0.15); transition:all 0.25s; position:relative; overflow:hidden; }
 .quick-banner-inner::before { content:""; position:absolute; top:50%; right:24px; transform:translate(0,-50%); width:72px; height:72px; background:url('images/banenr_logo.png') no-repeat center center/contain; opacity:0.1; pointer-events:none; z-index:0; }
 .quick-banner-inner:hover { border-color:rgba(139,92,246,0.4); transform:translateY(-1px); }
@@ -107,23 +107,11 @@ body {
 .game-card { position:relative; border-radius:20px; overflow:hidden; cursor:pointer; transition:all 0.3s; border:1px solid var(--border-color); background:var(--bg-card); }
 .game-card:hover { transform:translateY(-4px); border-color:rgba(249,98,23,0.3); box-shadow:0 12px 40px rgba(249,98,23,0.12); }
 .game-card-visual { height:0; padding-bottom:75%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-.game-card:nth-child(1) .game-card-visual { background:linear-gradient(135deg,#1a0533,#2d1058); }
-.game-card:nth-child(2) .game-card-visual { background:linear-gradient(135deg,#0a2020,#103535); }
-.game-card:nth-child(3) .game-card-visual { background:linear-gradient(135deg,#1a0a2a,#2d1545); }
-.game-card:nth-child(4) .game-card-visual { background:linear-gradient(135deg,#1a1500,#2d2200); }
-.game-card:nth-child(5) .game-card-visual { background:linear-gradient(135deg,#0c2a4a,#0a1a3a); }
-.game-card:nth-child(6) .game-card-visual { background:linear-gradient(135deg,#2a1500,#3d2000); }
-.game-card:nth-child(7) .game-card-visual { background:linear-gradient(135deg,#2a0a0a,#3d1515); }
+.game-card .game-card-visual { background:linear-gradient(135deg,#15151f,#1c1c2a); }
 .card-visual-icon { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:64px; opacity:0.8; }
 .card-visual-icon img { width:70%; height:70%; object-fit:contain; }
 .card-visual-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; border-radius:50%; filter:blur(60px); opacity:0.4; }
-.game-card:nth-child(1) .card-visual-glow { background:var(--accent-purple); }
-.game-card:nth-child(2) .card-visual-glow { background:#14b8a6; }
-.game-card:nth-child(3) .card-visual-glow { background:#a855f7; }
-.game-card:nth-child(4) .card-visual-glow { background:var(--accent-gold); }
-.game-card:nth-child(5) .card-visual-glow { background:#3b82f6; }
-.game-card:nth-child(6) .card-visual-glow { background:var(--accent-orange); }
-.game-card:nth-child(7) .card-visual-glow { background:#ef4444; }
+.card-visual-glow { background:rgba(255,255,255,0.08); }
 .game-card-info { padding:18px 20px; }
 .game-card-badge { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; border-radius:6px; font-size:11px; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
 .game-card:nth-child(1) .game-card-badge { background:rgba(124,58,237,0.15); color:var(--accent-violet); }
@@ -1293,7 +1281,7 @@ body.light-mode .theme-icon-moon { display:none; }
   .footer { display:none !important; }
   .m-footer { display:block; }
   .game-modes { display:none !important; }
-  .quick-banner { margin-bottom:12px; margin-left:8px; margin-right:8px; }
+  .quick-banner { margin-bottom:20px; margin-left:8px; margin-right:8px; }
   .quick-banner-inner { padding:8px 12px 8px 16px; border-radius:10px; }
   .quick-banner-left { flex-direction:column; align-items:flex-start; gap:4px; }
   .quick-banner-top { font-size:12px; }
@@ -1328,8 +1316,8 @@ body.light-mode .theme-icon-moon { display:none; }
     gap:4px;
   }
   .m-statusbar-time {
-    font-size:15px;
-    font-weight:600;
+    font-size:17px;
+    font-weight:700;
     color:#fff;
     letter-spacing:0.3px;
   }
@@ -1340,34 +1328,9 @@ body.light-mode .theme-icon-moon { display:none; }
     justify-content:center;
     gap:6px;
   }
-  .m-sb-signal { color:#fff; }
-  .m-sb-wifi { color:#fff; }
-  .m-statusbar-battery {
-    display:flex;
-    align-items:center;
-    gap:1.5px;
-    margin-left:1px;
-  }
-  .m-battery-body {
-    width:25px;
-    height:12px;
-    border:1.5px solid rgba(255,255,255,0.5);
-    border-radius:3px;
-    padding:2px;
-  }
-  .m-battery-level {
-    width:100%;
-    height:100%;
-    background:#fff;
-    border-radius:1px;
-  }
-  .m-battery-tip {
-    width:2.5px;
-    height:5px;
-    background:#fff;
-    border-radius:0 1.5px 1.5px 0;
-    opacity:0.5;
-  }
+  .m-sb-signal { height:14px; width:auto; }
+  .m-sb-wifi { height:14px; width:auto; }
+  .m-sb-battery { height:16px; width:auto; }
 
   /* --- Show mobile elements --- */
   .m-nav {
@@ -1500,7 +1463,7 @@ body.light-mode .theme-icon-moon { display:none; }
   .content-wrapper { padding:16px 16px 0; }
 
   /* --- Banner mobile --- */
-  .hero-section { padding-top:0; margin-bottom:20px; margin-left:-16px; margin-right:-16px; margin-top:-16px; }
+  .hero-section { padding-top:0; margin-bottom:12px; margin-left:-16px; margin-right:-16px; margin-top:-16px; }
   .banner-carousel { height:200px; border-radius:0; }
   .banner-carousel .banner-track { display:flex; width:600%; height:100%; transition:transform 0.3s ease; }
   .banner-carousel .banner-track.swiping { transition:none; }
