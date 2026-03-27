@@ -1328,9 +1328,9 @@ body.light-mode .theme-icon-moon { display:none; }
     justify-content:center;
     gap:6px;
   }
-  .m-sb-signal { height:14px; width:auto; }
-  .m-sb-wifi { height:14px; width:auto; }
-  .m-sb-battery { height:16px; width:auto; }
+  .m-sb-signal { height:12px; width:auto; }
+  .m-sb-wifi { height:12px; width:auto; }
+  .m-sb-battery { height:14px; width:auto; }
 
   /* --- Show mobile elements --- */
   .m-nav {
