@@ -1276,17 +1276,17 @@ body.light-mode .theme-icon-moon { display:none; }
 @media (min-width: 769px) and (max-width: 960px) {
   .nav-logo svg { display:none; }
   .nav-logo::before { content:''; display:block; width:32px; height:32px; background:url('images/login_icon.svg') no-repeat center/contain; }
-  .nav-coins { display:none !important; }
+  .nav-coins { display:none; }
 }
 
 /* MOBILE RESPONSIVE     */
 /* ===================== */
 @media (max-width: 768px) {
   /* --- Hide PC elements --- */
-  .top-nav { display:none !important; }
-  .footer { display:none !important; }
+  .top-nav { display:none; }
+  .footer { display:none; }
   .m-footer { display:block; }
-  .game-modes { display:none !important; }
+  .game-modes { display:none; }
   .quick-banner { margin-bottom:20px; margin-left:8px; margin-right:8px; }
   .quick-banner-inner { padding:8px 12px 8px 16px; border-radius:10px; }
   .quick-banner-left { flex-direction:column; align-items:flex-start; gap:4px; }
@@ -1353,11 +1353,11 @@ body.light-mode .theme-icon-moon { display:none; }
     border-bottom:1px solid var(--border-color);
   }
   .m-nav-logo { display:flex; align-items:center; cursor:pointer; }
-  .m-nav-logo img { height:36px !important; width:auto !important; }
+  .m-nav-logo img { height:36px; width:auto; }
   .m-nav-title { font-size:20px; font-weight:800; color:var(--text-primary); letter-spacing:-0.3px; display:flex; align-items:center; gap:8px; }
   .m-nav-back { cursor:pointer; color:var(--text-secondary); -webkit-tap-highlight-color:transparent; flex-shrink:0; }
-  .shop-hero, .my-page-hero, .gs-hero, .analytics-hero { display:none !important; }
-  .gs-back, .login-back { display:none !important; }
+  .shop-hero, .my-page-hero, .gs-hero, .analytics-hero { display:none; }
+  .gs-back, .login-back { display:none; }
   .shop-tab-emoji { display:none; }
   .m-nav-right { display:flex; align-items:center; gap:8px; }
   .m-nav-coins {

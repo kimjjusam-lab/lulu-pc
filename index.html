@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POKER LULU - Play Poker with Friends</title>
+<meta name="description" content="친구들과 함께하는 온라인 포커 게임 POKER LULU. 토너먼트, 링게임, 프라이빗 룸까지 다양한 포커를 즐기세요.">
+<meta name="keywords" content="포커, 온라인포커, 텍사스홀덤, 토너먼트, POKER LULU, 포커룰루">
+<meta property="og:type" content="website">
+<meta property="og:title" content="POKER LULU - Play Poker with Friends">
+<meta property="og:description" content="친구들과 함께하는 온라인 포커 게임. 토너먼트, 링게임, 프라이빗 룸까지 다양한 포커를 즐기세요.">
+<meta property="og:image" content="images/og_image.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POKER LULU - Play Poker with Friends">
+<meta name="twitter:description" content="친구들과 함께하는 온라인 포커 게임. 토너먼트, 링게임, 프라이빗 룸까지.">
+<meta name="twitter:image" content="images/og_image.png">
 <link rel="icon" type="image/svg+xml" href="images/login_icon.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="style.css?v=17">
@@ -26,21 +37,21 @@
 
 <!-- 모바일 상단 네비게이션 -->
 <nav class="m-nav">
-  <div class="m-nav-logo" id="mNavLogo" onclick="switchPage('lobby')">
-    <img src="images/logo_mobile.svg" alt="LULU" style="height:42px;width:auto;">
+  <div class="m-nav-logo" id="mNavLogo" role="button" tabindex="0" onclick="switchPage('lobby')">
+    <img src="images/logo_mobile.svg" alt="LULU" class="m-nav-logo-img">
   </div>
   <span class="m-nav-title" id="mNavTitle" style="display:none;"></span>
   <div class="m-nav-right">
-    <div class="m-nav-coins" id="mNavGoldWrap" onclick="switchPage('shop');setTimeout(()=>switchShopTab('recommend'),50)"><span class="m-coin-icon"><img src="images/icon_gold.png" alt="gold"></span><span id="mNavGold">0</span></div>
-    <div class="m-nav-coins diamond" id="mNavDiamondWrap" onclick="switchPage('shop');setTimeout(()=>switchShopTab('gems'),50)"><span class="m-coin-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span id="mNavDiamond">0</span></div>
-    <div class="m-nav-menu" id="mNavMenu" onclick="toggleSlideMenu()"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg><span class="avatar-reddot" id="mNavAvatarDot" style="display:none;"></span></div>
+    <div class="m-nav-coins" id="mNavGoldWrap" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('recommend'),50)"><span class="m-coin-icon"><img src="images/icon_gold.png" alt="gold"></span><span id="mNavGold">0</span></div>
+    <div class="m-nav-coins diamond" id="mNavDiamondWrap" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('gems'),50)"><span class="m-coin-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span id="mNavDiamond">0</span></div>
+    <div class="m-nav-menu" id="mNavMenu" role="button" tabindex="0" onclick="toggleSlideMenu()"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg><span class="avatar-reddot" id="mNavAvatarDot" style="display:none;"></span></div>
     <button class="m-nav-login" id="mNavLoginBtn" onclick="switchPage('login')">로그인</button>
   </div>
 </nav>
 
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <div class="nav-logo" onclick="switchPage('lobby')">
+    <div class="nav-logo" role="button" tabindex="0" onclick="switchPage('lobby')">
       <svg width="161" height="32" viewBox="0 0 161 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;"><path d="M2.00925 16.7435C1.60916 16.9749 1.28516 17.4869 1.28516 17.8881C1.28516 18.2869 1.60425 18.794 2.00188 19.0278L7.85352 22.4149C8.25361 22.6463 8.57761 22.5084 8.57761 22.1072V12.9404L2.0117 16.741L2.00925 16.7435Z" fill="#B74325"/><path d="M17.3722 1.16677L2.00925 10.0603C1.60916 10.2917 1.28516 10.8037 1.28516 11.2049V17.888C1.28516 17.4868 1.60916 16.9748 2.00925 16.7434L8.57516 12.9403L17.3673 7.84985C17.7674 7.61846 18.0914 7.10647 18.0914 6.70523V1.47446C18.0914 1.0757 17.7699 0.937849 17.3722 1.16677Z" fill="#F96217"/><path d="M25.1074 15.2568C25.5075 15.0254 25.8315 14.5134 25.8315 14.1122C25.8315 13.7134 25.5124 13.2063 25.1148 12.9725L19.2632 9.58539C18.8631 9.35401 18.5391 9.49185 18.5391 9.89309V19.0599L25.105 15.2592L25.1074 15.2568Z" fill="#B74325"/><path d="M25.1056 15.2564L18.5397 19.0595L9.74753 24.15C9.34744 24.3813 9.02344 24.8933 9.02344 25.2946V30.5278C9.02344 30.9266 9.34498 31.0644 9.74262 30.8355L25.1032 21.942C25.5033 21.7106 25.8273 21.1986 25.8273 20.7973V14.1143C25.8273 14.5155 25.5033 15.0275 25.1032 15.2589L25.1056 15.2564Z" fill="#F96217"/><path d="M15.1258 18.4418C15.4547 18.4418 15.7615 18.3458 16.0217 18.1809C16.3457 17.9889 16.5739 17.6861 16.6918 17.3464C16.758 17.1667 16.7924 16.9723 16.7924 16.7704C16.7924 16.4775 16.7163 16.1993 16.5838 15.9606C16.2278 15.2492 15.462 14.6559 14.7723 13.9495C13.9451 13.1027 13.5622 12.3643 13.5622 12.3643C13.5622 12.3643 13.1793 13.1027 12.3521 13.9495C11.6624 14.6559 10.8966 15.2492 10.5407 15.9606C10.4081 16.2018 10.332 16.4775 10.332 16.7704C10.332 16.9723 10.3688 17.1667 10.4327 17.3464C10.5505 17.6886 10.7788 17.9889 11.1028 18.1809C11.3605 18.3458 11.6673 18.4418 11.9987 18.4418C12.5534 18.4418 13.0443 18.171 13.3487 17.7526C13.248 18.9169 12.5608 19.6135 12.5608 19.6135H14.5612C14.5612 19.6135 13.8764 18.9218 13.7733 17.76C13.7733 17.76 13.7733 17.755 13.7733 17.7526C14.0777 18.171 14.5686 18.4443 15.1233 18.4443L15.1258 18.4418Z" fill="#F96217"/><path d="M54.0332 8C56.0017 8 57.5841 8.61833 58.7803 9.85742C59.9765 11.0967 60.5742 12.6782 60.5742 14.6006H60.5762V17.3994C60.5762 19.3281 59.9811 20.9114 58.7891 22.1465C57.5971 23.3815 56.0019 24 54.0459 24C52.09 24 50.5224 23.3813 49.3408 22.1465C48.1592 20.9114 47.5684 19.3281 47.5684 17.3994V14.6006C47.5684 12.6782 48.1566 11.0967 49.334 9.85742C50.5114 8.61823 52.0647 8.00002 54.0332 8ZM124.356 18.541C124.357 19.5884 124.628 20.3607 125.171 20.8584C125.714 21.3562 126.452 21.6064 127.45 21.6064C128.448 21.6064 129.221 21.3562 129.768 20.8584C130.312 20.3607 130.586 19.5883 130.586 18.541V13.6914H133.724V18.541C133.724 20.3195 133.158 21.6756 132.022 22.6045C130.887 23.5334 129.348 23.9971 127.45 23.9971C125.553 23.9971 124.039 23.5332 122.912 22.6045C121.785 21.6756 121.221 20.3216 121.221 18.541V13.6914H124.356V18.541ZM151.16 18.541C151.16 19.5883 151.432 20.3607 151.975 20.8584C152.517 21.3561 153.256 21.6064 154.254 21.6064C155.252 21.6064 156.024 21.3562 156.571 20.8584C157.116 20.3607 157.39 19.5884 157.39 18.541V13.6914H160.527V18.541C160.527 20.3195 159.962 21.6756 158.826 22.6045C157.691 23.5333 156.151 23.9971 154.254 23.9971C152.357 23.997 150.843 23.5333 149.716 22.6045C148.589 21.6756 148.024 20.3216 148.024 18.541V13.6914H151.16V18.541ZM39.8799 8.22656C41.7065 8.22656 43.1244 8.67458 44.1348 9.57227C45.145 10.4678 45.6504 11.6762 45.6504 13.1924C45.6503 14.7085 45.1451 15.9125 44.1348 16.8018C43.1265 17.6911 41.7065 18.1367 39.8799 18.1367H36.7969V23.7764H33.6719V8.22656H39.8799ZM95.9775 8.22266C97.7747 8.22266 99.1299 8.60761 100.04 9.37598C100.95 10.1466 101.405 11.2757 101.405 12.7627C101.405 13.6333 101.178 14.3443 100.725 14.9004C100.272 15.4562 99.6059 15.9037 98.7295 16.2451V16.2764C99.65 16.5617 100.302 17.0115 100.684 17.6279C101.066 18.2444 101.255 19.032 101.255 19.9941V21.1377C101.255 21.573 101.312 22.0151 101.427 22.4629C101.54 22.9104 101.744 23.2496 102.036 23.4766V23.7764H98.8359C98.5437 23.541 98.3532 23.16 98.2676 22.6289C98.182 22.098 98.1387 21.594 98.1387 21.1172V20.0176C98.1387 19.2199 97.944 18.6112 97.5557 18.1904C97.1653 17.7699 96.5787 17.5596 95.7939 17.5596L95.7959 17.5576H92.9805V23.7725H89.8545V8.22266H95.9775ZM66.2275 14.5801H67.5869L71.7178 8.22559H75.54L70.4023 15.498L75.958 23.7754H72.1475L67.9619 17.2812H66.2275V23.7754H63.1025V8.22559H66.2275V14.5801ZM112.771 21.3818H119.709V23.7744H109.646V8.22461H112.771V21.3818ZM139.576 21.3818H146.514V23.7744H136.451V8.22461H139.576V21.3818ZM87.915 10.626H80.3896V14.5352H86.8447L86.8467 14.5332V16.9365H80.3916V21.3799H87.9385V23.7725H77.2646V8.22266H87.915V10.626ZM54.0332 10.4346C52.954 10.4346 52.1271 10.8203 51.5488 11.5889C50.9708 12.3573 50.6827 13.3547 50.6826 14.5791V17.3994C50.6826 18.6386 50.9733 19.6443 51.5557 20.417C52.136 21.1897 52.9584 21.5752 54.0439 21.5752C55.1294 21.5751 55.9667 21.1897 56.5596 20.417C57.1522 19.6443 57.4482 18.6385 57.4482 17.3994V14.5771C57.4482 13.3609 57.1479 12.3654 56.5488 11.5928C55.9497 10.8201 55.1125 10.4346 54.0332 10.4346ZM36.7969 15.7334H39.8799C40.7713 15.7334 41.4376 15.4997 41.876 15.0332C42.3143 14.5667 42.5332 13.9751 42.5332 13.2129C42.5332 12.4506 42.3143 11.8297 41.876 11.3486C41.4376 10.8675 40.7713 10.6279 39.8799 10.6279H36.7969V15.7334ZM92.9775 15.1582H95.6748C96.5662 15.1582 97.2266 14.9747 97.6504 14.6123C98.0739 14.2479 98.287 13.6898 98.2871 12.957C98.2871 12.2239 98.0862 11.6525 97.6875 11.2422C97.2888 10.8321 96.6647 10.628 95.8154 10.6279H92.9775V15.1582ZM129.347 10.8828C130.282 8.23767 133.293 8.7168 133.293 8.7168C131.798 9.04171 131.32 10.0957 131.32 10.0957C132.742 10.3866 133.218 11.7243 133.228 11.751C131.85 10.4205 129.347 10.8828 129.347 10.8828ZM156.204 10.8828C157.139 8.23767 160.15 8.7168 160.15 8.7168C158.656 9.04171 158.178 10.0957 158.178 10.0957C159.599 10.3865 160.075 11.7236 160.085 11.751C158.707 10.4205 156.204 10.8828 156.204 10.8828ZM123.774 8.64551C124.532 8.64555 125.144 9.33931 125.144 10.1953C125.143 11.0511 124.53 11.7441 123.774 11.7441C123.019 11.7441 122.405 11.0512 122.405 10.1953C122.405 9.33929 123.019 8.64551 123.774 8.64551ZM150.63 8.64551C151.386 8.64551 151.999 9.33929 151.999 10.1953C151.999 11.0512 151.385 11.7441 150.63 11.7441C149.874 11.7441 149.261 11.0511 149.261 10.1953C149.261 9.33932 149.874 8.64556 150.63 8.64551Z" fill="white" class="logo-text"/></svg>
     </div>
     <div class="nav-links">
@@ -52,12 +63,12 @@
       <a class="nav-link" data-page="my" onclick="switchPage('my')" data-i18n="nav_my">MY 룰루</a>
     </div>
     <div class="nav-right">
-      <div class="nav-coins" style="cursor:pointer" onclick="switchPage('shop');setTimeout(()=>switchShopTab('recommend'),50)"><span class="coin-icon"><img src="images/icon_gold.png" alt="gold"></span><span id="navGold">0</span></div>
-      <div class="nav-coins" style="cursor:pointer;background:rgba(96,165,250,0.1);border-color:rgba(96,165,250,0.2);color:#60a5fa;" onclick="switchPage('shop');setTimeout(()=>switchShopTab('gems'),50)"><span class="coin-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span id="navDiamond">0</span></div>
+      <div class="nav-coins" style="cursor:pointer" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('recommend'),50)"><span class="coin-icon"><img src="images/icon_gold.png" alt="gold"></span><span id="navGold">0</span></div>
+      <div class="nav-coins" style="cursor:pointer;background:rgba(96,165,250,0.1);border-color:rgba(96,165,250,0.2);color:#60a5fa;" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('gems'),50)"><span class="coin-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span id="navDiamond">0</span></div>
       <select id="langSelect" onchange="changeLang(this.value)" style="display:none;padding:6px 12px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;outline:none;">
         <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option>
       </select>
-      <div id="navAvatar" class="nav-avatar" onclick="switchPage('mailbox')" style="display:none;"><img src="images/avatar_o.png" alt="MY" id="navAvatarImg"><span class="avatar-reddot" id="navAvatarDot" style="display:none;"></span></div>
+      <div id="navAvatar" class="nav-avatar" role="button" tabindex="0" onclick="switchPage('mailbox')" style="display:none;"><img src="images/avatar_o.png" alt="MY" id="navAvatarImg"><span class="avatar-reddot" id="navAvatarDot" style="display:none;"></span></div>
       <button id="navLoginBtn" data-i18n="nav_login" onclick="switchPage('login')" style="padding:7px 18px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dark));color:#fff;font-size:13px;font-weight:700;cursor:pointer;">로그인</button>
     </div>
   </div>
@@ -65,7 +76,7 @@
 
 <div class="page-container active" id="page-lobby">
   <section class="hero-section">
-    <div class="carousel-arrow left" onclick="prevSlide()"><img src="images/btn_carousel_left.svg" alt=""></div>
+    <div class="carousel-arrow left" role="button" tabindex="0" onclick="prevSlide()"><img loading="lazy" src="images/btn_carousel_left.svg" alt="이전"></div>
     <div class="banner-carousel" id="bannerCarousel">
         <div class="banner-track" id="bannerTrack">
           <div class="banner-slide active"><div class="banner-content"><div class="banner-title"><span class="glow-gold">시즌3 오픈</span><br><span class="glow-silver">올나잇 포커파티</span></div><div class="banner-sub" data-i18n="banner1_sub">친구들과 함께하는 짜릿한 올나잇 포커</div><div class="banner-badge">2026.3.1 ~ 8.31</div></div></div>
@@ -77,7 +88,7 @@
         <div class="banner-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="banner-dots" id="bannerDots"></div>
       </div>
-    <div class="carousel-arrow right" onclick="nextSlide()"><img src="images/btn_carousel_left.svg" alt=""></div>
+    <div class="carousel-arrow right" role="button" tabindex="0" onclick="nextSlide()"><img loading="lazy" src="images/btn_carousel_left.svg" alt="다음"></div>
   </section>
   <div class="content-wrapper">
     <section class="quick-banner" onclick="window.open('https://lulu-iota-three.vercel.app/','_blank')" style="cursor:pointer">
@@ -86,49 +97,49 @@
           <div class="quick-banner-top">POKER FESTIVAL</div>
           <div class="quick-banner-bottom">총상금 1.5억원!</div>
         </div>
-        <div class="quick-banner-logo"><img src="images/banner_logo2.svg" alt="LIT"></div>
+        <div class="quick-banner-logo"><img loading="lazy" src="images/banner_logo2.svg" alt="LIT"></div>
       </div>
     </section>
     <section>
-      <div class="section-header"><h2 class="section-title" data-i18n="lobby_game_modes">게임 모드</h2><span class="section-more" data-i18n="lobby_view_all" onclick="switchPage('tournament')" style="cursor:pointer">빠른 시작 →</span></div>
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_game_modes">게임 모드</h2><span class="section-more" data-i18n="lobby_view_all" role="button" tabindex="0" onclick="switchPage('tournament')" style="cursor:pointer">빠른 시작 →</span></div>
       <div class="game-modes">
-        <div class="game-card" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img src="images/game_holdem.png" alt="홀덤"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_holdem">홀덤</div><div class="game-card-desc" data-i18n="game_holdem_desc">텍사스 홀덤의 정석. 전략과 심리전으로 승부하세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_holdem_players">3,521명 플레이 중</span></div></div></div>
-        <div class="game-card" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img src="images/game_72.png" alt="72게임"></div></div><div class="game-card-info"><div class="game-card-name">72게임</div><div class="game-card-desc">최악의 핸드로 블러핑! 72로 팟을 따면 보너스 획득.</div><div class="game-card-players"><div class="player-dot"></div> <span>1,340명 플레이 중</span></div></div></div>
-        <div class="game-card" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img src="images/game_poker.png" alt="7포커"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_7poker">7포커</div><div class="game-card-desc" data-i18n="game_7poker_desc">한국식 세븐 포커. 친숙한 룰로 즐기세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_7poker_players">1,892명 플레이 중</span></div></div></div>
-        <div class="game-card" onclick="switchPage('game-setup')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img src="images/game_custom.png" alt="사용자 게임"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_custom">사용자 게임</div><div class="game-card-desc" data-i18n="game_custom_desc">나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_custom_players">856개 방 운영 중</span></div></div></div>
-        <div class="game-card" onclick="switchPage('tournament')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img src="images/game_tournament.png" alt="토너먼트"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_tournament">토너먼트</div><div class="game-card-desc" data-i18n="game_tournament_desc">정식 토너먼트에서 순위 보상을 획득하세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_tournament_players">1,247명 참가 중</span></div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_holdem">홀덤</div><div class="game-card-desc" data-i18n="game_holdem_desc">텍사스 홀덤의 정석. 전략과 심리전으로 승부하세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_holdem_players">3,521명 플레이 중</span></div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_72.png" alt="72게임"></div></div><div class="game-card-info"><div class="game-card-name">72게임</div><div class="game-card-desc">최악의 핸드로 블러핑! 72로 팟을 따면 보너스 획득.</div><div class="game-card-players"><div class="player-dot"></div> <span>1,340명 플레이 중</span></div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_poker.png" alt="7포커"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_7poker">7포커</div><div class="game-card-desc" data-i18n="game_7poker_desc">한국식 세븐 포커. 친숙한 룰로 즐기세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_7poker_players">1,892명 플레이 중</span></div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('game-setup')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_custom.png" alt="사용자 게임"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_custom">사용자 게임</div><div class="game-card-desc" data-i18n="game_custom_desc">나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_custom_players">856개 방 운영 중</span></div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('tournament')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_tournament.png" alt="토너먼트"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_tournament">토너먼트</div><div class="game-card-desc" data-i18n="game_tournament_desc">정식 토너먼트에서 순위 보상을 획득하세요.</div><div class="game-card-players"><div class="player-dot"></div> <span data-i18n="game_tournament_players">1,247명 참가 중</span></div></div></div>
       </div>
       <!-- 모바일 게임 모드 그리드 -->
       <div class="m-game-grid">
-        <div class="m-game-item" onclick="switchPage('lobby')"><div class="m-game-icon"><img src="images/game_holdem.png" alt="홀덤"></div><span class="m-game-name">홀덤</span></div>
-        <div class="m-game-item" onclick="switchPage('lobby')"><div class="m-game-icon"><img src="images/game_72.png" alt="72게임"></div><span class="m-game-name">72게임</span></div>
-        <div class="m-game-item" onclick="switchPage('lobby')"><div class="m-game-icon"><img src="images/game_poker.png" alt="7포커"></div><span class="m-game-name">7포커</span></div>
-        <div class="m-game-item" onclick="switchPage('game-setup')"><div class="m-game-icon"><img src="images/game_custom.png" alt="사용자 게임"></div><span class="m-game-name">사용자 게임</span></div>
-        <div class="m-game-item" onclick="switchPage('tournament')"><div class="m-game-icon"><img src="images/game_tournament.png" alt="토너먼트"></div><span class="m-game-name">토너먼트</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="m-game-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div><span class="m-game-name">홀덤</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="m-game-icon"><img loading="lazy" src="images/game_72.png" alt="72게임"></div><span class="m-game-name">72게임</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('lobby')"><div class="m-game-icon"><img loading="lazy" src="images/game_poker.png" alt="7포커"></div><span class="m-game-name">7포커</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('game-setup')"><div class="m-game-icon"><img loading="lazy" src="images/game_custom.png" alt="사용자 게임"></div><span class="m-game-name">사용자 게임</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('tournament')"><div class="m-game-icon"><img loading="lazy" src="images/game_tournament.png" alt="토너먼트"></div><span class="m-game-name">토너먼트</span></div>
       </div>
     </section>
     <section class="live-tables">
-      <div class="section-header"><h2 class="section-title" data-i18n="lobby_live_tables">나의 게임</h2><span class="section-more" data-i18n="lobby_more" onclick="switchPage('tournament')" style="cursor:pointer">재입장 →</span></div>
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_live_tables">나의 게임</h2><span class="section-more" data-i18n="lobby_more" role="button" tabindex="0" onclick="switchPage('tournament')" style="cursor:pointer">재입장 →</span></div>
       <div class="tables-grid">
-        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_rookie">홀덤</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">10/20</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">4/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 32,450</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
-        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_highroller">오징어게임</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">100/200</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">7/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 8,200</span></div></div><button class="table-join-btn" onclick="enterLiveTable(7)" data-i18n="table_join">입장하기</button></div>
-        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_vip">주말 챔피언십</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">400/800</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">12/48</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 50,000</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_rookie">홀덤</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">10/20</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">4/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 32,450</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_highroller">오징어게임</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">100/200</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">7/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 8,200</span></div></div><button class="table-join-btn" onclick="enterLiveTable(7)" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_vip">주말 챔피언십</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">400/800</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">12/48</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 50,000</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
         <div class="table-card"><div class="table-header"><span class="table-name">주말 프리롤</span><span class="table-live"><span class="table-live-dot" style="background:#9ca3af"></span> 대기중</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">50/100</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">0/48</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value">무료</span></div></div><button class="table-join-btn" disabled style="opacity:0.5;cursor:not-allowed;">입장까지 94분 30초 남음</button></div>
       </div>
     </section>
     <section class="stats-section">
-      <div class="section-header"><h2 class="section-title" data-i18n="lobby_my_stats">내 통계 요약</h2><span class="section-more" onclick="switchPage('analytics')" data-i18n="lobby_detail">자세히 →</span></div>
+      <div class="section-header"><h2 class="section-title" data-i18n="lobby_my_stats">내 통계 요약</h2><span class="section-more" role="button" tabindex="0" onclick="switchPage('analytics')" data-i18n="lobby_detail">자세히 →</span></div>
       <div class="stats-grid">
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
-        <div class="stat-card" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
       </div>
     </section>
 
     <!-- Mobile Footer -->
     <div class="m-footer">
-      <div class="m-footer-toggle" onclick="var f=this.parentElement;f.classList.toggle('open');if(f.classList.contains('open'))setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'start'}),350)">
+      <div class="m-footer-toggle" role="button" tabindex="0" onclick="var f=this.parentElement;f.classList.toggle('open');if(f.classList.contains('open'))setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'start'}),350)">
         <span data-i18n="m_footer_legal">법적고지</span>
         <svg class="m-footer-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
@@ -160,10 +171,10 @@
   <div class="content-wrapper">
     <div class="analytics-hero"><h2 data-i18n="analytics_title">내 통계</h2><p data-i18n="analytics_desc">게임 기록과 성과를 한눈에 확인하세요</p></div>
     <div class="stats-grid" style="margin-bottom:24px">
-      <div class="stat-card"><div class="stat-icon"><img src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
-      <div class="stat-card"><div class="stat-icon"><img src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
-      <div class="stat-card"><div class="stat-icon"><img src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">최대 연승</div></div>
-      <div class="stat-card"><div class="stat-icon"><img src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:#f59e0b">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
+      <div class="stat-card"><div class="stat-icon"><img loading="lazy" src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
+      <div class="stat-card"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
+      <div class="stat-card"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">최대 연승</div></div>
+      <div class="stat-card"><div class="stat-icon"><img loading="lazy" src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:#f59e0b">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
     </div>
     <div class="chart-container"><div class="chart-title" data-i18n="chart_weekly">📈 주간 성과</div><div class="chart-bar-group">
       <div class="chart-bar-item"><div class="chart-bar-value">5</div><div class="chart-bar" style="height:50%;background:linear-gradient(180deg,var(--accent-orange),var(--accent-orange-dark))"></div><div class="chart-bar-label" data-i18n="day_mon">월</div></div>
@@ -187,10 +198,10 @@
 
     <!-- 상점 탭 메뉴 -->
     <div class="shop-tabs">
-      <button class="shop-tab active" data-shop-tab="recommend" onclick="switchShopTab('recommend')" data-i18n="shop_tab_recommend"><img class="shop-tab-emoji" src="images/shop_recommend.png" alt="추천"> 추천 상품</button>
-      <button class="shop-tab" data-shop-tab="gems" onclick="switchShopTab('gems')" data-i18n="shop_tab_gems"><img class="shop-tab-emoji" src="images/icon_diamond_tab.png" alt="보석"> 보석</button>
-      <button class="shop-tab" data-shop-tab="avatar" onclick="switchShopTab('avatar')" data-i18n="shop_tab_avatar"><img class="shop-tab-emoji" src="images/shop_avatar.png" alt="아바타"> 아바타</button>
-      <button class="shop-tab" data-shop-tab="items" onclick="switchShopTab('items')" data-i18n="shop_tab_items"><img class="shop-tab-emoji" src="images/shop_item.png" alt="아이템"> 아이템</button>
+      <button class="shop-tab active" data-shop-tab="recommend" onclick="switchShopTab('recommend')" data-i18n="shop_tab_recommend"><img loading="lazy" class="shop-tab-emoji" src="images/shop_recommend.png" alt="추천"> 추천 상품</button>
+      <button class="shop-tab" data-shop-tab="gems" onclick="switchShopTab('gems')" data-i18n="shop_tab_gems"><img loading="lazy" class="shop-tab-emoji" src="images/icon_diamond_tab.png" alt="보석"> 보석</button>
+      <button class="shop-tab" data-shop-tab="avatar" onclick="switchShopTab('avatar')" data-i18n="shop_tab_avatar"><img loading="lazy" class="shop-tab-emoji" src="images/shop_avatar.png" alt="아바타"> 아바타</button>
+      <button class="shop-tab" data-shop-tab="items" onclick="switchShopTab('items')" data-i18n="shop_tab_items"><img loading="lazy" class="shop-tab-emoji" src="images/shop_item.png" alt="아이템"> 아이템</button>
     </div>
 
     <!-- 추천 상품 탭 -->
@@ -198,12 +209,12 @@
       <div class="pkg-grid">
 
         <div class="pkg-card pkg-tier-a">
-          <div class="pkg-image"><img src="images/shop_a.png" alt="Package A"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_a.png" alt="Package A"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="pkg_a_name">스타터 패키지 A</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_a_item1">아바타 A (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_a_item2">5억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_a_item1">아바타 A (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_a_item2">5억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩1,000</div>
@@ -213,12 +224,12 @@
         </div>
 
         <div class="pkg-card pkg-tier-b">
-          <div class="pkg-image"><img src="images/shop_b.png" alt="Package B"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_b.png" alt="Package B"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="pkg_b_name">스타터 패키지 B</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_b_item1">아바타 B (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_b_item2">15억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_b_item1">아바타 B (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_b_item2">15억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩3,000</div>
@@ -228,13 +239,13 @@
         </div>
 
         <div class="pkg-card pkg-tier-c">
-          <div class="pkg-image"><img src="images/shop_c.png" alt="Package C"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_c.png" alt="Package C"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="pkg_c_name">스타터 패키지 C</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_c_item1">아바타 C (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_c_item2">바이인 티켓 10억</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_c_item3">15억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_c_item1">아바타 C (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_c_item2">바이인 티켓 10억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_c_item3">15억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩5,000</div>
@@ -244,13 +255,13 @@
         </div>
 
         <div class="pkg-card pkg-tier-d">
-          <div class="pkg-image"><img src="images/shop_d.png" alt="Package D"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_d.png" alt="Package D"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="pkg_d_name">스타터 패키지 D</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_d_item1">아바타 D (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_d_item2">바이인 티켓 20억</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_d_item3">30억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_d_item1">아바타 D (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_d_item2">바이인 티켓 20억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_d_item3">30억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩10,000</div>
@@ -260,13 +271,13 @@
         </div>
 
         <div class="pkg-card pkg-tier-e">
-          <div class="pkg-image"><img src="images/shop_e.png" alt="Package E"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_e.png" alt="Package E"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag hot">HOT</span> <span data-i18n="pkg_e_name">스타터 패키지 E</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_e_item1">아바타 E (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_e_item2">바이인 티켓 60억</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_e_item3">90억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_e_item1">아바타 E (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_e_item2">바이인 티켓 60억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_e_item3">90억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩30,000</div>
@@ -276,13 +287,13 @@
         </div>
 
         <div class="pkg-card pkg-tier-f">
-          <div class="pkg-image"><img src="images/shop_f.png" alt="Package F"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_f.png" alt="Package F"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag vip">BEST</span> <span data-i18n="pkg_f_name">스타터 패키지 F</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_f_item1">아바타 F (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_f_item2">바이인 티켓 100억</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_f_item3">150억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="pkg_f_item1">아바타 F (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="pkg_f_item2">바이인 티켓 100억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="pkg_f_item3">150억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩50,000</div>
@@ -299,11 +310,11 @@
       <div class="pkg-grid gem-grid">
 
         <div class="pkg-card gem-tier-1">
-          <div class="pkg-image"><img src="images/gem_1.png" alt="Gem 1"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_1.png" alt="Gem 1"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="gem_1_name">보석 10개</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_1_item1">보석 10개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_1_item1">보석 10개</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩1,000</div>
@@ -313,12 +324,12 @@
         </div>
 
         <div class="pkg-card gem-tier-2">
-          <div class="pkg-image"><img src="images/gem_2.png" alt="Gem 2"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_2.png" alt="Gem 2"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="gem_2_name">보석 30개</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_2_item1">보석 30개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_2_item2">보너스 보석 +2개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_2_item1">보석 30개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_2_item2">보너스 보석 +2개</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩3,000</div>
@@ -328,12 +339,12 @@
         </div>
 
         <div class="pkg-card gem-tier-3">
-          <div class="pkg-image"><img src="images/gem_3.png" alt="Gem 3"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_3.png" alt="Gem 3"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="gem_3_name">보석 50개</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_3_item1">보석 50개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_3_item2">보너스 보석 +5개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_3_item1">보석 50개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_3_item2">보너스 보석 +5개</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩5,000</div>
@@ -343,12 +354,12 @@
         </div>
 
         <div class="pkg-card gem-tier-4">
-          <div class="pkg-image"><img src="images/gem_4.png" alt="Gem 4"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_4.png" alt="Gem 4"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="gem_4_name">보석 100개</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_4_item1">보석 100개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_4_item2">보너스 보석 +15개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_4_item1">보석 100개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_4_item2">보너스 보석 +15개</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩10,000</div>
@@ -358,13 +369,13 @@
         </div>
 
         <div class="pkg-card gem-tier-5">
-          <div class="pkg-image"><img src="images/gem_5.png" alt="Gem 5"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_5.png" alt="Gem 5"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag sale">+20%</span> <span data-i18n="gem_5_name">보석 300개</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_5_item1">보석 300개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_5_item2">보너스 보석 +60개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_5_item3">5억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_5_item1">보석 300개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_5_item2">보너스 보석 +60개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_5_item3">5억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩30,000</div>
@@ -374,13 +385,13 @@
         </div>
 
         <div class="pkg-card gem-tier-6">
-          <div class="pkg-image"><img src="images/gem_6.png" alt="Gem 6"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_6.png" alt="Gem 6"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag sale">+25%</span> <span data-i18n="gem_6_name">보석 500개</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_6_item1">보석 500개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_6_item2">보너스 보석 +125개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_6_item3">10억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_6_item1">보석 500개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_6_item2">보너스 보석 +125개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_6_item3">10억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩50,000</div>
@@ -390,14 +401,14 @@
         </div>
 
         <div class="pkg-card gem-tier-7">
-          <div class="pkg-image"><img src="images/gem_7.png" alt="Gem 7"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_7.png" alt="Gem 7"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag hot">HOT</span> <span data-i18n="gem_7_name">보석 1,000개</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_7_item1">보석 1,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_7_item2">보너스 보석 +300개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_7_item3">30억 골드</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_7_item4">바이인 티켓 10억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_7_item1">보석 1,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_7_item2">보너스 보석 +300개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_7_item3">30억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_7_item4">바이인 티켓 10억</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩100,000</div>
@@ -407,14 +418,14 @@
         </div>
 
         <div class="pkg-card gem-tier-8">
-          <div class="pkg-image"><img src="images/gem_8.png" alt="Gem 8"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_8.png" alt="Gem 8"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag hot">BEST</span> <span data-i18n="gem_8_name">보석 3,000개</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_8_item1">보석 3,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_8_item2">보너스 보석 +1,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_8_item3">100억 골드</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_8_item4">바이인 티켓 30억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_8_item1">보석 3,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_8_item2">보너스 보석 +1,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_8_item3">100억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_8_item4">바이인 티켓 30억</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩300,000</div>
@@ -424,15 +435,15 @@
         </div>
 
         <div class="pkg-card gem-tier-9">
-          <div class="pkg-image"><img src="images/gem_9.png" alt="Gem 9"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/gem_9.png" alt="Gem 9"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag vip">PREMIUM</span> <span data-i18n="gem_9_name">보석 5,000개</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_9_item1">보석 5,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_9_item2">보너스 보석 +2,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_9_item3">200억 골드</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_9_item4">바이인 티켓 50억</span></li>
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="gem_9_item5">VIP 아바타 (30일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_9_item1">보석 5,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="gem_9_item2">보너스 보석 +2,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="gem_9_item3">200억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_ticket.png" alt="ticket"></span><span data-i18n="gem_9_item4">바이인 티켓 50억</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="gem_9_item5">VIP 아바타 (30일)</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩500,000</div>
@@ -449,13 +460,13 @@
       <div class="pkg-grid avatar-grid">
 
         <div class="pkg-card avatar-tier-g">
-          <div class="pkg-image"><img src="images/shop_g.png" alt="Avatar G"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_g.png" alt="Avatar G"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="avatar_g_name">아바타 세트 G</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_g_item1">아바타 G (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_g_item2">보석 10개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_g_item3">5억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_g_item1">아바타 G (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_g_item2">보석 10개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_g_item3">5억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩1,000</div>
@@ -465,13 +476,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-h">
-          <div class="pkg-image"><img src="images/shop_h.png" alt="Avatar H"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_h.png" alt="Avatar H"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="avatar_h_name">아바타 세트 H</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_h_item1">아바타 H (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_h_item2">보석 30개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_h_item3">15억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_h_item1">아바타 H (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_h_item2">보석 30개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_h_item3">15억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩3,000</div>
@@ -481,13 +492,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-i">
-          <div class="pkg-image"><img src="images/shop_i.png" alt="Avatar I"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_i.png" alt="Avatar I"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="avatar_i_name">아바타 세트 I</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_i_item1">아바타 I (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_i_item2">보석 50개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_i_item3">25억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_i_item1">아바타 I (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_i_item2">보석 50개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_i_item3">25억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩5,000</div>
@@ -497,13 +508,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-j">
-          <div class="pkg-image"><img src="images/shop_j.png" alt="Avatar J"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_j.png" alt="Avatar J"></div>
           <div class="pkg-body">
             <div class="pkg-name" data-i18n="avatar_j_name">아바타 세트 J</div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_j_item1">아바타 J (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_j_item2">보석 100개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_j_item3">50억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_j_item1">아바타 J (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_j_item2">보석 100개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_j_item3">50억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩10,000</div>
@@ -513,13 +524,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-k">
-          <div class="pkg-image"><img src="images/shop_k.png" alt="Avatar K"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_k.png" alt="Avatar K"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag sale">POPULAR</span> <span data-i18n="avatar_k_name">아바타 세트 K</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_k_item1">아바타 K (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_k_item2">보석 300개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_k_item3">150억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_k_item1">아바타 K (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_k_item2">보석 300개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_k_item3">150억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩30,000</div>
@@ -529,13 +540,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-l">
-          <div class="pkg-image"><img src="images/shop_l.png" alt="Avatar L"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_l.png" alt="Avatar L"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag hot">HOT</span> <span data-i18n="avatar_l_name">아바타 세트 L</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_l_item1">아바타 L (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_l_item2">보석 500개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_l_item3">250억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_l_item1">아바타 L (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_l_item2">보석 500개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_l_item3">250억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩50,000</div>
@@ -545,13 +556,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-m">
-          <div class="pkg-image"><img src="images/shop_m.png" alt="Avatar M"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_m.png" alt="Avatar M"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag hot">BEST</span> <span data-i18n="avatar_m_name">아바타 세트 M</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_m_item1">아바타 M (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_m_item2">보석 1,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_m_item3">500억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_m_item1">아바타 M (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_m_item2">보석 1,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_m_item3">500억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩100,000</div>
@@ -561,13 +572,13 @@
         </div>
 
         <div class="pkg-card avatar-tier-n">
-          <div class="pkg-image"><img src="images/shop_n.png" alt="Avatar N"></div>
+          <div class="pkg-image"><img loading="lazy" src="images/shop_n.png" alt="Avatar N"></div>
           <div class="pkg-body">
             <div class="pkg-name"><span class="shop-item-tag vip">PREMIUM</span> <span data-i18n="avatar_n_name">아바타 세트 N</span></div>
             <ul class="pkg-contents">
-              <li><span class="pkg-icon"><img src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_n_item1">아바타 N (15일)</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_n_item2">보석 3,000개</span></li>
-              <li><span class="pkg-icon"><img src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_n_item3">1,500억 골드</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/shop_avatar.png" alt="avatar"></span><span data-i18n="avatar_n_item1">아바타 N (15일)</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_diamond.png" alt="diamond"></span><span data-i18n="avatar_n_item2">보석 3,000개</span></li>
+              <li><span class="pkg-icon"><img loading="lazy" src="images/icon_gold.png" alt="gold"></span><span data-i18n="avatar_n_item3">1,500억 골드</span></li>
             </ul>
             <div class="pkg-bottom">
               <div class="pkg-price">₩300,000</div>
@@ -591,7 +602,7 @@
               <li><span class="pkg-icon">🎯</span><span data-i18n="skin_classic_green_desc">전통적인 포커 테이블</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 2,000</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 2,000</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -605,7 +616,7 @@
               <li><span class="pkg-icon">🎯</span><span data-i18n="skin_royal_red_desc">프리미엄 레드 테이블</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 5,000</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 5,000</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -619,7 +630,7 @@
               <li><span class="pkg-icon">🎯</span><span data-i18n="skin_cosmic_black_desc">우주 컨셉 한정 스킨</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 10,000</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 10,000</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -633,7 +644,7 @@
               <li><span class="pkg-icon">🃏</span><span data-i18n="skin_gold_card_desc">고급 골드 카드 뒷면</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 80</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 80</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -647,7 +658,7 @@
               <li><span class="pkg-icon">🃏</span><span data-i18n="skin_brick_pattern_desc">클래식 벽돌 패턴 카드</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 120</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 120</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -661,7 +672,7 @@
               <li><span class="pkg-icon">🃏</span><span data-i18n="skin_diamond_card_desc">VIP 한정 다이아몬드 디자인</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 300</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 300</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -675,7 +686,7 @@
               <li><span class="pkg-icon">😎</span><span data-i18n="emote_pokerface_desc">기본 이모티콘 8종</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 1,500</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 1,500</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -689,7 +700,7 @@
               <li><span class="pkg-icon">🎭</span><span data-i18n="emote_drama_desc">연기파 이모티콘 12종</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> 3,000</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 3,000</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -703,7 +714,7 @@
               <li><span class="pkg-icon">💥</span><span data-i18n="emote_allin_desc">시즌3 한정 이모티콘 6종</span></li>
             </ul>
             <div class="pkg-bottom">
-              <div class="pkg-price"><img src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 60</div>
+              <div class="pkg-price"><img loading="lazy" src="images/icon_diamond.png" class="currency-icon" alt="diamond"> 60</div>
               <button class="pkg-buy-btn" data-i18n="shop_buy">구매하기</button>
             </div>
           </div>
@@ -718,17 +729,17 @@
 <div class="page-container" id="page-my">
   <div class="content-wrapper">
     <div class="my-page-hero"><h2 data-i18n="my_title">MY 룰루</h2><p data-i18n="my_desc">내 프로필과 게임 정보를 관리하세요</p></div>
-    <div class="my-profile-card"><div class="my-hero"><div class="my-avatar-wrap" onclick="openAvatarModal()"><div class="my-avatar"><img src="images/avatar_o.png" alt="Player Avatar"></div><div class="my-avatar-setting"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/></svg></div></div><div class="my-info"><div class="my-nickname"><h2 id="myNickname">두바이쫀득김치</h2><button class="my-nickname-edit" onclick="openNicknameModal()"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-8 9.646a.5.5 0 0 1-.233-.131L1.293 11.854a.5.5 0 0 1-.131-.232l-1 3.5a.5.5 0 0 0 .616.617l3.5-1z"/></svg></button></div><p class="my-email" id="myEmail"><img src="images/google.svg" class="my-email-icon" alt="Google"> kimjjusam@teamlulu.ai</p><p id="myJoinInfo" data-i18n="my_info_sub">가입일: 2025.01.15 · 레벨 23</p></div></div></div>
+    <div class="my-profile-card"><div class="my-hero"><div class="my-avatar-wrap" role="button" tabindex="0" onclick="openAvatarModal()"><div class="my-avatar"><img loading="lazy" src="images/avatar_o.png" alt="Player Avatar"></div><div class="my-avatar-setting"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/></svg></div></div><div class="my-info"><div class="my-nickname"><h2 id="myNickname">두바이쫀득김치</h2><button class="my-nickname-edit" onclick="openNicknameModal()"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-8 9.646a.5.5 0 0 1-.233-.131L1.293 11.854a.5.5 0 0 1-.131-.232l-1 3.5a.5.5 0 0 0 .616.617l3.5-1z"/></svg></button></div><p class="my-email" id="myEmail"><img loading="lazy" src="images/google.svg" class="my-email-icon" alt="Google"> kimjjusam@teamlulu.ai</p><p id="myJoinInfo" data-i18n="my_info_sub">가입일: 2025.01.15 · 레벨 23</p></div></div></div>
     <div class="stats-grid" style="margin:24px 0;grid-template-columns:1fr 1fr">
-      <div class="stat-card stat-card-link" onclick="switchPage('ticket')"><div class="stat-icon"><img src="images/stat_ticket.png" alt="ticket"></div><div class="stat-value">25 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_chips">티켓</div></div>
-      <div class="stat-card stat-card-link" onclick="switchPage('myitems')"><div class="stat-icon"><img src="images/stat_item.png" alt="item"></div><div class="stat-value">6 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_item">내 아이템</div></div>
+      <div class="stat-card stat-card-link" role="button" tabindex="0" onclick="switchPage('ticket')"><div class="stat-icon"><img loading="lazy" src="images/stat_ticket.png" alt="ticket"></div><div class="stat-value">25 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_chips">티켓</div></div>
+      <div class="stat-card stat-card-link" role="button" tabindex="0" onclick="switchPage('myitems')"><div class="stat-icon"><img loading="lazy" src="images/stat_item.png" alt="item"></div><div class="stat-value">6 <span class="stat-shortcut">→</span></div><div class="stat-label" data-i18n="stat_item">내 아이템</div></div>
     </div>
     <div class="my-menu">
-      <div class="my-menu-item" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15)"><img src="images/my_mailbox.png" alt="우편함"></div><span class="my-menu-text" data-i18n="my_message">우편함</span><span class="my-mail-badge" id="myMailBadge" style="display:none"></span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15)"><img src="images/my_host.png" alt="호스트"></div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15)"><img src="images/menu_terms.png" alt="히스토리"></div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item" onclick="switchPage('transaction')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15)"><img src="images/my_transaction.png" alt="거래내역"></div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
-      <div class="my-menu-item" onclick="switchPage('account-edit')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(249,98,23,0.15)"><img src="images/menu_my.png" alt="회원정보 수정"></div><span class="my-menu-text" data-i18n="my_profile">회원정보 수정</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" role="button" tabindex="0" onclick="switchPage('mailbox')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(96,165,250,0.15)"><img loading="lazy" src="images/my_mailbox.png" alt="우편함"></div><span class="my-menu-text" data-i18n="my_message">우편함</span><span class="my-mail-badge" id="myMailBadge" style="display:none"></span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" role="button" tabindex="0" onclick="switchPage('host')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(168,85,247,0.15)"><img loading="lazy" src="images/my_host.png" alt="호스트"></div><span class="my-menu-text" data-i18n="my_host">호스트</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" role="button" tabindex="0" onclick="switchPage('tn-history')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(20,184,166,0.15)"><img loading="lazy" src="images/menu_terms.png" alt="히스토리"></div><span class="my-menu-text" data-i18n="my_tn_history">히스토리</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" role="button" tabindex="0" onclick="switchPage('transaction')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(245,158,11,0.15)"><img loading="lazy" src="images/my_transaction.png" alt="거래내역"></div><span class="my-menu-text" data-i18n="my_history">거래 내역</span></div><span class="my-menu-arrow">›</span></div>
+      <div class="my-menu-item" role="button" tabindex="0" onclick="switchPage('account-edit')"><div class="my-menu-left"><div class="my-menu-icon" style="background:rgba(249,98,23,0.15)"><img loading="lazy" src="images/menu_my.png" alt="회원정보 수정"></div><span class="my-menu-text" data-i18n="my_profile">회원정보 수정</span></div><span class="my-menu-arrow">›</span></div>
     </div>
     <button class="login-btn" onclick="handleLogout()" style="width:100%;max-width:500px;margin:0 auto 32px;display:block;max-width:300px;padding:10px 0;font-size:13px;background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dark));">로그아웃</button>
   </div>
@@ -736,7 +747,7 @@
 
 <div class="page-container" id="page-login">
   <div class="login-page">
-    <div class="login-back" onclick="switchPage('lobby')">
+    <div class="login-back" role="button" tabindex="0" onclick="switchPage('lobby')">
       <span>←</span> <span data-i18n="login_back">돌아가기</span>
     </div>
     <!-- 로그인 폼 -->
@@ -746,7 +757,7 @@
         <p data-i18n="login_subtitle">무료 플레이, 쉬운 시작 간편하게 친구들과 한판</p>
       </div>
       <div class="login-card">
-        <div class="login-logo"><img src="images/login_icon.svg" alt="Poker Lulu"></div>
+        <div class="login-logo"><img loading="lazy" src="images/login_icon.svg" alt="Poker Lulu"></div>
         <div class="login-form">
           <input type="text" id="loginId" class="login-input" placeholder="포커룰루 아이디" data-i18n-placeholder="login_id_placeholder">
           <input type="password" id="loginPw" class="login-input" placeholder="비밀번호" data-i18n-placeholder="login_pw_placeholder">
@@ -758,11 +769,11 @@
         </div>
         <div class="login-social">
           <button class="social-btn google-btn">
-            <img src="images/google.svg" class="social-icon" alt="Google">
+            <img loading="lazy" src="images/google.svg" class="social-icon" alt="Google">
             <span data-i18n="login_google">구글 로그인</span>
           </button>
           <button class="social-btn naver-btn">
-            <img src="images/naver.svg" class="social-icon" alt="Naver">
+            <img loading="lazy" src="images/naver.svg" class="social-icon" alt="Naver">
             <span data-i18n="login_naver">네이버 로그인</span>
           </button>
         </div>
@@ -881,12 +892,12 @@
         <div class="signup-avatar-section">
           <p class="signup-avatar-label" data-i18n="signup_avatar_label">아바타 선택</p>
           <div class="signup-avatar-grid">
-            <div class="signup-avatar-item selected" data-avatar="avatar_o.png" onclick="selectSignupAvatar(this)">
-              <img src="images/avatar_o.png" alt="Avatar O">
+            <div class="signup-avatar-item selected" data-avatar="avatar_o.png" role="button" tabindex="0" onclick="selectSignupAvatar(this)">
+              <img loading="lazy" src="images/avatar_o.png" alt="Avatar O">
               <div class="signup-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
             </div>
-            <div class="signup-avatar-item" data-avatar="avatar_p.png" onclick="selectSignupAvatar(this)">
-              <img src="images/avatar_p.png" alt="Avatar P">
+            <div class="signup-avatar-item" data-avatar="avatar_p.png" role="button" tabindex="0" onclick="selectSignupAvatar(this)">
+              <img loading="lazy" src="images/avatar_p.png" alt="Avatar P">
               <div class="signup-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
             </div>
           </div>
@@ -937,7 +948,7 @@
 <!-- Ticket Page -->
 <div class="page-container" id="page-ticket">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="tk_title">티켓</h2>
       <p data-i18n="tk_desc">보유 중인 티켓을 확인하세요</p>
@@ -956,7 +967,7 @@
 <!-- Tournament Page -->
 <div class="page-container" id="page-tournament">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="tn_title">토너먼트</h2>
       <p data-i18n="tn_desc">다양한 토너먼트에 참가하고 보상을 획득하세요</p>
@@ -995,7 +1006,7 @@
 <!-- Tournament Detail (embedded as right panel on PC, standalone on mobile) -->
 <div class="page-container" id="page-tn-detail">
   <div class="content-wrapper">
-    <div class="gs-back td-mobile-only" onclick="switchPage('tournament')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back td-mobile-only" role="button" tabindex="0" onclick="switchPage('tournament')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="td-header">
       <h2 id="tdTournamentName"></h2>
       <span class="tn-badge" id="tdStatusBadge"></span>
@@ -1143,7 +1154,7 @@
 <!-- Tournament History Page -->
 <div class="page-container" id="page-tn-history">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="tnh_title">히스토리</h2>
       <p data-i18n="tnh_desc">종료된 토너먼트 기록을 확인하세요</p>
@@ -1155,7 +1166,7 @@
 <!-- Host Page -->
 <div class="page-container" id="page-host">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="host_title">호스트</h2>
       <p data-i18n="host_desc">내가 개설한 토너먼트를 관리하세요</p>
@@ -1176,15 +1187,15 @@
 <!-- Transaction History Page -->
 <div class="page-container" id="page-transaction">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="tx_title">거래 내역</h2>
       <p data-i18n="tx_desc">골드와 다이아의 충전·소모 내역을 확인하세요</p>
     </div>
     <div class="tx-tabs" style="max-width:700px;margin:0 auto 16px;">
       <button class="tx-tab active" data-filter="all" onclick="txSwitchTab('all')" data-i18n="tx_tab_all">전체</button>
-      <button class="tx-tab" data-filter="gold" onclick="txSwitchTab('gold')"><img src="images/icon_gold.png" class="currency-icon" alt="gold"> <span data-i18n="tx_tab_gold">골드</span></button>
-      <button class="tx-tab" data-filter="diamond" onclick="txSwitchTab('diamond')"><img src="images/icon_diamond.png" class="currency-icon" alt="diamond"> <span data-i18n="tx_tab_diamond">다이아</span></button>
+      <button class="tx-tab" data-filter="gold" onclick="txSwitchTab('gold')"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> <span data-i18n="tx_tab_gold">골드</span></button>
+      <button class="tx-tab" data-filter="diamond" onclick="txSwitchTab('diamond')"><img loading="lazy" src="images/icon_diamond.png" class="currency-icon" alt="diamond"> <span data-i18n="tx_tab_diamond">다이아</span></button>
     </div>
     <div class="tx-list" id="txList" style="max-width:700px;margin:0 auto;padding-bottom:48px;"></div>
   </div>
@@ -1193,7 +1204,7 @@
 <!-- My Items Page -->
 <div class="page-container" id="page-myitems">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="mi_title">내 아이템</h2>
       <p data-i18n="mi_desc">구매한 아이템을 확인하고 장착하세요</p>
@@ -1211,7 +1222,7 @@
 <!-- Mailbox Page -->
 <div class="page-container" id="page-mailbox">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="mb_title">우편함</h2>
       <p data-i18n="mb_desc">받은 우편을 확인하세요</p>
@@ -1223,7 +1234,7 @@
 <!-- Account Edit Page -->
 <div class="page-container" id="page-account-edit">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="ae_title">회원정보 수정</h2>
       <p data-i18n="ae_desc">비밀번호를 변경할 수 있습니다</p>
@@ -1258,7 +1269,7 @@
 <!-- Game Setup Page -->
 <div class="page-container" id="page-game-setup">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero"><h2 data-i18n="gs_title">사용자 게임</h2><p data-i18n="gs_desc">나만의 룰로 방을 만들고, 친구를 초대하세요</p></div>
     <div class="gs-tabs">
       <button class="gs-tab active" data-gs-tab="general" onclick="switchGameSetupTab('general')" data-i18n="gs_tab_general">일반설정</button>
@@ -1299,7 +1310,7 @@
       <div class="gs-divider"></div>
       <div class="gs-section">
         <label class="gs-label" data-i18n="gs_label_start_time">시작 시간 (자동 시작)</label>
-        <div class="login-input dtp-trigger" id="gsStartTimeDisplay" onclick="dtpOpen()">
+        <div class="login-input dtp-trigger" id="gsStartTimeDisplay" role="button" tabindex="0" onclick="dtpOpen()">
           <span id="gsStartTimeText">2025-01-01 14:00</span>
           <span class="dtp-icon">📅</span>
         </div>
@@ -1432,7 +1443,7 @@
 <!-- 이용약관 -->
 <div class="page-container" id="page-terms">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_terms">이용약관</h2>
     </div>
@@ -1673,7 +1684,7 @@
 <!-- 개인정보처리방침 -->
 <div class="page-container" id="page-privacy">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_privacy">개인정보처리방침</h2>
     </div>
@@ -1895,7 +1906,7 @@
 <!-- 청소년보호정책 -->
 <div class="page-container" id="page-youth">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_youth">청소년보호정책</h2>
     </div>
@@ -1966,14 +1977,14 @@
 <!-- 심의정책 -->
 <div class="page-container" id="page-rating">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_rating">심의정보</h2>
     </div>
     <div class="legal-content" id="ratingContent">
       <div class="rating-badges">
-        <img src="images/rating_19.png" alt="청소년이용불가" class="rating-badge-img">
-        <img src="images/rating_gambling.png" alt="사행성" class="rating-badge-img">
+        <img loading="lazy" src="images/rating_19.png" alt="청소년이용불가" class="rating-badge-img">
+        <img loading="lazy" src="images/rating_gambling.png" alt="사행성" class="rating-badge-img">
       </div>
       <div class="rating-info">
         <div class="rating-info-row">
@@ -2012,7 +2023,7 @@
 <!-- 회사정보 -->
 <div class="page-container" id="page-company">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_company">회사정보</h2>
     </div>
@@ -2054,7 +2065,7 @@
 <!-- 자주묻는질문 -->
 <div class="page-container" id="page-faq">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_support">자주묻는질문</h2>
     </div>
@@ -2082,15 +2093,15 @@
 
       <!-- 일반 -->
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>홀덤의 게임 방법은 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>홀덤의 게임 방법은 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>게임 시작 시 딜러를 지정하고, 딜러 왼쪽 첫 번째와 두 번째 플레이어가 각각 스몰 블라인드와 빅 블라인드를 베팅합니다. 이후, 판마다 시계 방향으로 딜러가 바뀌며, 모든 플레이어는 공평하게 딜러 역할을 맡게 됩니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>내가 하지 않은 경기도 볼 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>내가 하지 않은 경기도 볼 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>네, 등록하지 않아도 테이블을 관전하실 수 있습니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>베팅 라운드는 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>베팅 라운드는 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer">
           <p>포커룰루에는 4개의 베팅 라운드가 있습니다.</p>
           <ol>
@@ -2102,11 +2113,11 @@
         </div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>쇼다운은 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>쇼다운은 무엇인가요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>쇼다운은 게임에 최소 2명의 플레이어가 남아있을 때 발생하며, 핸드와 커뮤니티 카드 5장을 조합하여 가장 높은 족보를 가진 플레이어가 팟을 차지합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커에서 핸드 순위가 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커에서 핸드 순위가 어떻게 되나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer">
           <p>포커에서 족보는 총 10가지로 아래와 같습니다.</p>
           <ol>
@@ -2124,15 +2135,15 @@
         </div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>블라인드가 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>블라인드가 무엇인가요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>블라인드에는 스몰 블라인드(SB) 와 빅 블라인드(BB) 두 가지가 있습니다. 딜러의 위치를 기준으로 좌측에는 스몰 블라인드, 스몰 블라인드의 좌측에는 빅 블라인드가 위치하게 됩니다. 이 위치는 매번 카드를 딜링할 때마다 시계방향으로 한 칸씩 이동합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>앤티(ANTE)란 무엇인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>앤티(ANTE)란 무엇인가요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>핸드가 시작되기 전에 모든 혹은 특정 플레이어에게 걷는 블라인드를 제외한 참가비(강제 베팅)를 말합니다. 앤티는 호스트가 None, BB, All 중 설정할 수 있습니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>게임에서 할 수 있는 액션은 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>게임에서 할 수 있는 액션은 어떤 게 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer">
           <ul>
             <li><strong>체크:</strong> 앞에서 베팅이 없을 경우, 체크를 통해 다음 플레이어에게 액션을 넘길 수 있습니다.</li>
@@ -2144,63 +2155,63 @@
         </div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>토너먼트 등록 후 취소하고 싶으면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>토너먼트 등록 후 취소하고 싶으면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>해당 게임의 참가 페이지에 가서 등록 취소 버튼을 통해 등록 취소가 가능하나 등록이 마감됐거나 이미 게임이 시작됐을 경우 등록 취소가 불가합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>친구들을 어떻게 초대하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>친구들을 어떻게 초대하나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>직접 방을 생성하여 참가 페이지의 링크를 통해 지인들을 초대하여 함께 게임을 즐길 수 있습니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>내 프로필을 맞춤 설정할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>내 프로필을 맞춤 설정할 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>현재 포커룰루 사이트 로그인 시 16개의 프로필 중 선택 가능합니다. 사이트에서 설정한 프로필은 게임 이용 시 본인의 프로필로 연동됩니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>한 계정으로 여러 개의 포커 게임에 동시에 참여할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>한 계정으로 여러 개의 포커 게임에 동시에 참여할 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>한개의 계정으로 여러 개의 포커 게임에 참가할 수 있습니다. 단, 한 계정으로 동일한 포커 게임에서 한 명 이상의 플레이어 역할을 수행할 수 없습니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 국가 제한이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 국가 제한이 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>포커룰루는 무료 게임으로 어떠한 글로벌 제약도 받지 않으며 자유롭게 모든 국가에서 이용 가능합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 얼마나 안전하고 공정한가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 얼마나 안전하고 공정한가요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>포커룰루의 모든 카드는 컴퓨터 난수 알고리즘을 사용하여 모두 무작위로 생성되며, 포커룰루는 플레이어들에게 공정한 게임 환경을 제공하는 것을 최우선으로 생각합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 무료인가요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 무료인가요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>현재 포커룰루는 무료로 참여 가능합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 어떤 기기에서 사용할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 어떤 기기에서 사용할 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>PC와 모바일등 모든 기기에서 이용 가능합니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 앱이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 앱이 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>현재는 웹사이트만 존재하며, PC와 모바일등 모든 기기에서 이용 가능합니다. 앱도 추후 개발될 예정입니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="general">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>포커룰루는 비디오나 오디오 채팅 기능이 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>포커룰루는 비디오나 오디오 채팅 기능이 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>채팅 기능은 있지만 비디오나 오디오 채팅은 아직 없습니다. 추후 업데이트 될 예정입니다.</p></div>
       </div>
 
       <!-- 호스팅 -->
       <div class="faq-item" data-faq-cat="hosting">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>호스트의 경우 플레이어를 강퇴시킬 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>호스트의 경우 플레이어를 강퇴시킬 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>네. 퇴장시키고 싶은 선수의 프로필을 클릭하고 '좌석 퇴장' 버튼을 클릭하세요.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="hosting">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>호스트가 토너먼트 정보를 수정하려면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>호스트가 토너먼트 정보를 수정하려면 어떻게 하나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>My → Hosted → Edit을 통해 수정 가능합니다.</p></div>
       </div>
 
       <!-- 기타 -->
       <div class="faq-item" data-faq-cat="other">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>문의했으나 답변을 받지 못했습니다.</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>문의했으나 답변을 받지 못했습니다.</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>답변은 영업일 기준 최대 7일가량 소요될 수 있습니다. 지속적으로 답변을 받지 못할 경우 번거로우시겠지만 다시 한번 문의 부탁드립니다.</p></div>
       </div>
       <div class="faq-item" data-faq-cat="other">
-        <div class="faq-question" onclick="toggleFaq(this)"><span>게임의 버그 및 문제는 어디에 신고할 수 있나요?</span><span class="faq-arrow">▸</span></div>
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)"><span>게임의 버그 및 문제는 어디에 신고할 수 있나요?</span><span class="faq-arrow">▸</span></div>
         <div class="faq-answer"><p>Contact us를 통해 문의 부탁드립니다.</p></div>
       </div>
 
@@ -2211,7 +2222,7 @@
 <!-- Contact Page -->
 <div class="page-container" id="page-contact">
   <div class="content-wrapper">
-    <div class="gs-back" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_contact">문의하기</h2>
       <p data-i18n="contact_desc">궁금한 점이나 불편한 사항을 보내주세요.</p>
@@ -2239,10 +2250,10 @@
 </div>
 
 <!-- 모바일 슬라이드 메뉴 -->
-<div class="slide-menu-overlay" id="slideMenuOverlay" onclick="toggleSlideMenu()"></div>
+<div class="slide-menu-overlay" id="slideMenuOverlay" role="button" tabindex="0" onclick="toggleSlideMenu()"></div>
 <div class="slide-menu" id="slideMenu">
   <div class="slide-menu-header">
-    <div class="slide-menu-avatar"><img src="images/avatar_o.png" alt="MY" id="slideMenuAvatarImg"></div>
+    <div class="slide-menu-avatar"><img loading="lazy" src="images/avatar_o.png" alt="MY" id="slideMenuAvatarImg"></div>
     <div class="slide-menu-user">
       <span class="slide-menu-name" id="slideMenuName">Guest</span>
       <span class="slide-menu-id" id="slideMenuId">ID: -</span>
@@ -2251,24 +2262,24 @@
   </div>
   <div class="slide-menu-section">
     <div class="slide-menu-subtitle">링게임</div>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img class="slide-menu-icon" src="images/menu_holdem.png" alt="홀덤">홀덤</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img class="slide-menu-icon" src="images/menu_squid.png" alt="오징어게임">오징어게임</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img class="slide-menu-icon" src="images/menu_7poker.png" alt="7포커">7포커</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img class="slide-menu-icon" src="images/menu_72game.png" alt="72게임">72게임</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('game-setup')"><img class="slide-menu-icon" src="images/menu_custom.png" alt="사용자 게임">사용자 게임</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img loading="lazy" class="slide-menu-icon" src="images/menu_holdem.png" alt="홀덤">홀덤</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img loading="lazy" class="slide-menu-icon" src="images/menu_squid.png" alt="오징어게임">오징어게임</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img loading="lazy" class="slide-menu-icon" src="images/menu_7poker.png" alt="7포커">7포커</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img loading="lazy" class="slide-menu-icon" src="images/menu_72game.png" alt="72게임">72게임</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('game-setup')"><img loading="lazy" class="slide-menu-icon" src="images/menu_custom.png" alt="사용자 게임">사용자 게임</a>
     <div class="slide-menu-divider"></div>
     <div class="slide-menu-subtitle">토너먼트</div>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('tournament')"><img class="slide-menu-icon" src="images/menu_tournament.png" alt="토너먼트">토너먼트</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('tournament')"><img loading="lazy" class="slide-menu-icon" src="images/menu_tournament.png" alt="토너먼트">토너먼트</a>
   </div>
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img class="slide-menu-icon" src="images/menu_my.png" alt="MY 룰루">MY 룰루<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('faq')"><img class="slide-menu-icon" src="images/menu_support.png" alt="자주묻는 질문">자주묻는 질문</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img loading="lazy" class="slide-menu-icon" src="images/menu_my.png" alt="MY 룰루">MY 룰루<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('faq')"><img loading="lazy" class="slide-menu-icon" src="images/menu_support.png" alt="자주묻는 질문">자주묻는 질문</a>
   </div>
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
-    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('terms')"><img class="slide-menu-icon" src="images/menu_terms.png" alt="이용약관">이용약관</a>
-    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('privacy')"><img class="slide-menu-icon" src="images/menu_privacy.png" alt="개인정보처리방침">개인정보처리방침</a>
+    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('terms')"><img loading="lazy" class="slide-menu-icon" src="images/menu_terms.png" alt="이용약관">이용약관</a>
+    <a class="slide-menu-item slide-menu-item-muted" onclick="toggleSlideMenu();switchPage('privacy')"><img loading="lazy" class="slide-menu-icon" src="images/menu_privacy.png" alt="개인정보처리방침">개인정보처리방침</a>
   </div>
 </div>
 
@@ -2277,21 +2288,21 @@
 
 <!-- 모바일 하단 탭바 -->
 <nav class="m-tabbar">
-  <div class="m-tab active" data-tab="lobby" onclick="mTabSwitch(this,'lobby')">
+  <div class="m-tab active" data-tab="lobby" role="button" tabindex="0" onclick="mTabSwitch(this,'lobby')">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-8h3L12 3z"/></svg>
     <span>로비</span>
   </div>
-  <div class="m-tab" data-tab="shop" onclick="mTabSwitch(this,'shop')">
+  <div class="m-tab" data-tab="shop" role="button" tabindex="0" onclick="mTabSwitch(this,'shop')">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 6.34l-.8-4H1v2h3.84l3.42 12.2A1 1 0 0 0 9.23 17h8.54a1 1 0 0 0 .97-.76L21 8H5.21l1.95 6.34z"/><path d="M5.21 8h15.79l-2.26 8H9.23L5.21 8z"/></svg>
     <span>상점</span>
   </div>
-  <div class="m-tab" data-tab="ranking" onclick="mTabSwitch(this,'analytics')">
+  <div class="m-tab" data-tab="ranking" role="button" tabindex="0" onclick="mTabSwitch(this,'analytics')">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h4v10H5V12zm5-8h4v18h-4V4zm5 4h4v14h-4V8z"/></svg>
     <span>통계</span>
   </div>
-  <div class="m-tab" data-tab="my" onclick="mTabSwitch(this,'my')">
+  <div class="m-tab" data-tab="my" role="button" tabindex="0" onclick="mTabSwitch(this,'my')">
     <svg class="m-tab-my-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5z"/></svg>
-    <img class="m-tab-my-avatar" id="mTabMyAvatar" src="images/avatar_o.png" alt="MY" style="display:none;">
+    <img loading="lazy" class="m-tab-my-avatar" id="mTabMyAvatar" src="images/avatar_o.png" alt="MY" style="display:none;">
     <span>MY 룰루</span>
   </div>
   <div class="m-home-indicator"><div class="m-home-bar"></div></div>
@@ -2422,87 +2433,87 @@
     </div>
     <div class="modal-preview">
       <div class="modal-preview-avatar" id="modalPreviewAvatar">
-        <img src="images/avatar_o.png" alt="Current Avatar">
+        <img loading="lazy" src="images/avatar_o.png" alt="Current Avatar">
       </div>
     </div>
     <div class="modal-divider"></div>
     <div class="modal-scroll-area">
     <div class="modal-avatar-grid" id="modalAvatarGrid">
-      <div class="modal-avatar-item selected" data-avatar="avatar_o.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_o.png" alt="Avatar O">
+      <div class="modal-avatar-item selected" data-avatar="avatar_o.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_o.png" alt="Avatar O">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_p.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_p.png" alt="Avatar P">
+      <div class="modal-avatar-item" data-avatar="avatar_p.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_p.png" alt="Avatar P">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_a.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_a.png" alt="Avatar A">
+      <div class="modal-avatar-item" data-avatar="avatar_a.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_a.png" alt="Avatar A">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">7일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_b.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_b.png" alt="Avatar B">
+      <div class="modal-avatar-item" data-avatar="avatar_b.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_b.png" alt="Avatar B">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">3일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_c.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_c.png" alt="Avatar C">
+      <div class="modal-avatar-item" data-avatar="avatar_c.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_c.png" alt="Avatar C">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">15일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_d.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_d.png" alt="Avatar D">
+      <div class="modal-avatar-item" data-avatar="avatar_d.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_d.png" alt="Avatar D">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">12일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_e.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_e.png" alt="Avatar E">
+      <div class="modal-avatar-item" data-avatar="avatar_e.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_e.png" alt="Avatar E">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">5일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_f.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_f.png" alt="Avatar F">
+      <div class="modal-avatar-item" data-avatar="avatar_f.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_f.png" alt="Avatar F">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">9일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_g.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_g.png" alt="Avatar G">
+      <div class="modal-avatar-item" data-avatar="avatar_g.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_g.png" alt="Avatar G">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">2일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_h.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_h.png" alt="Avatar H">
+      <div class="modal-avatar-item" data-avatar="avatar_h.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_h.png" alt="Avatar H">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">30일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_i.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_i.png" alt="Avatar I">
+      <div class="modal-avatar-item" data-avatar="avatar_i.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_i.png" alt="Avatar I">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">10일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_j.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_j.png" alt="Avatar J">
+      <div class="modal-avatar-item" data-avatar="avatar_j.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_j.png" alt="Avatar J">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">20일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_k.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_k.png" alt="Avatar K">
+      <div class="modal-avatar-item" data-avatar="avatar_k.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_k.png" alt="Avatar K">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">8일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_l.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_l.png" alt="Avatar L">
+      <div class="modal-avatar-item" data-avatar="avatar_l.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_l.png" alt="Avatar L">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">14일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_m.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_m.png" alt="Avatar M">
+      <div class="modal-avatar-item" data-avatar="avatar_m.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_m.png" alt="Avatar M">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">6일</span>
       </div>
-      <div class="modal-avatar-item" data-avatar="avatar_n.png" onclick="selectAvatar(this)">
-        <img src="images/avatar_n.png" alt="Avatar N">
+      <div class="modal-avatar-item" data-avatar="avatar_n.png" role="button" tabindex="0" onclick="selectAvatar(this)">
+        <img loading="lazy" src="images/avatar_n.png" alt="Avatar N">
         <div class="modal-avatar-check"><svg width="10" height="10" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div>
         <span class="modal-avatar-badge">25일</span>
       </div>

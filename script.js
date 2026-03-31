@@ -2636,7 +2636,6 @@ function gsCreateGame() {
     initialTimeBank: document.getElementById('gsInitialTimeBank').value,
     extraTime: document.getElementById('gsExtraTime').value,
   };
-  console.log('Game config:', config);
   alert('게임이 생성되었습니다! (Demo)');
 }
 
