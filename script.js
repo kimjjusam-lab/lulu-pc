@@ -1348,17 +1348,13 @@ function toggleMobileStatusbar() {
   if (!carousel) return;
   var items = carousel.children;
   var idx = 0;
-  function getVisible() {
-    return window.innerWidth <= 768 ? 3 : 4;
-  }
   function scroll() {
-    var visible = getVisible();
-    var max = items.length - visible;
+    if (window.innerWidth > 768) { carousel.style.transform = ''; idx = 0; return; }
+    var max = items.length - 3;
     idx++;
     if (idx > max) idx = 0;
-    var item = items[0];
     var gap = 16;
-    var itemW = item.offsetWidth + gap;
+    var itemW = items[0].offsetWidth + gap;
     carousel.style.transform = 'translateX(-' + (idx * itemW) + 'px)';
   }
   setInterval(scroll, 3000);

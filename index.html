@@ -130,15 +130,15 @@
     <section class="stats-section">
       <div class="section-header"><h2 class="section-title" data-i18n="lobby_my_stats">내 통계 요약</h2><span class="section-more" role="button" tabindex="0" onclick="switchPage('analytics')" data-i18n="lobby_detail">자세히 →</span></div>
       <div class="stats-grid">
-        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_games.png" alt="games"></div><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div>
-        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="winrate"></div><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div>
-        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_profit.png" alt="profit"></div><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div>
-        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="streak"></div><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_games.png" alt="games"></div><div class="stat-info"><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">총 게임</div></div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="winrate"></div><div class="stat-info"><div class="stat-value">67%</div><div class="stat-label" data-i18n="stat_winrate">승률</div></div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_profit.png" alt="profit"></div><div class="stat-info"><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 수익</div></div></div>
+        <div class="stat-card" role="button" tabindex="0" onclick="switchPage('analytics')" style="cursor:pointer"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="streak"></div><div class="stat-info"><div class="stat-value" style="color:var(--accent-pink)">12</div><div class="stat-label" data-i18n="stat_best_streak">연승 최고</div></div></div>
       </div>
     </section>
 
     <section class="lobby-recommend">
-      <div class="section-header"><h2 class="section-title" data-i18n="shop_tab_avatar">아바타</h2><span class="section-more" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('avatar'),50)" style="cursor:pointer">상점가기 →</span></div>
+      <div class="section-header"><h2 class="section-title">상점</h2><span class="section-more" role="button" tabindex="0" onclick="switchPage('shop');setTimeout(()=>switchShopTab('avatar'),50)" style="cursor:pointer">상점가기 →</span></div>
       <div class="lobby-carousel-wrap">
         <div class="lobby-carousel" id="lobbyCarousel">
           <div class="lobby-carousel-item" onclick="switchPage('shop');setTimeout(()=>switchShopTab('avatar'),50)">
