@@ -1342,6 +1342,28 @@ function toggleMobileStatusbar() {
   fab.textContent = hidden ? 'ON' : 'OFF';
 }
 
+// === 로비 아바타 캐러셀 자동 스크롤 ===
+(function() {
+  var carousel = document.getElementById('lobbyCarousel');
+  if (!carousel) return;
+  var items = carousel.children;
+  var idx = 0;
+  function getVisible() {
+    return window.innerWidth <= 768 ? 3 : 4;
+  }
+  function scroll() {
+    var visible = getVisible();
+    var max = items.length - visible;
+    idx++;
+    if (idx > max) idx = 0;
+    var item = items[0];
+    var gap = 16;
+    var itemW = item.offsetWidth + gap;
+    carousel.style.transform = 'translateX(-' + (idx * itemW) + 'px)';
+  }
+  setInterval(scroll, 3000);
+})();
+
 // === 모바일 상태바 시계 ===
 (function() {
   function updateStatusTime() {

@@ -185,6 +185,17 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .shop-tab-content { display:none; }
 .shop-tab-content.active { display:block; }
 
+/* Lobby Avatar Carousel */
+.lobby-recommend { margin-bottom:40px; }
+.lobby-carousel-wrap { overflow:hidden; }
+.lobby-carousel { display:flex; gap:16px; transition:transform 0.5s ease; }
+.lobby-carousel-item { flex:0 0 calc(25% - 12px); background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:16px; text-align:center; cursor:pointer; transition:all 0.3s; }
+.lobby-carousel-item:hover { transform:translateY(-4px); border-color:rgba(249,98,23,0.3); box-shadow:0 8px 24px rgba(249,98,23,0.1); }
+.lobby-carousel-img { margin-bottom:10px; }
+.lobby-carousel-img img { width:80px; height:80px; object-fit:contain; }
+.lobby-carousel-name { font-size:13px; font-weight:700; color:var(--text-primary); margin-bottom:6px; }
+.lobby-carousel-price { font-size:13px; font-weight:700; color:var(--accent-orange); }
+
 /* Package Card Grid */
 .pkg-grid {
   display: grid;
@@ -1606,11 +1617,17 @@ body.light-mode .m-fab-login.active { background:var(--accent-orange); color:#ff
   .shop-tab { padding:8px 8px; font-size:13px; }
   .gs-tab { font-size:13px; }
 
+  /* --- Lobby carousel mobile: 3 visible --- */
+  .lobby-carousel-item { flex:0 0 calc(33.333% - 11px); }
+  .lobby-carousel-img img { width:60px; height:60px; }
+  .lobby-carousel-name { font-size:12px; font-weight:600; }
+  .lobby-carousel-price { font-size:12px; }
+
   /* --- Package grid: 2 columns --- */
   .pkg-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
   .pkg-image { aspect-ratio:4/3; }
   .pkg-body { padding:12px; }
-  .pkg-name { font-size:14px; margin-bottom:8px; align-items:center; }
+  .pkg-name { font-size:14px; font-weight:600; margin-bottom:8px; align-items:center; }
   .pkg-name .shop-item-tag { font-size:8px; padding:3px 7px; line-height:1; display:inline-flex; align-items:center; justify-content:center; margin-bottom:0; }
   .pkg-contents { margin-bottom:8px; }
   .pkg-contents li { font-size:11px; padding:4px 8px; }
