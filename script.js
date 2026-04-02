@@ -1489,7 +1489,7 @@ function handleSendCode() {
 function updateVerifyBtn() {
   const code = document.getElementById('signupCode').value.trim();
   const verifyBtn = document.getElementById('verifyCodeBtn');
-  if (code.length >= 6) {
+  if (code.length >= 1) {
     verifyBtn.disabled = false;
     verifyBtn.classList.remove('disabled');
   } else {
