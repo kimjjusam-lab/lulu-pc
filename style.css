@@ -476,7 +476,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   flex-direction: column;
   align-items: center;
 }
-#loginSection, #signupStep1, #signupStep2, #signupStep3, #signupStep4 { width:100%; display:flex; flex-direction:column; align-items:center; }
+#loginSection, #signupStep1, #signupStep2, #signupStep3, #signupStep4, #signupStep5 { width:100%; display:flex; flex-direction:column; align-items:center; }
 .login-back {
   width: 100%;
   padding: 14px 0;
@@ -491,7 +491,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 }
 .login-back:hover { color: var(--accent-orange); }
 .login-header {
-  padding: 40px 0 16px;
+  padding: 32px 0 12px;
   text-align: center;
 }
 .login-header h2 {
@@ -652,7 +652,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .login-sep { color: var(--border-color); }
 
 /* Signup Progress Bar */
-.signup-progress { display:flex; align-items:center; width:100%; max-width:420px; padding:0 20px; margin-top:8px; margin-bottom:24px; }
+.signup-progress { display:flex; align-items:center; width:100%; max-width:420px; padding:0 20px; margin-top:4px; margin-bottom:16px; }
 .progress-step { display:flex; flex-direction:column; align-items:center; gap:6px; flex-shrink:0; }
 .progress-dot { width:28px; height:28px; border-radius:50%; background:var(--bg-card); border:2px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--text-muted); transition:all 0.3s; }
 .progress-step span { font-size:11px; color:var(--text-muted); font-weight:500; white-space:nowrap; }
@@ -662,7 +662,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .progress-step.done span { color:var(--accent-orange); }
 .progress-line { flex:1; height:2px; background:var(--border-color); margin:0 8px; margin-bottom:20px; transition:background 0.3s; }
 .progress-line.done { background:var(--accent-orange); }
-.signup-content-divider { width:100%; max-width:420px; height:1px; background:var(--border-color); margin-bottom:8px; }
+.signup-content-divider { width:100%; max-width:420px; height:1px; background:var(--border-color); margin-bottom:12px; }
 
 /* Signup Terms */
 .signup-terms { text-align:left; margin-bottom:24px; }
@@ -682,7 +682,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .signup-login-link a:hover { color:var(--accent-orange-dark); }
 
 /* Signup Step2 - inline input + button rows */
-.signup-card-padded { padding-top:24px; }
+.signup-card-padded { padding-top:12px; }
 .signup-inline-row { display:flex; gap:8px; align-items:center; }
 .signup-inline-row .login-input { flex:1; min-width:0; }
 .signup-inline-btn {
@@ -1597,9 +1597,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   .tn-tab, .td-tab { padding:8px 10px; font-size:13px; }
 
   /* --- Login page mobile --- */
-  .login-card { padding:0 16px 32px; }
-  .login-header { padding:24px 0 12px; }
-  .login-header h2 { font-size:22px; }
+  .login-card { padding:0 20px 32px; }
   #loginSection .login-header h2 { display:none; }
 
   /* --- Modal mobile --- */
