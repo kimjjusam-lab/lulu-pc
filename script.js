@@ -212,8 +212,8 @@ const i18n = {
     mi_empty: '보유한 아이템이 없습니다',
     mi_purchased: '구매일',
     mi_equipped: '장착중',
-    mi_equip: '장착하기',
-    mi_unequip: '장착해제',
+    mi_equip: '장착',
+    mi_unequip: '해제',
     mi_discard: '버리기',
     mi_discard_title: '아이템 버리기',
     mi_discard_confirm: '정말 이 아이템을 버리시겠습니까?',
@@ -3131,12 +3131,12 @@ const shopItemsData = [
 
 // === 내 아이템 ===
 const demoMyItems = [
-  { id:1, category:'table', icon:'🟢', name:'클래식 그린', nameKey:'skin_classic_green', desc:'전통적인 포커 테이블', descKey:'skin_classic_green_desc', gradient:'linear-gradient(135deg,#065f46,#047857)', purchaseDate:'2026-02-20', equipped:true },
-  { id:2, category:'table', icon:'🔴', name:'로얄 레드', nameKey:'skin_royal_red', desc:'프리미엄 레드 테이블', descKey:'skin_royal_red_desc', gradient:'linear-gradient(135deg,#991b1b,#dc2626)', purchaseDate:'2026-02-18', equipped:false },
-  { id:3, category:'card', icon:'🃏', name:'골드 카드', nameKey:'skin_gold_card', desc:'고급 골드 카드 뒷면', descKey:'skin_gold_card_desc', gradient:'linear-gradient(135deg,#1a1500,#2d2200)', purchaseDate:'2026-02-22', equipped:true },
-  { id:4, category:'card', icon:'🧱', name:'벽돌 패턴', nameKey:'skin_brick_pattern', desc:'클래식 벽돌 패턴 카드', descKey:'skin_brick_pattern_desc', gradient:'linear-gradient(135deg,#78350f,#b45309)', purchaseDate:'2026-02-15', equipped:false },
-  { id:5, category:'emote', icon:'😎', name:'포커페이스 팩', nameKey:'emote_poker_face', desc:'다양한 포커 이모티콘', descKey:'emote_poker_face_desc', gradient:'linear-gradient(135deg,#1e3a5f,#3b82f6)', purchaseDate:'2026-02-24', equipped:true },
-  { id:6, category:'emote', icon:'💥', name:'올인 팩', nameKey:'emote_allin', desc:'올인 전용 이모티콘', descKey:'emote_allin_desc', gradient:'linear-gradient(135deg,#7c2d12,#f97316)', purchaseDate:'2026-02-10', equipped:false },
+  { id:1, category:'table', image:'images/table_classic_green.png', name:'클래식 그린', nameKey:'skin_classic_green', desc:'전통적인 포커 테이블', descKey:'skin_classic_green_desc', purchaseDate:'2026-02-20', equipped:true },
+  { id:2, category:'table', image:'images/table_royal_red.png', name:'로얄 레드', nameKey:'skin_royal_red', desc:'프리미엄 레드 테이블', descKey:'skin_royal_red_desc', purchaseDate:'2026-02-18', equipped:false },
+  { id:3, category:'card', image:'images/card_gold.png', name:'골드 카드', nameKey:'skin_gold_card', desc:'고급 골드 카드 뒷면', descKey:'skin_gold_card_desc', purchaseDate:'2026-02-22', equipped:true },
+  { id:4, category:'card', image:'images/card_brick.png', name:'벽돌 패턴', nameKey:'skin_brick_pattern', desc:'클래식 벽돌 패턴 카드', descKey:'skin_brick_pattern_desc', purchaseDate:'2026-02-15', equipped:false },
+  { id:5, category:'emote', image:'images/emote_pokerface.png', name:'포커페이스 팩', nameKey:'emote_poker_face', desc:'다양한 포커 이모티콘', descKey:'emote_poker_face_desc', purchaseDate:'2026-02-24', equipped:true },
+  { id:6, category:'emote', image:'images/emote_allin.png', name:'올인 팩', nameKey:'emote_allin', desc:'올인 전용 이모티콘', descKey:'emote_allin_desc', purchaseDate:'2026-02-10', equipped:false },
 ];
 
 let miCurrentFilter = 'all';
@@ -3170,7 +3170,7 @@ function miRenderList() {
     if (item.equipped) {
       html += '<div class="mi-equipped-badge">' + t.mi_equipped + '</div>';
     }
-    html += '<div class="mi-card-visual" style="background:' + item.gradient + '">' + item.icon + '</div>';
+    html += '<div class="mi-card-visual mi-visual-' + item.category + '"><img loading="lazy" src="' + item.image + '" alt="' + nameText + '"></div>';
     html += '<div class="mi-card-info">';
     html += '<div class="mi-card-name">' + nameText + '</div>';
     html += '<div class="mi-card-desc">' + descText + '</div>';
