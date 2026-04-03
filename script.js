@@ -1207,6 +1207,10 @@ function switchPage(p) {
   document.querySelectorAll('.nav-link').forEach(e => e.classList.remove('active'));
   const navLink = document.querySelector('.nav-link[data-page="' + p + '"]');
   if (navLink) { navLink.classList.add('active'); moveSlider(navLinks, navLink, prevNav); }
+  // 모바일: 탭 유무에 따라 nav 보더 토글
+  var pageEl = document.getElementById('page-' + p);
+  var hasTabs = pageEl && pageEl.querySelector('.shop-tabs,.tn-tabs,.td-tabs,.gs-tabs,.tx-tabs,.mi-tabs,.faq-tabs');
+  document.body.classList.toggle('has-page-tabs', !!hasTabs);
   // 모바일 탭바 active 동기화
   mSyncTabbar(p);
   // 모바일 nav 로고/타이틀 전환
