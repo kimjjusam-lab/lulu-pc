@@ -30,6 +30,10 @@ jobs:
           csso style.css -o style.css
           csso color.css -o color.css
           terser script.js --compress --mangle -o script.js
+      - name: Build Storybook
+        run: |
+          npm ci
+          npx storybook build -o storybook
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
