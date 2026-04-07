@@ -1096,6 +1096,28 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .mb-btn-done { color:var(--text-muted); background:rgba(107,114,128,0.12); border-color:rgba(107,114,128,0.25); cursor:default; }
 .mb-btn-done:hover { background:rgba(107,114,128,0.12); }
 .mb-read { opacity:0.55; }
+.mb-tabs { display:flex; gap:12px; margin-bottom:24px; background:#010104; border:1px solid #1a1a2a; border-radius:14px; padding:7px; align-items:center; position:relative; }
+.mb-tab { flex:1; padding:0 16px; border:1px solid transparent; border-radius:10px; font-size:14px; font-weight:700; cursor:pointer; background:transparent; color:var(--text-muted); transition:color 0.25s, font-weight 0.25s; height:43px; position:relative; z-index:1; display:flex; align-items:center; justify-content:center; }
+.mb-tab:hover { color:var(--text-secondary); background:rgba(255,255,255,0.03); }
+.mb-tab.active { background:#1f1f35; color:#fff; border:1px solid #2a2a44; }
+.mb-tab-content { display:none; }
+.mb-tab-content.active { display:block; }
+.mb-notif-item { display:flex; align-items:flex-start; gap:14px; padding:16px 20px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; margin-bottom:8px; }
+.mb-notif-icon { font-size:20px; flex-shrink:0; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:rgba(249,98,23,0.1); }
+.mb-notif-body { flex:1; display:flex; flex-direction:column; gap:4px; }
+.mb-notif-title { font-size:14px; font-weight:700; color:var(--text-primary); }
+.mb-notif-desc { font-size:13px; color:var(--text-secondary); line-height:1.5; }
+.mb-notif-time { font-size:11px; color:var(--text-muted); }
+.mb-notif-item.unread .mb-notif-title::after { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent-orange); margin-left:6px; vertical-align:middle; }
+.mb-msg-item { display:flex; align-items:flex-start; gap:14px; padding:16px 20px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; margin-bottom:8px; cursor:pointer; transition:all 0.2s; }
+.mb-msg-item:hover { border-color:rgba(249,98,23,0.2); }
+.mb-msg-avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.mb-msg-body { flex:1; display:flex; flex-direction:column; gap:4px; min-width:0; }
+.mb-msg-name { font-size:14px; font-weight:700; color:var(--text-primary); }
+.mb-msg-time { font-size:11px; color:var(--text-muted); }
+.mb-msg-preview { font-size:13px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mb-msg-item.unread .mb-msg-name::after { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent-orange); margin-left:6px; vertical-align:middle; }
+.mb-msg-badge { min-width:22px; height:22px; border-radius:50%; background:var(--accent-orange); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; align-self:center; }
 
 /* Transaction History */
 .tx-tabs { display:flex; gap:12px; background:#010104; border:1px solid #1a1a2a; border-radius:14px; padding:7px; align-items:center; position:relative; }
@@ -1629,7 +1651,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 
   /* --- Tabs mobile: underline style, fixed below nav --- */
   .has-page-tabs .m-nav { border-bottom:none; }
-  .shop-tabs, .tn-tabs, .td-tabs, .gs-tabs, .tx-tabs, .mi-tabs, .faq-tabs {
+  .shop-tabs, .tn-tabs, .td-tabs, .gs-tabs, .tx-tabs, .mi-tabs, .faq-tabs, .mb-tabs {
     background:#0d0d18 !important; border:none !important; border-radius:0 !important; padding:0 !important; gap:0 !important;
     position:sticky !important; top:116px; z-index:99;
     margin:-16px -16px 16px !important;
@@ -1641,13 +1663,13 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
     height:2px !important; top:auto !important; bottom:0 !important;
     background:var(--accent-orange) !important;
   }
-  .shop-tab, .tn-tab, .td-tab, .gs-tab, .tx-tab, .mi-tab, .faq-tab {
+  .shop-tab, .tn-tab, .td-tab, .gs-tab, .tx-tab, .mi-tab, .faq-tab, .mb-tab {
     height:auto !important; padding:12px 0 !important; font-size:13px; border:none !important; border-radius:0 !important;
   }
   .shop-tab:hover, .tn-tab:hover, .td-tab:hover, .gs-tab:hover,
-  .tx-tab:hover, .mi-tab:hover, .faq-tab:hover { background:transparent !important; }
+  .tx-tab:hover, .mi-tab:hover, .faq-tab:hover, .mb-tab:hover { background:transparent !important; }
   .shop-tab.active, .tn-tab.active, .td-tab.active, .gs-tab.active,
-  .tx-tab.active, .mi-tab.active, .faq-tab.active {
+  .tx-tab.active, .mi-tab.active, .faq-tab.active, .mb-tab.active {
     color:var(--accent-orange) !important; background:transparent !important;
     border-bottom:2px solid var(--accent-orange) !important;
   }

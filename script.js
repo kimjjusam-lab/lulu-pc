@@ -588,7 +588,7 @@ function switchPage(p) {
   if (navLink) { navLink.classList.add('active'); moveSlider(navLinks, navLink, prevNav); }
   // 모바일: 탭 유무에 따라 nav 보더 토글
   var pageEl = document.getElementById('page-' + p);
-  var hasTabs = pageEl && pageEl.querySelector('.shop-tabs,.tn-tabs,.td-tabs,.gs-tabs,.tx-tabs,.mi-tabs,.faq-tabs');
+  var hasTabs = pageEl && pageEl.querySelector('.shop-tabs,.tn-tabs,.td-tabs,.gs-tabs,.tx-tabs,.mi-tabs,.faq-tabs,.mb-tabs');
   document.body.classList.toggle('has-page-tabs', !!hasTabs);
   // 모바일 탭바 active 동기화
   mSyncTabbar(p);
@@ -737,7 +737,7 @@ function toggleMobileStatusbar() {
   if (slide) slide.style.top = slideTop;
   // 탭 메뉴 top 값도 함께 업데이트 (상태바 52px 제거 시 116→64)
   var tabsTop = hidden ? '' : '64px';
-  document.querySelectorAll('.shop-tabs,.tn-tabs,.td-tabs,.gs-tabs,.tx-tabs,.mi-tabs,.faq-tabs').forEach(function(t) {
+  document.querySelectorAll('.shop-tabs,.tn-tabs,.td-tabs,.gs-tabs,.tx-tabs,.mi-tabs,.faq-tabs,.mb-tabs').forEach(function(t) {
     t.style.top = tabsTop;
   });
   fab.classList.toggle('active', hidden);
@@ -2404,35 +2404,68 @@ function updateAvatarReddot() {
 }
 updateAvatarReddot();
 
+// === 우편함 탭 ===
+function switchMbTab(tab) {
+  document.querySelectorAll('.mb-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelector('.mb-tab[data-mb-tab="' + tab + '"]').classList.add('active');
+  document.querySelectorAll('.mb-tab-content').forEach(function(c) { c.classList.remove('active'); c.style.display = 'none'; });
+  var el = document.getElementById('mb-' + tab);
+  if (el) { el.classList.add('active'); el.style.display = 'block'; }
+}
+
+var demoNotifs = [
+  { title: '토너먼트 우승!', desc: '주간 챔피언십에서 1위를 달성했습니다. 축하합니다!', time: '2시간 전', unread: true },
+  { title: '출석 보상 지급', desc: '7일 연속 출석 보상으로 골드 1,000이 지급되었습니다.', time: '5시간 전', unread: true },
+  { title: '시스템 점검 안내', desc: '4월 10일 04:00~06:00 서버 점검이 예정되어 있습니다.', time: '1일 전', unread: false },
+  { title: '시즌 3 종료', desc: '시즌 3이 종료되었습니다. 보상을 확인하세요.', time: '3일 전', unread: false },
+];
+
+var demoMessages = [
+  { avatar: 'images/avatar_h.png', name: '포커마스터', preview: '내일 저녁 8시에 프라이빗 룸 하실래요?', time: '30분 전', unread: true, unreadCount: 3 },
+  { avatar: 'images/avatar_i.png', name: '올인김치', preview: '아까 그 핸드 대박이었어요 ㅋㅋ', time: '2시간 전', unread: true, unreadCount: 1 },
+  { avatar: 'images/avatar_j.png', name: '블러프왕', preview: 'GG! 다음에 또 해요', time: '1일 전', unread: false, unreadCount: 0 },
+];
+
 function mbRenderList() {
-  const t = i18n[currentLang] || i18n.ko;
-  const el = document.getElementById('mbMailList');
+  mbRenderNotifs();
+  mbRenderMessages();
+}
+
+function mbRenderNotifs() {
+  var el = document.getElementById('mbNotifList');
   if (!el) return;
-  if (demoMails.length === 0) {
-    el.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--text-muted);font-size:14px;">' + t.mb_empty + '</div>';
+  if (demoNotifs.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--text-muted);font-size:14px;">알림이 없습니다</div>';
     return;
   }
-  const sorted = [...demoMails].sort((a, b) => a.read - b.read);
-  el.innerHTML = sorted.map(m => {
-    let timeStr = '';
-    if (m.expireHours >= 24) {
-      timeStr = '⏱ ' + Math.floor(m.expireHours / 24) + (currentLang === 'en' ? 'd' : currentLang === 'ja' ? '日' : '일');
-    } else {
-      timeStr = '⏱ ' + m.expireHours + (currentLang === 'en' ? 'h' : currentLang === 'ja' ? '時間' : '시간');
-    }
-    const mailIcon = m.read ? '✉️' : '📩';
-    const btnText = m.read ? t.mb_btn_done : t.mb_btn_claim;
-    const btnClass = m.read ? 'mb-item-btn mb-btn-done' : 'mb-item-btn';
-    return '<div class="mb-item' + (m.read ? ' mb-read' : '') + '">' +
-      '<div class="mb-item-icon">' + mailIcon + '</div>' +
-      '<div class="mb-item-body">' +
-        '<div class="mb-item-title">' + m.title + '</div>' +
-        '<div class="mb-item-row">' +
-          '<div class="mb-item-reward">' + m.reward + '</div>' +
-          '<span class="mb-item-timer">' + timeStr + '</span>' +
-        '</div>' +
+  el.innerHTML = demoNotifs.map(function(n) {
+    return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '">' +
+      '<div class="mb-notif-body">' +
+        '<div class="mb-notif-title">' + n.title + '</div>' +
+        '<div class="mb-notif-desc">' + n.desc + '</div>' +
+        '<div class="mb-notif-time">' + n.time + '</div>' +
       '</div>' +
-      '<button class="' + btnClass + '">' + btnText + '</button>' +
+    '</div>';
+  }).join('');
+}
+
+function mbRenderMessages() {
+  var el = document.getElementById('mbMsgList');
+  if (!el) return;
+  if (demoMessages.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--text-muted);font-size:14px;">메시지가 없습니다</div>';
+    return;
+  }
+  el.innerHTML = demoMessages.map(function(m) {
+    var badge = m.unreadCount > 0 ? '<span class="mb-msg-badge">' + m.unreadCount + '</span>' : '';
+    return '<div class="mb-msg-item' + (m.unread ? ' unread' : '') + '">' +
+      '<img class="mb-msg-avatar" src="' + m.avatar + '" alt="' + m.name + '">' +
+      '<div class="mb-msg-body">' +
+        '<div class="mb-msg-name">' + m.name + '</div>' +
+        '<div class="mb-msg-preview">' + m.preview + '</div>' +
+        '<div class="mb-msg-time">' + m.time + '</div>' +
+      '</div>' +
+      badge +
     '</div>';
   }).join('');
 }

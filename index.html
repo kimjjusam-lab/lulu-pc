@@ -1378,14 +1378,25 @@
 </div>
 
 <!-- Mailbox Page -->
-<div class="page-container" id="page-mailbox">
+<div class="page-container has-page-tabs" id="page-mailbox">
   <div class="content-wrapper">
     <div class="gs-back" role="button" tabindex="0" onclick="switchPage('my')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="mb_title">우편함</h2>
-      <p data-i18n="mb_desc">받은 우편을 확인하세요</p>
+      <p data-i18n="mb_desc">받은 알림과 메시지를 확인하세요</p>
     </div>
-    <div class="mb-list" id="mbMailList"></div>
+    <div class="mb-tabs" style="max-width:700px;margin:0 auto 16px;">
+      <button class="mb-tab active" data-mb-tab="notification" onclick="switchMbTab('notification')">알림</button>
+      <button class="mb-tab" data-mb-tab="message" onclick="switchMbTab('message')">1:1 메시지</button>
+    </div>
+    <div style="max-width:700px;margin:0 auto;">
+      <div class="mb-tab-content active" id="mb-notification">
+        <div class="mb-list" id="mbNotifList"></div>
+      </div>
+      <div class="mb-tab-content" id="mb-message" style="display:none">
+        <div class="mb-list" id="mbMsgList"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -2430,7 +2441,7 @@
   </div>
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img loading="lazy" class="slide-menu-icon" src="images/my_mailbox.png" alt="우편함">우편함<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('mailbox')"><img loading="lazy" class="slide-menu-icon" src="images/my_mailbox.png" alt="우편함">우편함<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
     <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('faq')"><img loading="lazy" class="slide-menu-icon" src="images/menu_support.png" alt="자주묻는 질문">자주묻는 질문</a>
   </div>
   <div class="slide-menu-divider"></div>
