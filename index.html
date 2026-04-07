@@ -2210,13 +2210,21 @@
 </div>
 
 <!-- 자주묻는질문 -->
-<div class="page-container" id="page-faq">
+<div class="page-container has-page-tabs" id="page-faq">
   <div class="content-wrapper">
     <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
       <h2 data-i18n="footer_support">자주묻는질문</h2>
     </div>
     <div class="legal-content" id="faqContent">
+
+      <!-- 탭 -->
+      <div class="faq-tabs">
+        <button class="faq-tab active" data-faq-tab="all" onclick="switchFaqTab('all')">전체</button>
+        <button class="faq-tab" data-faq-tab="general" onclick="switchFaqTab('general')">일반</button>
+        <button class="faq-tab" data-faq-tab="hosting" onclick="switchFaqTab('hosting')">호스팅</button>
+        <button class="faq-tab" data-faq-tab="other" onclick="switchFaqTab('other')">기타</button>
+      </div>
 
       <!-- 검색바 -->
       <div class="signup-inline-row" style="margin-bottom:16px;">
@@ -2225,14 +2233,6 @@
           <input type="text" class="login-input" id="faqSearchInput" placeholder="질문을 검색하세요." oninput="faqSearch()" style="margin-bottom:0;padding-left:38px;">
         </div>
         <button type="button" class="signup-inline-btn" onclick="faqSearch()" style="padding:14px 24px;">검색</button>
-      </div>
-
-      <!-- 탭 -->
-      <div class="faq-tabs">
-        <button class="faq-tab active" data-faq-tab="all" onclick="switchFaqTab('all')">전체</button>
-        <button class="faq-tab" data-faq-tab="general" onclick="switchFaqTab('general')">일반</button>
-        <button class="faq-tab" data-faq-tab="hosting" onclick="switchFaqTab('hosting')">호스팅</button>
-        <button class="faq-tab" data-faq-tab="other" onclick="switchFaqTab('other')">기타</button>
       </div>
 
       <!-- 검색 결과 없음 -->
@@ -2409,17 +2409,17 @@
   </div>
   <div class="slide-menu-section">
     <div class="slide-menu-subtitle">링게임</div>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')"><img loading="lazy" class="slide-menu-icon" src="images/menu_holdem.png" alt="홀덤">홀덤</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')"><img loading="lazy" class="slide-menu-icon" src="images/menu_7poker.png" alt="오마하">오마하</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')"><img loading="lazy" class="slide-menu-icon" src="images/menu_aof.png" alt="AoF">AoF</a>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('game-setup')"><img loading="lazy" class="slide-menu-icon" src="images/menu_custom.png" alt="사용자 게임">사용자 게임</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')">홀덤</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')">오마하</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')">AoF</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('game-setup')">사용자 게임</a>
     <div class="slide-menu-divider"></div>
     <div class="slide-menu-subtitle">토너먼트</div>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('tournament')"><img loading="lazy" class="slide-menu-icon" src="images/menu_tournament.png" alt="토너먼트">토너먼트</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('tournament')">토너먼트</a>
   </div>
   <div class="slide-menu-divider"></div>
   <div class="slide-menu-section">
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img loading="lazy" class="slide-menu-icon" src="images/menu_my.png" alt="MY 룰루">MY 룰루<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('my')"><img loading="lazy" class="slide-menu-icon" src="images/my_mailbox.png" alt="우편함">우편함<span class="slide-menu-badge" id="slideMenuMailBadge"></span></a>
     <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('faq')"><img loading="lazy" class="slide-menu-icon" src="images/menu_support.png" alt="자주묻는 질문">자주묻는 질문</a>
   </div>
   <div class="slide-menu-divider"></div>
