@@ -2424,12 +2424,19 @@ var demoNotifs = [
   { title: '출석 보상 지급', desc: '7일 연속 출석 보상으로 골드 1,000이 지급되었습니다.', time: '5시간 전', unread: true },
   { title: '시스템 점검 안내', desc: '4월 10일 04:00~06:00 서버 점검이 예정되어 있습니다.', time: '1일 전', unread: false },
   { title: '시즌 3 종료', desc: '시즌 3이 종료되었습니다. 보상을 확인하세요.', time: '3일 전', unread: false },
+  { title: '친구 추가 알림', desc: '럭키세븐님이 친구 요청을 보냈습니다.', time: '3일 전', unread: false },
+  { title: '이벤트 당첨', desc: '럭키 룰렛 이벤트에서 다이아 500개에 당첨되었습니다!', time: '4일 전', unread: false },
+  { title: '레벨 업!', desc: '축하합니다! Lv.25에 도달했습니다. 보상을 확인하세요.', time: '5일 전', unread: false },
+  { title: '프라이빗 룸 초대', desc: '포커마스터님이 프라이빗 룸에 초대했습니다.', time: '6일 전', unread: false },
 ];
 
 var demoMessages = [
   { avatar: 'images/avatar_h.png', name: '포커마스터', preview: '내일 저녁 8시에 프라이빗 룸 하실래요?', time: '30분 전', unread: true, unreadCount: 3 },
   { avatar: 'images/avatar_i.png', name: '올인김치', preview: '아까 그 핸드 대박이었어요 ㅋㅋ', time: '2시간 전', unread: true, unreadCount: 1 },
   { avatar: 'images/avatar_j.png', name: '블러프왕', preview: 'GG! 다음에 또 해요', time: '1일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_o.png', name: '럭키세븐', preview: '다음 토너먼트 언제 열려요?', time: '2일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_h.png', name: '칩매니아', preview: '골드 충전 어디서 해요?', time: '3일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_i.png', name: '로얄플러시', preview: '오늘 진짜 운 좋았어요 ㅎㅎ', time: '4일 전', unread: false, unreadCount: 0 },
 ];
 
 // === 채팅 ===
