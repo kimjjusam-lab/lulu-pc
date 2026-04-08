@@ -846,6 +846,8 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 @media (max-width:1023px) {
   .tn-split-layout { flex-direction:column; }
   .tn-split-right { display:none; }
+  .mb-split-layout { flex-direction:column; }
+  .mb-split-right { display:none !important; }
 }
 @media (min-width:1024px) {
   .td-mobile-only { display:none; }
@@ -1118,6 +1120,24 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .mb-msg-preview { font-size:13px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .mb-msg-item.unread .mb-msg-name::after { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent-orange); margin-left:6px; vertical-align:middle; }
 .mb-msg-badge { min-width:22px; height:22px; border-radius:50%; background:var(--accent-orange); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; align-self:center; }
+.mb-msg-item.mb-msg-selected { border-color:var(--accent-orange); background:rgba(249,98,23,0.06); }
+.mb-content-wrap { margin:0 auto; }
+#mb-notification { max-width:700px; margin:0 auto; }
+
+/* Mailbox split layout (PC) */
+.mb-split-layout { display:flex; gap:24px; }
+.mb-split-left { flex:1; min-width:0; }
+.mb-split-right { flex:1; min-width:0; position:sticky; top:80px; align-self:flex-start; height:calc(100vh - 100px); border-radius:18px; border:1px solid var(--border-color); background:var(--bg-card); display:flex; flex-direction:column; overflow:hidden; }
+.mb-split-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; padding:80px 24px; color:var(--text-muted); text-align:center; }
+.mb-split-placeholder-icon { font-size:48px; margin-bottom:16px; opacity:0.4; }
+.mb-split-placeholder p { font-size:14px; }
+.mb-split-chat { display:flex; flex-direction:column; height:100%; }
+.mb-split-chat-header { display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--border-color); flex-shrink:0; }
+.mb-split-chat-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; background:#1e1e30; }
+.mb-split-chat-name { font-size:16px; font-weight:700; color:var(--text-primary); flex:1; }
+.mb-split-chat-actions { position:relative; }
+.mb-split-chat .chat-messages { flex:1; overflow-y:auto; }
+.mb-split-chat .chat-input-bar { flex-shrink:0; }
 
 /* Chat */
 .chat-wrap { display:flex; flex-direction:column; height:100vh; background:var(--bg-dark); position:fixed; top:0; left:0; right:0; bottom:0; z-index:150; }

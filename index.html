@@ -1389,12 +1389,41 @@
       <button class="mb-tab active" data-mb-tab="notification" onclick="switchMbTab('notification')">알림</button>
       <button class="mb-tab" data-mb-tab="message" onclick="switchMbTab('message')">1:1 메시지</button>
     </div>
-    <div style="max-width:700px;margin:0 auto;">
+    <div class="mb-content-wrap">
       <div class="mb-tab-content active" id="mb-notification">
         <div class="mb-list" id="mbNotifList"></div>
       </div>
       <div class="mb-tab-content" id="mb-message" style="display:none">
-        <div class="mb-list" id="mbMsgList"></div>
+        <div class="mb-split-layout">
+          <div class="mb-split-left">
+            <div class="mb-list" id="mbMsgList"></div>
+          </div>
+          <div class="mb-split-right" id="mbSplitRight">
+            <div class="mb-split-placeholder" id="mbSplitPlaceholder">
+              <div class="mb-split-placeholder-icon">💬</div>
+              <p>대화를 선택하면 채팅이 여기에 표시됩니다</p>
+            </div>
+            <div class="mb-split-chat" id="mbSplitChat" style="display:none;">
+              <div class="mb-split-chat-header">
+                <img class="mb-split-chat-avatar" id="mbChatAvatar" src="images/avatar_o.png" alt="">
+                <span class="mb-split-chat-name" id="mbChatName"></span>
+                <div class="mb-split-chat-actions">
+                  <button class="chat-menu-btn" onclick="toggleChatMenu(event)">&#8942;</button>
+                  <div class="chat-menu-popup" id="chatMenuPopupPc">
+                    <button onclick="chatAction('block')">차단</button>
+                    <button onclick="chatAction('report')">신고</button>
+                    <button onclick="chatAction('manage')">차단한 사용자 관리</button>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-messages" id="chatMessagesPc"></div>
+              <div class="chat-input-bar">
+                <input type="text" class="chat-input" id="chatInputPc" placeholder="메시지를 입력하세요" onkeydown="if(event.key==='Enter')sendChat()">
+                <button class="chat-send-btn" onclick="sendChat()">전송</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

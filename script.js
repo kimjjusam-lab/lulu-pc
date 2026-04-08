@@ -2417,6 +2417,15 @@ function switchMbTab(tab) {
   document.querySelectorAll('.mb-tab-content').forEach(function(c) { c.classList.remove('active'); c.style.display = 'none'; });
   var el = document.getElementById('mb-' + tab);
   if (el) { el.classList.add('active'); el.style.display = 'block'; }
+  // PC: 메시지 탭이면 탭바 너비 제한 해제
+  var tabs = document.querySelector('.mb-tabs');
+  if (tabs) {
+    if (tab === 'message' && mbIsPcSplit()) {
+      tabs.style.maxWidth = 'none';
+    } else {
+      tabs.style.maxWidth = '700px';
+    }
+  }
 }
 
 var demoNotifs = [
@@ -2460,25 +2469,48 @@ var chatData = {
   ]
 };
 
+function mbIsPcSplit() {
+  return window.innerWidth >= 1024 && document.getElementById('mbSplitRight');
+}
+
 function openChat(name) {
   chatTarget = name;
   var found = demoMessages.find(function(m) { return m.name === name; });
   chatAvatar = found ? found.avatar : 'images/avatar_o.png';
-  document.body.classList.add('chat-open');
-  switchPage('chat');
-  document.getElementById('chatNavName').textContent = name;
-  // 상태바 표시 여부에 따라 chat-wrap 위치 조정
-  var sb = document.querySelector('.m-statusbar');
-  var chatWrap = document.querySelector('.chat-wrap');
-  if (chatWrap && sb && sb.style.display !== 'none') {
-    chatWrap.style.top = '52px';
-    chatWrap.style.height = 'calc(100vh - 52px)';
+
+  if (mbIsPcSplit()) {
+    // PC: 우편함 오른쪽 패널에 채팅 표시
+    var placeholder = document.getElementById('mbSplitPlaceholder');
+    var chatPanel = document.getElementById('mbSplitChat');
+    if (placeholder) placeholder.style.display = 'none';
+    if (chatPanel) chatPanel.style.display = 'flex';
+    document.getElementById('mbChatName').textContent = name;
+    document.getElementById('mbChatAvatar').src = chatAvatar;
+    // 선택 하이라이트
+    document.querySelectorAll('.mb-msg-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
+    var items = document.querySelectorAll('.mb-msg-item');
+    items.forEach(function(el) {
+      if (el.getAttribute('data-chat-name') === name) el.classList.add('mb-msg-selected');
+    });
+    renderChat();
+  } else {
+    // 모바일: 기존 전체화면 채팅
+    document.body.classList.add('chat-open');
+    switchPage('chat');
+    document.getElementById('chatNavName').textContent = name;
+    var sb = document.querySelector('.m-statusbar');
+    var chatWrap = document.querySelector('.chat-wrap');
+    if (chatWrap && sb && sb.style.display !== 'none') {
+      chatWrap.style.top = '52px';
+      chatWrap.style.height = 'calc(100vh - 52px)';
+    }
+    renderChat();
   }
-  renderChat();
 }
 
 function renderChat() {
-  var el = document.getElementById('chatMessages');
+  var elId = mbIsPcSplit() ? 'chatMessagesPc' : 'chatMessages';
+  var el = document.getElementById(elId);
   if (!el || !chatTarget) return;
   var msgs = chatData[chatTarget] || [];
   el.innerHTML = '<div class="chat-date-sep">오늘</div>' + msgs.map(function(m) {
@@ -2494,7 +2526,7 @@ function renderChat() {
 }
 
 function sendChat() {
-  var input = document.getElementById('chatInput');
+  var input = document.getElementById(mbIsPcSplit() ? 'chatInputPc' : 'chatInput');
   if (!input || !input.value.trim() || !chatTarget) return;
   if (!chatData[chatTarget]) chatData[chatTarget] = [];
   var now = new Date();
@@ -2509,16 +2541,16 @@ function sendChat() {
 
 function toggleChatMenu(e) {
   if (e) e.stopPropagation();
-  var popup = document.getElementById('chatMenuPopup');
-  popup.classList.toggle('open');
+  var popupId = mbIsPcSplit() ? 'chatMenuPopupPc' : 'chatMenuPopup';
+  var popup = document.getElementById(popupId);
+  if (popup) popup.classList.toggle('open');
 }
 document.addEventListener('click', function() {
-  var popup = document.getElementById('chatMenuPopup');
-  if (popup) popup.classList.remove('open');
+  document.querySelectorAll('.chat-menu-popup').forEach(function(p) { p.classList.remove('open'); });
 });
 
 function chatAction(action) {
-  document.getElementById('chatMenuPopup').classList.remove('open');
+  document.querySelectorAll('.chat-menu-popup').forEach(function(p) { p.classList.remove('open'); });
   if (action === 'block') alert(chatTarget + '님을 차단했습니다.');
   if (action === 'report') alert(chatTarget + '님을 신고했습니다.');
   if (action === 'manage') alert('차단한 사용자 관리 페이지로 이동합니다.');
@@ -2556,7 +2588,7 @@ function mbRenderMessages() {
   }
   el.innerHTML = demoMessages.map(function(m) {
     var badge = m.unreadCount > 0 ? '<span class="mb-msg-badge">' + m.unreadCount + '</span>' : '';
-    return '<div class="mb-msg-item' + (m.unread ? ' unread' : '') + '" onclick="openChat(\'' + m.name + '\')">' +
+    return '<div class="mb-msg-item' + (m.unread ? ' unread' : '') + (chatTarget === m.name && mbIsPcSplit() ? ' mb-msg-selected' : '') + '" data-chat-name="' + m.name + '" onclick="openChat(\'' + m.name + '\')">' +
       '<img class="mb-msg-avatar" src="' + m.avatar + '" alt="' + m.name + '">' +
       '<div class="mb-msg-body">' +
         '<div class="mb-msg-name">' + m.name + '</div>' +
