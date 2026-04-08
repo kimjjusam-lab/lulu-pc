@@ -1375,17 +1375,19 @@ const demoTournaments = [
   { id:14, event:'B', name:'High Stakes Deep Stack', status:'finished', startType:'2025-02-18 21:00', fee:'50,000G', players:10, maxPlayers:10, prize:'5,000,000G', registered:false },
   { id:15, event:'A', name:'Weekday Express Turbo', status:'finished', startType:'2025-02-17 18:00', fee:'3,000G', players:24, maxPlayers:24, prize:'600,000G', registered:true },
   { id:16, event:'B', name:'POKER LULU Monthly Final', status:'finished', startType:'2025-02-15 19:00', fee:'100,000G', players:64, maxPlayers:64, prize:'20,000,000G', registered:false },
+  { id:17, event:'C', name:'Spring Freeroll Series', status:'registering', startType:'2025-03-01 14:00', fee:'free', players:8, maxPlayers:30, prize:'300,000G', registered:false, details:{ blindLevel:1, unique:8, reentry:0, startChips:'8000', tableSize:9, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
+  { id:18, event:'C', name:'Midnight Madness', status:'ongoing', startType:'2025-02-28 23:00', fee:'5,000G', players:14, maxPlayers:20, prize:'1,500,000G', registered:true, details:{ blindLevel:4, unique:14, reentry:1, startChips:'20000', tableSize:8, rebuyCount:1, timebankSec:15, extraTimeSec:5, extraTimeHands:10, actionTimeSec:20, anteRate:'0.2BB', anteType:'All', cancelReg:'불가', lateRegLevel:6, blindMin:12, breakMin:5 } },
+  { id:19, event:'C', name:'Rookie Challenge Cup', status:'registering', startType:'manual', fee:'free', players:2, maxPlayers:16, prize:'150,000G', registered:false, details:{ blindLevel:1, unique:2, reentry:0, startChips:'5000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:8, breakMin:4 } },
+  { id:20, event:'C', name:'Diamond Bounty Hunter', status:'finished', startType:'2025-02-25 20:00', fee:'30,000G', players:24, maxPlayers:24, prize:'4,000,000G', registered:true },
 ];
 
 function switchTournamentTab(tab) {
-  var container = document.querySelector('.tn-tabs');
-  var prev = container.querySelector('.tn-tab.active');
-  document.querySelectorAll('.tn-tab').forEach(e => e.classList.remove('active'));
-  document.querySelectorAll('.tn-tab-content').forEach(e => e.classList.remove('active'));
-  const activeTab = document.querySelector('.tn-tab[data-tn-tab="' + tab + '"]');
-  activeTab.classList.add('active');
-  document.getElementById('tn-' + tab).classList.add('active');
-  moveSlider(container, activeTab, prev);
+  document.querySelectorAll('.tn-tab').forEach(function(e) { e.classList.remove('active'); });
+  document.querySelectorAll('.tn-tab-content').forEach(function(e) { e.classList.remove('active'); });
+  var activeTab = document.querySelector('.tn-tab[data-tn-tab="' + tab + '"]');
+  if (activeTab) activeTab.classList.add('active');
+  var content = document.getElementById('tn-' + tab);
+  if (content) content.classList.add('active');
 }
 
 function tnBuildCard(item) {
@@ -1428,7 +1430,7 @@ function tnRenderList() {
   if (allEl) allEl.innerHTML = demoTournaments.length ? demoTournaments.map(tnBuildCard).join('') : '<div class="tn-empty">' + emptyMsg + '</div>';
 
   // 이벤트별 리스트
-  ['A', 'B'].forEach(function(ev) {
+  ['A', 'B', 'C'].forEach(function(ev) {
     var items = demoTournaments.filter(function(item) { return item.event === ev; });
     var el = document.getElementById('tnEvent' + ev + 'List');
     if (el) {
@@ -2435,6 +2437,14 @@ var demoNotifs = [
   { title: '이벤트 당첨', desc: '럭키 룰렛 이벤트에서 다이아 500개에 당첨되었습니다!', time: '4일 전', unread: false },
   { title: '레벨 업!', desc: '축하합니다! Lv.25에 도달했습니다. 보상을 확인하세요.', time: '5일 전', unread: false },
   { title: '프라이빗 룸 초대', desc: '포커마스터님이 프라이빗 룸에 초대했습니다.', time: '6일 전', unread: false },
+  { title: '골드 선물 도착', desc: '올인김치님이 골드 500을 선물했습니다.', time: '6일 전', unread: false },
+  { title: '신규 토너먼트 오픈', desc: '스프링 시리즈 토너먼트가 등록 가능합니다.', time: '7일 전', unread: false },
+  { title: '비밀번호 변경 완료', desc: '계정 비밀번호가 성공적으로 변경되었습니다.', time: '7일 전', unread: false },
+  { title: '주간 랭킹 보상', desc: '주간 랭킹 12위 보상으로 다이아 200개가 지급되었습니다.', time: '8일 전', unread: false },
+  { title: '오마하 오픈 예정', desc: '오마하 게임 모드가 곧 오픈됩니다. 기대해주세요!', time: '9일 전', unread: false },
+  { title: '리엔트리 성공', desc: '주말 챔피언십 토너먼트에 리엔트리하였습니다.', time: '10일 전', unread: false },
+  { title: '출석 체크 알림', desc: '오늘 출석 체크를 아직 하지 않았습니다.', time: '10일 전', unread: false },
+  { title: '서비스 업데이트', desc: 'v2.1.0 업데이트가 적용되었습니다. 새 기능을 확인하세요.', time: '12일 전', unread: false },
 ];
 
 var demoMessages = [
@@ -2444,6 +2454,12 @@ var demoMessages = [
   { avatar: 'images/avatar_o.png', name: '럭키세븐', preview: '다음 토너먼트 언제 열려요?', time: '2일 전', unread: false, unreadCount: 0 },
   { avatar: 'images/avatar_h.png', name: '칩매니아', preview: '골드 충전 어디서 해요?', time: '3일 전', unread: false, unreadCount: 0 },
   { avatar: 'images/avatar_i.png', name: '로얄플러시', preview: '오늘 진짜 운 좋았어요 ㅎㅎ', time: '4일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_j.png', name: '하이롤러', preview: '바이인 얼마짜리 추천해요?', time: '5일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_o.png', name: '딜러킴', preview: '오늘 딜링 재밌었습니다', time: '5일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_h.png', name: '풀하우스', preview: '풀하우스로 올인콜 받았어요!', time: '6일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_i.png', name: '텍사스짱', preview: '홀덤 전략 공유해요', time: '7일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_j.png', name: '리버킹', preview: '리버에서 역전했습니다 ㅋㅋ', time: '8일 전', unread: false, unreadCount: 0 },
+  { avatar: 'images/avatar_o.png', name: '프리롤매니아', preview: '프리롤 일정 알려주세요', time: '10일 전', unread: false, unreadCount: 0 },
 ];
 
 // === 채팅 ===
@@ -2480,8 +2496,12 @@ function openChat(name) {
     // PC: 우편함 오른쪽 패널에 채팅 표시
     var placeholder = document.getElementById('mbSplitPlaceholder');
     var chatPanel = document.getElementById('mbSplitChat');
+    var notifDetail = document.getElementById('mbSplitNotifDetail');
     if (placeholder) placeholder.style.display = 'none';
+    if (notifDetail) notifDetail.style.display = 'none';
     if (chatPanel) chatPanel.style.display = 'flex';
+    // 알림 선택 해제
+    document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
     document.getElementById('mbChatName').textContent = name;
     document.getElementById('mbChatAvatar').src = chatAvatar;
     // 선택 하이라이트
@@ -2566,8 +2586,8 @@ function mbRenderNotifs() {
     el.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--text-muted);font-size:14px;">알림이 없습니다</div>';
     return;
   }
-  el.innerHTML = demoNotifs.map(function(n) {
-    return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '">' +
+  el.innerHTML = demoNotifs.map(function(n, i) {
+    return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '" data-notif-idx="' + i + '" onclick="openNotifDetail(' + i + ')">' +
       '<div class="mb-notif-body">' +
         '<div class="mb-notif-title">' + n.title + '</div>' +
         '<div class="mb-notif-desc">' + n.desc + '</div>' +
@@ -2575,6 +2595,33 @@ function mbRenderNotifs() {
       '</div>' +
     '</div>';
   }).join('');
+}
+
+function openNotifDetail(idx) {
+  if (!mbIsPcSplit()) return;
+  var n = demoNotifs[idx];
+  if (!n) return;
+  // 우측 패널: 채팅 숨기고 알림 상세 표시
+  var placeholder = document.getElementById('mbSplitPlaceholder');
+  var chat = document.getElementById('mbSplitChat');
+  var detail = document.getElementById('mbSplitNotifDetail');
+  if (placeholder) placeholder.style.display = 'none';
+  if (chat) chat.style.display = 'none';
+  if (detail) detail.style.display = 'block';
+  document.getElementById('mbNotifDetailTitle').textContent = n.title;
+  document.getElementById('mbNotifDetailBody').textContent = n.desc;
+  document.getElementById('mbNotifDetailTime').textContent = n.time;
+  // 태그 자동 분류
+  var tag = '알림';
+  if (/우승|챔피언|시즌/.test(n.title)) tag = '토너먼트';
+  else if (/출석|보상|지급|당첨|레벨/.test(n.title)) tag = '보상';
+  else if (/점검|시스템/.test(n.title)) tag = '시스템';
+  else if (/친구|초대/.test(n.title)) tag = '소셜';
+  document.getElementById('mbNotifDetailTag').textContent = tag;
+  // 선택 하이라이트
+  document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
+  var items = document.querySelectorAll('.mb-notif-item[data-notif-idx="' + idx + '"]');
+  items.forEach(function(el) { el.classList.add('mb-msg-selected'); });
 }
 
 function mbRenderMessages() {

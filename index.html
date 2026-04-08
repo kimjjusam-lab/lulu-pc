@@ -1128,15 +1128,15 @@
       <h2 data-i18n="tn_title">토너먼트</h2>
       <p data-i18n="tn_desc">다양한 토너먼트에 참가하고 보상을 획득하세요</p>
     </div>
-    <div class="tn-tabs">
-      <button class="tn-tab active" data-tn-tab="all" onclick="switchTournamentTab('all')">전체</button>
-      <button class="tn-tab" data-tn-tab="eventA" onclick="switchTournamentTab('eventA')">이벤트A</button>
-      <button class="tn-tab" data-tn-tab="eventB" onclick="switchTournamentTab('eventB')">이벤트B</button>
-      <button class="tn-tab" data-tn-tab="eventC" onclick="switchTournamentTab('eventC')">이벤트C</button>
-    </div>
     <div class="tn-split-layout">
-      <!-- 왼쪽: 토너먼트 리스트 -->
+      <!-- 왼쪽: 탭 + 토너먼트 리스트 -->
       <div class="tn-split-left">
+        <div class="tn-tabs">
+          <button class="tn-tab active" data-tn-tab="all" onclick="switchTournamentTab('all')">전체</button>
+          <button class="tn-tab" data-tn-tab="eventA" onclick="switchTournamentTab('eventA')">이벤트A</button>
+          <button class="tn-tab" data-tn-tab="eventB" onclick="switchTournamentTab('eventB')">이벤트B</button>
+          <button class="tn-tab" data-tn-tab="eventC" onclick="switchTournamentTab('eventC')">이벤트C</button>
+        </div>
         <div class="tn-tab-content active" id="tn-all">
           <div class="tn-list" id="tnAllList"></div>
         </div>
@@ -1402,6 +1402,11 @@
         <div class="mb-split-placeholder" id="mbSplitPlaceholder">
           <div class="mb-split-placeholder-icon">💬</div>
           <p>대화를 선택하면 채팅이 여기에 표시됩니다</p>
+        </div>
+        <div class="mb-split-notif-detail" id="mbSplitNotifDetail" style="display:none;">
+          <div class="mb-split-notif-header" id="mbNotifDetailTitle"></div>
+          <div class="mb-split-notif-meta"><span class="notif-tag" id="mbNotifDetailTag"></span><span id="mbNotifDetailTime"></span></div>
+          <div class="mb-split-notif-body" id="mbNotifDetailBody"></div>
         </div>
         <div class="mb-split-chat" id="mbSplitChat" style="display:none;">
           <div class="mb-split-chat-header">
