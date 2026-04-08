@@ -124,6 +124,7 @@
         <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_rookie">홀덤</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">10/20</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">4/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 32,450</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
         <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_highroller">오징어게임</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">100/200</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">7/9</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 8,200</span></div></div><button class="table-join-btn" onclick="enterLiveTable(7)" data-i18n="table_join">입장하기</button></div>
         <div class="table-card"><div class="table-header"><span class="table-name" data-i18n="table_vip">주말 챔피언십</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">400/800</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">12/48</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_buyin">바이인</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 50,000</span></div></div><button class="table-join-btn" onclick="enterLiveTable(4)" data-i18n="table_join">입장하기</button></div>
+        <div class="table-card"><div class="table-header"><span class="table-name">주말 프리롤</span><span class="table-live"><span class="table-live-dot"></span> LIVE</span></div><div class="table-meta"><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_blind">블라인드</span><span class="table-meta-value">50/100</span></div><div class="table-meta-row"><span class="table-meta-label" data-i18n="table_players">플레이어</span><span class="table-meta-value">3/6</span></div><div class="table-meta-row"><span class="table-meta-label">스택</span><span class="table-meta-value"><img loading="lazy" src="images/icon_gold.png" class="currency-icon" alt="gold"> 15,800</span></div></div><button class="table-join-btn" onclick="enterLiveTable(3)" data-i18n="table_join">입장하기</button></div>
       </div>
     </section>
     <section class="stats-section" id="lobbyStats">
@@ -1127,15 +1128,15 @@
       <h2 data-i18n="tn_title">토너먼트</h2>
       <p data-i18n="tn_desc">다양한 토너먼트에 참가하고 보상을 획득하세요</p>
     </div>
+    <div class="tn-tabs">
+      <button class="tn-tab active" data-tn-tab="all" onclick="switchTournamentTab('all')">전체</button>
+      <button class="tn-tab" data-tn-tab="eventA" onclick="switchTournamentTab('eventA')">이벤트A</button>
+      <button class="tn-tab" data-tn-tab="eventB" onclick="switchTournamentTab('eventB')">이벤트B</button>
+      <button class="tn-tab" data-tn-tab="eventC" onclick="switchTournamentTab('eventC')">이벤트C</button>
+    </div>
     <div class="tn-split-layout">
       <!-- 왼쪽: 토너먼트 리스트 -->
       <div class="tn-split-left">
-        <div class="tn-tabs">
-          <button class="tn-tab active" data-tn-tab="all" onclick="switchTournamentTab('all')">전체</button>
-          <button class="tn-tab" data-tn-tab="eventA" onclick="switchTournamentTab('eventA')">이벤트A</button>
-          <button class="tn-tab" data-tn-tab="eventB" onclick="switchTournamentTab('eventB')">이벤트B</button>
-          <button class="tn-tab" data-tn-tab="eventC" onclick="switchTournamentTab('eventC')">이벤트C</button>
-        </div>
         <div class="tn-tab-content active" id="tn-all">
           <div class="tn-list" id="tnAllList"></div>
         </div>
@@ -1165,16 +1166,15 @@
 <div class="page-container" id="page-tn-detail">
   <div class="content-wrapper">
     <div class="gs-back td-mobile-only" role="button" tabindex="0" onclick="switchPage('tournament')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
-    <div class="td-header">
-      <h2 id="tdTournamentName"></h2>
-      <span class="tn-badge" id="tdStatusBadge"></span>
-    </div>
-
     <div class="td-tabs">
       <button class="td-tab active" data-td-tab="info" onclick="switchTnDetailTab('info')" data-i18n="td_tab_info">자세히</button>
       <button class="td-tab" data-td-tab="players" onclick="switchTnDetailTab('players')" data-i18n="td_tab_players">플레이어</button>
       <button class="td-tab" data-td-tab="blinds" onclick="switchTnDetailTab('blinds')" data-i18n="td_tab_blinds">블라인드</button>
       <button class="td-tab" data-td-tab="payout" onclick="switchTnDetailTab('payout')" data-i18n="td_tab_payout">지급</button>
+    </div>
+    <div class="td-header">
+      <h2 id="tdTournamentName"></h2>
+      <span class="tn-badge" id="tdStatusBadge"></span>
     </div>
 
     <!-- 자세히 탭 -->
@@ -1303,7 +1303,7 @@
 
     <!-- 하단 참가 버튼 -->
     <div class="td-bottom-bar">
-      <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">등록</button>
+      <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">착석하기</button>
       <button class="td-spectate-btn" id="tdSpectateBtn" onclick="tdSpectate()" data-i18n="td_spectate">관전하기</button>
     </div>
   </div>

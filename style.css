@@ -134,7 +134,7 @@ body {
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
 
 .live-tables { margin-bottom:40px; }
-.tables-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.tables-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .table-card { background:var(--bg-card); border:1px solid var(--border-color); border-radius:16px; padding:20px; cursor:pointer; transition:all 0.25s; }
 .table-card:hover { border-color:rgba(249,98,23,0.3); background:var(--bg-card-hover); transform:translateY(-2px); }
 .table-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
@@ -829,17 +829,20 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 /* Tournament split layout (PC: 50/50, Mobile: list only) */
 .tn-split-layout { display:flex; gap:24px; }
 .tn-split-left { flex:1; min-width:0; }
-.tn-split-right { flex:1; min-width:0; position:sticky; top:24px; align-self:flex-start; max-height:calc(100vh - 48px); overflow-y:auto; border-radius:18px; border:1px solid var(--border-color); background:var(--bg-card); margin-bottom:48px; }
+.tn-split-right { flex:1; min-width:0; position:sticky; top:80px; align-self:flex-start; height:calc(100vh - 100px); border-radius:18px; border:1px solid var(--border-color); background:var(--bg-card); margin-bottom:48px; overflow:hidden; }
 .tn-split-right::-webkit-scrollbar { width:4px; }
 .tn-split-right::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
 .tn-split-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 24px; color:var(--text-muted); text-align:center; }
 .tn-split-placeholder-icon { font-size:48px; margin-bottom:16px; opacity:0.4; }
 .tn-split-placeholder p { font-size:14px; }
-.tn-split-detail { padding:24px; }
+.tn-split-detail { position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; }
+.tn-split-detail .td-bottom-bar { flex-shrink:0; display:flex; gap:12px; padding:12px 20px; border-top:1px solid var(--border-color); max-width:none; position:static; background:none; }
+.tn-split-detail .td-detail-scroll { flex:1; overflow-y:auto; padding:24px; min-height:0; }
+.tn-split-detail .td-detail-scroll::-webkit-scrollbar { width:4px; }
+.tn-split-detail .td-detail-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
 .tn-split-detail .content-wrapper { max-width:none; padding:0; }
 .tn-split-detail .td-tabs { margin-left:0; margin-right:0; max-width:none; }
 .tn-split-detail .td-tab-content { max-width:none; }
-.tn-split-detail .td-bottom-bar { max-width:none; position:static; background:none; padding:16px 0 0; }
 .tn-card-active { border-color:rgba(249,98,23,0.5); background:rgba(249,98,23,0.05); }
 .td-mobile-only { display:block; }
 
@@ -852,6 +855,9 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 @media (min-width:1024px) {
   .td-mobile-only { display:none; }
   .tn-tab-content { max-width:none; }
+  #page-tournament.active ~ .footer,
+  #page-mailbox.active ~ .footer,
+  #page-my.active ~ .footer { display:none; }
 }
 
 .tn-tabs { display:flex; gap:12px; margin-bottom:24px; background:#010104; border:1px solid #1a1a2a; border-radius:14px; padding:7px; align-items:center; position:relative; }
@@ -938,7 +944,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .td-amount-cell { font-weight:700; color:var(--accent-gold,#f59e0b); }
 .td-percent-cell { color:var(--text-muted); }
 
-.td-bottom-bar { position:sticky; bottom:0; display:flex; gap:12px; padding:16px 0 24px; background:linear-gradient(to top, var(--bg-dark) 60%, transparent); max-width:700px; margin:0 auto; }
+.td-bottom-bar { position:sticky; bottom:0; display:flex; gap:12px; padding:16px 0 24px; background:linear-gradient(to top, var(--bg-dark) 60%, transparent); max-width:700px; margin:0 auto; z-index:50; }
 .td-register-btn { flex:1; padding:15px 14px 14px; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dark)); color:#fff; transition:all 0.2s; font-family:'Pretendard Variable',Pretendard,sans-serif; line-height:1; }
 .td-register-btn:hover { box-shadow:0 4px 20px var(--glow-orange); transform:translateY(-1px); }
 .td-spectate-btn { flex:1; padding:15px 14px 14px; border:1px solid var(--border-color); border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:var(--bg-card); color:var(--text-secondary); transition:all 0.2s; font-family:'Pretendard Variable',Pretendard,sans-serif; line-height:1; }
@@ -1127,7 +1133,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 /* Mailbox split layout (PC) */
 .mb-split-layout { display:flex; gap:24px; }
 .mb-split-left { flex:1; min-width:0; }
-.mb-split-right { flex:1; min-width:0; position:relative; max-height:70vh; border-radius:18px; border:1px solid var(--border-color); background:var(--bg-card); overflow:hidden; }
+.mb-split-right { flex:1; min-width:0; position:sticky; top:80px; align-self:flex-start; height:calc(100vh - 100px); border-radius:18px; border:1px solid var(--border-color); background:var(--bg-card); overflow:hidden; }
 .mb-split-placeholder { position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 24px; color:var(--text-muted); text-align:center; }
 .mb-split-placeholder-icon { font-size:48px; margin-bottom:16px; opacity:0.4; }
 .mb-split-placeholder p { font-size:14px; }
@@ -1166,6 +1172,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .chat-send-btn:hover { box-shadow:0 2px 12px var(--glow-orange); }
 #page-chat .content-wrapper { display:none; }
 #page-chat.active ~ .m-tabbar,
+#page-tn-detail.active ~ .m-tabbar,
 body.chat-open > .m-nav { display:none !important; }
 
 /* Transaction History */
@@ -1671,7 +1678,7 @@ body.chat-open > .m-nav { display:none !important; }
   .section-more { font-size:12px; }
 
   /* --- Live tables: 1 column --- */
-  .tables-grid { grid-template-columns:1fr; gap:12px; }
+  .tables-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
   .table-card { padding:16px; border-radius:14px; }
   .table-name { font-size:15px; }
   .table-meta-row { font-size:12px; }
@@ -1729,6 +1736,10 @@ body.chat-open > .m-nav { display:none !important; }
   }
   .shop-tabs { margin-bottom:16px; }
   .gs-tab { padding:12px 0 !important; }
+
+  /* --- Tournament detail: bottom bar fixed --- */
+  .td-bottom-bar { position:fixed; bottom:0; left:0; right:0; max-width:none; padding:24px 16px calc(12px + env(safe-area-inset-bottom)); background:linear-gradient(to top, #0d0d18 70%, rgba(13,13,24,0.4) 90%, transparent); border-top:none; z-index:100; }
+  #page-tn-detail .content-wrapper { padding-bottom:64px; }
 
   /* --- Lobby carousel mobile: 3 visible --- */
   .lobby-recommend { margin-bottom:24px; }

@@ -1453,8 +1453,12 @@ function openTnDetail(tournamentId) {
     var splitDetail = document.getElementById('tnSplitDetail');
     var placeholder = document.getElementById('tnSplitPlaceholder');
     if (detailPage && splitDetail) {
-      splitDetail.innerHTML = detailPage.querySelector('.content-wrapper').innerHTML;
-      splitDetail.style.display = 'block';
+      var cw = detailPage.querySelector('.content-wrapper');
+      splitDetail.innerHTML = '<div class="td-detail-scroll">' + cw.innerHTML + '</div>';
+      // bottom-bar를 scroll 밖으로 이동 (하단 고정)
+      var bar = splitDetail.querySelector('.td-bottom-bar');
+      if (bar) splitDetail.appendChild(bar);
+      splitDetail.style.display = 'flex';
       if (placeholder) placeholder.style.display = 'none';
       tdRenderDetailInline(splitDetail);
     }
@@ -2425,7 +2429,6 @@ function switchMbTab(tab) {
   if (tabs) {
     if (tab === 'message' && mbIsPcSplit()) {
       tabs.style.maxWidth = 'none';
-      setTimeout(mbResizeRight, 50);
     } else {
       tabs.style.maxWidth = '700px';
     }
@@ -2477,15 +2480,6 @@ function mbIsPcSplit() {
   return window.innerWidth >= 1024 && document.getElementById('mbSplitRight');
 }
 
-function mbResizeRight() {
-  var el = document.getElementById('mbSplitRight');
-  if (!el || !mbIsPcSplit()) return;
-  var rect = el.getBoundingClientRect();
-  var maxH = window.innerHeight * 0.7;
-  el.style.height = Math.min(maxH, Math.max(300, window.innerHeight - rect.top - 20)) + 'px';
-}
-window.addEventListener('resize', mbResizeRight);
-window.addEventListener('scroll', mbResizeRight);
 
 function openChat(name) {
   chatTarget = name;
@@ -2500,7 +2494,6 @@ function openChat(name) {
     if (chatPanel) chatPanel.style.display = 'flex';
     document.getElementById('mbChatName').textContent = name;
     document.getElementById('mbChatAvatar').src = chatAvatar;
-    mbResizeRight();
     // 선택 하이라이트
     document.querySelectorAll('.mb-msg-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
     var items = document.querySelectorAll('.mb-msg-item');
