@@ -2486,22 +2486,22 @@ function switchMbTab(tab) {
 }
 
 var demoNotifs = [
-  { title: '토너먼트 우승!', desc: '주간 챔피언십에서 1위를 달성했습니다. 축하합니다!', time: '2시간 전', unread: true },
-  { title: '출석 보상 지급', desc: '7일 연속 출석 보상으로 골드 1,000이 지급되었습니다.', time: '5시간 전', unread: true },
-  { title: '시스템 점검 안내', desc: '4월 10일 04:00~06:00 서버 점검이 예정되어 있습니다.', time: '1일 전', unread: false },
-  { title: '시즌 3 종료', desc: '시즌 3이 종료되었습니다. 보상을 확인하세요.', time: '3일 전', unread: false },
-  { title: '친구 추가 알림', desc: '럭키세븐님이 친구 요청을 보냈습니다.', time: '3일 전', unread: false },
-  { title: '이벤트 당첨', desc: '럭키 룰렛 이벤트에서 다이아 500개에 당첨되었습니다!', time: '4일 전', unread: false },
-  { title: '레벨 업!', desc: '축하합니다! Lv.25에 도달했습니다. 보상을 확인하세요.', time: '5일 전', unread: false },
-  { title: '프라이빗 룸 초대', desc: '포커마스터님이 프라이빗 룸에 초대했습니다.', time: '6일 전', unread: false },
-  { title: '골드 선물 도착', desc: '올인김치님이 골드 500을 선물했습니다.', time: '6일 전', unread: false },
-  { title: '신규 토너먼트 오픈', desc: '스프링 시리즈 토너먼트가 등록 가능합니다.', time: '7일 전', unread: false },
-  { title: '비밀번호 변경 완료', desc: '계정 비밀번호가 성공적으로 변경되었습니다.', time: '7일 전', unread: false },
-  { title: '주간 랭킹 보상', desc: '주간 랭킹 12위 보상으로 다이아 200개가 지급되었습니다.', time: '8일 전', unread: false },
-  { title: '오마하 오픈 예정', desc: '오마하 게임 모드가 곧 오픈됩니다. 기대해주세요!', time: '9일 전', unread: false },
-  { title: '리엔트리 성공', desc: '주말 챔피언십 토너먼트에 리엔트리하였습니다.', time: '10일 전', unread: false },
-  { title: '출석 체크 알림', desc: '오늘 출석 체크를 아직 하지 않았습니다.', time: '10일 전', unread: false },
-  { title: '서비스 업데이트', desc: 'v2.1.0 업데이트가 적용되었습니다. 새 기능을 확인하세요.', time: '12일 전', unread: false },
+  { title: '토너먼트 우승!', desc: '주간 챔피언십에서 1위를 달성했습니다. 축하합니다!', detail: '주간 챔피언십 토너먼트에서 총 128명의 참가자 중 1위를 달성하셨습니다.\n\n우승 보상:\n· 골드 10,000\n· 다이아 500\n· 챔피언 칭호 (7일)\n\n보상은 자동으로 지급되었습니다. 인벤토리에서 확인하세요.', time: '2시간 전', unread: true },
+  { title: '출석 보상 지급', desc: '7일 연속 출석 보상으로 골드 1,000이 지급되었습니다.', detail: '7일 연속 출석을 축하합니다!\n\n출석 보상 내역:\n· 7일 연속 보너스: 골드 1,000\n· 누적 출석 30일 달성까지 3일 남음\n\n매일 접속하여 추가 보상을 받아보세요.', time: '5시간 전', unread: true },
+  { title: '시스템 점검 안내', desc: '4월 10일 04:00~06:00 서버 점검이 예정되어 있습니다.', detail: '안정적인 서비스 제공을 위해 시스템 점검이 진행됩니다.\n\n점검 일시: 4월 10일 (목) 04:00 ~ 06:00\n점검 내용: 서버 안정화 및 보안 패치\n\n점검 시간 동안 게임 이용이 불가하며, 점검 완료 후 보상이 지급됩니다.', time: '1일 전', unread: false },
+  { title: '시즌 3 종료', desc: '시즌 3이 종료되었습니다. 보상을 확인하세요.', detail: '시즌 3이 종료되었습니다.\n\n시즌 3 최종 기록:\n· 최종 등급: 골드 II\n· 총 게임 수: 342판\n· 승률: 58.2%\n\n시즌 보상은 등급별로 차등 지급됩니다. 보상함에서 확인하세요.', time: '3일 전', unread: false },
+  { title: '친구 추가 알림', desc: '럭키세븐님이 친구 요청을 보냈습니다.', detail: '럭키세븐님이 친구 요청을 보냈습니다.\n\n럭키세븐\n· 레벨: Lv.32\n· 주 게임: 텍사스 홀덤\n· 최근 전적: 5승 2패\n\n프로필 > 친구 관리에서 수락하거나 거절할 수 있습니다.', time: '3일 전', unread: false },
+  { title: '이벤트 당첨', desc: '럭키 룰렛 이벤트에서 다이아 500개에 당첨되었습니다!', detail: '럭키 룰렛 이벤트 당첨을 축하합니다!\n\n당첨 보상: 다이아 500개\n· 보상은 자동으로 지급되었습니다.\n\n다음 럭키 룰렛은 매일 오후 12시에 참여할 수 있습니다.', time: '4일 전', unread: false },
+  { title: '레벨 업!', desc: '축하합니다! Lv.25에 도달했습니다. 보상을 확인하세요.', detail: 'Lv.25 달성을 축하합니다!\n\n레벨 업 보상:\n· 골드 2,500\n· 프로필 프레임 해금: "실버 엘리트"\n· 이모티콘 팩 1개\n\n다음 레벨까지 경험치 1,200 필요합니다.', time: '5일 전', unread: false },
+  { title: '프라이빗 룸 초대', desc: '포커마스터님이 프라이빗 룸에 초대했습니다.', detail: '포커마스터님이 프라이빗 룸에 초대했습니다.\n\n룸 정보:\n· 게임: 텍사스 홀덤 NL\n· 바이인: 골드 1,000\n· 참가자: 4/8명\n\n초대 유효기간: 24시간', time: '6일 전', unread: false },
+  { title: '골드 선물 도착', desc: '올인김치님이 골드 500을 선물했습니다.', detail: '올인김치님이 골드를 선물했습니다.\n\n선물 내역:\n· 골드 500\n· 보낸 사람: 올인김치\n· 메시지: "같이 해서 즐거웠어요!"\n\n골드는 자동으로 잔액에 추가되었습니다.', time: '6일 전', unread: false },
+  { title: '신규 토너먼트 오픈', desc: '스프링 시리즈 토너먼트가 등록 가능합니다.', detail: '스프링 시리즈 토너먼트가 오픈되었습니다.\n\n토너먼트 정보:\n· 시작: 4월 15일 (화) 20:00\n· 바이인: 골드 5,000\n· 보장 상금: 골드 500,000\n· 참가 제한: 256명\n\n지금 바로 등록하세요.', time: '7일 전', unread: false },
+  { title: '비밀번호 변경 완료', desc: '계정 비밀번호가 성공적으로 변경되었습니다.', detail: '계정 비밀번호가 변경되었습니다.\n\n변경 일시: 4월 3일 14:23\n변경 IP: 211.xxx.xxx.xx\n\n본인이 변경하지 않았다면 즉시 고객센터에 문의해주세요.', time: '7일 전', unread: false },
+  { title: '주간 랭킹 보상', desc: '주간 랭킹 12위 보상으로 다이아 200개가 지급되었습니다.', detail: '주간 랭킹 보상이 지급되었습니다.\n\n랭킹: 12위 / 5,432명\n보상: 다이아 200개\n\n이번 주도 열심히 플레이하여 더 높은 순위에 도전하세요.', time: '8일 전', unread: false },
+  { title: '오마하 오픈 예정', desc: '오마하 게임 모드가 곧 오픈됩니다. 기대해주세요!', detail: '새로운 게임 모드 "오마하"가 곧 오픈됩니다.\n\n오픈 예정: 4월 중순\n· PLO (팟 리밋 오마하)\n· 오마하 하이로우\n\n오픈 기념 이벤트도 준비 중입니다.', time: '9일 전', unread: false },
+  { title: '리엔트리 성공', desc: '주말 챔피언십 토너먼트에 리엔트리하였습니다.', detail: '주말 챔피언십 토너먼트에 리엔트리 완료.\n\n· 리엔트리 비용: 골드 3,000\n· 현재 칩: 10,000\n· 남은 리엔트리: 1회\n\n행운을 빕니다.', time: '10일 전', unread: false },
+  { title: '출석 체크 알림', desc: '오늘 출석 체크를 아직 하지 않았습니다.', detail: '오늘의 출석 체크를 잊지 마세요.\n\n현재 연속 출석: 5일\n· 7일 달성 시: 골드 1,000 보너스\n· 30일 달성 시: 다이아 300 + 특별 칭호\n\n로비에서 출석 체크를 할 수 있습니다.', time: '10일 전', unread: false },
+  { title: '서비스 업데이트', desc: 'v2.1.0 업데이트가 적용되었습니다. 새 기능을 확인하세요.', detail: 'v2.1.0 업데이트 내용\n\n신규 기능:\n· 프라이빗 룸 비밀번호 설정\n· 이모티콘 퀵슬롯 추가\n\n개선 사항:\n· 게임 로딩 속도 30% 개선\n· 채팅 UI 개편\n\n버그 수정:\n· 토너먼트 타이머 오류 수정\n· 일부 기기 화면 깨짐 해결', time: '12일 전', unread: false },
 ];
 
 var demoMessages = [
@@ -2558,7 +2558,7 @@ function openChat(name) {
     if (notifDetail) notifDetail.style.display = 'none';
     if (chatPanel) chatPanel.style.display = 'flex';
     // 알림 선택 해제
-    document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
+    document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); el.classList.remove('notif-expanded'); });
     document.getElementById('mbChatName').textContent = name;
     document.getElementById('mbChatAvatar').src = chatAvatar;
     // 선택 하이라이트
@@ -2644,41 +2644,56 @@ function mbRenderNotifs() {
     return;
   }
   el.innerHTML = demoNotifs.map(function(n, i) {
-    return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '" data-notif-idx="' + i + '" onclick="openNotifDetail(' + i + ')">' +
+    var detailHtml = n.detail ? n.detail.replace(/\n/g, '<br>') : n.desc;
+    return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '" data-notif-idx="' + i + '" onclick="toggleNotifDetail(' + i + ')">' +
       '<div class="mb-notif-body">' +
         '<div class="mb-notif-title">' + n.title + '</div>' +
         '<div class="mb-notif-desc">' + n.desc + '</div>' +
         '<div class="mb-notif-time">' + n.time + '</div>' +
+        '<div class="mb-notif-detail">' + detailHtml + '</div>' +
       '</div>' +
     '</div>';
   }).join('');
 }
 
-function openNotifDetail(idx) {
-  if (!mbIsPcSplit()) return;
-  var n = demoNotifs[idx];
-  if (!n) return;
-  // 우측 패널: 채팅 숨기고 알림 상세 표시
-  var placeholder = document.getElementById('mbSplitPlaceholder');
-  var chat = document.getElementById('mbSplitChat');
-  var detail = document.getElementById('mbSplitNotifDetail');
-  if (placeholder) placeholder.style.display = 'none';
-  if (chat) chat.style.display = 'none';
-  if (detail) detail.style.display = 'block';
-  document.getElementById('mbNotifDetailTitle').textContent = n.title;
-  document.getElementById('mbNotifDetailBody').textContent = n.desc;
-  document.getElementById('mbNotifDetailTime').textContent = n.time;
-  // 태그 자동 분류
-  var tag = '알림';
-  if (/우승|챔피언|시즌/.test(n.title)) tag = '토너먼트';
-  else if (/출석|보상|지급|당첨|레벨/.test(n.title)) tag = '보상';
-  else if (/점검|시스템/.test(n.title)) tag = '시스템';
-  else if (/친구|초대/.test(n.title)) tag = '소셜';
-  document.getElementById('mbNotifDetailTag').textContent = tag;
-  // 선택 하이라이트
-  document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
-  var items = document.querySelectorAll('.mb-notif-item[data-notif-idx="' + idx + '"]');
-  items.forEach(function(el) { el.classList.add('mb-msg-selected'); });
+function toggleNotifDetail(idx) {
+  var item = document.querySelector('.mb-notif-item[data-notif-idx="' + idx + '"]');
+  if (!item) return;
+
+  // PC: 우측 패널에 상세 표시 (토글 없음)
+  if (mbIsPcSplit()) {
+    var n = demoNotifs[idx];
+    if (!n) return;
+    var placeholder = document.getElementById('mbSplitPlaceholder');
+    var chat = document.getElementById('mbSplitChat');
+    var detail = document.getElementById('mbSplitNotifDetail');
+    if (placeholder) placeholder.style.display = 'none';
+    if (chat) chat.style.display = 'none';
+    if (detail) detail.style.display = 'block';
+    document.getElementById('mbNotifDetailTitle').textContent = n.title;
+    document.getElementById('mbNotifDetailBody').innerHTML = n.detail ? n.detail.replace(/\n/g, '<br>') : n.desc;
+    document.getElementById('mbNotifDetailTime').textContent = n.time;
+    var tag = '알림';
+    if (/우승|챔피언|시즌/.test(n.title)) tag = '토너먼트';
+    else if (/출석|보상|지급|당첨|레벨/.test(n.title)) tag = '보상';
+    else if (/점검|시스템/.test(n.title)) tag = '시스템';
+    else if (/친구|초대/.test(n.title)) tag = '소셜';
+    document.getElementById('mbNotifDetailTag').textContent = tag;
+    // 선택 하이라이트
+    document.querySelectorAll('.mb-notif-item').forEach(function(el) { el.classList.remove('mb-msg-selected'); });
+    item.classList.add('mb-msg-selected');
+    return;
+  }
+
+  // 모바일: 카드 토글
+  var isOpen = item.classList.contains('notif-expanded');
+  document.querySelectorAll('.mb-notif-item.notif-expanded').forEach(function(el) {
+    el.classList.remove('notif-expanded');
+  });
+  if (!isOpen) {
+    item.classList.add('notif-expanded');
+    item.classList.remove('unread');
+  }
 }
 
 function mbRenderMessages() {
