@@ -310,7 +310,7 @@ const i18n = {
     login_or: '또는',
     login_google: '구글 로그인',
     login_naver: '네이버 로그인',
-    login_find_id: '아이디 찾기',
+    login_find_id: '계정 찾기',
     login_reset_pw: '비밀번호 재설정',
     login_signup: '회원가입',
 
