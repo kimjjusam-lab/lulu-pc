@@ -832,7 +832,7 @@ function clearSession() {
 }
 
 function hideAllAuthSections() {
-  ['loginSection','findAccountSection','findAccountPassSection','signupStep1','signupStep2','signupStep3','signupStep4','signupStep5'].forEach(id => {
+  ['loginSection','findAccountSection','findAccountPassSection','findAccountCompleteSection','findAccountVerifySection','findAccountResetSection','signupStep1','signupStep2','signupStep3','signupStep4','signupStep5'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
   });
@@ -943,7 +943,180 @@ function showFindAccountPass() {
   }
 }
 function startPassAuth() {
-  alert('PASS 앱으로 이동합니다.');
+  // PASS 앱 이동 확인 알럿
+  var ok = confirm('PASS 앱으로 이동합니다.\n인증 완료 후 자동으로 돌아옵니다.\n\n계속하시겠습니까?');
+  if (!ok) return;
+  // 확인 시 인증 성공 가정 - 완료 페이지로 이동
+  showFindAccountComplete();
+}
+function showFindAccountComplete() {
+  hideAllAuthSections();
+  document.getElementById('findAccountCompleteSection').style.display = '';
+  var title = document.getElementById('mNavTitle');
+  var logo = document.getElementById('mNavLogo');
+  if (title && logo) {
+    logo.style.display = 'none';
+    title.style.display = '';
+    title.innerHTML = '<svg class="m-nav-back" onclick="showFindAccountPass()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span class="m-nav-title-text">계정 찾기</span>';
+  }
+}
+function showResetPassword() {
+  showFindAccountVerify();
+}
+var verifyTimerInterval = null;
+var verifyResendCount = 0;
+function showFindAccountVerify() {
+  hideAllAuthSections();
+  document.getElementById('findAccountVerifySection').style.display = '';
+  var title = document.getElementById('mNavTitle');
+  var logo = document.getElementById('mNavLogo');
+  if (title && logo) {
+    logo.style.display = 'none';
+    title.style.display = '';
+    title.innerHTML = '<svg class="m-nav-back" onclick="showFindAccountComplete()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span class="m-nav-title-text">이메일 인증</span>';
+  }
+  // 코드 입력 초기화
+  document.querySelectorAll('.verify-code-box').forEach(function(el) { el.value = ''; el.classList.remove('filled'); });
+  // 재전송 횟수 초기화
+  verifyResendCount = 0;
+  var resendLink = document.getElementById('verifyResendLink');
+  if (resendLink) { resendLink.textContent = '재전송 (0/3)'; resendLink.classList.remove('disabled'); }
+  // 타이머 시작
+  startVerifyTimer(5 * 60);
+  // 첫번째 박스 포커스
+  setTimeout(function() {
+    var first = document.querySelector('.verify-code-box');
+    if (first) first.focus();
+  }, 100);
+}
+function startVerifyTimer(seconds) {
+  if (verifyTimerInterval) clearInterval(verifyTimerInterval);
+  var remaining = seconds;
+  var timerEl = document.getElementById('verifyTimer');
+  function render() {
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+    if (timerEl) timerEl.textContent = (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+  }
+  render();
+  verifyTimerInterval = setInterval(function() {
+    remaining--;
+    if (remaining < 0) {
+      clearInterval(verifyTimerInterval);
+      if (timerEl) timerEl.textContent = '00:00';
+      return;
+    }
+    render();
+  }, 1000);
+}
+function handleCodeInput(el, idx) {
+  el.value = el.value.replace(/[^0-9]/g, '').slice(0, 1);
+  if (el.value) {
+    el.classList.add('filled');
+    var next = document.querySelectorAll('.verify-code-box')[idx + 1];
+    if (next) next.focus();
+  } else {
+    el.classList.remove('filled');
+  }
+  // 6자리 모두 입력 시 자동 진행
+  var boxes = document.querySelectorAll('.verify-code-box');
+  var code = Array.from(boxes).map(function(b) { return b.value; }).join('');
+  if (code.length === 6) {
+    if (verifyTimerInterval) clearInterval(verifyTimerInterval);
+    setTimeout(function() {
+      showResetPasswordForm();
+    }, 200);
+  }
+}
+function handleCodeKey(e, idx) {
+  if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+    var prev = document.querySelectorAll('.verify-code-box')[idx - 1];
+    if (prev) { prev.focus(); prev.value = ''; prev.classList.remove('filled'); }
+  }
+}
+function resendVerifyCode() {
+  if (verifyResendCount >= 3) return;
+  verifyResendCount++;
+  var resendLink = document.getElementById('verifyResendLink');
+  if (resendLink) {
+    resendLink.textContent = '재전송 (' + verifyResendCount + '/3)';
+    if (verifyResendCount >= 3) resendLink.classList.add('disabled');
+  }
+  // 타이머 재시작
+  startVerifyTimer(5 * 60);
+  // 입력 박스 초기화
+  document.querySelectorAll('.verify-code-box').forEach(function(el) { el.value = ''; el.classList.remove('filled'); });
+  var first = document.querySelector('.verify-code-box');
+  if (first) first.focus();
+}
+function showResetPasswordForm() {
+  showFindAccountReset();
+}
+var PW_EYE_OPEN_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+var PW_EYE_OFF_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+function togglePwVisibility(inputId, btn) {
+  var input = document.getElementById(inputId);
+  if (!input) return;
+  var isHidden = input.type === 'password';
+  input.type = isHidden ? 'text' : 'password';
+  btn.innerHTML = isHidden ? PW_EYE_OFF_SVG : PW_EYE_OPEN_SVG;
+}
+function showFindAccountReset() {
+  hideAllAuthSections();
+  document.getElementById('findAccountResetSection').style.display = '';
+  var title = document.getElementById('mNavTitle');
+  var logo = document.getElementById('mNavLogo');
+  if (title && logo) {
+    logo.style.display = 'none';
+    title.style.display = '';
+    title.innerHTML = '<svg class="m-nav-back" onclick="showFindAccountVerify()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span class="m-nav-title-text">비밀번호 재설정</span>';
+  }
+  // 입력 초기화
+  var newPw = document.getElementById('resetNewPw');
+  var confirmPw = document.getElementById('resetConfirmPw');
+  if (newPw) { newPw.value = ''; newPw.type = 'password'; }
+  if (confirmPw) { confirmPw.value = ''; confirmPw.type = 'password'; }
+  // 눈 아이콘 초기화
+  var eye1 = document.getElementById('resetNewPwEye');
+  var eye2 = document.getElementById('resetConfirmPwEye');
+  if (eye1) eye1.innerHTML = PW_EYE_OPEN_SVG;
+  if (eye2) eye2.innerHTML = PW_EYE_OPEN_SVG;
+  // 규칙 체크리스트 초기화
+  ['pwLen','pwUpper','pwNum','pwSpec'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('met');
+  });
+  // 불일치 메시지 숨김
+  var mismatchMsg = document.getElementById('pwMismatchMsg');
+  if (mismatchMsg) mismatchMsg.style.display = 'none';
+  var btn = document.getElementById('resetPwSubmit');
+  if (btn) btn.classList.add('disabled');
+}
+function validateResetPw() {
+  var pw = document.getElementById('resetNewPw').value;
+  var confirmPw = document.getElementById('resetConfirmPw').value;
+  var lenOk = pw.length >= 8;
+  var upperOk = /[A-Z]/.test(pw);
+  var numOk = /[0-9]/.test(pw);
+  var specOk = /[!@#$%^&*]/.test(pw);
+  document.getElementById('pwLen').classList.toggle('met', lenOk);
+  document.getElementById('pwUpper').classList.toggle('met', upperOk);
+  document.getElementById('pwNum').classList.toggle('met', numOk);
+  document.getElementById('pwSpec').classList.toggle('met', specOk);
+  // 비밀번호 불일치 안내
+  var mismatchMsg = document.getElementById('pwMismatchMsg');
+  var isMismatch = confirmPw.length > 0 && pw !== confirmPw;
+  if (mismatchMsg) mismatchMsg.style.display = isMismatch ? '' : 'none';
+  var allValid = lenOk && upperOk && numOk && specOk && confirmPw.length > 0 && pw === confirmPw;
+  var btn = document.getElementById('resetPwSubmit');
+  if (allValid) btn.classList.remove('disabled');
+  else btn.classList.add('disabled');
+}
+function submitResetPw() {
+  var btn = document.getElementById('resetPwSubmit');
+  if (btn.classList.contains('disabled')) return;
+  alert('비밀번호가 변경되었습니다. 새 비밀번호로 로그인해 주세요.');
+  showLogin();
 }
 function showSignup() {
   hideAllAuthSections();

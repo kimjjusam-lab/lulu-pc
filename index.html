@@ -940,6 +940,104 @@
         <button class="login-btn find-account-btn" id="findAccountPassBtn" onclick="startPassAuth()">PASS 인증</button>
       </div>
     </div>
+    <!-- 계정 찾기: 본인 인증 완료 -->
+    <div id="findAccountCompleteSection" style="display:none;">
+      <div class="login-header find-account-pc-header">
+        <h2>계정 찾기</h2>
+        <p>본인 인증을 통해 계정을 찾을 수 있습니다</p>
+      </div>
+      <div class="login-card find-account-card">
+        <div class="login-logo find-account-pc-header"><img loading="lazy" src="images/login_icon.svg" alt="Poker Lulu"></div>
+        <div class="find-account-header">
+          <h3>본인 인증이<br>완료되었습니다</h3>
+          <p>회원 가입에 사용한 이메일 계정입니다.</p>
+        </div>
+        <div class="find-account-terms">
+          <div class="find-account-term-item pass-auth-item pass-auth-stack">
+            <span class="pass-auth-icon">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="22" cy="22" r="22" fill="#22C55E"/>
+                <path d="M13 22l6 6 12-12" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="pass-auth-label">연결된 이메일</span>
+            <span class="pass-auth-email">k***@gmail.com</span>
+          </div>
+        </div>
+        <div class="find-account-actions">
+          <button class="find-account-cancel-btn" onclick="showLogin()">로그인</button>
+          <button class="find-account-confirm-btn" onclick="showResetPassword()">비밀번호 재설정</button>
+        </div>
+      </div>
+    </div>
+    <!-- 계정 찾기: 이메일 인증 코드 입력 -->
+    <div id="findAccountVerifySection" style="display:none;">
+      <div class="login-header find-account-pc-header">
+        <h2>이메일 인증</h2>
+        <p>본인 인증을 통해 계정을 찾을 수 있습니다</p>
+      </div>
+      <div class="login-card find-account-card">
+        <div class="login-logo find-account-pc-header"><img loading="lazy" src="images/login_icon.svg" alt="Poker Lulu"></div>
+        <div class="find-account-header">
+          <h3>인증 코드를<br>입력해 주세요</h3>
+        </div>
+        <div class="find-account-terms">
+          <div class="find-account-term-item pass-auth-item pass-auth-stack">
+            <span class="pass-auth-info"><strong class="pass-auth-info-email">k***@gmail.com</strong>으로 6자리 인증 코드를 발송했습니다.<br>이메일이 도착하지 않으면 스팸함을 확인해주세요.</span>
+          </div>
+        </div>
+        <div class="verify-code-inputs">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,0)" onkeydown="handleCodeKey(event,0)">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,1)" onkeydown="handleCodeKey(event,1)">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,2)" onkeydown="handleCodeKey(event,2)">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,3)" onkeydown="handleCodeKey(event,3)">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,4)" onkeydown="handleCodeKey(event,4)">
+          <input type="text" inputmode="numeric" maxlength="1" class="verify-code-box" oninput="handleCodeInput(this,5)" onkeydown="handleCodeKey(event,5)">
+        </div>
+        <div class="verify-countdown">남은 시간 <span id="verifyTimer">05:00</span></div>
+        <div class="verify-resend">이메일을 받지 못하셨나요? <a id="verifyResendLink" onclick="resendVerifyCode()">재전송 (0/3)</a></div>
+      </div>
+    </div>
+    <!-- 계정 찾기: 비밀번호 재설정 -->
+    <div id="findAccountResetSection" style="display:none;">
+      <div class="login-header find-account-pc-header">
+        <h2>비밀번호 재설정</h2>
+        <p>본인 인증을 통해 계정을 찾을 수 있습니다</p>
+      </div>
+      <div class="login-card find-account-card">
+        <div class="login-logo find-account-pc-header"><img loading="lazy" src="images/login_icon.svg" alt="Poker Lulu"></div>
+        <div class="find-account-header">
+          <h3>새 비밀번호를<br>설정해 주세요</h3>
+          <p>이전에 사용한 비밀번호는 다시 사용할 수 없습니다.</p>
+        </div>
+        <div class="reset-pw-form">
+          <div class="pw-field">
+            <label class="pw-field-label" for="resetNewPw">새 비밀번호</label>
+            <div class="pw-field-wrap">
+              <input type="password" class="login-input" id="resetNewPw" placeholder="새 비밀번호를 입력하세요" oninput="validateResetPw()">
+              <button type="button" class="pw-field-eye" id="resetNewPwEye" onclick="togglePwVisibility('resetNewPw', this)" aria-label="비밀번호 표시"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="reset-pw-criteria-box">
+            <ul class="reset-pw-criteria">
+              <li id="pwLen">8자 이상</li>
+              <li id="pwUpper">영문 대문자 포함</li>
+              <li id="pwNum">숫자 포함</li>
+              <li id="pwSpec">특수문자 포함 (!@#$%^&amp;*)</li>
+            </ul>
+          </div>
+          <div class="pw-field">
+            <label class="pw-field-label" for="resetConfirmPw">비밀번호 확인</label>
+            <div class="pw-field-wrap">
+              <input type="password" class="login-input" id="resetConfirmPw" placeholder="비밀번호를 다시 입력하세요" oninput="validateResetPw()">
+              <button type="button" class="pw-field-eye" id="resetConfirmPwEye" onclick="togglePwVisibility('resetConfirmPw', this)" aria-label="비밀번호 표시"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <div class="pw-mismatch-msg" id="pwMismatchMsg" style="display:none;">비밀번호가 일치하지 않습니다.</div>
+          </div>
+        </div>
+        <button class="login-btn find-account-btn disabled" id="resetPwSubmit" onclick="submitResetPw()">변경</button>
+      </div>
+    </div>
     <!-- 회원가입 Step1: 약관 동의 -->
     <div id="signupStep1" style="display:none;">
       <div class="login-header">
