@@ -960,7 +960,10 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
     margin:0 auto 16px !important; max-width:700px;
     justify-content:flex-start !important;
     overflow-x:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
   }
+  .tn-tabs::-webkit-scrollbar { display:none; }
   .tn-tab {
     flex:none !important; height:32px !important; padding:0 14px !important;
     font-size:13px !important; font-weight:500 !important;
@@ -1983,7 +1986,10 @@ body.chat-open > .m-nav { display:none !important; }
     justify-content:flex-start !important;
     overflow-x:auto !important;
     top:116px !important;
+    scrollbar-width:none !important;
+    -ms-overflow-style:none !important;
   }
+  .tn-tabs::-webkit-scrollbar { display:none !important; }
   .tn-tab {
     flex:none !important; height:32px !important; padding:0 14px !important;
     font-size:13px !important; font-weight:500 !important;
