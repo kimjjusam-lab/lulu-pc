@@ -954,10 +954,10 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 @media (min-width:769px) and (max-width:1023px) {
   /* 토너먼트 라벨 탭 - 타블릿 */
   .tn-tabs {
-    background:#0d0d18 !important; border:1px solid var(--border-color) !important; border-radius:14px !important;
+    background:#0d0d18 !important; border:1px solid var(--border-color) !important; border-radius:14px 14px 0 0 !important;
     padding:0 12px !important; gap:8px !important;
     height:56px !important;
-    margin:0 auto 16px !important; max-width:700px;
+    margin:0 auto !important; max-width:700px;
     justify-content:flex-start !important;
     overflow-x:auto;
     scrollbar-width:none;
@@ -978,6 +978,18 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   }
   .tn-tab-divider { display:inline-block; width:1px; height:20px; background:var(--border-color); flex-shrink:0; }
   .tn-tabs .tab-slider { display:none !important; }
+  /* 토너먼트 카드 리스트 - 타블릿 */
+  .tn-list { gap:0 !important; max-width:700px; margin-left:auto; margin-right:auto; }
+  .tn-card { border-radius:0 !important; background:var(--bg-card) !important; }
+  .tn-card:first-child { border-top:none !important; }
+  .tn-card + .tn-card { border-top:none !important; }
+  .tn-card:hover { background:linear-gradient(rgba(255,255,255,0.03),rgba(255,255,255,0.03)),var(--bg-card) !important; border-color:var(--border-color) !important; transform:none !important; box-shadow:none !important; }
+  /* Active 상태 비활성화 (기본 상태와 동일) */
+  .tn-card.tn-card-active { background:var(--bg-card) !important; border-color:var(--border-color) !important; border-left:1px solid var(--border-color) !important; }
+  .tn-card.tn-card-active:hover { background:linear-gradient(rgba(255,255,255,0.03),rgba(255,255,255,0.03)),var(--bg-card) !important; }
+  /* 토너먼트 리스트·상세에서 푸터 숨김 */
+  #page-tournament.active ~ .footer,
+  #page-tn-detail.active ~ .footer { display:none; }
 }
 @media (max-width:399px) {
   .login-divider { display:none; }
@@ -1413,6 +1425,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 #page-chat .content-wrapper { display:none; }
 #page-chat.active ~ .m-tabbar,
 #page-tn-detail.active ~ .m-tabbar,
+#page-tournament.active ~ .m-tabbar,
 body.chat-open > .m-nav { display:none !important; }
 
 /* Transaction History */
@@ -1986,6 +1999,7 @@ body.chat-open > .m-nav { display:none !important; }
     justify-content:flex-start !important;
     overflow-x:auto !important;
     top:116px !important;
+    margin:-16px -16px 0 !important;
     scrollbar-width:none !important;
     -ms-overflow-style:none !important;
   }
@@ -2060,6 +2074,15 @@ body.chat-open > .m-nav { display:none !important; }
   .tn-card { flex-direction:column; gap:10px; padding:14px 16px; }
   .tn-card-left { flex:none; flex-direction:row; align-items:center; gap:10px; }
   .tn-name { font-size:14px; }
+  /* 좌우여백·카드간 간격 제거 */
+  .tn-list { gap:0 !important; margin-left:-16px !important; margin-right:-16px !important; }
+  .tn-card { border-radius:0 !important; border-left:none !important; border-right:none !important; background:var(--bg-card) !important; }
+  .tn-card:first-child { border-top:none !important; }
+  .tn-card + .tn-card { border-top:none !important; }
+  .tn-card:hover { background:linear-gradient(rgba(255,255,255,0.03),rgba(255,255,255,0.03)),var(--bg-card) !important; border-color:var(--border-color) !important; transform:none !important; box-shadow:none !important; }
+  /* Active 상태 비활성화 (기본 상태와 동일) */
+  .tn-card.tn-card-active { background:var(--bg-card) !important; border-color:var(--border-color) !important; border-left:none !important; }
+  .tn-card.tn-card-active:hover { background:linear-gradient(rgba(255,255,255,0.03),rgba(255,255,255,0.03)),var(--bg-card) !important; }
 
   /* --- Tournament tabs mobile --- */
   .tn-tab, .td-tab { font-size:13px; }
