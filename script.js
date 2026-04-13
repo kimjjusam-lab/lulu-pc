@@ -4,7 +4,10 @@
   document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
   document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
   document.addEventListener('gestureend', function(e) { e.preventDefault(); }, { passive: false });
-  // 두 손가락 touchmove 차단 (핀치 줌)
+  // 두 손가락 touchstart/touchmove 차단 (Chrome 핀치 줌)
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches && e.touches.length > 1) e.preventDefault();
+  }, { passive: false });
   document.addEventListener('touchmove', function(e) {
     if (e.touches && e.touches.length > 1) e.preventDefault();
   }, { passive: false });

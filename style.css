@@ -21,6 +21,7 @@
   --glow-orange: rgba(249,98,23,0.3);
   --content-width: 1080px;
 }
+html { touch-action:pan-x pan-y; }
 body {
   font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
   background: radial-gradient(ellipse 90% 50% at 15% 100%, #1a2a4a 0%, #0e1428 40%, var(--bg-dark) 75%);
@@ -30,6 +31,7 @@ body {
   overflow-x:hidden;
   display:flex;
   flex-direction:column;
+  touch-action:pan-x pan-y;
 }
 
 .top-nav { width:100%; border-bottom:1px solid var(--border-color); position:sticky; top:0; z-index:100; backdrop-filter:blur(20px); background:rgba(13,13,24,0.92); }
