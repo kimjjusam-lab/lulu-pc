@@ -425,6 +425,10 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   transition: all 0.2s;
   line-height: 1;
 }
+@media (max-width:1060px) {
+  .pkg-buy-btn { font-size:0; }
+  .pkg-buy-btn::after { content:'구매'; font-size:13px; }
+}
 .pkg-buy-btn:hover {
   box-shadow: 0 4px 20px var(--glow-orange);
   transform: translateY(-1px);
