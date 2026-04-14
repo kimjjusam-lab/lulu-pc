@@ -1002,8 +1002,8 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 }
 @media (max-width:412px) {
   .login-btn { margin-top:0; }
-  .login-form { margin-bottom:16px; }
-  .login-divider { margin-bottom:16px; }
+  .login-form { margin-bottom:10px; }
+  .login-divider { margin-bottom:10px; }
   .social-btn { height:44px; padding-top:0; padding-bottom:0; }
 }
 @media (max-width:375px) {
