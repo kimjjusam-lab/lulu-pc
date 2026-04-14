@@ -1702,6 +1702,13 @@ document.getElementById('dtpModal').addEventListener('click', function(e) {
 });
 
 // === TOURNAMENT ===
+const tnGroups = [
+  { text:'Deep Stack 챔피언십', theme:'green',  ids:[1, 5, 13, 14, 17] },
+  { text:'주말 메인 이벤트',     theme:'purple', ids:[7, 9, 12, 16]     },
+  { text:'터보 스프린트',        theme:'white',  ids:[2, 3, 8, 15, 19]  },
+  { text:'Daily 홀덤',          theme:'gold',   ids:[6, 11, 20]        },
+  { text:'바운티 헌터',          theme:'red',    ids:[4, 10, 18]        },
+];
 const demoTournaments = [
   { id:1,  event:'A', name:'POKER LULU Weekly Championship', status:'registering', startType:'manual', fee:'free', players:3, maxPlayers:10, prize:'500,000G', registered:true, details:{ blindLevel:1, unique:3, reentry:0, startChips:'10000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'불가', lateRegLevel:8, blindMin:10, breakMin:5 } },
   { id:2,  event:'A', name:'Friday Night Holdem', status:'registering', startType:'manual', fee:'free', players:1, maxPlayers:6, prize:'-', registered:false, details:{ blindLevel:1, unique:1, reentry:0, startChips:'5000', tableSize:6, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:6, blindMin:8, breakMin:4 } },
@@ -1750,16 +1757,27 @@ function tnRenderFiltered() {
   var el = document.getElementById('tnFilteredList');
   if (!el) return;
   var allTab = document.querySelector('.tn-tab[data-tn-tab="all"]');
-  if (allTab && allTab.classList.contains('active')) {
-    el.innerHTML = demoTournaments.length ? demoTournaments.map(tnBuildCard).join('') : '<div class="tn-empty">' + emptyMsg + '</div>';
-    return;
+  var allowedEvents = null; // null → 전체
+  if (!(allTab && allTab.classList.contains('active'))) {
+    allowedEvents = [];
+    document.querySelectorAll('.tn-tab[data-tn-tab^="event"].active').forEach(function(e) {
+      allowedEvents.push(e.getAttribute('data-tn-tab').replace('event', ''));
+    });
   }
-  var activeEvents = [];
-  document.querySelectorAll('.tn-tab[data-tn-tab^="event"].active').forEach(function(e) {
-    activeEvents.push(e.getAttribute('data-tn-tab').replace('event', ''));
+  var byId = {};
+  demoTournaments.forEach(function(item) { byId[item.id] = item; });
+  var html = '';
+  tnGroups.forEach(function(g) {
+    var cards = g.ids
+      .map(function(id) { return byId[id]; })
+      .filter(function(item) { return item && (allowedEvents === null || allowedEvents.indexOf(item.event) !== -1); });
+    if (!cards.length) return;
+    html += '<div class="tn-section">' +
+              '<div class="tn-section-title tn-section-title--' + g.theme + '">' + g.text + '</div>' +
+              '<div class="tn-section-cards">' + cards.map(tnBuildCard).join('') + '</div>' +
+            '</div>';
   });
-  var filtered = demoTournaments.filter(function(item) { return activeEvents.indexOf(item.event) !== -1; });
-  el.innerHTML = filtered.length ? filtered.map(tnBuildCard).join('') : '<div class="tn-empty">' + emptyMsg + '</div>';
+  el.innerHTML = html || '<div class="tn-empty">' + emptyMsg + '</div>';
 }
 
 function tnBuildCard(item) {
