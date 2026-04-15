@@ -168,12 +168,7 @@ const i18n = {
     analytics_summary: '내 통계 요약',
     date_range_label: '조회 기간',
     date_range_btn: '조회',
-    chart_weekly: '주간 승패 요약',
-    chart_hand: '핸드 분석',
-    hand_best: '최다 승리 핸드',
-    hand_worst: '최다 패배 핸드',
-    day_mon: '월', day_tue: '화', day_wed: '수', day_thu: '목',
-    day_fri: '금', day_sat: '토', day_sun: '일',
+    chart_holecard: '홀카드별 수익',
 
     // 상점
     shop_title: '상점',
@@ -3193,7 +3188,8 @@ function txRenderList() {
       lastDate = tx.date;
       html += '<div class="tx-date-group">' + tx.date + '</div>';
     }
-    const icon = tx.type === 'gold' ? '🪙' : '💎';
+    const iconSrc = tx.type === 'gold' ? 'images/icon_gold.png' : 'images/icon_diamond.png';
+    const icon = '<img src="' + iconSrc + '" alt="' + tx.type + '">';
     const iconClass = tx.type === 'gold' ? 'gold' : 'diamond';
     const sign = tx.direction === 'plus' ? '+' : '-';
     const amountStr = sign + tx.amount.toLocaleString();
@@ -3498,3 +3494,28 @@ setTimeout(function() {
 
 // 날짜 범위 초기화
 initDateRange();
+
+// 홀카드별 수익 그리드 생성
+(function(){
+  var grid=document.getElementById('holecardGrid');
+  if(!grid)return;
+  var ranks=['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+  var won=['KQo','JTs','TT','T9o','99','88','77','66','55','44','33','22'];
+  var lost=['Q7s'];
+  var wonSet={};won.forEach(function(h){wonSet[h]=1;});
+  var lostSet={};lost.forEach(function(h){lostSet[h]=1;});
+  for(var r=0;r<13;r++){
+    for(var c=0;c<13;c++){
+      var cell=document.createElement('div');
+      cell.className='holecard-cell';
+      var label;
+      if(r===c){label=ranks[r]+ranks[c];}
+      else if(c>r){label=ranks[r]+ranks[c]+'s';}
+      else{label=ranks[c]+ranks[r]+'o';}
+      cell.textContent=label;
+      if(lostSet[label])cell.classList.add('lost');
+      else if(wonSet[label])cell.classList.add('won');
+      grid.appendChild(cell);
+    }
+  }
+})();
