@@ -861,7 +861,7 @@ function clearSession() {
 }
 
 function hideAllAuthSections() {
-  ['loginSection','findAccountSection','findAccountPassSection','findAccountCompleteSection','findAccountVerifySection','findAccountResetSection','signupStep1','signupStep2','signupStep3','signupStep4','signupStep5'].forEach(id => {
+  ['loginSection','findAccountSection','findAccountPassSection','findAccountCompleteSection','findAccountVerifySection','findAccountResetSection','signupStep2','signupStep3','signupStep4','signupStep5'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
   });
@@ -1149,12 +1149,8 @@ function submitResetPw() {
 }
 function showSignup() {
   hideAllAuthSections();
-  document.getElementById('signupStep1').style.display = '';
+  showSignupStep2();
   clearLoginErrors();
-}
-function showSignupStep1() {
-  hideAllAuthSections();
-  document.getElementById('signupStep1').style.display = '';
 }
 function showSignupStep2() {
   hideAllAuthSections();

@@ -316,7 +316,7 @@ The color story is warm-on-dark. The primary background (`#07070d`) is a near-bl
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Desktop | >768px | Full layout, 4-5 column grids, top-nav visible |
+| Desktop | >=768px | Full layout, 4-5 column grids, top-nav visible |
 | Tablet | 769-960px | Reduced nav coins, adjusted padding |
 | Mobile | <=768px | Mobile nav, 2-column grids, hidden game modes |
 | Small Mobile | <=412px | Compact login layout, reduced margins |

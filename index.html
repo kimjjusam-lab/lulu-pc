@@ -1034,71 +1034,20 @@
         <button class="login-btn find-account-btn disabled" id="resetPwSubmit" onclick="submitResetPw()">변경</button>
       </div>
     </div>
-    <!-- 회원가입 Step1: 약관 동의 -->
-    <div id="signupStep1" style="display:none;">
-      <div class="login-header">
-        <h2 data-i18n="signup_title">회원가입</h2>
-        <p data-i18n="signup_subtitle">포커룰루에 오신 것을 환영합니다</p>
-      </div>
-      <div class="signup-progress">
-        <div class="progress-step active"><div class="progress-dot">1</div><span data-i18n="signup_step1">약관동의</span></div>
-        <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">2</div><span data-i18n="signup_step2">정보입력</span></div>
-        <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">3</div><span>본인인증</span></div>
-        <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step3">닉네임입력</span></div>
-        <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">5</div><span data-i18n="signup_step4">완료</span></div>
-      </div>
-      <div class="signup-content-divider"></div>
-      <div class="login-card">
-        <div class="signup-terms">
-          <label class="signup-term-item">
-            <input type="checkbox" class="term-required" onchange="updateTermsBtn()">
-            <span class="term-check"></span>
-            <span data-i18n="signup_terms_service">[필수] 서비스 이용약관 동의</span>
-          </label>
-          <label class="signup-term-item">
-            <input type="checkbox" class="term-required" onchange="updateTermsBtn()">
-            <span class="term-check"></span>
-            <span data-i18n="signup_terms_privacy">[필수] 개인정보 수집 및 이용 동의</span>
-          </label>
-          <label class="signup-term-item">
-            <input type="checkbox" id="termMarketing" onchange="updateTermsBtn()">
-            <span class="term-check"></span>
-            <span data-i18n="signup_terms_marketing">[선택] 마케팅 정보 수신 동의</span>
-          </label>
-          <div class="signup-term-divider"></div>
-          <label class="signup-term-all">
-            <input type="checkbox" id="termAll" onchange="toggleAllTerms()">
-            <span class="term-check"></span>
-            <span data-i18n="signup_terms_all">전체 동의</span>
-          </label>
-        </div>
-        <button class="login-btn signup-next-btn disabled" id="signupNextBtn" data-i18n="signup_next" onclick="showSignupStep2()">다음</button>
-        <div class="login-links signup-login-link">
-          <span data-i18n="signup_has_account">이미 계정이 있으신가요?</span>
-          <a onclick="showLogin()" data-i18n="signup_go_login" style="cursor:pointer;">로그인</a>
-        </div>
-      </div>
-    </div>
-    <!-- 회원가입 Step2: 계정 정보 입력 -->
+    <!-- 회원가입 Step1: 계정 정보 입력 -->
     <div id="signupStep2" style="display:none;">
       <div class="login-header">
         <h2 data-i18n="signup_title">회원가입</h2>
         <p data-i18n="signup_subtitle_step2">계정 정보를 입력하세요</p>
       </div>
       <div class="signup-progress">
-        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
-        <div class="progress-line done"></div>
-        <div class="progress-step active"><div class="progress-dot">2</div><span data-i18n="signup_step2">정보입력</span></div>
+        <div class="progress-step active"><div class="progress-dot">1</div><span data-i18n="signup_step2">정보입력</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">3</div><span>본인인증</span></div>
+        <div class="progress-step"><div class="progress-dot">2</div><span>본인인증</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-step"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">5</div><span data-i18n="signup_step4">완료</span></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
       </div>
       <div class="signup-content-divider"></div>
       <div class="login-card signup-card-padded">
@@ -1117,26 +1066,25 @@
           <button class="login-btn" data-i18n="signup_btn" onclick="handleSignup()">다음</button>
         </div>
         <div class="login-links">
-          <a onclick="showSignupStep1()" data-i18n="signup_prev" style="cursor:pointer;">이전</a>
+          <span data-i18n="signup_has_account">이미 계정이 있으신가요?</span>
+          <a onclick="showLogin()" data-i18n="signup_go_login" style="cursor:pointer;">로그인</a>
         </div>
       </div>
     </div>
-    <!-- 회원가입 Step3: 본인인증 -->
+    <!-- 회원가입 Step2: 본인인증 -->
     <div id="signupStep3" style="display:none;">
       <div class="login-header">
         <h2 data-i18n="signup_title">회원가입</h2>
         <p>본인인증을 진행하세요</p>
       </div>
       <div class="signup-progress">
-        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
-        <div class="progress-line done"></div>
         <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step2">정보입력</span></div>
         <div class="progress-line done"></div>
-        <div class="progress-step active"><div class="progress-dot">3</div><span>본인인증</span></div>
+        <div class="progress-step active"><div class="progress-dot">2</div><span>본인인증</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-step"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">5</div><span data-i18n="signup_step4">완료</span></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
       </div>
       <div class="signup-content-divider"></div>
       <div class="login-card signup-card-padded">
@@ -1172,15 +1120,13 @@
         <p data-i18n="signup_subtitle_step3">닉네임과 아바타를 선택하세요</p>
       </div>
       <div class="signup-progress">
-        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
-        <div class="progress-line done"></div>
         <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step2">정보입력</span></div>
         <div class="progress-line done"></div>
         <div class="progress-step done"><div class="progress-dot">✓</div><span>본인인증</span></div>
         <div class="progress-line done"></div>
-        <div class="progress-step active"><div class="progress-dot">4</div><span data-i18n="signup_step3">닉네임입력</span></div>
+        <div class="progress-step active"><div class="progress-dot">3</div><span data-i18n="signup_step3">닉네임입력</span></div>
         <div class="progress-line"></div>
-        <div class="progress-step"><div class="progress-dot">5</div><span data-i18n="signup_step4">완료</span></div>
+        <div class="progress-step"><div class="progress-dot">4</div><span data-i18n="signup_step4">완료</span></div>
       </div>
       <div class="signup-content-divider"></div>
       <div class="login-card signup-card-padded">
@@ -1215,8 +1161,6 @@
         <p data-i18n="signup_subtitle_step4">가입이 완료되었습니다</p>
       </div>
       <div class="signup-progress">
-        <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step1">약관동의</span></div>
-        <div class="progress-line done"></div>
         <div class="progress-step done"><div class="progress-dot">✓</div><span data-i18n="signup_step2">정보입력</span></div>
         <div class="progress-line done"></div>
         <div class="progress-step done"><div class="progress-dot">✓</div><span>본인인증</span></div>

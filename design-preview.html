@@ -62,13 +62,31 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-comp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:24px;flex:1;min-width:200px;}
 .ds-comp-label{font-size:11px;font-weight:700;color:var(--text-mut);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px;}
 
-/* Buttons demo */
-.ds-btn-primary{background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;border:none;padding:15px 24px 14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;}
-.ds-btn-primary:hover{box-shadow:0 4px 24px rgba(249,98,23,0.3);transform:translateY(-1px);}
-.ds-btn-standard{background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;border:none;padding:11px 24px 10px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;}
-.ds-btn-standard:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
-.ds-btn-ghost{background:#23233a;color:var(--text-sec);border:1px solid var(--border);padding:11px 24px 10px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;}
-.ds-btn-ghost:hover{border-color:rgba(249,98,23,0.3);color:var(--text-pri);}
+/* Buttons demo - sized variants */
+.ds-btn-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.ds-btn-row:last-child{border-bottom:none;}
+.ds-btn-meta{min-width:200px;flex-shrink:0;}
+.ds-btn-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+.ds-btn-spec{font-size:11px;color:var(--text-mut);font-family:'Inter',monospace;}
+.ds-btn-demo{flex:1;display:flex;align-items:center;}
+.ds-b{font-family:inherit;border:none;cursor:pointer;transition:all 0.2s;color:#fff;background:linear-gradient(135deg,#F96217,#d4510f);}
+.ds-b:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
+.ds-b-ghost{background:#23233a;color:var(--text-sec);border:1px solid var(--border);}
+.ds-b-ghost:hover{border-color:rgba(249,98,23,0.3);color:var(--text-pri);box-shadow:none;}
+.ds-b-h22{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600;background:transparent;border:1px solid var(--border);color:var(--text-sec);}
+.ds-b-h25{padding:7px 14px 6px;border-radius:8px;font-size:12px;font-weight:700;line-height:1;}
+.ds-b-h32{padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;}
+.ds-b-h36{padding:10px 12px;border-radius:8px;font-size:13px;font-weight:600;background:transparent;color:var(--text-sec);border:1px solid var(--border);}
+.ds-b-h33j{padding:10px 16px;border-radius:10px;font-size:13px;font-weight:700;line-height:1;}
+.ds-b-h35{padding:11px 28px 10px;border-radius:10px;font-size:14px;font-weight:700;line-height:1;}
+.ds-b-h40{width:40px;height:40px;border-radius:50%;font-size:20px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;}
+.ds-b-h44{height:44px;padding:0 18px;border-radius:12px;font-size:14px;font-weight:600;background:#fff;color:#1f2937;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;}
+.ds-b-h44:hover{background:#f3f4f6;color:#1f2937;box-shadow:none;}
+.ds-b-h52{height:52px;padding:0 18px;border-radius:12px;font-size:14px;font-weight:600;background:#fff;color:#1f2937;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;}
+.ds-b-h52:hover{background:#f3f4f6;color:#1f2937;box-shadow:none;}
+.ds-b-h44btn{padding:15px 14px 14px;border-radius:12px;font-size:15px;font-weight:700;line-height:1;}
+.ds-b-h42{padding:15px 16px 14px;border-radius:12px;font-size:13px;font-weight:700;line-height:1;}
+.ds-b-disabled{opacity:0.4;cursor:not-allowed;pointer-events:none;}
 .ds-btn-join{background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;border:none;padding:10px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;width:100%;font-family:inherit;}
 .ds-btn-join:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
 
@@ -86,9 +104,26 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-demo-card-value{font-weight:600;color:var(--text-sec);}
 
 /* Input demo */
-.ds-demo-input{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--text-pri);width:100%;max-width:320px;outline:none;transition:border-color 0.2s;font-family:'Inter',sans-serif;}
+.ds-demo-input{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--text-pri);width:100%;outline:none;transition:border-color 0.2s;font-family:'Inter',sans-serif;}
 .ds-demo-input:focus{border-color:var(--orange);}
 .ds-demo-input::placeholder{color:var(--text-mut);}
+.ds-demo-input.filled{border-color:var(--orange);}
+.ds-demo-input.error{border-color:#ef4444;}
+.ds-input-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
+.ds-input-row:last-child{border-bottom:none;}
+.ds-input-meta{min-width:200px;flex-shrink:0;}
+.ds-input-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+.ds-input-spec{font-size:11px;color:var(--text-mut);font-family:'Inter',monospace;}
+.ds-input-demo{flex:1;min-width:0;max-width:360px;}
+.ds-input-error-msg{color:#ef4444;font-size:12px;margin-top:6px;}
+.ds-pw-wrap{position:relative;}
+.ds-pw-wrap .ds-demo-input{padding-right:44px;}
+.ds-pw-eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:transparent;border:none;padding:6px;cursor:pointer;color:var(--text-mut);display:flex;align-items:center;justify-content:center;border-radius:6px;transition:color 0.2s;}
+.ds-pw-eye:hover{color:var(--text-sec);background:rgba(255,255,255,0.05);}
+.ds-code-inputs{display:flex;gap:8px;}
+.ds-code-box{width:48px;height:48px;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text-pri);font-size:22px;font-weight:700;text-align:center;outline:none;transition:border-color 0.2s;font-family:'Inter',sans-serif;padding:0;}
+.ds-code-box:focus{border-color:var(--orange);}
+.ds-code-box.filled{border-color:var(--orange);}
 
 /* Badge demo */
 .ds-badges{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
@@ -340,13 +375,219 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 
   <!-- Buttons -->
   <div class="ds-comp-grid">
-    <div class="ds-comp-card" style="display:flex;flex-direction:column;gap:16px;">
-      <div class="ds-comp-label">Buttons</div>
-      <div><button class="ds-btn-primary">Primary CTA</button></div>
-      <div><button class="ds-btn-standard">Standard</button></div>
-      <div><button class="ds-btn-ghost">Ghost / Secondary</button></div>
-      <div style="max-width:200px;"><button class="ds-btn-join">Join Table</button></div>
+    <div class="ds-comp-card" style="flex:1 1 100%;">
+      <div class="ds-comp-label">Buttons — 기본 / 취소 / 비활성</div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XXS — Link</div><div class="ds-btn-spec">25px / 11px / radius 8px / border</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h22">자세히 보기</button>
+          <button class="ds-b ds-b-h22 ds-b-disabled">자세히 보기</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XS — Reward</div><div class="ds-btn-spec">25px / 12px / radius 8px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h25">기본</button>
+          <button class="ds-b ds-b-h25 ds-b-disabled">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">SM — Date Picker</div><div class="ds-btn-spec">32px / 13px / radius 8px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h32">기본</button>
+          <button class="ds-b ds-b-h32 ds-b-ghost">취소</button>
+          <button class="ds-b ds-b-h32 ds-b-disabled">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">MD — Segment</div><div class="ds-btn-spec">36px / 13px / radius 8px / ghost</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h36">옵션</button>
+          <button class="ds-b ds-b-h36 ds-b-disabled">옵션</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">LG — Join (입장하기)</div><div class="ds-btn-spec">33px / 13px / radius 10px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h33j">기본</button>
+          <button class="ds-b ds-b-h33j ds-b-disabled">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">LG — Shop Buy (구매하기)</div><div class="ds-btn-spec">35px / 14px / radius 10px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h35">기본</button>
+          <button class="ds-b ds-b-h35 ds-b-ghost">취소</button>
+          <button class="ds-b ds-b-h35 ds-b-disabled">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">Stepper Circle</div><div class="ds-btn-spec">40 × 40 / radius 50%</div></div>
+        <div class="ds-btn-demo" style="gap:8px;">
+          <button class="ds-b ds-b-h40">+</button>
+          <button class="ds-b ds-b-h40 ds-b-disabled">+</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XL — Social Login (&lt;412px)</div><div class="ds-btn-spec">44px / 14px / radius 12px / white / 저해상도</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b-h44 ds-b" style="min-width:160px;">기본</button>
+          <button class="ds-b-h44 ds-b ds-b-disabled" style="min-width:160px;">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XL — Social Login (≥412px)</div><div class="ds-btn-spec">52px / 14px / radius 12px / white / 고해상도</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b-h52 ds-b" style="min-width:160px;">기본</button>
+          <button class="ds-b-h52 ds-b ds-b-disabled" style="min-width:160px;">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XL — Date Range / Inline</div><div class="ds-btn-spec">42px / 13px / radius 12px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h42">기본</button>
+          <button class="ds-b ds-b-h42 ds-b-disabled">비활성</button>
+        </div>
+      </div>
+
+      <div class="ds-btn-row">
+        <div class="ds-btn-meta"><div class="ds-btn-name">XXL — Primary CTA</div><div class="ds-btn-spec">44px / 15px / radius 12px</div></div>
+        <div class="ds-btn-demo" style="gap:8px;flex-wrap:wrap;">
+          <button class="ds-b ds-b-h44btn" style="min-width:140px;">로그인</button>
+          <button class="ds-b ds-b-h44btn ds-b-ghost" style="min-width:140px;">취소</button>
+          <button class="ds-b ds-b-h44btn ds-b-disabled" style="min-width:140px;">비활성</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Input -->
+  <div class="ds-comp-grid">
+    <div class="ds-comp-card" style="flex:1 1 100%;">
+      <div class="ds-comp-label">Input — 상태별</div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">기본 (Default)</div><div class="ds-input-spec">border #1e1e30 / placeholder muted</div></div>
+        <div class="ds-input-demo">
+          <input class="ds-demo-input" type="text" placeholder="이메일 입력">
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">포커스 (Focus)</div><div class="ds-input-spec">border var(--accent-orange)</div></div>
+        <div class="ds-input-demo">
+          <input class="ds-demo-input" type="text" value="lulu@poker.com" style="border-color:#F96217;">
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">입력완료 (Filled)</div><div class="ds-input-spec">value 입력된 상태</div></div>
+        <div class="ds-input-demo">
+          <input class="ds-demo-input" type="text" value="lulu@poker.com">
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">에러 (Error)</div><div class="ds-input-spec">border #ef4444 + 에러 메시지</div></div>
+        <div class="ds-input-demo">
+          <input class="ds-demo-input error" type="text" value="invalid-email">
+          <div class="ds-input-error-msg">올바른 이메일 형식이 아닙니다.</div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">패스워드 — 가림</div><div class="ds-input-spec">type=password / 눈알 닫힘</div></div>
+        <div class="ds-input-demo">
+          <div class="ds-pw-wrap">
+            <input class="ds-demo-input" type="password" value="mypassword123">
+            <button class="ds-pw-eye" type="button" aria-label="비밀번호 보기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">패스워드 — 보임</div><div class="ds-input-spec">type=text / 눈알 열림</div></div>
+        <div class="ds-input-demo">
+          <div class="ds-pw-wrap">
+            <input class="ds-demo-input" type="text" value="mypassword123">
+            <button class="ds-pw-eye" type="button" aria-label="비밀번호 가리기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">달력 입력창 (Date Picker)</div><div class="ds-input-spec">달력 아이콘 + 클릭 시 달력 팝업</div></div>
+        <div class="ds-input-demo">
+          <div style="position:relative;">
+            <input class="ds-demo-input" type="text" value="2026.04.15" readonly style="cursor:pointer;padding-right:44px;">
+            <svg style="position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--text-mut);pointer-events:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">이메일 + 코드보내기</div><div class="ds-input-spec">flex 인풋 + 인라인 버튼</div></div>
+        <div class="ds-input-demo">
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input class="ds-demo-input" type="email" placeholder="이메일 입력" style="flex:1;min-width:0;">
+            <button class="ds-b ds-b-h45sm" style="white-space:nowrap;">코드보내기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">비활성 (Disabled)</div><div class="ds-input-spec">opacity 0.4 / cursor not-allowed</div></div>
+        <div class="ds-input-demo">
+          <input class="ds-demo-input" type="text" value="lulu@poker.com" disabled style="opacity:0.4;cursor:not-allowed;">
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">인증코드 — 빈 상태</div><div class="ds-input-spec">48×48 / radius 10px / 22px 700</div></div>
+        <div class="ds-input-demo">
+          <div class="ds-code-inputs">
+            <input class="ds-code-box" maxlength="1" type="text">
+            <input class="ds-code-box" maxlength="1" type="text">
+            <input class="ds-code-box" maxlength="1" type="text">
+            <input class="ds-code-box" maxlength="1" type="text">
+            <input class="ds-code-box" maxlength="1" type="text">
+            <input class="ds-code-box" maxlength="1" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-input-row">
+        <div class="ds-input-meta"><div class="ds-input-name">인증코드 — 입력완료</div><div class="ds-input-spec">filled border orange</div></div>
+        <div class="ds-input-demo">
+          <div class="ds-code-inputs">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="2">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="6">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="0">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="4">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="2">
+            <input class="ds-code-box filled" maxlength="1" type="text" value="6">
+          </div>
+          <div style="font-size:13px;color:#F96217;text-align:center;margin-top:10px;font-weight:600;">04:32</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ds-comp-grid">
 
     <!-- Card -->
     <div class="ds-comp-card">
@@ -366,14 +607,8 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
     </div>
   </div>
 
-  <!-- Input -->
+  <!-- Badges -->
   <div class="ds-comp-grid">
-    <div class="ds-comp-card">
-      <div class="ds-comp-label">Input</div>
-      <input class="ds-demo-input" type="text" placeholder="Enter your email">
-    </div>
-
-    <!-- Badges -->
     <div class="ds-comp-card">
       <div class="ds-comp-label">Badges & Tags</div>
       <div class="ds-badges">
@@ -852,7 +1087,7 @@ The color story is warm-on-dark. The primary background (`#07070d`) is a near-bl
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Desktop | >768px | Full layout, 4-5 column grids, top-nav visible |
+| Desktop | >=768px | Full layout, 4-5 column grids, top-nav visible |
 | Tablet | 769-960px | Reduced nav coins, adjusted padding |
 | Mobile | <=768px | Mobile nav, 2-column grids, hidden game modes |
 | Small Mobile | <=412px | Compact login layout, reduced margins |
