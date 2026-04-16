@@ -231,12 +231,13 @@
     </div></div>
     <div class="stats-grid stats-grid-detail">
       <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_games.png" alt="games"></div><div class="stat-info"><div class="stat-value">128</div><div class="stat-label" data-i18n="stat_total_games">참가 경기 수</div></div></div>
+      <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="winrate"></div><div class="stat-info"><div class="stat-value">18.0%</div><div class="stat-label" data-i18n="stat_winrate_pct">승률</div></div></div>
       <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_profit.png" alt="profit"></div><div class="stat-info"><div class="stat-value" style="color:var(--accent-gold)">52.4K</div><div class="stat-label" data-i18n="stat_total_profit">총 상금</div></div></div>
       <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_best_prize.svg" alt="best prize"></div><div class="stat-info"><div class="stat-value" style="color:var(--accent-pink)">8.2K</div><div class="stat-label" data-i18n="stat_best_streak">최대 단일 상금</div></div></div>
-      <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="winrate"></div><div class="stat-info"><div class="stat-value">23</div><div class="stat-label" data-i18n="stat_winrate">1위 횟수</div></div></div>
-      <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_podium.svg" alt="podium"></div><div class="stat-info"><div class="stat-value">45</div><div class="stat-label" data-i18n="stat_podium">입상 횟수</div></div></div>
-      <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="avg rank"></div><div class="stat-info"><div class="stat-value">3.2</div><div class="stat-label" data-i18n="stat_avg_rank">평균 순위</div></div></div>
-      <div class="stat-card stat-card-static" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_avg_players.svg" alt="avg players"></div><div class="stat-info"><div class="stat-value">8.7</div><div class="stat-label" data-i18n="stat_avg_players">평균 참가자 수</div></div></div>
+      <div class="stat-card stat-card-static stat-card-mobile-hide" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_winrate.png" alt="1위 횟수"></div><div class="stat-info"><div class="stat-value">23</div><div class="stat-label" data-i18n="stat_winrate">1위 횟수</div></div></div>
+      <div class="stat-card stat-card-static stat-card-mobile-hide" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_podium.svg" alt="podium"></div><div class="stat-info"><div class="stat-value">45</div><div class="stat-label" data-i18n="stat_podium">입상 횟수</div></div></div>
+      <div class="stat-card stat-card-static stat-card-mobile-hide" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_streak.png" alt="avg rank"></div><div class="stat-info"><div class="stat-value">3.2</div><div class="stat-label" data-i18n="stat_avg_rank">평균 순위</div></div></div>
+      <div class="stat-card stat-card-static stat-card-mobile-hide" style="background:rgba(255,255,255,0.05)"><div class="stat-icon"><img loading="lazy" src="images/stat_avg_players.svg" alt="avg players"></div><div class="stat-info"><div class="stat-value">8.7</div><div class="stat-label" data-i18n="stat_avg_players">평균 참가자 수</div></div></div>
     </div></div>
     <div class="chart-container" style="margin-bottom:40px">
       <div class="chart-title">홀카드별 수익</div>
@@ -944,11 +945,11 @@
       </div>
       <div class="login-card find-account-card">
         <div class="login-logo find-account-pc-header"><img loading="lazy" src="images/login_icon.svg" alt="Poker Lulu"></div>
-        <div class="find-account-header">
+        <div class="find-account-header" id="findCompleteHeader">
           <h3>본인 인증이<br>완료되었습니다</h3>
           <p>회원 가입에 사용한 이메일 계정입니다.</p>
         </div>
-        <div class="find-account-terms">
+        <div class="find-account-terms" id="findCompleteBody">
           <div class="find-account-term-item pass-auth-item pass-auth-stack">
             <span class="pass-auth-icon">
               <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -960,9 +961,15 @@
             <span class="pass-auth-email">k***@gmail.com</span>
           </div>
         </div>
-        <div class="find-account-actions">
+        <div class="find-account-actions" id="findCompleteActions">
           <button class="find-account-cancel-btn" onclick="showLogin()">로그인</button>
           <button class="find-account-confirm-btn" onclick="showResetPassword()">비밀번호 재설정</button>
+        </div>
+        <div class="find-account-variant-toggle">
+          <button class="modal-link-btn active" data-variant="email" onclick="setFindCompleteVariant('email')">이메일</button>
+          <button class="modal-link-btn" data-variant="none" onclick="setFindCompleteVariant('none')">미가입</button>
+          <button class="modal-link-btn" data-variant="social1" onclick="setFindCompleteVariant('social1')">소셜1</button>
+          <button class="modal-link-btn" data-variant="social2" onclick="setFindCompleteVariant('social2')">소셜2</button>
         </div>
       </div>
     </div>

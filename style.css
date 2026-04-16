@@ -161,7 +161,7 @@ body {
 .stat-card { background:var(--bg-card); border:1px solid var(--border-color); border-radius:6px; padding:16px 20px; display:flex; align-items:center; gap:14px; text-align:left; transition:all 0.25s; position:relative; }
 .stat-card:hover { border-color:rgba(249,98,23,0.2); }
 .stat-card-static, .stat-card-static:hover, .stat-card-static:focus { border-color:transparent; cursor:default; transition:none; }
-.stats-grid-detail { grid-template-columns:repeat(7,1fr); gap:12px; }
+.stats-grid-detail { grid-template-columns:repeat(8,1fr); gap:12px; }
 .stats-grid-detail .stat-card { flex-direction:column; text-align:center; padding:14px 8px; gap:8px; }
 .stats-grid-detail .stat-icon img { width:36px; height:36px; }
 .stats-grid-detail .stat-info { align-items:center; }
@@ -756,6 +756,8 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 
 .find-account-actions { display:flex; gap:10px; width:100%; margin-top:0; padding-top:16px; border-top:1px solid var(--border-color); }
 #findAccountCompleteSection .find-account-terms { margin-bottom:16px; }
+.find-account-variant-toggle { display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.find-account-variant-toggle .modal-link-btn.active { border-color:var(--accent-orange); color:var(--accent-orange); }
 
 .pass-auth-info { font-size:13px; color:var(--text-muted); line-height:1.7; }
 .pass-auth-info-email { color:#fff; font-weight:700; }
@@ -1985,7 +1987,8 @@ body.chat-open > .m-nav { display:none !important; }
 
   /* --- Stats: 2x2 grid --- */
   .stats-grid { grid-template-columns:1fr 1fr; gap:10px; }
-  .stats-grid-detail { grid-template-columns:repeat(3,1fr); }
+  .stats-grid-detail { grid-template-columns:repeat(2,1fr); }
+  .stats-grid-detail .stat-card-mobile-hide { display:none; }
   .stats-grid-detail .stat-card { flex-direction:column; text-align:center; padding:8px 8px; gap:6px; min-height:100px; justify-content:center; }
   .stats-grid-detail .stat-info { align-items:center; }
   .stats-grid-detail .stat-value { font-size:16px; justify-content:center; }

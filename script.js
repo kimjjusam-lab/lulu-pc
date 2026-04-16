@@ -152,6 +152,7 @@ const i18n = {
     // 통계
     stat_total_games: '참가 경기 수',
     stat_winrate: '1위 횟수',
+    stat_winrate_pct: '승률',
     stat_total_profit: '총 상금',
     stat_best_streak: '최대 단일 상금',
     stat_podium: '입상 횟수',
@@ -987,6 +988,75 @@ function showFindAccountComplete() {
     logo.style.display = 'none';
     title.style.display = '';
     title.innerHTML = '<svg class="m-nav-back" onclick="showFindAccountPass()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span class="m-nav-title-text">계정 찾기</span>';
+  }
+  // 기본값: 이메일 variant
+  setFindCompleteVariant('email');
+}
+
+function setFindCompleteVariant(variant) {
+  var header = document.getElementById('findCompleteHeader');
+  var body = document.getElementById('findCompleteBody');
+  var actions = document.getElementById('findCompleteActions');
+  if (!header || !body || !actions) return;
+
+  // 토글 버튼 active 상태 업데이트
+  document.querySelectorAll('.find-account-variant-toggle .modal-link-btn').forEach(function(b) {
+    if (b.getAttribute('data-variant') === variant) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+
+  if (variant === 'email') {
+    header.innerHTML = '<h3>본인 인증이<br>완료되었습니다</h3>' +
+      '<p>회원 가입에 사용한 이메일 계정입니다.</p>';
+    body.innerHTML = '<div class="find-account-term-item pass-auth-item pass-auth-stack">' +
+      '<span class="pass-auth-icon">' +
+      '<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="22" cy="22" r="22" fill="#22C55E"/>' +
+      '<path d="M13 22l6 6 12-12" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+      '</svg>' +
+      '</span>' +
+      '<span class="pass-auth-label">연결된 이메일</span>' +
+      '<span class="pass-auth-email">k***@gmail.com</span>' +
+      '</div>';
+    actions.innerHTML = '<button class="find-account-cancel-btn" onclick="showLogin()">로그인</button>' +
+      '<button class="find-account-confirm-btn" onclick="showResetPassword()">비밀번호 재설정</button>';
+  } else if (variant === 'none') {
+    header.innerHTML = '<h3>가입된 계정이<br>없습니다</h3>' +
+      '<p>인증된 정보로 가입된 계정을 찾을 수 없습니다.</p>';
+    body.innerHTML = '<div class="find-account-term-item pass-auth-item pass-auth-stack">' +
+      '<span class="pass-auth-icon">' +
+      '<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="22" cy="22" r="22" fill="#6b7280"/>' +
+      '<path d="M22 12v13" stroke="#fff" stroke-width="3" stroke-linecap="round"/>' +
+      '<circle cx="22" cy="31" r="2" fill="#fff"/>' +
+      '</svg>' +
+      '</span>' +
+      '<span class="pass-auth-label">해당 정보로 가입된 계정이 없어요</span>' +
+      '<span class="pass-auth-email" style="font-size:13px;font-weight:500;color:var(--text-secondary);">회원가입 후 서비스를 이용해 주세요</span>' +
+      '</div>';
+    actions.innerHTML = '<button class="find-account-confirm-btn" onclick="showSignup()">회원가입</button>';
+  } else if (variant === 'social1') {
+    header.innerHTML = '<h3>본인 인증이<br>완료되었습니다</h3>' +
+      '<p>소셜 계정으로 가입된 이력이 있습니다.</p>';
+    body.innerHTML = '<div class="find-account-term-item pass-auth-item pass-auth-stack">' +
+      '<span class="pass-auth-icon" style="width:44px;height:44px;background:#fff;border-radius:11px;">' +
+      '<img loading="lazy" src="images/google.svg" alt="Google" width="28" height="28">' +
+      '</span>' +
+      '<span class="pass-auth-label">연결된 소셜 계정</span>' +
+      '<span class="pass-auth-email">Google · k***@gmail.com</span>' +
+      '</div>';
+    actions.innerHTML = '<button class="find-account-confirm-btn" onclick="showLogin()">로그인</button>';
+  } else if (variant === 'social2') {
+    header.innerHTML = '<h3>본인 인증이<br>완료되었습니다</h3>' +
+      '<p>소셜 계정으로 가입된 이력이 있습니다.</p>';
+    body.innerHTML = '<div class="find-account-term-item pass-auth-item pass-auth-stack">' +
+      '<span class="pass-auth-icon" style="width:44px;height:44px;background:#03C75A;border-radius:11px;">' +
+      '<img loading="lazy" src="images/naver.svg" alt="Naver" width="28" height="28">' +
+      '</span>' +
+      '<span class="pass-auth-label">연결된 소셜 계정</span>' +
+      '<span class="pass-auth-email">Naver · k***@naver.com</span>' +
+      '</div>';
+    actions.innerHTML = '<button class="find-account-confirm-btn" onclick="showLogin()">로그인</button>';
   }
 }
 function showResetPassword() {
