@@ -155,6 +155,58 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-sec-hdr-gold{color:#fbbf24;background:linear-gradient(90deg,rgba(251,191,36,0.12),rgba(251,191,36,0.03));}
 .ds-sec-hdr-red{color:#f87171;background:linear-gradient(90deg,rgba(239,68,68,0.14),rgba(239,68,68,0.03));}
 
+/* Navigation demo */
+.ds-nav-variants{display:flex;flex-direction:column;gap:20px;}
+.ds-nav-variant{border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.ds-nav-variant-label{padding:10px 16px;background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.ds-nav-variant-tag{font-size:11px;font-weight:700;color:var(--text-mut);text-transform:uppercase;letter-spacing:0.5px;}
+.ds-nav-variant-spec{font-size:10px;color:var(--text-mut);font-family:'Inter',monospace;}
+/* PC nav */
+.ds-pnav{height:64px;background:rgba(13,13,24,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px;position:relative;}
+.ds-pnav-logo{display:flex;align-items:center;margin-right:16px;flex-shrink:0;}
+.ds-pnav-logo svg{width:auto;height:28px;}
+.ds-pnav-logo-icon{width:32px;height:32px;background:url('images/login_icon.svg') no-repeat center/contain;}
+.ds-pnav-links{display:flex;align-items:center;gap:2px;position:relative;}
+.ds-pnav-link{font-size:14px;font-weight:500;color:var(--text-sec);padding:6px 12px;border-radius:8px;border:1px solid transparent;white-space:nowrap;position:relative;z-index:1;cursor:pointer;transition:all 0.2s;}
+.ds-pnav-link.active{color:#000;background:#E0E0E0;border-color:#FEFEFE;font-weight:700;}
+.ds-pnav-slider{position:absolute;background:#E0E0E0;border:1px solid #FEFEFE;border-radius:8px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);z-index:0;}
+.ds-pnav-right{margin-left:auto;display:flex;align-items:center;gap:12px;}
+.ds-pnav-coins{display:flex;align-items:center;gap:6px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:#f59e0b;}
+.ds-pnav-coins.diamond{background:rgba(96,165,250,0.1);border-color:rgba(96,165,250,0.2);color:#60a5fa;}
+.ds-pnav-avatar{width:38px;height:38px;border-radius:50%;border:2px solid rgba(249,98,23,0.4);overflow:hidden;background:var(--bg-card);}
+.ds-pnav-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.ds-pnav-login{height:auto;padding:8px 20px;border:none;border-radius:10px;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
+/* Mobile nav */
+.ds-mnav-wrap{max-width:412px;margin:0 auto;position:relative;background:var(--bg);}
+.ds-mnav{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#0d0d18;border-bottom:1px solid var(--border);}
+.ds-mnav-logo{height:36px;}
+.ds-mnav-right{display:flex;align-items:center;gap:8px;}
+.ds-mnav-coins{display:flex;align-items:center;gap:4px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);padding:6px 12px;border-radius:16px;font-size:13px;font-weight:700;color:#f59e0b;}
+.ds-mnav-coins.diamond{background:rgba(96,165,250,0.1);border-color:rgba(96,165,250,0.2);color:#60a5fa;}
+.ds-mnav-menu{width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--text-pri);cursor:pointer;}
+.ds-mnav-login{height:40px;padding:0 18px;border:none;border-radius:16px;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+/* Mobile tabbar */
+.ds-mtabbar{height:72px;display:flex;align-items:flex-start;padding-top:8px;justify-content:space-around;background:rgba(13,13,24,0.65);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.08);}
+.ds-mtab{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--text-mut);padding:4px 0;min-width:60px;cursor:pointer;transition:color 0.2s;}
+.ds-mtab span{font-size:13px;font-weight:600;}
+.ds-mtab.active{color:var(--orange);}
+.ds-mtab.active svg{fill:var(--orange);filter:drop-shadow(0 0 6px rgba(249,98,23,0.4));}
+.ds-mtab-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid transparent;}
+.ds-mtab.active .ds-mtab-avatar{border-color:var(--orange);filter:drop-shadow(0 0 6px rgba(249,98,23,0.4));}
+
+/* Modal demo */
+.ds-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s ease;}
+.ds-modal-overlay.open{opacity:1;pointer-events:auto;}
+.ds-modal-card{max-width:420px;width:calc(100% - 32px);max-height:85vh;background:#0f0f1a;border:1px solid var(--border);border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.6);transform:scale(0.95) translateY(10px);transition:transform 0.25s ease;overflow:hidden;}
+.ds-modal-overlay.open .ds-modal-card{transform:scale(1) translateY(0);}
+.ds-modal-header{padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;}
+.ds-modal-title{font-size:18px;font-weight:700;}
+.ds-modal-close{background:none;border:none;color:var(--text-mut);cursor:pointer;padding:4px;display:flex;align-items:center;transition:color 0.2s;}
+.ds-modal-close:hover{color:var(--text-pri);}
+.ds-modal-body{padding:20px 24px 24px;}
+.ds-modal-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;border:none;padding:11px 24px 10px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;}
+.ds-modal-trigger:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
+
 /* Radius demo */
 .ds-radius-row{display:flex;gap:20px;flex-wrap:wrap;align-items:end;}
 .ds-radius-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
@@ -661,6 +713,221 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
       </div>
     </div>
   </div>
+
+  <!-- Navigation — 5 variants -->
+  <div class="ds-comp-grid">
+    <div class="ds-comp-card" style="flex:1 1 100%;padding:16px 0 0;">
+      <div style="padding:0 24px 16px;"><div class="ds-comp-label" style="margin-bottom:0;">Navigation — PC / Tablet / Mobile × 로그인 / 로그아웃</div></div>
+      <div class="ds-nav-variants">
+
+        <!-- 1. PC — Logged In -->
+        <div class="ds-nav-variant">
+          <div class="ds-nav-variant-label">
+            <span class="ds-nav-variant-tag">PC — 로그인</span>
+            <span class="ds-nav-variant-spec">≥769px · 64px · glass blur(20px) · tab slider</span>
+          </div>
+          <div class="ds-pnav" id="pcNavIn">
+            <div class="ds-pnav-logo"><svg width="161" height="32" viewBox="0 0 161 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;"><path d="M2.00925 16.7435C1.60916 16.9749 1.28516 17.4869 1.28516 17.8881C1.28516 18.2869 1.60425 18.794 2.00188 19.0278L7.85352 22.4149C8.25361 22.6463 8.57761 22.5084 8.57761 22.1072V12.9404L2.0117 16.741L2.00925 16.7435Z" fill="#B74325"/><path d="M17.3722 1.16677L2.00925 10.0603C1.60916 10.2917 1.28516 10.8037 1.28516 11.2049V17.888C1.28516 17.4868 1.60916 16.9748 2.00925 16.7434L8.57516 12.9403L17.3673 7.84985C17.7674 7.61846 18.0914 7.10647 18.0914 6.70523V1.47446C18.0914 1.0757 17.7699 0.937849 17.3722 1.16677Z" fill="#F96217"/><path d="M25.1074 15.2568C25.5075 15.0254 25.8315 14.5134 25.8315 14.1122C25.8315 13.7134 25.5124 13.2063 25.1148 12.9725L19.2632 9.58539C18.8631 9.35401 18.5391 9.49185 18.5391 9.89309V19.0599L25.105 15.2592L25.1074 15.2568Z" fill="#B74325"/><path d="M25.1056 15.2564L18.5397 19.0595L9.74753 24.15C9.34744 24.3813 9.02344 24.8933 9.02344 25.2946V30.5278C9.02344 30.9266 9.34498 31.0644 9.74262 30.8355L25.1032 21.942C25.5033 21.7106 25.8273 21.1986 25.8273 20.7973V14.1143C25.8273 14.5155 25.5033 15.0275 25.1032 15.2589L25.1056 15.2564Z" fill="#F96217"/><path d="M15.1258 18.4418C15.4547 18.4418 15.7615 18.3458 16.0217 18.1809C16.3457 17.9889 16.5739 17.6861 16.6918 17.3464C16.758 17.1667 16.7924 16.9723 16.7924 16.7704C16.7924 16.4775 16.7163 16.1993 16.5838 15.9606C16.2278 15.2492 15.462 14.6559 14.7723 13.9495C13.9451 13.1027 13.5622 12.3643 13.5622 12.3643C13.5622 12.3643 13.1793 13.1027 12.3521 13.9495C11.6624 14.6559 10.8966 15.2492 10.5407 15.9606C10.4081 16.2018 10.332 16.4775 10.332 16.7704C10.332 16.9723 10.3688 17.1667 10.4327 17.3464C10.5505 17.6886 10.7788 17.9889 11.1028 18.1809C11.3605 18.3458 11.6673 18.4418 11.9987 18.4418C12.5534 18.4418 13.0443 18.171 13.3487 17.7526C13.248 18.9169 12.5608 19.6135 12.5608 19.6135H14.5612C14.5612 19.6135 13.8764 18.9218 13.7733 17.76C13.7733 17.76 13.7733 17.755 13.7733 17.7526C14.0777 18.171 14.5686 18.4443 15.1233 18.4443L15.1258 18.4418Z" fill="#F96217"/><path d="M54.0332 8C56.0017 8 57.5841 8.61833 58.7803 9.85742C59.9765 11.0967 60.5742 12.6782 60.5742 14.6006H60.5762V17.3994C60.5762 19.3281 59.9811 20.9114 58.7891 22.1465C57.5971 23.3815 56.0019 24 54.0459 24C52.09 24 50.5224 23.3813 49.3408 22.1465C48.1592 20.9114 47.5684 19.3281 47.5684 17.3994V14.6006C47.5684 12.6782 48.1566 11.0967 49.334 9.85742C50.5114 8.61823 52.0647 8.00002 54.0332 8ZM124.356 18.541C124.357 19.5884 124.628 20.3607 125.171 20.8584C125.714 21.3562 126.452 21.6064 127.45 21.6064C128.448 21.6064 129.221 21.3562 129.768 20.8584C130.312 20.3607 130.586 19.5883 130.586 18.541V13.6914H133.724V18.541C133.724 20.3195 133.158 21.6756 132.022 22.6045C130.887 23.5334 129.348 23.9971 127.45 23.9971C125.553 23.9971 124.039 23.5332 122.912 22.6045C121.785 21.6756 121.221 20.3216 121.221 18.541V13.6914H124.356V18.541ZM151.16 18.541C151.16 19.5883 151.432 20.3607 151.975 20.8584C152.517 21.3561 153.256 21.6064 154.254 21.6064C155.252 21.6064 156.024 21.3562 156.571 20.8584C157.116 20.3607 157.39 19.5884 157.39 18.541V13.6914H160.527V18.541C160.527 20.3195 159.962 21.6756 158.826 22.6045C157.691 23.5333 156.151 23.9971 154.254 23.9971C152.357 23.997 150.843 23.5333 149.716 22.6045C148.589 21.6756 148.024 20.3216 148.024 18.541V13.6914H151.16V18.541ZM39.8799 8.22656C41.7065 8.22656 43.1244 8.67458 44.1348 9.57227C45.145 10.4678 45.6504 11.6762 45.6504 13.1924C45.6503 14.7085 45.1451 15.9125 44.1348 16.8018C43.1265 17.6911 41.7065 18.1367 39.8799 18.1367H36.7969V23.7764H33.6719V8.22656H39.8799ZM95.9775 8.22266C97.7747 8.22266 99.1299 8.60761 100.04 9.37598C100.95 10.1466 101.405 11.2757 101.405 12.7627C101.405 13.6333 101.178 14.3443 100.725 14.9004C100.272 15.4562 99.6059 15.9037 98.7295 16.2451V16.2764C99.65 16.5617 100.302 17.0115 100.684 17.6279C101.066 18.2444 101.255 19.032 101.255 19.9941V21.1377C101.255 21.573 101.312 22.0151 101.427 22.4629C101.54 22.9104 101.744 23.2496 102.036 23.4766V23.7764H98.8359C98.5437 23.541 98.3532 23.16 98.2676 22.6289C98.182 22.098 98.1387 21.594 98.1387 21.1172V20.0176C98.1387 19.2199 97.944 18.6112 97.5557 18.1904C97.1653 17.7699 96.5787 17.5596 95.7939 17.5596L95.7959 17.5576H92.9805V23.7725H89.8545V8.22266H95.9775ZM66.2275 14.5801H67.5869L71.7178 8.22559H75.54L70.4023 15.498L75.958 23.7754H72.1475L67.9619 17.2812H66.2275V23.7754H63.1025V8.22559H66.2275V14.5801ZM112.771 21.3818H119.709V23.7744H109.646V8.22461H112.771V21.3818ZM139.576 21.3818H146.514V23.7744H136.451V8.22461H139.576V21.3818ZM87.915 10.626H80.3896V14.5352H86.8447L86.8467 14.5332V16.9365H80.3916V21.3799H87.9385V23.7725H77.2646V8.22266H87.915V10.626ZM54.0332 10.4346C52.954 10.4346 52.1271 10.8203 51.5488 11.5889C50.9708 12.3573 50.6827 13.3547 50.6826 14.5791V17.3994C50.6826 18.6386 50.9733 19.6443 51.5557 20.417C52.136 21.1897 52.9584 21.5752 54.0439 21.5752C55.1294 21.5751 55.9667 21.1897 56.5596 20.417C57.1522 19.6443 57.4482 18.6385 57.4482 17.3994V14.5771C57.4482 13.3609 57.1479 12.3654 56.5488 11.5928C55.9497 10.8201 55.1125 10.4346 54.0332 10.4346ZM36.7969 15.7334H39.8799C40.7713 15.7334 41.4376 15.4997 41.876 15.0332C42.3143 14.5667 42.5332 13.9751 42.5332 13.2129C42.5332 12.4506 42.3143 11.8297 41.876 11.3486C41.4376 10.8675 40.7713 10.6279 39.8799 10.6279H36.7969V15.7334ZM92.9775 15.1582H95.6748C96.5662 15.1582 97.2266 14.9747 97.6504 14.6123C98.0739 14.2479 98.287 13.6898 98.2871 12.957C98.2871 12.2239 98.0862 11.6525 97.6875 11.2422C97.2888 10.8321 96.6647 10.628 95.8154 10.6279H92.9775V15.1582ZM129.347 10.8828C130.282 8.23767 133.293 8.7168 133.293 8.7168C131.798 9.04171 131.32 10.0957 131.32 10.0957C132.742 10.3866 133.218 11.7243 133.228 11.751C131.85 10.4205 129.347 10.8828 129.347 10.8828ZM156.204 10.8828C157.139 8.23767 160.15 8.7168 160.15 8.7168C158.656 9.04171 158.178 10.0957 158.178 10.0957C159.599 10.3865 160.075 11.7236 160.085 11.751C158.707 10.4205 156.204 10.8828 156.204 10.8828ZM123.774 8.64551C124.532 8.64555 125.144 9.33931 125.144 10.1953C125.143 11.0511 124.53 11.7441 123.774 11.7441C123.019 11.7441 122.405 11.0512 122.405 10.1953C122.405 9.33929 123.019 8.64551 123.774 8.64551ZM150.63 8.64551C151.386 8.64551 151.999 9.33929 151.999 10.1953C151.999 11.0512 151.385 11.7441 150.63 11.7441C149.874 11.7441 149.261 11.0511 149.261 10.1953C149.261 9.33932 149.874 8.64556 150.63 8.64551Z" fill="white"/></svg></div>
+            <div class="ds-pnav-links" data-nav-group="pcIn">
+              <div class="ds-pnav-link active">로비</div>
+              <div class="ds-pnav-link">홀덤</div>
+              <div class="ds-pnav-link">토너먼트</div>
+              <div class="ds-pnav-link">상점</div>
+              <div class="ds-pnav-link">통계</div>
+              <div class="ds-pnav-link">MY 룰루</div>
+              <div class="ds-pnav-slider"></div>
+            </div>
+            <div class="ds-pnav-right">
+              <div class="ds-pnav-coins"><img src="images/icon_gold.png" alt="gold" style="width:16px;height:16px;"> 125,000</div>
+              <div class="ds-pnav-coins diamond"><img src="images/icon_diamond.png" alt="diamond" style="width:16px;height:16px;"> 3,200</div>
+              <div class="ds-pnav-avatar"><img src="images/avatar_o.png" alt="avatar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. PC — Logged Out -->
+        <div class="ds-nav-variant">
+          <div class="ds-nav-variant-label">
+            <span class="ds-nav-variant-tag">PC — 로그아웃</span>
+            <span class="ds-nav-variant-spec">≥769px · 코인 숨김 · avatar → 로그인 버튼</span>
+          </div>
+          <div class="ds-pnav">
+            <div class="ds-pnav-logo"><svg width="161" height="32" viewBox="0 0 161 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;"><path d="M2.00925 16.7435C1.60916 16.9749 1.28516 17.4869 1.28516 17.8881C1.28516 18.2869 1.60425 18.794 2.00188 19.0278L7.85352 22.4149C8.25361 22.6463 8.57761 22.5084 8.57761 22.1072V12.9404L2.0117 16.741L2.00925 16.7435Z" fill="#B74325"/><path d="M17.3722 1.16677L2.00925 10.0603C1.60916 10.2917 1.28516 10.8037 1.28516 11.2049V17.888C1.28516 17.4868 1.60916 16.9748 2.00925 16.7434L8.57516 12.9403L17.3673 7.84985C17.7674 7.61846 18.0914 7.10647 18.0914 6.70523V1.47446C18.0914 1.0757 17.7699 0.937849 17.3722 1.16677Z" fill="#F96217"/><path d="M25.1074 15.2568C25.5075 15.0254 25.8315 14.5134 25.8315 14.1122C25.8315 13.7134 25.5124 13.2063 25.1148 12.9725L19.2632 9.58539C18.8631 9.35401 18.5391 9.49185 18.5391 9.89309V19.0599L25.105 15.2592L25.1074 15.2568Z" fill="#B74325"/><path d="M25.1056 15.2564L18.5397 19.0595L9.74753 24.15C9.34744 24.3813 9.02344 24.8933 9.02344 25.2946V30.5278C9.02344 30.9266 9.34498 31.0644 9.74262 30.8355L25.1032 21.942C25.5033 21.7106 25.8273 21.1986 25.8273 20.7973V14.1143C25.8273 14.5155 25.5033 15.0275 25.1032 15.2589L25.1056 15.2564Z" fill="#F96217"/><path d="M15.1258 18.4418C15.4547 18.4418 15.7615 18.3458 16.0217 18.1809C16.3457 17.9889 16.5739 17.6861 16.6918 17.3464C16.758 17.1667 16.7924 16.9723 16.7924 16.7704C16.7924 16.4775 16.7163 16.1993 16.5838 15.9606C16.2278 15.2492 15.462 14.6559 14.7723 13.9495C13.9451 13.1027 13.5622 12.3643 13.5622 12.3643C13.5622 12.3643 13.1793 13.1027 12.3521 13.9495C11.6624 14.6559 10.8966 15.2492 10.5407 15.9606C10.4081 16.2018 10.332 16.4775 10.332 16.7704C10.332 16.9723 10.3688 17.1667 10.4327 17.3464C10.5505 17.6886 10.7788 17.9889 11.1028 18.1809C11.3605 18.3458 11.6673 18.4418 11.9987 18.4418C12.5534 18.4418 13.0443 18.171 13.3487 17.7526C13.248 18.9169 12.5608 19.6135 12.5608 19.6135H14.5612C14.5612 19.6135 13.8764 18.9218 13.7733 17.76C13.7733 17.76 13.7733 17.755 13.7733 17.7526C14.0777 18.171 14.5686 18.4443 15.1233 18.4443L15.1258 18.4418Z" fill="#F96217"/><path d="M54.0332 8C56.0017 8 57.5841 8.61833 58.7803 9.85742C59.9765 11.0967 60.5742 12.6782 60.5742 14.6006H60.5762V17.3994C60.5762 19.3281 59.9811 20.9114 58.7891 22.1465C57.5971 23.3815 56.0019 24 54.0459 24C52.09 24 50.5224 23.3813 49.3408 22.1465C48.1592 20.9114 47.5684 19.3281 47.5684 17.3994V14.6006C47.5684 12.6782 48.1566 11.0967 49.334 9.85742C50.5114 8.61823 52.0647 8.00002 54.0332 8ZM124.356 18.541C124.357 19.5884 124.628 20.3607 125.171 20.8584C125.714 21.3562 126.452 21.6064 127.45 21.6064C128.448 21.6064 129.221 21.3562 129.768 20.8584C130.312 20.3607 130.586 19.5883 130.586 18.541V13.6914H133.724V18.541C133.724 20.3195 133.158 21.6756 132.022 22.6045C130.887 23.5334 129.348 23.9971 127.45 23.9971C125.553 23.9971 124.039 23.5332 122.912 22.6045C121.785 21.6756 121.221 20.3216 121.221 18.541V13.6914H124.356V18.541ZM151.16 18.541C151.16 19.5883 151.432 20.3607 151.975 20.8584C152.517 21.3561 153.256 21.6064 154.254 21.6064C155.252 21.6064 156.024 21.3562 156.571 20.8584C157.116 20.3607 157.39 19.5884 157.39 18.541V13.6914H160.527V18.541C160.527 20.3195 159.962 21.6756 158.826 22.6045C157.691 23.5333 156.151 23.9971 154.254 23.9971C152.357 23.997 150.843 23.5333 149.716 22.6045C148.589 21.6756 148.024 20.3216 148.024 18.541V13.6914H151.16V18.541ZM39.8799 8.22656C41.7065 8.22656 43.1244 8.67458 44.1348 9.57227C45.145 10.4678 45.6504 11.6762 45.6504 13.1924C45.6503 14.7085 45.1451 15.9125 44.1348 16.8018C43.1265 17.6911 41.7065 18.1367 39.8799 18.1367H36.7969V23.7764H33.6719V8.22656H39.8799ZM95.9775 8.22266C97.7747 8.22266 99.1299 8.60761 100.04 9.37598C100.95 10.1466 101.405 11.2757 101.405 12.7627C101.405 13.6333 101.178 14.3443 100.725 14.9004C100.272 15.4562 99.6059 15.9037 98.7295 16.2451V16.2764C99.65 16.5617 100.302 17.0115 100.684 17.6279C101.066 18.2444 101.255 19.032 101.255 19.9941V21.1377C101.255 21.573 101.312 22.0151 101.427 22.4629C101.54 22.9104 101.744 23.2496 102.036 23.4766V23.7764H98.8359C98.5437 23.541 98.3532 23.16 98.2676 22.6289C98.182 22.098 98.1387 21.594 98.1387 21.1172V20.0176C98.1387 19.2199 97.944 18.6112 97.5557 18.1904C97.1653 17.7699 96.5787 17.5596 95.7939 17.5596L95.7959 17.5576H92.9805V23.7725H89.8545V8.22266H95.9775ZM66.2275 14.5801H67.5869L71.7178 8.22559H75.54L70.4023 15.498L75.958 23.7754H72.1475L67.9619 17.2812H66.2275V23.7754H63.1025V8.22559H66.2275V14.5801ZM112.771 21.3818H119.709V23.7744H109.646V8.22461H112.771V21.3818ZM139.576 21.3818H146.514V23.7744H136.451V8.22461H139.576V21.3818ZM87.915 10.626H80.3896V14.5352H86.8447L86.8467 14.5332V16.9365H80.3916V21.3799H87.9385V23.7725H77.2646V8.22266H87.915V10.626ZM54.0332 10.4346C52.954 10.4346 52.1271 10.8203 51.5488 11.5889C50.9708 12.3573 50.6827 13.3547 50.6826 14.5791V17.3994C50.6826 18.6386 50.9733 19.6443 51.5557 20.417C52.136 21.1897 52.9584 21.5752 54.0439 21.5752C55.1294 21.5751 55.9667 21.1897 56.5596 20.417C57.1522 19.6443 57.4482 18.6385 57.4482 17.3994V14.5771C57.4482 13.3609 57.1479 12.3654 56.5488 11.5928C55.9497 10.8201 55.1125 10.4346 54.0332 10.4346ZM36.7969 15.7334H39.8799C40.7713 15.7334 41.4376 15.4997 41.876 15.0332C42.3143 14.5667 42.5332 13.9751 42.5332 13.2129C42.5332 12.4506 42.3143 11.8297 41.876 11.3486C41.4376 10.8675 40.7713 10.6279 39.8799 10.6279H36.7969V15.7334ZM92.9775 15.1582H95.6748C96.5662 15.1582 97.2266 14.9747 97.6504 14.6123C98.0739 14.2479 98.287 13.6898 98.2871 12.957C98.2871 12.2239 98.0862 11.6525 97.6875 11.2422C97.2888 10.8321 96.6647 10.628 95.8154 10.6279H92.9775V15.1582ZM129.347 10.8828C130.282 8.23767 133.293 8.7168 133.293 8.7168C131.798 9.04171 131.32 10.0957 131.32 10.0957C132.742 10.3866 133.218 11.7243 133.228 11.751C131.85 10.4205 129.347 10.8828 129.347 10.8828ZM156.204 10.8828C157.139 8.23767 160.15 8.7168 160.15 8.7168C158.656 9.04171 158.178 10.0957 158.178 10.0957C159.599 10.3865 160.075 11.7236 160.085 11.751C158.707 10.4205 156.204 10.8828 156.204 10.8828ZM123.774 8.64551C124.532 8.64555 125.144 9.33931 125.144 10.1953C125.143 11.0511 124.53 11.7441 123.774 11.7441C123.019 11.7441 122.405 11.0512 122.405 10.1953C122.405 9.33929 123.019 8.64551 123.774 8.64551ZM150.63 8.64551C151.386 8.64551 151.999 9.33929 151.999 10.1953C151.999 11.0512 151.385 11.7441 150.63 11.7441C149.874 11.7441 149.261 11.0511 149.261 10.1953C149.261 9.33932 149.874 8.64556 150.63 8.64551Z" fill="white"/></svg></div>
+            <div class="ds-pnav-links" data-nav-group="pcOut">
+              <div class="ds-pnav-link active">로비</div>
+              <div class="ds-pnav-link">홀덤</div>
+              <div class="ds-pnav-link">토너먼트</div>
+              <div class="ds-pnav-link">상점</div>
+              <div class="ds-pnav-link">통계</div>
+              <div class="ds-pnav-link">MY 룰루</div>
+              <div class="ds-pnav-slider"></div>
+            </div>
+            <div class="ds-pnav-right">
+              <button class="ds-pnav-login">로그인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Tablet -->
+        <div class="ds-nav-variant">
+          <div class="ds-nav-variant-label">
+            <span class="ds-nav-variant-tag">Tablet</span>
+            <span class="ds-nav-variant-spec">769–960px · icon 로고 · 코인 숨김</span>
+          </div>
+          <div class="ds-pnav" style="padding:0 24px;">
+            <div class="ds-pnav-logo"><img src="images/login_icon.svg" alt="LULU" style="width:32px;height:32px;"></div>
+            <div class="ds-pnav-links" data-nav-group="tablet">
+              <div class="ds-pnav-link active">로비</div>
+              <div class="ds-pnav-link">홀덤</div>
+              <div class="ds-pnav-link">토너먼트</div>
+              <div class="ds-pnav-link">상점</div>
+              <div class="ds-pnav-link">통계</div>
+              <div class="ds-pnav-link">MY 룰루</div>
+              <div class="ds-pnav-slider"></div>
+            </div>
+            <div class="ds-pnav-right">
+              <div class="ds-pnav-avatar"><img src="images/avatar_o.png" alt="avatar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Mobile — Logged In -->
+        <div class="ds-nav-variant">
+          <div class="ds-nav-variant-label">
+            <span class="ds-nav-variant-tag">Mobile — 로그인</span>
+            <span class="ds-nav-variant-spec">≤768px · m-nav(상단) + m-tabbar(하단)</span>
+          </div>
+          <div class="ds-mnav-wrap" style="height:220px;overflow:hidden;">
+            <!-- m-nav top -->
+            <div class="ds-mnav">
+              <img src="images/logo_mobile.svg" alt="LULU" class="ds-mnav-logo">
+              <div class="ds-mnav-right">
+                <div class="ds-mnav-coins"><img src="images/icon_gold.png" alt="gold" style="width:16px;height:16px;"> 125,000</div>
+                <div class="ds-mnav-coins diamond"><img src="images/icon_diamond.png" alt="diamond" style="width:16px;height:16px;"> 3,200</div>
+                <div class="ds-mnav-menu">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- page content placeholder -->
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;color:var(--text-mut);font-size:12px;height:76px;">페이지 콘텐츠 영역</div>
+            <!-- m-tabbar bottom -->
+            <div class="ds-mtabbar" style="position:absolute;bottom:0;left:0;right:0;">
+              <div class="ds-mtab active">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-8h3L12 3z"/></svg>
+                <span>로비</span>
+              </div>
+              <div class="ds-mtab">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 6.34l-.8-4H1v2h3.84l3.42 12.2A1 1 0 009.23 17h8.54a1 1 0 00.97-.76L21 8H5.21l1.95 6.34z"/></svg>
+                <span>상점</span>
+              </div>
+              <div class="ds-mtab">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h4v10H5V12zm5-8h4v18h-4V4zm5 4h4v14h-4V8z"/></svg>
+                <span>통계</span>
+              </div>
+              <div class="ds-mtab">
+                <img class="ds-mtab-avatar" src="images/avatar_o.png" alt="MY" style="display:inline;">
+                <span>MY 룰루</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Mobile — Logged Out -->
+        <div class="ds-nav-variant">
+          <div class="ds-nav-variant-label">
+            <span class="ds-nav-variant-tag">Mobile — 로그아웃</span>
+            <span class="ds-nav-variant-spec">≤768px · 코인 숨김 · 로그인 버튼 표시 · MY탭 아이콘</span>
+          </div>
+          <div class="ds-mnav-wrap" style="height:220px;overflow:hidden;">
+            <!-- m-nav top -->
+            <div class="ds-mnav">
+              <img src="images/logo_mobile.svg" alt="LULU" class="ds-mnav-logo">
+              <div class="ds-mnav-right">
+                <button class="ds-mnav-login">로그인</button>
+              </div>
+            </div>
+            <!-- page content placeholder -->
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;color:var(--text-mut);font-size:12px;height:76px;">페이지 콘텐츠 영역</div>
+            <!-- m-tabbar bottom -->
+            <div class="ds-mtabbar" style="position:absolute;bottom:0;left:0;right:0;">
+              <div class="ds-mtab active">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-8h3L12 3z"/></svg>
+                <span>로비</span>
+              </div>
+              <div class="ds-mtab">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 6.34l-.8-4H1v2h3.84l3.42 12.2A1 1 0 009.23 17h8.54a1 1 0 00.97-.76L21 8H5.21l1.95 6.34z"/></svg>
+                <span>상점</span>
+              </div>
+              <div class="ds-mtab">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h4v10H5V12zm5-8h4v18h-4V4zm5 4h4v14h-4V8z"/></svg>
+                <span>통계</span>
+              </div>
+              <div class="ds-mtab">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4.42 0-8 2.24-8 5v1a1 1 0 001 1h14a1 1 0 001-1v-1c0-2.76-3.58-5-8-5z"/></svg>
+                <span>MY 룰루</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="ds-comp-grid">
+    <div class="ds-comp-card" style="flex:1 1 100%;">
+      <div class="ds-comp-label">Modal — overlay blur + scale animation</div>
+      <div style="display:flex;gap:16px;align-items:start;flex-wrap:wrap;">
+        <!-- Inline static preview -->
+        <div style="flex:1;min-width:280px;">
+          <div style="background:rgba(0,0,0,0.35);border-radius:6px;padding:32px;display:flex;justify-content:center;">
+            <div style="max-width:320px;width:100%;background:#0f0f1a;border:1px solid var(--border);border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.6);">
+              <div style="padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:18px;font-weight:700;">칩 구매</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+              <div style="padding:20px 24px 24px;">
+                <div style="font-size:14px;color:var(--text-sec);margin-bottom:16px;">100,000 칩을 구매하시겠습니까?</div>
+                <div style="display:flex;gap:8px;">
+                  <button class="ds-b ds-b-h42 ds-b-ghost" style="flex:1;">취소</button>
+                  <button class="ds-b ds-b-h42" style="flex:1;">구매</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--text-mut);margin-top:10px;line-height:1.6;">
+            overlay: rgba(0,0,0,0.6) + blur(4px) · card: #0f0f1a / max-width 420px / radius 6px · shadow: 0 12px 40px rgba(0,0,0,0.6) · anim: 0.25s scale(0.95→1) + translateY(10→0)
+          </div>
+        </div>
+        <!-- Live trigger -->
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:start;">
+          <button class="ds-modal-trigger" onclick="document.getElementById('demoModal').classList.add('open')">모달 열기 (라이브)</button>
+          <div style="font-size:11px;color:var(--text-mut);">클릭하면 실제 오버레이 + 애니메이션 확인</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Live Modal Overlay -->
+<div class="ds-modal-overlay" id="demoModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="ds-modal-card">
+    <div class="ds-modal-header">
+      <span class="ds-modal-title">칩 구매</span>
+      <button class="ds-modal-close" onclick="document.getElementById('demoModal').classList.remove('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="ds-modal-body">
+      <div style="font-size:14px;color:var(--text-sec);margin-bottom:20px;">100,000 칩을 구매하시겠습니까?<br><span style="font-size:12px;color:var(--text-mut);">결제 후 즉시 지급됩니다.</span></div>
+      <div style="display:flex;gap:10px;">
+        <button class="ds-b ds-b-h42 ds-b-ghost" style="flex:1;" onclick="document.getElementById('demoModal').classList.remove('open')">취소</button>
+        <button class="ds-b ds-b-h42" style="flex:1;" onclick="document.getElementById('demoModal').classList.remove('open')">구매</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="ds-divider"></div>
@@ -951,16 +1218,59 @@ The color story is warm-on-dark. The primary background (`#07070d`) is a near-bl
 - Shadow: `0 12px 40px rgba(0,0,0,0.6)`
 - Animation: 0.25s ease — opacity 0 to 1, scale(0.95) to scale(1), translateY(10px) to 0
 - Header: 18px, weight 700, padding 20px 24px 0
+- Close button: 24px icon, color `var(--text-muted)`, hover `var(--text-primary)`
 - Content: padding 20px 24px 24px
+- Dismiss: overlay click or close button
 
-### Navigation (Desktop)
+### Navigation
+
+Navigation has 5 distinct variants across device and auth state.
+
+**PC — Logged In (≥769px)**
 - Height: 64px
 - Background: `rgba(13,13,24,0.92)` with `backdrop-filter: blur(20px)`
 - Border-bottom: 1px solid `var(--border-color)`
 - Position: sticky, top 0, z-index 100
-- Link style: 14px, weight 500, color `var(--text-secondary)`, padding 6px 12px, radius 8px
-- Active link: color `#000`, background `#E0E0E0`, weight 700
-- Tab slider: animated background that follows active tab (0.3s cubic-bezier)
+- Logo: inline SVG (POKER LULU full wordmark), height 32px
+- Links: 6 items (로비, 홀덤, 토너먼트, 상점, 통계, MY 룰루)
+- Link style: 14px, weight 500, color `var(--text-secondary)`, padding 6px 12px, radius 8px, border 1px solid transparent
+- Active link: color `#000`, background `#E0E0E0`, border-color `#FEFEFE`, weight 700
+- Tab slider: animated background that follows active tab (0.3s cubic-bezier(0.4,0,0.2,1))
+- Right area: gold coins pill + diamond coins pill + avatar (38px circle, border 2px solid `rgba(249,98,23,0.4)`)
+- Coins pill: padding 6px 14px, radius 20px, font 13px weight 700, gold `rgba(245,158,11,0.1)` bg / diamond `rgba(96,165,250,0.1)` bg
+
+**PC — Logged Out (≥769px)**
+- Same as logged in except:
+- Right area: coins hidden, login button only
+- Login button: padding 8px 20px, radius 10px, orange gradient, 14px weight 700
+
+**Tablet (769px–960px)**
+- Same top-nav structure as PC
+- Logo: icon only (`images/login_icon.svg`, 32px), full SVG wordmark hidden
+- Coins: hidden
+- Links: same 6 items remain visible
+- Right area: avatar or login button (same toggle as PC)
+
+**Mobile — Logged In (≤768px)**
+- Top bar (`.m-nav`): height 64px, background `#0d0d18`, border-bottom 1px solid `var(--border-color)`, sticky top
+  - Logo: `images/logo_mobile.svg`, height 36px
+  - Right: gold coins pill + diamond coins pill + hamburger menu icon (26px)
+  - Coins pill: padding 6px 12px, radius 16px, font 13px weight 700
+  - Hamburger opens slide-out menu (280px, from right, 0.3s ease)
+- Bottom tabbar (`.m-tabbar`): fixed bottom, height 94px (incl. safe area)
+  - Background: `rgba(13,13,24,0.65)` with `backdrop-filter: blur(24px) saturate(180%)`
+  - Border-top: 1px solid `rgba(255,255,255,0.08)`
+  - 4 tabs: 로비, 상점, 통계, MY 룰루
+  - Tab: icon (28px) + label (13px weight 600), color `var(--text-muted)`
+  - Active tab: color `var(--accent-orange)`, icon `drop-shadow(0 0 6px rgba(249,98,23,0.4))`
+  - MY 룰루 tab: user avatar (28px circle) replaces default icon when logged in
+
+**Mobile — Logged Out (≤768px)**
+- Top bar: same structure except:
+  - Coins: hidden
+  - Hamburger menu: hidden
+  - Right area: login button only (height 40px, padding 0 18px, radius 16px, orange gradient, 15px weight 700)
+- Bottom tabbar: same except MY 룰루 tab shows default user silhouette icon instead of avatar
 
 ### Badges & Tags
 - **Status Badge**: 11px, weight 700, padding 4px 10px, radius 6px
@@ -1167,6 +1477,31 @@ document.querySelectorAll('.ds-tab').forEach(tab=>{
 // Render embedded DESIGN.md
 const md=document.getElementById('embeddedMd').textContent;
 document.getElementById('mdContent').innerHTML=marked.parse(md);
+
+// Nav demo — tab sliders for all PC/tablet nav groups
+(function(){
+  document.querySelectorAll('[data-nav-group]').forEach(group=>{
+    const slider=group.querySelector('.ds-pnav-slider');
+    const items=group.querySelectorAll('.ds-pnav-link');
+    if(!slider||!items.length)return;
+    function move(el){
+      slider.style.width=el.offsetWidth+'px';
+      slider.style.height=el.offsetHeight+'px';
+      slider.style.left=el.offsetLeft+'px';
+      slider.style.top=el.offsetTop+'px';
+    }
+    items.forEach(link=>{
+      link.addEventListener('click',()=>{
+        items.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+        move(link);
+      });
+    });
+    const active=group.querySelector('.ds-pnav-link.active');
+    if(active) requestAnimationFrame(()=>move(active));
+    window.addEventListener('resize',()=>{const a=group.querySelector('.ds-pnav-link.active');if(a)move(a);});
+  });
+})();
 </script>
 </body>
 </html>

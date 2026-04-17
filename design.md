@@ -180,16 +180,59 @@ The color story is warm-on-dark. The primary background (`#07070d`) is a near-bl
 - Shadow: `0 12px 40px rgba(0,0,0,0.6)`
 - Animation: 0.25s ease — opacity 0 to 1, scale(0.95) to scale(1), translateY(10px) to 0
 - Header: 18px, weight 700, padding 20px 24px 0
+- Close button: 24px icon, color `var(--text-muted)`, hover `var(--text-primary)`
 - Content: padding 20px 24px 24px
+- Dismiss: overlay click or close button
 
-### Navigation (Desktop)
+### Navigation
+
+Navigation has 5 distinct variants across device and auth state.
+
+**PC — Logged In (≥769px)**
 - Height: 64px
 - Background: `rgba(13,13,24,0.92)` with `backdrop-filter: blur(20px)`
 - Border-bottom: 1px solid `var(--border-color)`
 - Position: sticky, top 0, z-index 100
-- Link style: 14px, weight 500, color `var(--text-secondary)`, padding 6px 12px, radius 8px
-- Active link: color `#000`, background `#E0E0E0`, weight 700
-- Tab slider: animated background that follows active tab (0.3s cubic-bezier)
+- Logo: inline SVG (POKER LULU full wordmark), height 32px
+- Links: 6 items (로비, 홀덤, 토너먼트, 상점, 통계, MY 룰루)
+- Link style: 14px, weight 500, color `var(--text-secondary)`, padding 6px 12px, radius 8px, border 1px solid transparent
+- Active link: color `#000`, background `#E0E0E0`, border-color `#FEFEFE`, weight 700
+- Tab slider: animated background that follows active tab (0.3s cubic-bezier(0.4,0,0.2,1))
+- Right area: gold coins pill + diamond coins pill + avatar (38px circle, border 2px solid `rgba(249,98,23,0.4)`)
+- Coins pill: padding 6px 14px, radius 20px, font 13px weight 700, gold `rgba(245,158,11,0.1)` bg / diamond `rgba(96,165,250,0.1)` bg
+
+**PC — Logged Out (≥769px)**
+- Same as logged in except:
+- Right area: coins hidden, login button only
+- Login button: padding 8px 20px, radius 10px, orange gradient, 14px weight 700
+
+**Tablet (769px–960px)**
+- Same top-nav structure as PC
+- Logo: icon only (`images/login_icon.svg`, 32px), full SVG wordmark hidden
+- Coins: hidden
+- Links: same 6 items remain visible
+- Right area: avatar or login button (same toggle as PC)
+
+**Mobile — Logged In (≤768px)**
+- Top bar (`.m-nav`): height 64px, background `#0d0d18`, border-bottom 1px solid `var(--border-color)`, sticky top
+  - Logo: `images/logo_mobile.svg`, height 36px
+  - Right: gold coins pill + diamond coins pill + hamburger menu icon (26px)
+  - Coins pill: padding 6px 12px, radius 16px, font 13px weight 700
+  - Hamburger opens slide-out menu (280px, from right, 0.3s ease)
+- Bottom tabbar (`.m-tabbar`): fixed bottom, height 94px (incl. safe area)
+  - Background: `rgba(13,13,24,0.65)` with `backdrop-filter: blur(24px) saturate(180%)`
+  - Border-top: 1px solid `rgba(255,255,255,0.08)`
+  - 4 tabs: 로비, 상점, 통계, MY 룰루
+  - Tab: icon (28px) + label (13px weight 600), color `var(--text-muted)`
+  - Active tab: color `var(--accent-orange)`, icon `drop-shadow(0 0 6px rgba(249,98,23,0.4))`
+  - MY 룰루 tab: user avatar (28px circle) replaces default icon when logged in
+
+**Mobile — Logged Out (≤768px)**
+- Top bar: same structure except:
+  - Coins: hidden
+  - Hamburger menu: hidden
+  - Right area: login button only (height 40px, padding 0 18px, radius 16px, orange gradient, 15px weight 700)
+- Bottom tabbar: same except MY 룰루 tab shows default user silhouette icon instead of avatar
 
 ### Badges & Tags
 - **Status Badge**: 11px, weight 700, padding 4px 10px, radius 6px
