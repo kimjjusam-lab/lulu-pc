@@ -127,14 +127,16 @@ const i18n = {
     td_late_reg_suffix: '레벨 이전',
     td_table_size_suffix: '인',
     td_register: '등록',
-    td_spectate: '관전하기',
+    td_spectate: '관전',
     td_spectate_msg: '관전 모드 준비 중입니다',
     td_full: '정원이 가득 찼습니다',
     td_reg_title: '등록하기',
     tdr_payment_option: '결제 옵션',
     tdr_balance: '밸런스',
     tdr_registered: '등록이 완료되었습니다',
-    td_sit_down: '착석하기',
+    td_sit_down: '착석',
+    td_full: '등록 마감',
+    td_cancel_register: '등록 취소',
     td_game_start: '게임 시작',
     game_custom: '사용자 게임',
     game_custom_desc: '나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.',
@@ -1796,8 +1798,8 @@ const demoTournaments = [
   { id:1,  event:'A', name:'POKER LULU Weekly Championship', status:'registering', startType:'manual', fee:'free', players:3, maxPlayers:10, prize:'100,000,000G', registered:true, details:{ blindLevel:1, unique:3, reentry:0, startChips:'10000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'불가', lateRegLevel:8, blindMin:10, breakMin:5 } },
   { id:2,  event:'A', name:'Friday Night Holdem', status:'registering', startType:'manual', fee:'free', players:1, maxPlayers:6, prize:'-', registered:false, details:{ blindLevel:1, unique:1, reentry:0, startChips:'5000', tableSize:6, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:6, blindMin:8, breakMin:4 } },
   { id:3,  event:'A', name:'POKER LULU User Custom Game', status:'registering', startType:'manual', fee:'free', players:0, maxPlayers:8, prize:'-', registered:false, details:{ blindLevel:1, unique:0, reentry:0, startChips:'10000', tableSize:8, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
-  { id:4,  event:'A', name:'High Roller Tournament', status:'ongoing', startType:'2025-02-24 20:00', fee:'10,000G', players:8, maxPlayers:10, prize:'1,000,000G', registered:true, details:{ blindLevel:5, unique:8, reentry:2, startChips:'50000', tableSize:9, rebuyCount:3, timebankSec:30, extraTimeSec:10, extraTimeHands:15, actionTimeSec:20, anteRate:'0.2BB', anteType:'All', cancelReg:'불가', lateRegLevel:5, blindMin:12, breakMin:5 } },
-  { id:5,  event:'A', name:'Beginner Friendly Open', status:'registering', startType:'manual', fee:'free', players:5, maxPlayers:12, prize:'100,000G', registered:false, details:{ blindLevel:1, unique:5, reentry:0, startChips:'8000', tableSize:9, rebuyCount:0, timebankSec:15, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
+  { id:4,  event:'A', name:'High Roller Tournament', status:'lateReg', startType:'2025-02-24 20:00', fee:'10,000G', players:8, maxPlayers:10, prize:'1,000,000G', registered:true, details:{ blindLevel:5, unique:8, reentry:2, startChips:'50000', tableSize:9, rebuyCount:3, timebankSec:30, extraTimeSec:10, extraTimeHands:15, actionTimeSec:20, anteRate:'0.2BB', anteType:'All', cancelReg:'불가', lateRegLevel:5, blindMin:12, breakMin:5 } },
+  { id:5,  event:'A', name:'Beginner Friendly Open', status:'registering', startType:'manual', fee:'free', players:12, maxPlayers:12, prize:'100,000G', registered:false, details:{ blindLevel:1, unique:5, reentry:0, startChips:'8000', tableSize:9, rebuyCount:0, timebankSec:15, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'허용', lateRegLevel:8, blindMin:10, breakMin:5 } },
   { id:6,  event:'B', name:'POKER LULU Daily Freeroll', status:'registering', startType:'2025-02-25 12:00', fee:'free', players:12, maxPlayers:50, prize:'200,000G', registered:true, details:{ blindLevel:1, unique:12, reentry:0, startChips:'10000', tableSize:9, rebuyCount:0, timebankSec:10, extraTimeSec:5, extraTimeHands:10, actionTimeSec:15, anteRate:'0.1BB', anteType:'All', cancelReg:'불가', lateRegLevel:10, blindMin:10, breakMin:5 } },
   { id:7,  event:'B', name:'VIP Invitational', status:'ongoing', startType:'2025-02-24 19:00', fee:'50,000G', players:6, maxPlayers:6, prize:'500,000,000G', registered:false, details:{ blindLevel:7, unique:6, reentry:3, startChips:'100000', tableSize:6, rebuyCount:5, timebankSec:60, extraTimeSec:15, extraTimeHands:20, actionTimeSec:25, anteRate:'0.5BB', anteType:'All', cancelReg:'불가', lateRegLevel:4, blindMin:15, breakMin:5 } },
   { id:8,  event:'B', name:'POKER LULU User Custom Game', status:'registering', startType:'manual', fee:'free', players:2, maxPlayers:6, prize:'-', registered:false },
@@ -1949,6 +1951,7 @@ function tnBuildCard(item) {
   const statusMap = {
     registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
     ongoing:     { label: t.tn_status_ongoing || '진행중', cls: 'ongoing' },
+    lateReg:     { label: t.tn_status_late_reg || '추가등록', cls: 'lateReg' },
     finished:    { label: t.tn_status_finished || '종료', cls: 'finished' },
   };
   const s = statusMap[item.status] || statusMap.registering;
@@ -1967,10 +1970,14 @@ function tnBuildCard(item) {
     ? '-'
     : `${tnFormatPrizeNumber(item.prize)}<span class="tn-prize-unit">골드</span>`;
   const isFinished = item.status === 'finished';
-  const initialRemain = isFinished ? '' : tnFormatCountdown(tnGetCountdownTarget(item) - Date.now());
-  const remainSpan = isFinished
-    ? ''
-    : `<span class="tn-remain-time" data-tn-id="${item.id}">${initialRemain}</span>`;
+  const isLateReg = item.status === 'lateReg';
+  let remainSpan = '';
+  if (isLateReg) {
+    remainSpan = '<span class="tn-remain-time">00:00:00</span>';
+  } else if (!isFinished) {
+    const initialRemain = tnFormatCountdown(tnGetCountdownTarget(item) - Date.now());
+    remainSpan = `<span class="tn-remain-time" data-tn-id="${item.id}">${initialRemain}</span>`;
+  }
   return `<div class="tn-card${activeClass}" onclick="openTnDetail(${item.id})">
     <div class="tn-card-content">
       <div class="tn-name">${item.name}</div>
@@ -2046,6 +2053,7 @@ function tdRenderDetail() {
   var statusMap = {
     registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
     ongoing:     { label: t.tn_status_ongoing || '진행중', cls: 'ongoing' },
+    lateReg:     { label: t.tn_status_late_reg || '추가등록', cls: 'lateReg' },
     finished:    { label: t.tn_status_finished || '종료', cls: 'finished' },
   };
   var badgeEl = document.getElementById('tdStatusBadge');
@@ -2064,12 +2072,16 @@ function tdRenderDetail() {
   if (window._tdElapsedTimer) clearInterval(window._tdElapsedTimer);
   var elapsedEl = document.getElementById('tdElapsed');
   if (elapsedEl) {
-    var _tdTarget = tnGetCountdownTarget(item);
-    function updateElapsed() {
-      elapsedEl.textContent = tnFormatCountdown(_tdTarget - Date.now());
+    if (item.status === 'lateReg') {
+      elapsedEl.textContent = '00:00:00';
+    } else {
+      var _tdTarget = tnGetCountdownTarget(item);
+      function updateElapsed() {
+        elapsedEl.textContent = tnFormatCountdown(_tdTarget - Date.now());
+      }
+      updateElapsed();
+      window._tdElapsedTimer = setInterval(updateElapsed, 1000);
     }
-    updateElapsed();
-    window._tdElapsedTimer = setInterval(updateElapsed, 1000);
   }
 
   // 자세히 탭 - 상단 현황
@@ -2126,6 +2138,7 @@ function tdRenderDetailInline(container) {
   var statusMap = {
     registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
     ongoing:     { label: t.tn_status_ongoing || '진행중', cls: 'ongoing' },
+    lateReg:     { label: t.tn_status_late_reg || '추가등록', cls: 'lateReg' },
     finished:    { label: t.tn_status_finished || '종료', cls: 'finished' },
   };
   var badgeEl = container.querySelector('#tdStatusBadge');
@@ -2145,12 +2158,16 @@ function tdRenderDetailInline(container) {
   if (window._tdElapsedTimer) clearInterval(window._tdElapsedTimer);
   var elapsedEl = container.querySelector('#tdElapsed');
   if (elapsedEl) {
-    var _tdTarget = tnGetCountdownTarget(item);
-    function updateElapsed() {
-      elapsedEl.textContent = tnFormatCountdown(_tdTarget - Date.now());
+    if (item.status === 'lateReg') {
+      elapsedEl.textContent = '00:00:00';
+    } else {
+      var _tdTarget = tnGetCountdownTarget(item);
+      function updateElapsed() {
+        elapsedEl.textContent = tnFormatCountdown(_tdTarget - Date.now());
+      }
+      updateElapsed();
+      window._tdElapsedTimer = setInterval(updateElapsed, 1000);
     }
-    updateElapsed();
-    window._tdElapsedTimer = setInterval(updateElapsed, 1000);
   }
 
   var details = item.details || {};
@@ -2221,10 +2238,15 @@ function tdRenderDetailInline(container) {
   function tdUpdateButtonsIn(ct, itm) {
     var registerBtn = ct.querySelector('#tdRegisterBtn');
     var spectateBtn = ct.querySelector('#tdSpectateBtn');
+    var cancelBtn = ct.querySelector('#tdCancelBtn');
     if (!registerBtn || !spectateBtn) return;
-    if (itm.status === 'finished') { registerBtn.style.display='none'; spectateBtn.style.display=''; return; }
+    if (itm.status === 'finished') {
+      registerBtn.style.display='none'; spectateBtn.style.display='';
+      if (cancelBtn) cancelBtn.style.display='none';
+      return;
+    }
     registerBtn.style.display=''; spectateBtn.style.display='';
-    registerBtn.textContent = itm.registered ? (t.td_sit_down||'착석하기') : (t.td_register||'등록');
+    tdApplyRegisterState(registerBtn, cancelBtn, itm, t);
   }
 
   // 인라인 탭 전환 이벤트 바인딩
@@ -2331,12 +2353,14 @@ function tdRenderPayoutTable(item) {
 function tdUpdateButtons(item) {
   var registerBtn = document.getElementById('tdRegisterBtn');
   var spectateBtn = document.getElementById('tdSpectateBtn');
+  var cancelBtn = document.getElementById('tdCancelBtn');
   var t = i18n[currentLang] || i18n.ko;
 
   // 라이브 테이블에서 관전 모드로 진입한 경우
   if (enterLiveTableSpectateMode) {
     registerBtn.style.display = 'none';
     spectateBtn.style.display = '';
+    if (cancelBtn) cancelBtn.style.display = 'none';
     enterLiveTableSpectateMode = false;
     return;
   }
@@ -2344,16 +2368,45 @@ function tdUpdateButtons(item) {
   if (item.status === 'finished') {
     registerBtn.style.display = 'none';
     spectateBtn.style.display = '';
+    if (cancelBtn) cancelBtn.style.display = 'none';
     return;
   }
 
   registerBtn.style.display = '';
   spectateBtn.style.display = '';
+  tdApplyRegisterState(registerBtn, cancelBtn, item, t);
+}
 
+function tdApplyRegisterState(registerBtn, cancelBtn, item, t) {
+  var isFull = item.players >= item.maxPlayers;
   if (item.registered) {
-    registerBtn.textContent = t.td_sit_down || '착석하기';
+    registerBtn.textContent = t.td_sit_down || '착석';
+    registerBtn.disabled = false;
+    registerBtn.classList.remove('is-full');
+    if (cancelBtn) cancelBtn.style.display = '';
+  } else if (isFull) {
+    registerBtn.textContent = t.td_full || '등록 마감';
+    registerBtn.disabled = true;
+    registerBtn.classList.add('is-full');
+    if (cancelBtn) cancelBtn.style.display = 'none';
   } else {
     registerBtn.textContent = t.td_register || '등록';
+    registerBtn.disabled = false;
+    registerBtn.classList.remove('is-full');
+    if (cancelBtn) cancelBtn.style.display = 'none';
+  }
+}
+
+function tdCancelRegister() {
+  var item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
+  if (!item || !item.registered) return;
+  item.registered = false;
+  item.players = Math.max(0, item.players - 1);
+  if (tnIsPcSplit()) {
+    tdRenderDetailInline(document.getElementById('tnSplitDetail'));
+    tnRenderList();
+  } else {
+    tdRenderDetail();
   }
 }
 

@@ -1149,6 +1149,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .tn-badge { display:inline-flex; align-items:center; font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px; width:fit-content; }
 .tn-badge.registering { background:rgba(34,197,94,0.15); color:#22c55e; }
 .tn-badge.ongoing { background:rgba(249,98,23,0.15); color:var(--accent-orange); }
+.tn-badge.lateReg { background:rgba(239,68,68,0.18); color:#ef4444; }
 .tn-badge.finished { background:rgba(107,114,128,0.15); color:var(--text-muted); }
 .tn-badge-registered { background:rgba(96,165,250,0.15); color:#60a5fa; }
 .tn-status-row { display:flex; align-items:center; gap:8px; flex-wrap:nowrap; }
@@ -1246,6 +1247,12 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .td-register-btn:hover { box-shadow:0 4px 20px var(--glow-orange); transform:translateY(-1px); }
 .td-spectate-btn { flex:1; padding:15px 14px 14px; border:1px solid var(--border-color); border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:#23233a; color:var(--text-secondary); transition:all 0.2s; font-family:'Pretendard Variable',Pretendard,sans-serif; line-height:1; }
 .td-spectate-btn:hover { background:#2d2d44; }
+.td-cancel-btn { flex:1; padding:15px 14px 14px; border:1px solid var(--border-color); border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:#23233a; color:var(--text-secondary); transition:all 0.2s; font-family:'Pretendard Variable',Pretendard,sans-serif; line-height:1; }
+.td-cancel-btn:hover { background:#2d2d44; }
+.td-register-btn:disabled,
+.td-register-btn.is-full { opacity:0.5; cursor:not-allowed; }
+.td-register-btn:disabled:hover,
+.td-register-btn.is-full:hover { box-shadow:none; transform:none; }
 
 /* ===================== */
 /* Ticket Page           */
@@ -2109,7 +2116,7 @@ body.chat-open > .m-nav { display:none !important; }
   .tn-tabs .tab-slider { display:none !important; }
 
   /* --- Tournament detail: bottom bar fixed --- */
-  .td-bottom-bar { position:fixed; bottom:0; left:0; right:0; max-width:none; padding:24px 16px calc(12px + env(safe-area-inset-bottom)); background:linear-gradient(to top, #0d0d18 70%, rgba(13,13,24,0.4) 90%, transparent); border-top:none; z-index:100; }
+  .td-bottom-bar { position:fixed; bottom:0; left:0; right:0; max-width:none; padding:24px 16px calc(12px + env(safe-area-inset-bottom)); background:linear-gradient(to top, #0d0d18 70%, rgba(13,13,24,0.4) 90%, transparent); border-top:none; z-index:100; flex-direction:row-reverse; }
   #page-tn-detail .content-wrapper { padding-bottom:64px; }
   .td-section { padding:14px 0; }
 

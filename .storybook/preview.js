@@ -1,5 +1,4 @@
 import '../style.css';
-import '../color.css';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {

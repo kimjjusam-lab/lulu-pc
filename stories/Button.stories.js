@@ -30,7 +30,7 @@ export const TournamentRegister = {
 };
 
 export const TournamentSpectate = {
-  render: () => btn('td-spectate-btn', '관전하기'),
+  render: () => btn('td-spectate-btn', '관전'),
 };
 
 export const DateRange = {
@@ -70,7 +70,7 @@ export const AllVariants = {
       ['pkg-buy-btn', '구매하기'],
       ['table-join-btn', '입장하기'],
       ['td-register-btn', '참가 신청'],
-      ['td-spectate-btn', '관전하기'],
+      ['td-spectate-btn', '관전'],
       ['date-range-btn', '조회'],
       ['sp-cancel-btn', '취소'],
       ['sp-confirm-btn', '확인'],
