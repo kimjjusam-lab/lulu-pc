@@ -49,6 +49,7 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-color-info{padding:10px 12px;}
 .ds-color-name{font-size:12px;font-weight:600;margin-bottom:2px;}
 .ds-color-hex{font-size:11px;color:var(--text-mut);font-family:'Inter',monospace;}
+.ds-color-token{font-size:10px;color:#F96217;font-family:'Inter',monospace;margin-top:4px;word-break:break-all;line-height:1.3;}
 
 /* Typography */
 .ds-type-row{display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid var(--border);}
@@ -294,60 +295,60 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
   <div class="ds-color-group">
     <div class="ds-color-group-title">Primary & Accent</div>
     <div class="ds-colors">
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#F96217"></div><div class="ds-color-info"><div class="ds-color-name">Lulu Orange</div><div class="ds-color-hex">#F96217</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#d4510f"></div><div class="ds-color-info"><div class="ds-color-name">Orange Dark</div><div class="ds-color-hex">#d4510f</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#FF7C1D"></div><div class="ds-color-info"><div class="ds-color-name">Secondary</div><div class="ds-color-hex">#FF7C1D</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#7c3aed"></div><div class="ds-color-info"><div class="ds-color-name">Purple</div><div class="ds-color-hex">#7c3aed</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#8b5cf6"></div><div class="ds-color-info"><div class="ds-color-name">Violet</div><div class="ds-color-hex">#8b5cf6</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#ec4899"></div><div class="ds-color-info"><div class="ds-color-name">Pink</div><div class="ds-color-hex">#ec4899</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#f59e0b"></div><div class="ds-color-info"><div class="ds-color-name">Gold</div><div class="ds-color-hex">#f59e0b</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#10b981"></div><div class="ds-color-info"><div class="ds-color-name">Emerald</div><div class="ds-color-hex">#10b981</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#F96217"></div><div class="ds-color-info"><div class="ds-color-name">Lulu Orange</div><div class="ds-color-hex">#F96217</div><div class="ds-color-token">--color-primary</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#d4510f"></div><div class="ds-color-info"><div class="ds-color-name">Orange Dark</div><div class="ds-color-hex">#d4510f</div><div class="ds-color-token">--color-primary-dark</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#FF7C1D"></div><div class="ds-color-info"><div class="ds-color-name">Secondary</div><div class="ds-color-hex">#FF7C1D</div><div class="ds-color-token">--color-secondary</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#7c3aed"></div><div class="ds-color-info"><div class="ds-color-name">Purple</div><div class="ds-color-hex">#7c3aed</div><div class="ds-color-token">--color-accent-purple</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#8b5cf6"></div><div class="ds-color-info"><div class="ds-color-name">Violet</div><div class="ds-color-hex">#8b5cf6</div><div class="ds-color-token">--color-accent-violet</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#ec4899"></div><div class="ds-color-info"><div class="ds-color-name">Pink</div><div class="ds-color-hex">#ec4899</div><div class="ds-color-token">--color-accent-pink</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#f59e0b"></div><div class="ds-color-info"><div class="ds-color-name">Gold</div><div class="ds-color-hex">#f59e0b</div><div class="ds-color-token">--color-accent-gold</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#10b981"></div><div class="ds-color-info"><div class="ds-color-name">Emerald</div><div class="ds-color-hex">#10b981</div><div class="ds-color-token">--color-accent-emerald</div></div></div>
     </div>
   </div>
 
   <div class="ds-color-group">
     <div class="ds-color-group-title">Backgrounds</div>
     <div class="ds-colors">
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#07070d"></div><div class="ds-color-info"><div class="ds-color-name">Body Dark</div><div class="ds-color-hex">#07070d</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#14141f"></div><div class="ds-color-info"><div class="ds-color-name">Card</div><div class="ds-color-hex">#14141f</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#1a1a2e"></div><div class="ds-color-info"><div class="ds-color-name">Card Hover</div><div class="ds-color-hex">#1a1a2e</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#0d0d18"></div><div class="ds-color-info"><div class="ds-color-name">Nav</div><div class="ds-color-hex">#0d0d18</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#212121"></div><div class="ds-color-info"><div class="ds-color-name">Depth 200</div><div class="ds-color-hex">#212121</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#171717"></div><div class="ds-color-info"><div class="ds-color-name">Depth 250</div><div class="ds-color-hex">#171717</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#292929"></div><div class="ds-color-info"><div class="ds-color-name">Depth 300</div><div class="ds-color-hex">#292929</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#343434"></div><div class="ds-color-info"><div class="ds-color-name">Depth 400</div><div class="ds-color-hex">#343434</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#07070d"></div><div class="ds-color-info"><div class="ds-color-name">Body Dark</div><div class="ds-color-hex">#07070d</div><div class="ds-color-token">--color-bg-body</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#14141f"></div><div class="ds-color-info"><div class="ds-color-name">Card</div><div class="ds-color-hex">#14141f</div><div class="ds-color-token">--color-bg-card</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#1a1a2e"></div><div class="ds-color-info"><div class="ds-color-name">Card Hover</div><div class="ds-color-hex">#1a1a2e</div><div class="ds-color-token">--color-bg-card-hover</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#0d0d18"></div><div class="ds-color-info"><div class="ds-color-name">Nav</div><div class="ds-color-hex">#0d0d18</div><div class="ds-color-token">--color-bg-nav</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#212121"></div><div class="ds-color-info"><div class="ds-color-name">Depth 200</div><div class="ds-color-hex">#212121</div><div class="ds-color-token">--color-bg-depth-200</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#171717"></div><div class="ds-color-info"><div class="ds-color-name">Depth 250</div><div class="ds-color-hex">#171717</div><div class="ds-color-token">--color-bg-depth-250</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#292929"></div><div class="ds-color-info"><div class="ds-color-name">Depth 300</div><div class="ds-color-hex">#292929</div><div class="ds-color-token">--color-bg-depth-300</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#343434"></div><div class="ds-color-info"><div class="ds-color-name">Depth 400</div><div class="ds-color-hex">#343434</div><div class="ds-color-token">--color-bg-depth-400</div></div></div>
     </div>
   </div>
 
   <div class="ds-color-group">
     <div class="ds-color-group-title">Text</div>
     <div class="ds-colors">
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#f1f1f7"></div><div class="ds-color-info"><div class="ds-color-name">Primary</div><div class="ds-color-hex">#f1f1f7</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#9ca3af"></div><div class="ds-color-info"><div class="ds-color-name">Secondary</div><div class="ds-color-hex">#9ca3af</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#6b7280"></div><div class="ds-color-info"><div class="ds-color-name">Muted</div><div class="ds-color-hex">#6b7280</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#FEFEFE"></div><div class="ds-color-info"><div class="ds-color-name">Title</div><div class="ds-color-hex">#FEFEFE</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#FFD230"></div><div class="ds-color-info"><div class="ds-color-name">Gold</div><div class="ds-color-hex">#FFD230</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#f1f1f7"></div><div class="ds-color-info"><div class="ds-color-name">Primary</div><div class="ds-color-hex">#f1f1f7</div><div class="ds-color-token">--color-text-primary</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#9ca3af"></div><div class="ds-color-info"><div class="ds-color-name">Secondary</div><div class="ds-color-hex">#9ca3af</div><div class="ds-color-token">--color-text-secondary</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#6b7280"></div><div class="ds-color-info"><div class="ds-color-name">Muted</div><div class="ds-color-hex">#6b7280</div><div class="ds-color-token">--color-text-muted</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#FEFEFE"></div><div class="ds-color-info"><div class="ds-color-name">Title</div><div class="ds-color-hex">#FEFEFE</div><div class="ds-color-token">--color-text-title</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#FFD230"></div><div class="ds-color-info"><div class="ds-color-name">Gold</div><div class="ds-color-hex">#FFD230</div><div class="ds-color-token">--color-text-gold</div></div></div>
     </div>
   </div>
 
   <div class="ds-color-group">
     <div class="ds-color-group-title">Border</div>
     <div class="ds-colors">
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#1e1e30"></div><div class="ds-color-info"><div class="ds-color-name">Border</div><div class="ds-color-hex">#1e1e30</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#2a2a44"></div><div class="ds-color-info"><div class="ds-color-name">Border Light</div><div class="ds-color-hex">#2a2a44</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#1a1a2a"></div><div class="ds-color-info"><div class="ds-color-name">Border Subtle</div><div class="ds-color-hex">#1a1a2a</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#343434"></div><div class="ds-color-info"><div class="ds-color-name">Border 300</div><div class="ds-color-hex">#343434</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#404040"></div><div class="ds-color-info"><div class="ds-color-name">Border 400</div><div class="ds-color-hex">#404040</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#1e1e30"></div><div class="ds-color-info"><div class="ds-color-name">Border</div><div class="ds-color-hex">#1e1e30</div><div class="ds-color-token">--color-border</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#2a2a44"></div><div class="ds-color-info"><div class="ds-color-name">Border Light</div><div class="ds-color-hex">#2a2a44</div><div class="ds-color-token">--color-border-light</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#1a1a2a"></div><div class="ds-color-info"><div class="ds-color-name">Border Subtle</div><div class="ds-color-hex">#1a1a2a</div><div class="ds-color-token">--color-border-subtle</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#343434"></div><div class="ds-color-info"><div class="ds-color-name">Border 300</div><div class="ds-color-hex">#343434</div><div class="ds-color-token">--color-border-300</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#404040"></div><div class="ds-color-info"><div class="ds-color-name">Border 400</div><div class="ds-color-hex">#404040</div><div class="ds-color-token">--color-border-400</div></div></div>
     </div>
   </div>
 
   <div class="ds-color-group">
     <div class="ds-color-group-title">System (Semantic)</div>
     <div class="ds-colors">
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#CD0C0C"></div><div class="ds-color-info"><div class="ds-color-name">Error</div><div class="ds-color-hex">#CD0C0C</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#3363DB"></div><div class="ds-color-info"><div class="ds-color-name">Success</div><div class="ds-color-hex">#3363DB</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#48D481"></div><div class="ds-color-info"><div class="ds-color-name">Process</div><div class="ds-color-hex">#48D481</div></div></div>
-      <div class="ds-color"><div class="ds-color-swatch" style="background:#F7DF4E"></div><div class="ds-color-info"><div class="ds-color-name">Warning</div><div class="ds-color-hex">#F7DF4E</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#CD0C0C"></div><div class="ds-color-info"><div class="ds-color-name">Error</div><div class="ds-color-hex">#CD0C0C</div><div class="ds-color-token">--color-sys-error</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#3363DB"></div><div class="ds-color-info"><div class="ds-color-name">Success</div><div class="ds-color-hex">#3363DB</div><div class="ds-color-token">--color-sys-success</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#48D481"></div><div class="ds-color-info"><div class="ds-color-name">Process</div><div class="ds-color-hex">#48D481</div><div class="ds-color-token">--color-sys-process</div></div></div>
+      <div class="ds-color"><div class="ds-color-swatch" style="background:#F7DF4E"></div><div class="ds-color-info"><div class="ds-color-name">Warning</div><div class="ds-color-hex">#F7DF4E</div><div class="ds-color-token">--color-sys-warning</div></div></div>
     </div>
   </div>
 </div>
