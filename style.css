@@ -240,7 +240,7 @@ body {
 .holecard-cell:hover { transform:scale(1.1); z-index:1; }
 .analytics-summary-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
 .date-range-fields { display:inline-flex; gap:8px; align-items:center; }
-.date-range-box { position:relative; padding:14px 24px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-bg-body); cursor:pointer; transition:all 0.2s; }
+.date-range-box { position:relative; padding:14px 18px; border-radius:12px; border:1px solid var(--color-border); background:var(--color-bg-card); cursor:pointer; transition:all 0.2s; }
 .date-range-box:hover { border-color:rgba(249,98,23,0.3); }
 .date-range-box #dateRangeText { color:var(--color-text-primary); font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif; font-size:14px; font-weight:500; white-space:nowrap; letter-spacing:0.5px; }
 /* Calendar popup */
@@ -650,7 +650,9 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 }
 .login-input::placeholder { color: var(--color-text-muted); }
 .login-input:focus { border-color: var(--color-primary); }
-.login-error { color:#ef4444; font-size:13px; text-align:center; padding:4px 0; }
+.login-input.error { border-color: #ef4444; }
+.login-input:disabled, .login-input[disabled] { opacity: 0.4; cursor: not-allowed; }
+.login-error { color:#ef4444; font-size:12px; text-align:center; padding:4px 0; }
 .login-btn {
   width: 100%;
   padding: 15px 14px 14px;
@@ -802,7 +804,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .pw-field { display:flex; flex-direction:column; gap:6px; }
 .pw-field-label { font-size:13px; font-weight:600; color:var(--color-text-primary); text-align:left; }
 .pw-field-wrap { position:relative; }
-.pw-field-wrap .login-input { padding-right:44px; width:100%; background:transparent; }
+.pw-field-wrap .login-input { padding-right:44px; width:100%; }
 .pw-field-eye { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:transparent; border:none; padding:6px; cursor:pointer; color:var(--color-text-muted); display:flex; align-items:center; justify-content:center; transition:color 0.2s; border-radius:6px; }
 .pw-field-eye:hover { color:var(--color-text-secondary); background:rgba(255,255,255,0.05); }
 .pw-mismatch-msg { font-size:12px; color:#ef4444; margin-top:6px; text-align:left; padding-left:2px; }
