@@ -2217,19 +2217,21 @@ function tdRenderDetailInline(container) {
     list.innerHTML = demoPlayers.map(function(p, idx) {
       return '<tr><td>'+(idx+1)+'</td><td><div style="display:flex;align-items:center;gap:8px;"><img class="td-player-avatar" src="images/'+p.avatar+'.png" alt="">'+p.name+'</div></td><td style="color:var(--accent-gold);font-weight:600;">'+p.chips.toLocaleString()+'</td></tr>';
     }).join('');
-    var panel = ct.querySelector('#tdMyRankPanel');
-    if (panel) {
+    var myTbody = ct.querySelector('#tdMyRankTbody');
+    if (myTbody) {
       var myRank = tnGetMyRank(itm);
       if (itm.registered && myRank) {
         var myAvatar = _avatarList[itm.id % _avatarList.length];
         var myChips = (((itm.id * 7) % 40) + 10) * 1000;
-        panel.innerHTML = '<span class="td-my-rank-col td-my-rank-col-rank">'+myRank+'</span>'+
-          '<span class="td-my-rank-col td-my-rank-col-name"><img class="td-player-avatar" src="images/'+myAvatar+'.png" alt="">나<span class="td-player-row-me-label">ME</span></span>'+
-          '<span class="td-my-rank-col td-my-rank-col-chips">'+myChips.toLocaleString()+'</span>';
-        panel.style.display = '';
+        myTbody.innerHTML = '<tr>' +
+          '<td><span class="td-my-rank-num">'+myRank+'</span></td>'+
+          '<td><div class="td-my-rank-name"><img class="td-player-avatar" src="images/'+myAvatar+'.png" alt="">나<span class="td-player-row-me-label">ME</span></div></td>'+
+          '<td>'+myChips.toLocaleString()+'</td>'+
+        '</tr>';
+        myTbody.style.display = '';
       } else {
-        panel.style.display = 'none';
-        panel.innerHTML = '';
+        myTbody.style.display = 'none';
+        myTbody.innerHTML = '';
       }
     }
   }
@@ -2326,19 +2328,21 @@ function tdRenderPlayerList(item) {
     '</tr>';
   }).join('');
 
-  var panel = document.getElementById('tdMyRankPanel');
-  if (panel) {
+  var myTbody = document.getElementById('tdMyRankTbody');
+  if (myTbody) {
     var myRank = tnGetMyRank(item);
     if (item.registered && myRank) {
       var myAvatar = _avatarList[item.id % _avatarList.length];
       var myChips = (((item.id * 7) % 40) + 10) * 1000;
-      panel.innerHTML = '<span class="td-my-rank-col td-my-rank-col-rank">' + myRank + '</span>' +
-        '<span class="td-my-rank-col td-my-rank-col-name"><img class="td-player-avatar" src="images/' + myAvatar + '.png" alt="">나<span class="td-player-row-me-label">ME</span></span>' +
-        '<span class="td-my-rank-col td-my-rank-col-chips">' + myChips.toLocaleString() + '</span>';
-      panel.style.display = '';
+      myTbody.innerHTML = '<tr>' +
+        '<td><span class="td-my-rank-num">' + myRank + '</span></td>' +
+        '<td><div class="td-my-rank-name"><img class="td-player-avatar" src="images/' + myAvatar + '.png" alt="">나<span class="td-player-row-me-label">ME</span></div></td>' +
+        '<td>' + myChips.toLocaleString() + '</td>' +
+      '</tr>';
+      myTbody.style.display = '';
     } else {
-      panel.style.display = 'none';
-      panel.innerHTML = '';
+      myTbody.style.display = 'none';
+      myTbody.innerHTML = '';
     }
   }
 }
