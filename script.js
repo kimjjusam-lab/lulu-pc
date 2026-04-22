@@ -50,6 +50,7 @@ const i18n = {
   ko: {
     // 네비게이션
     nav_lobby: '로비',
+    nav_holdem: '홀덤',
     nav_tournament: '토너먼트',
     nav_custom_game: '사용자게임',
     nav_analytics: '통계',
@@ -631,6 +632,7 @@ function switchPage(p) {
   if (p === 'game-setup') { gsInitDefaults(); }
   if (p === 'tournament') { tnRenderList(); switchTournamentTab('all'); tnApplyRoundVisibility(); tnStartCountdown(); }
   else { if (typeof tnStopCountdown === 'function') tnStopCountdown(); }
+  if (p === 'holdem') { hdRenderList(); }
   if (p === 'tn-history') { tnRenderHistory(); }
   if (p === 'ticket') { tkRenderList(); }
   if (p === 'account-edit') { aeInit(); }
@@ -679,7 +681,7 @@ function mSyncNavTitle(page) {
     shop: '상점', my: 'MY 룰루', analytics: '통계',
     mailbox: '보관함', chat: '채팅', myitems: '내 아이템',
     transaction: '거래 내역', host: '호스트',
-    ticket: '티켓', tournament: '토너먼트',
+    ticket: '티켓', tournament: '토너먼트', holdem: '홀덤',
     'tn-history': '히스토리', 'tn-detail': '토너먼트',
     'game-setup': '사용자 게임', login: '로그인',
     'account-edit': '회원정보 수정',
@@ -2009,6 +2011,81 @@ function tnRenderList() {
 
 function tnIsPcSplit() {
   return window.innerWidth >= 1024 && document.getElementById('tnSplitRight');
+}
+
+/* ========================
+ * Holdem Page (토너먼트 2차판 기반 베이스 — 추후 커스터마이즈)
+ * tn- 레이아웃 클래스 공유, id는 hd- 접두어
+ * ======================== */
+const demoHoldem = [
+  { id:'h1', event:'A', blinds:'50/100',  participants:42, buyin:'1만', maxType:'6max' },
+  { id:'h2', event:'B', blinds:'50/100',  participants:28, buyin:'1만', fee2:'2,400', maxType:'9max' },
+  { id:'h3', event:'A', blinds:'100/200', participants:67, buyin:'2만', maxType:'6max' },
+  { id:'h4', event:'B', blinds:'100/200', participants:35, buyin:'2만', fee2:'4,800', maxType:'9max' },
+  { id:'h5', event:'C', blinds:'100/200', participants:18, buyin:'2만', maxType:'6max' },
+  { id:'h6', event:'A', blinds:'200/400', participants:51, buyin:'4만', maxType:'6max' },
+];
+
+const hdTypeMap = {
+  A: { name:'홀덤',   cls:'hd-tag-holdem' },
+  B: { name:'오징어', cls:'hd-tag-squid'  },
+  C: { name:'72',     cls:'hd-tag-72'     },
+};
+
+function hdBuildCard(item) {
+  var type = hdTypeMap[item.event] || hdTypeMap.A;
+  var fee2Html = item.fee2 ? '<div class="hd-card-fee2">참가비 <strong>' + item.fee2 + '</strong></div>' : '';
+  return '<div class="tn-card hd-card">' +
+    '<div class="hd-card-main">' +
+      '<div class="hd-card-title">' + type.name + ' ' + item.blinds +
+        '<span class="hd-card-participants">참가인원 ' + item.participants + '</span>' +
+      '</div>' +
+      '<div class="hd-card-tags">' +
+        '<span class="hd-tag ' + type.cls + '">' + type.name + '</span>' +
+        '<span class="hd-tag hd-tag-max">' + item.maxType + '</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="hd-card-price">' +
+      '<div class="hd-card-buyin">바이인 <strong>' + item.buyin + '</strong></div>' +
+      fee2Html +
+    '</div>' +
+  '</div>';
+}
+function switchHoldemTab(tab) {
+  var allTab = document.querySelector('#page-holdem .tn-tab[data-hd-tab="all"]');
+  var eventTabs = document.querySelectorAll('#page-holdem .tn-tab[data-hd-tab^="event"]');
+  if (tab === 'all') {
+    eventTabs.forEach(function(e) { e.classList.remove('active'); });
+    if (allTab) allTab.classList.add('active');
+  } else {
+    if (allTab) allTab.classList.remove('active');
+    var target = document.querySelector('#page-holdem .tn-tab[data-hd-tab="' + tab + '"]');
+    if (target) target.classList.toggle('active');
+    var anyActive = document.querySelectorAll('#page-holdem .tn-tab[data-hd-tab^="event"].active').length > 0;
+    if (!anyActive && allTab) allTab.classList.add('active');
+  }
+  hdRenderList();
+}
+
+function hdRenderList() {
+  var el = document.getElementById('hdFilteredList');
+  if (!el) return;
+  var allTab = document.querySelector('#page-holdem .tn-tab[data-hd-tab="all"]');
+  var allowedEvents = null;
+  if (!(allTab && allTab.classList.contains('active'))) {
+    allowedEvents = [];
+    document.querySelectorAll('#page-holdem .tn-tab[data-hd-tab^="event"].active').forEach(function(e) {
+      allowedEvents.push(e.getAttribute('data-hd-tab').replace('event', ''));
+    });
+  }
+  var cards = demoHoldem.filter(function(item) {
+    return allowedEvents === null || allowedEvents.indexOf(item.event) !== -1;
+  });
+  if (!cards.length) {
+    el.innerHTML = '<div class="tn-empty">게임이 없습니다</div>';
+    return;
+  }
+  el.innerHTML = cards.map(hdBuildCard).join('');
 }
 
 // === TOURNAMENT DETAIL PAGE ===

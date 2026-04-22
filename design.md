@@ -275,12 +275,41 @@ Navigation has 5 distinct variants across device and auth state.
 - Bottom tabbar: same except MY 룰루 tab shows default user silhouette icon instead of avatar
 
 ### Badges & Tags
-- **Status Badge**: 11px, weight 700, padding 4px 10px, radius 6px
-  - Registering: `rgba(34,197,94,0.15)` bg, `#22c55e` text
-  - Ongoing: `rgba(249,98,23,0.15)` bg, orange text
-  - Finished: `rgba(107,114,128,0.15)` bg, muted text
-- **Shop Tag**: 10px, weight 800, padding 3px 8px, radius 6px
-- **Coming Badge**: gradient `#A72FC5 to #E040A0`, pill shape, shimmer animation
+
+**Tournament Status Badge** (`.tn-badge`)
+Base: 11px / weight 700 / padding 4px 10px / radius 6px · background uses 15-18% alpha of text color
+
+| Class | Label | Background | Text Color |
+|---|---|---|---|
+| `.tn-badge.registering` | 등록중 | `rgba(34,197,94,0.15)` | `#22c55e` (green) |
+| `.tn-badge.ongoing` | 진행중 | `rgba(249,98,23,0.15)` | `#F96217` (primary orange) |
+| `.tn-badge.lateReg` | 추가등록 | `rgba(239,68,68,0.18)` | `#ef4444` (red) |
+| `.tn-badge.finished` | 종료 | `rgba(107,114,128,0.15)` | muted text |
+
+**Registered Badge** (`.tn-badge-registered`)
+카드 우측 상단에서 "내가 등록된 토너먼트"를 강조하는 배지. 동일한 Status Badge 스타일에 청색 배색 + **펄스 도트** 추가.
+- Background: `rgba(96,165,250,0.15)` · Text: `#60a5fa`
+- Inner `<span class="tn-registered-dot">` — 6×6 원형, `#60a5fa`, `::after`로 `live-pulse` 2s 애니메이션 (scale 0.8→2.2 + 페이드)
+- `gap:6px` 로 도트와 텍스트 간격 확보
+
+**Holdem Game Tags** (`.hd-tag`)
+홀덤 카드 하단에 붙는 게임 타입·최대인원 태그. Radius는 Status Badge보다 작은 4px로 차별화.
+Base: 11px / weight 700 / padding 4px 10px / radius 4px / letter-spacing 0.2px
+
+| Class | Label | Background | Text Color |
+|---|---|---|---|
+| `.hd-tag-holdem` | 홀덤 | `#2e3520` (dark olive) | `#c2d43e` (lime-olive) |
+| `.hd-tag-squid`  | 오징어 | `#3a1d2a` (dark burgundy) | `#e85a8b` (pink) |
+| `.hd-tag-72`     | 72 | `#1e3a2d` (dark green) | `#4ade80` (lime green) |
+| `.hd-tag-max`    | 6max / 9max | `#3a2d14` (dark amber) | `#f5a623` (amber) |
+
+게임 타입 태그는 이벤트 카테고리(A/B/C)에 매핑되고, max 태그는 플레이어 정원을 표기합니다.
+
+**Shop Tag**
+- 10px / weight 800 / padding 3px 8px / radius 6px
+
+**Coming Badge** (promotional)
+- Gradient `#A72FC5 → #E040A0` · pill shape · shimmer animation (2.5s ease-in-out infinite)
 
 ### Tabs
 - Container: background `#010104`, border 1px solid `#1a1a2a`, radius 14px, padding 7px

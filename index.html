@@ -56,7 +56,7 @@
     </div>
     <div class="nav-links">
       <a class="nav-link active" data-page="lobby" onclick="switchPage('lobby')" data-i18n="nav_lobby">로비</a>
-      <a class="nav-link" onclick="alert('준비 중입니다.')">홀덤</a>
+      <a class="nav-link" data-page="holdem" onclick="switchPage('holdem')" data-i18n="nav_holdem">홀덤</a>
       <a class="nav-link" data-page="tournament" onclick="switchPage('tournament')" data-i18n="nav_tournament">토너먼트</a>
       <a class="nav-link" data-page="shop" onclick="switchPage('shop')" data-i18n="nav_shop">상점</a>
       <a class="nav-link" data-page="analytics" onclick="switchPage('analytics')" data-i18n="nav_analytics">통계</a>
@@ -103,7 +103,7 @@
     <section>
       <div class="section-header"><h2 class="section-title" data-i18n="lobby_game_modes">게임 모드</h2></div>
       <div class="game-modes">
-        <div class="game-card" role="button" tabindex="0" onclick="enterGame('lobby')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_holdem">홀덤</div><div class="game-card-desc">텍사스 홀덤의 정석. 전략과 심리전으로 승부하세요.</div></div></div>
+        <div class="game-card" role="button" tabindex="0" onclick="switchPage('holdem')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_holdem">홀덤</div><div class="game-card-desc">텍사스 홀덤의 정석. 전략과 심리전으로 승부하세요.</div></div></div>
         <div class="game-card" role="button" tabindex="0" onclick="enterGame('tournament')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_tournament.png" alt="토너먼트"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_tournament">토너먼트</div><div class="game-card-desc">정식 토너먼트에서 순위 보상을 획득하세요.</div></div></div>
         <div class="game-card" role="button" tabindex="0" onclick="enterGame('game-setup')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_custom.png" alt="사용자 게임"></div></div><div class="game-card-info"><div class="game-card-name" data-i18n="game_custom">사용자 게임</div><div class="game-card-desc">나만의 룰로 방을 만들고, 친구를 초대해서 즐기세요.</div></div></div>
         <div class="game-card" role="button" tabindex="0" onclick="alert('오픈 준비 중입니다')"><div class="game-card-visual"><div class="card-visual-glow"></div><div class="card-visual-icon"><img loading="lazy" src="images/game_72.png" alt="오마하" style="opacity:0.4"></div><span class="coming-badge">오픈<span style="letter-spacing:-0.075em"> </span>준비<span style="letter-spacing:-0.075em"> </span>중</span></div><div class="game-card-info"><div class="game-card-name">오마하</div><div class="game-card-desc">4장의 홀카드로 더 다양한 전략! 액션이 넘치는 오마하.</div></div></div>
@@ -111,7 +111,7 @@
       </div>
       <!-- 모바일 게임 모드 그리드 -->
       <div class="m-game-grid">
-        <div class="m-game-item" role="button" tabindex="0" onclick="enterGame('lobby')"><div class="m-game-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div><span class="m-game-name">홀덤</span></div>
+        <div class="m-game-item" role="button" tabindex="0" onclick="switchPage('holdem')"><div class="m-game-icon"><img loading="lazy" src="images/game_holdem.png" alt="홀덤"></div><span class="m-game-name">홀덤</span></div>
         <div class="m-game-item" role="button" tabindex="0" onclick="enterGame('tournament')"><div class="m-game-icon"><img loading="lazy" src="images/game_tournament.png" alt="토너먼트"></div><span class="m-game-name">토너먼트</span></div>
         <div class="m-game-item" role="button" tabindex="0" onclick="enterGame('game-setup')"><div class="m-game-icon"><img loading="lazy" src="images/game_custom.png" alt="사용자 게임"></div><span class="m-game-name">사용자 게임</span></div>
         <div class="m-game-item" role="button" tabindex="0" onclick="alert('오픈 준비 중입니다')"><div class="m-game-icon"><img loading="lazy" src="images/game_72.png" alt="오마하" style="opacity:0.4"><span class="coming-badge">오픈<span style="letter-spacing:-0.075em"> </span>준비<span style="letter-spacing:-0.075em"> </span>중</span></div><span class="m-game-name">오마하</span></div>
@@ -1257,7 +1257,6 @@
       <!-- 오른쪽: 토너먼트 상세 (PC에서만 인라인 표시) -->
       <div class="tn-split-right" id="tnSplitRight">
         <div class="tn-split-placeholder" id="tnSplitPlaceholder">
-          <div class="tn-split-placeholder-icon">📋</div>
           <p>토너먼트를 선택하면 상세 정보가 여기에 표시됩니다</p>
         </div>
         <div class="tn-split-detail" id="tnSplitDetail" style="display:none;"></div>
@@ -1404,6 +1403,39 @@
       <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">착석</button>
       <button class="td-spectate-btn" id="tdSpectateBtn" onclick="tdSpectate()" data-i18n="td_spectate">관전</button>
       <button class="td-cancel-btn" id="tdCancelBtn" onclick="tdCancelRegister()" style="display:none;" data-i18n="td_cancel_register">등록 취소</button>
+    </div>
+  </div>
+</div>
+
+<!-- Holdem Page (토너먼트 2차판 기반) -->
+<div class="page-container" id="page-holdem">
+  <div class="content-wrapper">
+    <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="hd_title">홀덤</h2>
+      <!-- <p data-i18n="hd_desc">캐시게임에 참여하고 승부하세요</p> -->
+    </div>
+    <div class="tn-split-layout">
+      <!-- 왼쪽: 탭 + 홀덤 리스트 -->
+      <div class="tn-split-left">
+        <div class="tn-tabs">
+          <button class="tn-tab active" data-hd-tab="all" onclick="switchHoldemTab('all')">전체</button>
+          <span class="tn-tab-divider"></span>
+          <button class="tn-tab" data-hd-tab="eventA" onclick="switchHoldemTab('eventA')">홀덤</button>
+          <button class="tn-tab" data-hd-tab="eventB" onclick="switchHoldemTab('eventB')">오징어 게임</button>
+          <button class="tn-tab" data-hd-tab="eventC" onclick="switchHoldemTab('eventC')">72게임</button>
+        </div>
+        <div class="tn-tab-content active" id="hd-filtered">
+          <div class="tn-list" id="hdFilteredList"></div>
+        </div>
+      </div>
+      <!-- 오른쪽: 상세 (PC에서만 인라인 표시) -->
+      <div class="tn-split-right" id="hdSplitRight">
+        <div class="tn-split-placeholder" id="hdSplitPlaceholder">
+          <p>게임을 선택하면 상세 정보가 여기에 표시됩니다</p>
+        </div>
+        <div class="tn-split-detail" id="hdSplitDetail" style="display:none;"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -2584,7 +2616,7 @@
   </div>
   <div class="slide-menu-section">
     <div class="slide-menu-subtitle">링게임</div>
-    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('lobby')">홀덤</a>
+    <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('holdem')">홀덤</a>
     <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')">오마하</a>
     <a class="slide-menu-item" onclick="toggleSlideMenu();alert('오픈 준비 중입니다')">AoF</a>
     <a class="slide-menu-item" onclick="toggleSlideMenu();switchPage('game-setup')">사용자 게임</a>

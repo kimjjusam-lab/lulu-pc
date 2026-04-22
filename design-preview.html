@@ -130,7 +130,18 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block;}
 .ds-badge-reg{background:rgba(34,197,94,0.15);color:#22c55e;}
 .ds-badge-on{background:rgba(249,98,23,0.15);color:#F96217;}
+.ds-badge-late{background:rgba(239,68,68,0.18);color:#ef4444;}
 .ds-badge-fin{background:rgba(107,114,128,0.15);color:#6b7280;}
+.ds-badge-registered{background:rgba(96,165,250,0.15);color:#60a5fa;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;}
+.ds-badge-dot{position:relative;width:6px;height:6px;border-radius:50%;background:#60a5fa;flex-shrink:0;}
+.ds-badge-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:#60a5fa;opacity:0;animation:ds-live-pulse 2s ease-out infinite;}
+@keyframes ds-live-pulse{0%{opacity:0.5;transform:scale(0.8);}70%{opacity:0;transform:scale(2.2);}100%{opacity:0;transform:scale(2.2);}}
+.ds-tag{display:inline-flex;align-items:center;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.2px;}
+.ds-tag-holdem{background:#2e3520;color:#c2d43e;}
+.ds-tag-squid{background:#3a1d2a;color:#e85a8b;}
+.ds-tag-72{background:#1e3a2d;color:#4ade80;}
+.ds-tag-max{background:#3a2d14;color:#f5a623;}
+.ds-mini-label{font-size:11px;color:var(--text-mut);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;}
 .ds-badge-coming{font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,#A72FC5,#E040A0);padding:4px 12px;border-radius:9999px;position:relative;overflow:hidden;}
 .ds-badge-coming::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);animation:shimmer 2.5s ease-in-out infinite;}
 @keyframes shimmer{0%{left:-100%}50%{left:100%}100%{left:100%}}
@@ -446,7 +457,8 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
       <span style="color:#f59e0b;">● XS Reward — 디자인 정의만 존재, 아직 웹페이지에서 사용된 곳 없음</span>
       <span style="color:#4ade80;">● Inputs — 8/9 동기화 완료 (Default · Focus · Filled · Error · Password · Date Picker · Email+Code · Disabled)</span>
       <span style="color:#f59e0b;">● Verification Code — 웹은 반응형 flex(aspect 1/1) / 프리뷰는 고정 48×48 — 모바일 가변 너비 대응 위한 의도적 차이</span>
-      <span style="color:#4ade80;">● Alert Dialog — 동기화 완료 (default · danger 2 variants / showAlert() JS API)</span>
+      <span style="color:#4ade80;">● Alert Dialog — 동기화 완료 (default variant / showAlert() JS API / warning slot)</span>
+      <span style="color:#4ade80;">● Badges & Tags — 토너먼트 상태(등록중/진행중/추가등록/종료/등록됨+펄스) + 홀덤 태그(홀덤/오징어/72/6max/9max) 동기화 완료</span>
     </div>
   </div>
 
@@ -676,15 +688,53 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
     </div>
   </div>
 
-  <!-- Badges -->
+  <!-- Badges & Tags -->
   <div class="ds-comp-grid">
-    <div class="ds-comp-card">
-      <div class="ds-comp-label">Badges & Tags</div>
-      <div class="ds-badges">
-        <span class="ds-badge ds-badge-reg">Registering</span>
-        <span class="ds-badge ds-badge-on">Ongoing</span>
-        <span class="ds-badge ds-badge-fin">Finished</span>
-        <span class="ds-badge-coming">COMING SOON</span>
+    <div class="ds-comp-card" style="flex:1 1 100%;">
+      <div class="ds-comp-label">Badges & Tags — 상태 배지 + 홀덤 게임 태그</div>
+
+      <div style="margin-bottom:18px;">
+        <div class="ds-mini-label">토너먼트 상태 (.tn-badge)</div>
+        <div class="ds-badges">
+          <span class="ds-badge ds-badge-reg">등록중</span>
+          <span class="ds-badge ds-badge-on">진행중</span>
+          <span class="ds-badge ds-badge-late">추가등록</span>
+          <span class="ds-badge ds-badge-fin">종료</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-mut);margin-top:8px;line-height:1.6;">
+          11px / 700 / padding 4px 10px / radius 6px · bg alpha 15-18% / text solid color
+        </div>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <div class="ds-mini-label">등록됨 (.tn-badge-registered — 펄스 도트)</div>
+        <div class="ds-badges">
+          <span class="ds-badge-registered"><span class="ds-badge-dot"></span>등록됨</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-mut);margin-top:8px;line-height:1.6;">
+          청색 #60a5fa · 6px 도트 + `live-pulse` 2s 애니메이션 (스케일 0.8→2.2 + 페이드)
+        </div>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <div class="ds-mini-label">홀덤 게임 태그 (.hd-tag)</div>
+        <div class="ds-badges">
+          <span class="ds-tag ds-tag-holdem">홀덤</span>
+          <span class="ds-tag ds-tag-squid">오징어</span>
+          <span class="ds-tag ds-tag-72">72</span>
+          <span class="ds-tag ds-tag-max">6max</span>
+          <span class="ds-tag ds-tag-max">9max</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-mut);margin-top:8px;line-height:1.6;">
+          11px / 700 / padding 4px 10px / radius 4px · 홀덤 #c2d43e / 오징어 #e85a8b / 72 #4ade80 / max #f5a623
+        </div>
+      </div>
+
+      <div>
+        <div class="ds-mini-label">프로모션 (shimmer)</div>
+        <div class="ds-badges">
+          <span class="ds-badge-coming">COMING SOON</span>
+        </div>
       </div>
     </div>
   </div>

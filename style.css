@@ -1038,8 +1038,9 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   /* Active 상태 비활성화 (기본 상태와 동일) */
   .tn-card.tn-card-active { background:var(--color-bg-card) !important; border-color:var(--color-border) !important; border-left:1px solid var(--color-border) !important; }
   .tn-card.tn-card-active:hover { background:linear-gradient(rgba(255,255,255,0.03),rgba(255,255,255,0.03)),var(--color-bg-card) !important; }
-  /* 토너먼트 리스트·상세에서 푸터 숨김 */
+  /* 토너먼트·홀덤 리스트·상세에서 푸터 숨김 */
   #page-tournament.active ~ .footer,
+  #page-holdem.active ~ .footer,
   #page-tn-detail.active ~ .footer { display:none; }
 }
 @media (max-width:412px) {
@@ -1056,6 +1057,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 @media (min-width:1024px) {
   .td-mobile-only { display:none; }
   #page-tournament.active ~ .footer,
+  #page-holdem.active ~ .footer,
   #page-mailbox.active ~ .footer,
   #page-my.active ~ .footer { display:none; }
   .tn-split-layout {
@@ -1068,6 +1070,10 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
   .tn-split-left .tn-tab-content.active::-webkit-scrollbar { width:4px; }
   .tn-split-left .tn-tab-content.active::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
   .tn-split-right { height:100%; background:var(--color-bg-body); }
+  /* 홀덤은 4:6 비율 (카드 4 / 내용 6) */
+  #page-holdem .tn-split-left { flex:4; }
+  #page-holdem .tn-split-right { flex:6; }
+  #page-holdem .tn-split-left .hd-card { padding:14px 18px; }
   .tn-split-left .tn-tabs {
     background:var(--color-bg-nav); border:none; border-radius:0; padding:0 12px; gap:8px;
     margin:0; border-bottom:1px solid var(--color-border);
@@ -1200,6 +1206,23 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .tn-meta-value { font-size:13px; color:var(--color-text-secondary); font-weight:600; }
 .tn-card-third { flex:0 0 auto; display:flex; align-items:center; justify-content:flex-end; min-width:72px; }
 .tn-empty { text-align:center; padding:48px 0; color:var(--color-text-muted); font-size:14px; }
+
+/* Holdem Card — 홀덤 전용 카드 포맷 (좌측: 타이틀/참가인원/태그 / 우측: 바이인·참가비 가운데 정렬) */
+.hd-card { flex-direction:row !important; align-items:center !important; gap:16px !important; padding:14px 18px !important; }
+.hd-card-main { flex:1; display:flex; flex-direction:column; gap:10px; min-width:0; }
+.hd-card-title { font-size:15px; font-weight:700; color:var(--color-text-primary); }
+.hd-card-participants { font-size:12px; font-weight:500; color:var(--color-text-muted); margin-left:10px; }
+.hd-card-price { flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-width:90px; gap:4px; }
+.hd-card-buyin { font-size:13px; color:var(--color-text-muted); font-weight:500; white-space:nowrap; }
+.hd-card-buyin strong { color:var(--color-text-primary); font-size:15px; font-weight:800; margin-left:4px; }
+.hd-card-fee2 { font-size:11px; color:var(--color-text-muted); white-space:nowrap; }
+.hd-card-fee2 strong { color:var(--color-text-primary); font-weight:800; margin-left:4px; }
+.hd-card-tags { display:flex; gap:6px; }
+.hd-tag { display:inline-flex; align-items:center; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:700; letter-spacing:0.2px; }
+.hd-tag-holdem { background:#2e3520; color:#c2d43e; }
+.hd-tag-squid { background:#3a1d2a; color:#e85a8b; }
+.hd-tag-72 { background:#1e3a2d; color:#4ade80; }
+.hd-tag-max { background:#3a2d14; color:#f5a623; }
 
 /* ===================== */
 /* Tournament Detail     */
