@@ -208,6 +208,18 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 .ds-modal-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;border:none;padding:11px 24px 10px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;}
 .ds-modal-trigger:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
 
+/* Alert Dialog demo */
+.ds-alert-card{max-width:320px;width:100%;background:#0f0f1a;border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.6);}
+.ds-alert-body{padding:24px 24px 20px;text-align:center;}
+.ds-alert-title{font-size:18px;font-weight:700;color:var(--text-pri);margin:0 0 8px;}
+.ds-alert-message{font-size:14px;color:var(--text-mut);line-height:1.5;margin:0 0 20px;}
+.ds-alert-buttons{display:flex;gap:10px;}
+.ds-alert-btn{flex:1;padding:13px 12px 12px;border:1px solid transparent;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;line-height:1;}
+.ds-alert-btn-cancel{border-color:var(--border);background:#23233a;color:var(--text-sec);}
+.ds-alert-btn-cancel:hover{background:#2d2d44;}
+.ds-alert-btn-confirm{background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;}
+.ds-alert-btn-confirm:hover{box-shadow:0 4px 20px rgba(249,98,23,0.3);transform:translateY(-1px);}
+
 /* Radius demo */
 .ds-radius-row{display:flex;gap:20px;flex-wrap:wrap;align-items:end;}
 .ds-radius-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
@@ -427,13 +439,14 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
 
   <!-- Sync Status -->
   <div style="margin-bottom:28px;padding:16px 20px;border-radius:10px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);">
-    <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:10px;">26.04.21 — 프리뷰 ↔ 웹페이지 동기화 상태</div>
+    <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:10px;">26.04.22 — 프리뷰 ↔ 웹페이지 동기화 상태</div>
     <div style="display:flex;flex-direction:column;gap:5px;font-size:12px;line-height:1.6;">
       <span style="color:#4ade80;">● Color Tokens — 30/30 토큰 정의 동기화 완료 (--color-* 네이밍)</span>
       <span style="color:#4ade80;">● Buttons — 9/10 동기화 완료 (XXS Link · SM DatePicker · MD Segment · LG Shop · Stepper · XL Social 44 · XL Social 52 · XL DateRange · XXL CTA)</span>
       <span style="color:#f59e0b;">● XS Reward — 디자인 정의만 존재, 아직 웹페이지에서 사용된 곳 없음</span>
       <span style="color:#4ade80;">● Inputs — 8/9 동기화 완료 (Default · Focus · Filled · Error · Password · Date Picker · Email+Code · Disabled)</span>
       <span style="color:#f59e0b;">● Verification Code — 웹은 반응형 flex(aspect 1/1) / 프리뷰는 고정 48×48 — 모바일 가변 너비 대응 위한 의도적 차이</span>
+      <span style="color:#4ade80;">● Alert Dialog — 동기화 완료 (default · danger 2 variants / showAlert() JS API)</span>
     </div>
   </div>
 
@@ -879,30 +892,64 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Alert Dialog -->
   <div class="ds-comp-grid">
     <div class="ds-comp-card" style="flex:1 1 100%;">
-      <div class="ds-comp-label">Modal — overlay blur + scale animation</div>
-      <div style="display:flex;gap:16px;align-items:start;flex-wrap:wrap;">
-        <!-- Inline static preview -->
-        <div style="flex:1;min-width:280px;">
-          <div style="background:rgba(0,0,0,0.35);border-radius:6px;padding:32px;display:flex;justify-content:center;">
-            <div style="max-width:320px;width:100%;background:#0f0f1a;border:1px solid var(--border);border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.6);">
-              <div style="padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-size:18px;font-weight:700;">칩 구매</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </div>
-              <div style="padding:20px 24px 24px;">
-                <div style="font-size:14px;color:var(--text-sec);margin-bottom:16px;">100,000 칩을 구매하시겠습니까?</div>
-                <div style="display:flex;gap:8px;">
-                  <button class="ds-b ds-b-h42 ds-b-ghost" style="flex:1;">취소</button>
-                  <button class="ds-b ds-b-h42" style="flex:1;">구매</button>
+      <div class="ds-comp-label">Alert Dialog — 확인 다이얼로그 (title + message + 2 buttons)</div>
+      <div style="display:flex;gap:16px;align-items:start;flex-wrap:wrap;justify-content:center;">
+        <div style="flex:1;min-width:280px;max-width:420px;">
+          <div style="background:rgba(0,0,0,0.35);border-radius:6px;padding:24px;display:flex;justify-content:center;">
+            <div class="ds-alert-card">
+              <div class="ds-alert-body">
+                <h3 class="ds-alert-title">등록 취소</h3>
+                <p class="ds-alert-message">등록을 취소합니다. 사용한 바이인은 환불됩니다.</p>
+                <div class="ds-alert-buttons">
+                  <button class="ds-alert-btn ds-alert-btn-cancel">돌아가기</button>
+                  <button class="ds-alert-btn ds-alert-btn-confirm">등록 취소</button>
                 </div>
               </div>
             </div>
           </div>
           <div style="font-size:11px;color:var(--text-mut);margin-top:10px;line-height:1.6;">
-            overlay: rgba(0,0,0,0.6) + blur(4px) · card: #0f0f1a / max-width 420px / radius 6px · shadow: 0 12px 40px rgba(0,0,0,0.6) · anim: 0.25s scale(0.95→1) + translateY(10→0)
+            card: #0f0f1a / max-width 320px / radius 16px · body: padding 24/24/20 centered · title 18px 700 · message 14px muted · buttons flex 1:1 padding 13/12/12 radius 12 font 14/700 · 두 버튼 모두 border:1px (cancel=border color / confirm=transparent) → 내부 정렬 일치
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="ds-comp-grid">
+    <div class="ds-comp-card" style="flex:1 1 100%;">
+      <div class="ds-comp-label">Modal — 상점 결제 확인 팝업 (overlay blur + scale animation)</div>
+      <div style="display:flex;gap:16px;align-items:start;flex-wrap:wrap;">
+        <!-- Inline static preview -->
+        <div style="flex:1;min-width:280px;">
+          <div style="background:rgba(0,0,0,0.35);border-radius:6px;padding:32px;display:flex;justify-content:center;">
+            <div style="max-width:340px;width:100%;background:#0f0f1a;border:1px solid var(--border);border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.6);">
+              <div style="padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:18px;font-weight:700;">결제 확인</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+              <div style="padding:20px 24px 24px;">
+                <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.05);">
+                  <div style="width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;background:rgba(249,98,23,0.15);">📦</div>
+                  <div>
+                    <div style="font-size:16px;font-weight:700;color:var(--text-pri);margin-bottom:4px;">프리미엄 패키지</div>
+                    <div style="font-size:12px;color:var(--text-mut);">₩29,900</div>
+                  </div>
+                </div>
+                <div style="height:1px;background:var(--border);margin:16px 0;"></div>
+                <p style="text-align:center;color:var(--text-sec);font-size:14px;padding:16px 0;margin:0;">결제 페이지로 이동합니다</p>
+                <div style="display:flex;gap:10px;">
+                  <button style="flex:1;padding:13px 12px 12px;border:1px solid var(--border);border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;background:#23233a;color:var(--text-sec);font-family:inherit;line-height:1;">취소</button>
+                  <button style="flex:1;padding:13px 12px 12px;border:1px solid transparent;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;font-family:inherit;line-height:1;">결제하기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--text-mut);margin-top:10px;line-height:1.6;">
+            overlay: rgba(0,0,0,0.6) + blur(4px) · card: #0f0f1a / max-width 380px / radius 6px · shadow: 0 12px 40px rgba(0,0,0,0.6) · anim: 0.25s scale(0.95→1) + translateY(10→0) · item preview: radius 14 · buttons: padding 13/12/12 radius 12 font 14/700 (Alert Dialog와 동일)
           </div>
         </div>
         <!-- Live trigger -->
@@ -915,20 +962,28 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;backg
   </div>
 </div>
 
-<!-- Live Modal Overlay -->
+<!-- Live Modal Overlay (상점 결제 확인) -->
 <div class="ds-modal-overlay" id="demoModal" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="ds-modal-card">
+  <div class="ds-modal-card" style="max-width:380px;">
     <div class="ds-modal-header">
-      <span class="ds-modal-title">칩 구매</span>
+      <span class="ds-modal-title">결제 확인</span>
       <button class="ds-modal-close" onclick="document.getElementById('demoModal').classList.remove('open')">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <div class="ds-modal-body">
-      <div style="font-size:14px;color:var(--text-sec);margin-bottom:20px;">100,000 칩을 구매하시겠습니까?<br><span style="font-size:12px;color:var(--text-mut);">결제 후 즉시 지급됩니다.</span></div>
+      <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.05);">
+        <div style="width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;background:rgba(249,98,23,0.15);">📦</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text-pri);margin-bottom:4px;">프리미엄 패키지</div>
+          <div style="font-size:12px;color:var(--text-mut);">₩29,900</div>
+        </div>
+      </div>
+      <div style="height:1px;background:var(--border);margin:16px 0;"></div>
+      <p style="text-align:center;color:var(--text-sec);font-size:14px;padding:16px 0;margin:0;">결제 페이지로 이동합니다</p>
       <div style="display:flex;gap:10px;">
-        <button class="ds-b ds-b-h42 ds-b-ghost" style="flex:1;" onclick="document.getElementById('demoModal').classList.remove('open')">취소</button>
-        <button class="ds-b ds-b-h42" style="flex:1;" onclick="document.getElementById('demoModal').classList.remove('open')">구매</button>
+        <button style="flex:1;padding:13px 12px 12px;border:1px solid var(--border);border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;background:#23233a;color:var(--text-sec);font-family:inherit;line-height:1;" onclick="document.getElementById('demoModal').classList.remove('open')">취소</button>
+        <button style="flex:1;padding:13px 12px 12px;border:1px solid transparent;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#F96217,#d4510f);color:#fff;font-family:inherit;line-height:1;" onclick="document.getElementById('demoModal').classList.remove('open')">결제하기</button>
       </div>
     </div>
   </div>

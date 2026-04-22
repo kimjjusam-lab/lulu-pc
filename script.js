@@ -2111,6 +2111,14 @@ function tdRenderDetail() {
   document.getElementById('tdBlindInterval').textContent = (details.blindMin || 10) + ' / ' + (details.breakMin || 5);
   document.getElementById('tdMaxEntry').textContent = item.maxPlayers;
 
+  // 블라인드 레벨 바
+  var curEl = document.getElementById('tdBlindCurrent');
+  var nextEl = document.getElementById('tdBlindNext');
+  var timerEl = document.getElementById('tdBlindTimer');
+  if (curEl) curEl.textContent = 'Lv.' + bl.lv + ' ' + bl.sb.toLocaleString() + '/' + bl.bb.toLocaleString();
+  if (nextEl) nextEl.textContent = 'Lv.' + nextBl.lv + ' ' + nextBl.sb.toLocaleString() + '/' + nextBl.bb.toLocaleString();
+  if (timerEl) timerEl.textContent = '00:' + String(details.blindMin || 10).padStart(2, '0') + ':00';
+
   // 플레이어 탭
   var playersText = (t.td_players_label || '참가자') + ' ' + item.players + '/' + item.maxPlayers;
   document.getElementById('tdPlayersCount').textContent = playersText;
@@ -2195,6 +2203,14 @@ function tdRenderDetailInline(container) {
   container.querySelector('#tdBlindInterval').textContent = (details.blindMin || 10) + ' / ' + (details.breakMin || 5);
   container.querySelector('#tdMaxEntry').textContent = item.maxPlayers;
 
+  // 블라인드 레벨 바
+  var curEl2 = container.querySelector('#tdBlindCurrent');
+  var nextEl2 = container.querySelector('#tdBlindNext');
+  var timerEl2 = container.querySelector('#tdBlindTimer');
+  if (curEl2) curEl2.textContent = 'Lv.' + bl.lv + ' ' + bl.sb.toLocaleString() + '/' + bl.bb.toLocaleString();
+  if (nextEl2) nextEl2.textContent = 'Lv.' + nextBl.lv + ' ' + nextBl.sb.toLocaleString() + '/' + nextBl.bb.toLocaleString();
+  if (timerEl2) timerEl2.textContent = '00:' + String(details.blindMin || 10).padStart(2, '0') + ':00';
+
   // 플레이어
   var playersText = (t.td_players_label || '참가자') + ' ' + item.players + '/' + item.maxPlayers;
   container.querySelector('#tdPlayersCount').textContent = playersText;
@@ -2240,9 +2256,9 @@ function tdRenderDetailInline(container) {
     if (!tbody) return;
     var html = '';
     defaultBlindLevels.forEach(function(row) {
-      html += '<tr><td>'+row.lv+'</td><td>'+row.sb.toLocaleString()+' / '+row.bb.toLocaleString()+'</td><td>'+row.ante.toLocaleString()+'</td><td>'+row.time+'min</td></tr>';
+      html += '<tr><td>'+row.lv+'</td><td>'+row.sb.toLocaleString()+' / '+row.bb.toLocaleString()+'</td><td>'+row.time+'min</td></tr>';
       if (_blindBreaks[row.lv]) {
-        html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="4" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 '+_blindBreaks[row.lv]+'분</td></tr>';
+        html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="3" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 '+_blindBreaks[row.lv]+'분</td></tr>';
       }
     });
     tbody.innerHTML = html;
@@ -2356,11 +2372,10 @@ function tdRenderBlindTable() {
     html += '<tr>' +
       '<td>' + row.lv + '</td>' +
       '<td>' + row.sb.toLocaleString() + ' / ' + row.bb.toLocaleString() + '</td>' +
-      '<td>' + row.ante.toLocaleString() + '</td>' +
       '<td>' + row.time + 'min</td>' +
     '</tr>';
     if (_blindBreaks[row.lv]) {
-      html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="4" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 ' + _blindBreaks[row.lv] + '분</td></tr>';
+      html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="3" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 ' + _blindBreaks[row.lv] + '분</td></tr>';
     }
   });
   tbody.innerHTML = html;
@@ -2440,14 +2455,65 @@ function tdApplyRegisterState(registerBtn, cancelBtn, item, t) {
 function tdCancelRegister() {
   var item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
   if (!item || !item.registered) return;
-  item.registered = false;
-  item.players = Math.max(0, item.players - 1);
-  if (tnIsPcSplit()) {
-    tdRenderDetailInline(document.getElementById('tnSplitDetail'));
-    tnRenderList();
-  } else {
-    tdRenderDetail();
-  }
+  showAlert({
+    title: '등록 취소',
+    message: '등록을 취소합니다. 사용한 바이인은 환불됩니다.',
+    cancelText: '돌아가기',
+    confirmText: '등록 취소',
+    onConfirm: function() {
+      item.registered = false;
+      item.players = Math.max(0, item.players - 1);
+      if (tnIsPcSplit()) {
+        tdRenderDetailInline(document.getElementById('tnSplitDetail'));
+        tnRenderList();
+      } else {
+        tdRenderDetail();
+      }
+    }
+  });
+}
+
+/* ========================
+ * Alert Modal (범용 확인 다이얼로그)
+ * ------------------------
+ * showAlert({
+ *   title, message,
+ *   confirmText, cancelText,
+ *   variant: 'default' | 'danger',
+ *   onConfirm, onCancel,
+ * })
+ * ======================== */
+function showAlert(opts) {
+  opts = opts || {};
+  var modal = document.getElementById('alertModal');
+  if (!modal) return;
+  document.getElementById('alertTitle').textContent = opts.title || '';
+  document.getElementById('alertMessage').textContent = opts.message || '';
+  var cancelBtn = document.getElementById('alertCancelBtn');
+  var confirmBtn = document.getElementById('alertConfirmBtn');
+  cancelBtn.textContent = opts.cancelText || '취소';
+  confirmBtn.textContent = opts.confirmText || '확인';
+  confirmBtn.classList.toggle('alert-btn-danger', opts.variant === 'danger');
+  confirmBtn.onclick = function() {
+    closeAlertModal();
+    if (typeof opts.onConfirm === 'function') opts.onConfirm();
+  };
+  cancelBtn.onclick = function() {
+    closeAlertModal();
+    if (typeof opts.onCancel === 'function') opts.onCancel();
+  };
+  var scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  modal.classList.add('active');
+}
+
+function closeAlertModal() {
+  var modal = document.getElementById('alertModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
 }
 
 function tdRegister() {
@@ -2471,29 +2537,41 @@ function tdRegister() {
 function openTdRegisterModal(item) {
   var t = i18n[currentLang] || i18n.ko;
 
-  // 배지: 상태
-  var statusText = t['tn_status_' + item.status] || item.status;
-  document.getElementById('tdrBadge').textContent = '00:00 ' + statusText;
-
-  // 토너먼트명
+  // 토너먼트명 (헤더 타이틀)
   document.getElementById('tdrName').textContent = item.name;
-
-  // 시작 시간
-  var startVal = item.startType === 'manual' ? (t.tn_manual_start || '호스트 수동시작') : item.startType;
-  document.getElementById('tdrStartTime').textContent = startVal;
-
-  // 결제 옵션
-  document.getElementById('tdrPaymentOption').textContent = t.tdr_balance || '밸런스';
 
   // 바이인
   var feeLabel = item.fee === 'free' ? (t.tn_fee_free || '무료') : String(item.fee).replace(/G\s*$/i, ' 골드');
   document.getElementById('tdrFee').textContent = feeLabel;
+
+  // 상금 풀
+  var prizeEl = document.getElementById('tdrPrize');
+  if (prizeEl) {
+    prizeEl.textContent = (item.prize && item.prize !== '-') ? (tnFormatPrizeNumber(item.prize) + '골드') : '-';
+  }
+
+  // 등록 수단 기본 선택 복구 (골드)
+  document.querySelectorAll('.tdr-option').forEach(function(op) {
+    op.classList.toggle('selected', op.getAttribute('data-tdr-method') === 'gold');
+    var input = op.querySelector('input[type=radio]');
+    if (input) input.checked = op.getAttribute('data-tdr-method') === 'gold';
+  });
 
   var scrollW = window.innerWidth - document.documentElement.clientWidth;
   document.body.style.overflow = 'hidden';
   document.body.style.paddingRight = scrollW + 'px';
   document.getElementById('tdRegisterModal').classList.add('active');
 }
+
+// 등록 수단 라디오 클릭 토글
+document.addEventListener('click', function(e) {
+  var op = e.target.closest('.tdr-option');
+  if (!op) return;
+  document.querySelectorAll('.tdr-option').forEach(function(el) { el.classList.remove('selected'); });
+  op.classList.add('selected');
+  var input = op.querySelector('input[type=radio]');
+  if (input) input.checked = true;
+});
 
 // === FAQ 아코디언 / 탭 / 검색 ===
 var currentFaqTab = 'all';

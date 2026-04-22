@@ -184,6 +184,46 @@ The color story is warm-on-dark. The primary background (`#07070d`) is a near-bl
 - Content: padding 20px 24px 24px
 - Dismiss: overlay click or close button
 
+### Alert Dialog (확인 다이얼로그)
+Compact confirmation variant of Modal — used for "정말 X 하시겠습니까?" style prompts where the user must choose between two actions. Typical use cases: 등록 취소, 아이템 삭제, 탈퇴, 파괴적 액션 확인.
+
+**Card**
+- Max-width 320px, radius 16px (Modal보다 컴팩트·둥근 형태)
+- Background, border, shadow, overlay: inherits from Modal
+- Body padding: `24px 24px 20px`, text-align center
+
+**Title** (`.alert-title`)
+- Font: 18px / weight 700 (일반 모달 헤더와 동일)
+- Color: `var(--color-text-primary)`
+- Margin: `0 0 8px`
+
+**Message** (`.alert-message`)
+- Font: 14px, line-height 1.5
+- Color: `var(--color-text-muted)`
+- Margin: `0 0 20px`
+- Supports `white-space: pre-line` (줄바꿈 보존)
+
+**Buttons** (`.alert-buttons`)
+- Two-button layout: `flex: 1:1`, gap `10px`
+- Padding `13px 12px 12px`, radius `12px`, weight 700, font 14px, line-height 1 (**일반 모달의 `.sp-cancel-btn` / `.sp-confirm-btn` 과 동일 스펙**)
+- **두 버튼 모두 `border:1px` 슬롯 확보** — cancel은 실제 보더 색상, confirm은 투명 보더 → 내부 내용 영역이 정확히 동일하게 정렬
+- Left (cancel/dismiss): `#23233a` bg + border `var(--color-border)`, text-secondary color
+- Right (confirm): Primary orange gradient CTA — **파괴적 액션(등록 취소, 탈퇴, 삭제 등 포함)도 동일한 Primary 버튼 스타일 사용**. 별도의 danger(빨간) 변형은 운용하지 않음.
+
+**No close button (X)** — Alert dialogs require explicit button choice. 사용자는 반드시 두 버튼 중 하나를 선택해야 함.
+
+**JS API**
+```js
+showAlert({
+  title: '등록 취소',
+  message: '등록을 취소합니다. 사용한 바이인은 환불됩니다.',
+  cancelText: '돌아가기',
+  confirmText: '등록 취소',
+  onConfirm: function() { /* action */ },
+  onCancel: function() { /* optional */ },
+});
+```
+
 ### Navigation
 
 Navigation has 5 distinct variants across device and auth state.

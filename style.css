@@ -1227,6 +1227,15 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .td-section { background:transparent; border:none; border-radius:0; padding:14px; margin-bottom:16px; }
 .td-section-title { font-size:16px; font-weight:700; color:var(--color-text-primary); margin:0 0 16px 0; }
 
+/* Blind Level Bar (현재 / 다음 블라인드 + 다음 레벨까지 카운트다운) */
+.td-blind-bar { display:flex; flex-direction:column; gap:4px; padding:14px 20px; margin:0 8px 4px; background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:8px; }
+.td-blind-bar-row { display:flex; align-items:center; gap:10px; }
+.td-blind-bar-label { font-size:12px; color:var(--color-text-muted); font-weight:500; width:28px; flex-shrink:0; }
+.td-blind-bar-value { flex:1; min-width:0; font-size:14px; font-weight:700; letter-spacing:-0.2px; }
+.td-blind-bar-value-current { color:var(--color-text-primary); }
+.td-blind-bar-value-next { color:var(--color-text-muted); font-weight:600; }
+.td-blind-bar-timer { flex-shrink:0; padding:6px 14px; background:rgba(255,255,255,0.06); border-radius:14px; font-size:13px; font-weight:700; color:var(--color-text-primary); font-variant-numeric:tabular-nums; letter-spacing:-0.3px; }
+
 .td-info-grid { display:flex; flex-direction:column; }
 .td-info-row { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--color-border); }
 .td-info-row:last-child { border-bottom:none; }
@@ -1619,13 +1628,36 @@ body.chat-open > .m-nav { display:none !important; }
 .sp-pay-notice { text-align:center; color:var(--color-text-secondary); font-size:14px; padding:16px 0; margin:0; }
 .shop-item { cursor:pointer; }
 
+/* Alert Modal (범용 확인 다이얼로그 — title + message + 취소/확인) */
+.alert-card { max-width:320px; border-radius:16px; }
+.alert-body { padding:24px 24px 20px; text-align:center; }
+.alert-title { font-size:18px; font-weight:700; color:var(--color-text-primary); margin:0 0 8px; }
+.alert-message { font-size:14px; color:var(--color-text-muted); line-height:1.5; margin:0 0 20px; white-space:pre-line; }
+.alert-buttons { display:flex; gap:10px; }
+.alert-btn { flex:1; padding:13px 12px 12px; border:1px solid transparent; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; transition:all 0.2s; font-family:'Pretendard Variable',Pretendard,sans-serif; line-height:1; }
+.alert-btn-cancel { border-color:var(--color-border); background:#23233a; color:var(--color-text-secondary); }
+.alert-btn-cancel:hover { background:#2d2d44; }
+.alert-btn-confirm { background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark)); color:#fff; }
+.alert-btn-confirm:hover { box-shadow:0 4px 20px var(--glow-orange); transform:translateY(-1px); }
+
 /* Tournament Register Modal */
 .tdr-modal-body { padding:20px 24px 24px; position:relative; overflow:hidden; }
-.tdr-header { display:flex; justify-content:center; margin-bottom:8px; }
-.tdr-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700; background:rgba(245,158,11,0.15); color:var(--color-accent-gold,#f59e0b); }
-.tdr-name { font-size:16px; font-weight:700; color:var(--color-text-primary); text-align:center; margin-bottom:4px; }
-.tdr-value { font-size:14px; font-weight:700; color:var(--color-text-secondary); }
-.tdr-fee { font-size:16px; font-weight:800; color:var(--color-accent-gold,#f59e0b); }
+.tdr-modal-header { justify-content:center; }
+.tdr-title { font-size:16px; font-weight:700; color:var(--color-text-primary); text-align:center; margin:0; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.tdr-value { font-size:14px; font-weight:700; color:var(--color-text-primary); }
+.tdr-section-label { font-size:12px; color:var(--color-text-muted); font-weight:500; margin-bottom:10px; }
+.tdr-options { display:flex; flex-direction:column; gap:8px; margin-bottom:4px; }
+.tdr-option { display:flex; align-items:center; gap:10px; padding:14px 16px; border:1px solid var(--color-border); border-radius:10px; cursor:pointer; transition:all 0.2s; background:rgba(255,255,255,0.02); }
+.tdr-option input[type=radio] { display:none; }
+.tdr-option:hover { border-color:rgba(249,98,23,0.3); }
+.tdr-option.selected { border-color:var(--color-primary); background:rgba(249,98,23,0.06); }
+.tdr-option-radio { width:16px; height:16px; border-radius:50%; border:1.5px solid var(--color-text-muted); flex-shrink:0; position:relative; transition:all 0.15s; }
+.tdr-option.selected .tdr-option-radio { border-color:var(--color-primary); }
+.tdr-option.selected .tdr-option-radio::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--color-primary); }
+.tdr-option-icon { width:20px; height:20px; flex-shrink:0; object-fit:contain; box-sizing:border-box; }
+.tdr-option[data-tdr-method="gold"] .tdr-option-icon { padding:2px; }
+.tdr-option-label { flex:1; font-size:14px; font-weight:700; color:var(--color-text-primary); }
+.tdr-option-hold { font-size:12px; color:var(--color-text-muted); font-weight:500; white-space:nowrap; }
 
 /* Legal Pages (Terms, Privacy) */
 .legal-content { max-width:700px; margin:0 auto; padding-bottom:48px; color:var(--color-text-secondary); font-size:14px; line-height:1.8; }

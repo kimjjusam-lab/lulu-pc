@@ -1276,17 +1276,27 @@
       <button class="td-tab" data-td-tab="payout" onclick="switchTnDetailTab('payout')" data-i18n="td_tab_payout">상금</button>
       <button class="td-tab" data-td-tab="blinds" onclick="switchTnDetailTab('blinds')" data-i18n="td_tab_blinds">블라인드</button>
     </div>
-    <div class="td-summary-card">
-      <div class="td-summary-prize"><span class="td-summary-label">상금 풀</span><span class="td-summary-value" id="tdPrizeValue">500,000</span><span class="td-summary-unit">골드</span></div>
-      <div class="td-summary-row">
-        <div class="td-summary-item"><span class="tn-badge" id="tdStatusBadge">등록중</span><span class="td-summary-data" id="tdElapsed">00:00:00</span></div>
-        <div class="td-summary-item"><span class="td-summary-label">바이인</span><span class="td-summary-data" id="tdBuyinValue">무료</span></div>
-        <div class="td-summary-item"><span class="td-summary-label">남은 참가자</span><span class="td-summary-data" id="tdRemainPlayers">3/10</span></div>
-      </div>
-    </div>
-
     <!-- 자세히 탭 -->
     <div class="td-tab-content active" id="td-info">
+      <div class="td-summary-card">
+        <div class="td-summary-prize"><span class="td-summary-label">상금 풀</span><span class="td-summary-value" id="tdPrizeValue">500,000</span><span class="td-summary-unit">골드</span></div>
+        <div class="td-summary-row">
+          <div class="td-summary-item"><span class="tn-badge" id="tdStatusBadge">등록중</span><span class="td-summary-data" id="tdElapsed">00:00:00</span></div>
+          <div class="td-summary-item"><span class="td-summary-label">바이인</span><span class="td-summary-data" id="tdBuyinValue">무료</span></div>
+          <div class="td-summary-item"><span class="td-summary-label">남은 참가자</span><span class="td-summary-data" id="tdRemainPlayers">3/10</span></div>
+        </div>
+      </div>
+      <div class="td-blind-bar">
+        <div class="td-blind-bar-row">
+          <span class="td-blind-bar-label">현재</span>
+          <span class="td-blind-bar-value td-blind-bar-value-current" id="tdBlindCurrent">Lv.1 10/20</span>
+          <span class="td-blind-bar-timer" id="tdBlindTimer">00:15:00</span>
+        </div>
+        <div class="td-blind-bar-row">
+          <span class="td-blind-bar-label">다음</span>
+          <span class="td-blind-bar-value td-blind-bar-value-next" id="tdBlindNext">Lv.2 20/40</span>
+        </div>
+      </div>
       <div class="td-section">
         <div class="td-info-grid">
           <div class="td-info-row">
@@ -1362,10 +1372,9 @@
           <table class="td-blind-table">
             <thead>
               <tr>
-                <th>Lv</th>
-                <th>SB / BB</th>
-                <th>Ante</th>
-                <th>Time</th>
+                <th>레벨</th>
+                <th>블라인드</th>
+                <th>시간</th>
               </tr>
             </thead>
             <tbody id="tdBlindTableBody"></tbody>
@@ -2894,31 +2903,54 @@
 
 <!-- Tournament Register Modal -->
 <div class="modal-overlay" id="tdRegisterModal">
-  <div class="modal-card" style="max-width:380px;">
-    <div class="modal-header">
-      <h3 data-i18n="td_reg_title">등록하기</h3>
+  <div class="modal-card" style="max-width:340px;">
+    <div class="modal-header tdr-modal-header">
+      <h3 class="tdr-title" id="tdrName">터보 스프린트</h3>
     </div>
     <div class="tdr-modal-body">
-      <div class="tdr-header">
-        <span class="tdr-badge" id="tdrBadge">00:00 등록중</span>
-      </div>
-      <div class="tdr-name" id="tdrName"></div>
-      <div class="sp-divider"></div>
-      <div class="sp-price-row">
-        <span data-i18n="td_start_time">시작 시간</span>
-        <span class="tdr-value" id="tdrStartTime"></span>
-      </div>
-      <div class="sp-price-row">
-        <span data-i18n="tdr_payment_option">결제 옵션</span>
-        <span class="tdr-value" id="tdrPaymentOption"></span>
-      </div>
       <div class="sp-price-row">
         <span data-i18n="td_buyin">바이인</span>
-        <span class="tdr-value tdr-fee" id="tdrFee"></span>
+        <span class="tdr-value" id="tdrFee">180 + 20</span>
+      </div>
+      <div class="sp-price-row">
+        <span data-i18n="tdr_prize">상금 풀</span>
+        <span class="tdr-value" id="tdrPrize">10,000골드</span>
+      </div>
+      <div class="sp-divider"></div>
+      <div class="tdr-section-label" data-i18n="tdr_method">등록 수단</div>
+      <div class="tdr-options">
+        <label class="tdr-option selected" data-tdr-method="gold">
+          <input type="radio" name="tdrMethod" value="gold" checked>
+          <span class="tdr-option-radio"></span>
+          <img class="tdr-option-icon" src="images/icon_gold.png" alt="골드">
+          <span class="tdr-option-label">200골드</span>
+          <span class="tdr-option-hold">보유 8,300</span>
+        </label>
+        <label class="tdr-option" data-tdr-method="ticket">
+          <input type="radio" name="tdrMethod" value="ticket">
+          <span class="tdr-option-radio"></span>
+          <img class="tdr-option-icon" src="images/shop_ticket.png" alt="티켓">
+          <span class="tdr-option-label">티켓 1장</span>
+          <span class="tdr-option-hold">보유 2장</span>
+        </label>
       </div>
       <div class="sp-buttons">
         <button class="sp-cancel-btn" onclick="closeTdRegisterModal()" data-i18n="sp_cancel">취소</button>
         <button class="sp-confirm-btn" id="tdrConfirmBtn" onclick="confirmTdRegister()" data-i18n="td_register">등록</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Alert Modal (범용 확인 다이얼로그) -->
+<div class="modal-overlay" id="alertModal">
+  <div class="modal-card alert-card">
+    <div class="alert-body">
+      <h3 class="alert-title" id="alertTitle">제목</h3>
+      <p class="alert-message" id="alertMessage">메시지</p>
+      <div class="alert-buttons">
+        <button class="alert-btn alert-btn-cancel" id="alertCancelBtn" onclick="closeAlertModal()">돌아가기</button>
+        <button class="alert-btn alert-btn-confirm" id="alertConfirmBtn">확인</button>
       </div>
     </div>
   </div>
