@@ -1406,7 +1406,9 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .gs-blind-table tbody tr:hover { background:rgba(255,255,255,0.03); }
 .gs-blind-table tbody tr.selected { background:rgba(249,98,23,0.08); outline:1px solid rgba(249,98,23,0.3); outline-offset:-1px; }
 .gs-blind-table tbody tr.break-row { background:rgba(107,114,128,0.08); color:var(--color-text-muted); font-style:italic; }
-.gs-blind-table td input { width:100%; max-width:80px; padding:6px 8px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-bg-body); color:var(--color-text-primary); font-size:13px; text-align:center; font-family:'Pretendard Variable',Pretendard,sans-serif; outline:none; }
+.gs-blind-table td input { width:100%; max-width:80px; padding:6px 8px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-bg-body); color:var(--color-text-primary); font-size:13px; text-align:center; font-family:'Pretendard Variable',Pretendard,sans-serif; outline:none; -moz-appearance:textfield; appearance:textfield; }
+.gs-blind-table td input::-webkit-outer-spin-button,
+.gs-blind-table td input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 .gs-blind-table td input:focus { border-color:var(--color-primary); }
 .gs-blind-table td .gs-sb-bb { display:flex; align-items:center; justify-content:center; gap:4px; }
 .gs-blind-table td .gs-sb-bb input { max-width:55px; }
@@ -1421,6 +1423,22 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 /* Create Button */
 .gs-create-wrap { max-width:700px; margin:32px auto 48px; }
 .gs-create-btn { width:100%; }
+
+/* Mobile: pin create button to bottom with dark fade (ported from .td-bottom-bar) */
+@media (max-width:1023px) {
+  .gs-create-wrap {
+    position:fixed; bottom:0; left:0; right:0;
+    max-width:none; margin:0;
+    padding:24px 16px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top, #0d0d18 70%, rgba(13,13,24,0.4) 90%, transparent);
+    z-index:100;
+    display:flex; justify-content:center;
+    pointer-events:none;
+  }
+  .gs-create-wrap > * { pointer-events:auto; }
+  .gs-create-btn { max-width:700px; }
+  #page-game-setup .gs-tab-content { padding-bottom:120px; }
+}
 
 /* Select Dropdown Arrow */
 #page-game-setup select.login-input { appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; cursor:pointer; }
@@ -1566,8 +1584,16 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 #page-chat.active ~ .m-tabbar,
 #page-notif-detail.active ~ .m-tabbar,
 #page-tn-detail.active ~ .m-tabbar,
-#page-tournament.active ~ .m-tabbar,
 body.chat-open > .m-nav { display:none !important; }
+
+/* Game pages (tournament/holdem/game-setup): slide the mobile tabbar down on entry */
+#page-tournament.active ~ .m-tabbar,
+#page-holdem.active ~ .m-tabbar,
+#page-game-setup.active ~ .m-tabbar {
+  transform:translateY(100%);
+  opacity:0;
+  pointer-events:none;
+}
 
 /* Notification Detail (Mobile) */
 .notif-detail-scroll { flex:1; overflow-y:auto; padding:24px 20px 32px; }
@@ -1958,6 +1984,8 @@ body.chat-open > .m-nav { display:none !important; }
     -webkit-backdrop-filter:blur(24px) saturate(180%);
     border-top:1px solid rgba(255,255,255,0.08);
     padding-bottom:env(safe-area-inset-bottom, 0);
+    transition:transform 0.35s ease, opacity 0.35s ease;
+    will-change:transform, opacity;
   }
   .m-tab {
     display:flex; flex-direction:column; align-items:center; gap:3px;
