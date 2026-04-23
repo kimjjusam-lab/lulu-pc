@@ -2018,12 +2018,24 @@ function tnIsPcSplit() {
  * tn- 레이아웃 클래스 공유, id는 hd- 접두어
  * ======================== */
 const demoHoldem = [
-  { id:'h1', event:'A', blinds:'50/100',  participants:42, buyin:'1만', maxType:'6max' },
-  { id:'h2', event:'B', blinds:'50/100',  participants:28, buyin:'1만', fee2:'2,400', maxType:'9max' },
-  { id:'h3', event:'A', blinds:'100/200', participants:67, buyin:'2만', maxType:'6max' },
-  { id:'h4', event:'B', blinds:'100/200', participants:35, buyin:'2만', fee2:'4,800', maxType:'9max' },
-  { id:'h5', event:'C', blinds:'100/200', participants:18, buyin:'2만', maxType:'6max' },
-  { id:'h6', event:'A', blinds:'200/400', participants:51, buyin:'4만', maxType:'6max' },
+  { id:'h1',  event:'A', blinds:'50/100',    participants:42,  buyin:'1만',  maxType:'6max' },
+  { id:'h2',  event:'B', blinds:'50/100',    participants:28,  buyin:'1만',  fee2:'2,400',  maxType:'9max' },
+  { id:'h3',  event:'A', blinds:'100/200',   participants:67,  buyin:'2만',  maxType:'6max' },
+  { id:'h4',  event:'B', blinds:'100/200',   participants:35,  buyin:'2만',  fee2:'4,800',  maxType:'9max' },
+  { id:'h5',  event:'C', blinds:'100/200',   participants:18,  buyin:'2만',  maxType:'6max' },
+  { id:'h6',  event:'A', blinds:'200/400',   participants:51,  buyin:'4만',  maxType:'6max' },
+  { id:'h7',  event:'A', blinds:'25/50',     participants:21,  buyin:'5천',  maxType:'6max' },
+  { id:'h8',  event:'C', blinds:'50/100',    participants:24,  buyin:'1만',  maxType:'9max' },
+  { id:'h9',  event:'B', blinds:'200/400',   participants:48,  buyin:'4만',  fee2:'9,600',  maxType:'9max' },
+  { id:'h10', event:'A', blinds:'500/1000',  participants:33,  buyin:'10만', maxType:'6max' },
+  { id:'h11', event:'C', blinds:'200/400',   participants:15,  buyin:'4만',  maxType:'6max' },
+  { id:'h12', event:'B', blinds:'500/1000',  participants:22,  buyin:'10만', fee2:'24,000', maxType:'9max' },
+  { id:'h13', event:'A', blinds:'100/200',   participants:58,  buyin:'2만',  maxType:'9max' },
+  { id:'h14', event:'C', blinds:'50/100',    participants:12,  buyin:'1만',  maxType:'6max' },
+  { id:'h15', event:'A', blinds:'1000/2000', participants:19,  buyin:'20만', maxType:'6max' },
+  { id:'h16', event:'B', blinds:'25/50',     participants:31,  buyin:'5천',  fee2:'1,200',  maxType:'9max' },
+  { id:'h17', event:'A', blinds:'200/400',   participants:74,  buyin:'4만',  maxType:'9max' },
+  { id:'h18', event:'C', blinds:'500/1000',  participants:9,   buyin:'10만', maxType:'6max' },
 ];
 
 const hdTypeMap = {
@@ -3510,16 +3522,46 @@ function mbRenderNotifs() {
     return;
   }
   el.innerHTML = demoNotifs.map(function(n, i) {
-    var detailHtml = n.detail ? n.detail.replace(/\n/g, '<br>') : n.desc;
     return '<div class="mb-notif-item' + (n.unread ? ' unread' : '') + '" data-notif-idx="' + i + '" onclick="toggleNotifDetail(' + i + ')">' +
       '<div class="mb-notif-body">' +
         '<div class="mb-notif-title">' + n.title + '</div>' +
         '<div class="mb-notif-desc">' + n.desc + '</div>' +
         '<div class="mb-notif-time">' + n.time + '</div>' +
-        '<div class="mb-notif-detail">' + detailHtml + '</div>' +
       '</div>' +
     '</div>';
   }).join('');
+}
+
+function notifCategoryTag(title) {
+  if (/우승|챔피언|시즌/.test(title)) return '토너먼트';
+  if (/출석|보상|지급|당첨|레벨/.test(title)) return '보상';
+  if (/점검|시스템/.test(title)) return '시스템';
+  if (/친구|초대/.test(title)) return '소셜';
+  return '알림';
+}
+
+function openNotifDetail(idx) {
+  var n = demoNotifs[idx];
+  if (!n) return;
+  n.unread = false;
+  document.getElementById('notifDetailHeader').textContent = n.title;
+  document.getElementById('notifDetailTag').textContent = notifCategoryTag(n.title);
+  document.getElementById('notifDetailTime').textContent = n.time;
+  document.getElementById('notifDetailBody').innerHTML = n.detail ? n.detail.replace(/\n/g, '<br>') : n.desc;
+  document.body.classList.add('chat-open');
+  switchPage('notif-detail');
+  var sb = document.querySelector('.m-statusbar');
+  var wrap = document.querySelector('#page-notif-detail .chat-wrap');
+  if (wrap && sb && sb.style.display !== 'none') {
+    wrap.style.top = '52px';
+    wrap.style.height = 'calc(100dvh - 52px)';
+  }
+}
+
+function closeNotifDetail() {
+  document.body.classList.remove('chat-open');
+  switchPage('mailbox');
+  setTimeout(function() { switchMbTab('notification'); }, 50);
 }
 
 function toggleNotifDetail(idx) {
@@ -3551,15 +3593,8 @@ function toggleNotifDetail(idx) {
     return;
   }
 
-  // 모바일: 카드 토글
-  var isOpen = item.classList.contains('notif-expanded');
-  document.querySelectorAll('.mb-notif-item.notif-expanded').forEach(function(el) {
-    el.classList.remove('notif-expanded');
-  });
-  if (!isOpen) {
-    item.classList.add('notif-expanded');
-    item.classList.remove('unread');
-  }
+  // 모바일: 새 페이지로 이동
+  openNotifDetail(idx);
 }
 
 function mbRenderMessages() {

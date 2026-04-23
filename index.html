@@ -1519,14 +1519,14 @@
     <div class="mb-split-layout">
       <div class="mb-split-left">
         <div class="mb-tabs">
-          <button class="mb-tab active" data-mb-tab="notification" onclick="switchMbTab('notification')">알림</button>
-          <button class="mb-tab" data-mb-tab="message" onclick="switchMbTab('message')">1:1 메시지</button>
+          <button class="mb-tab active" data-mb-tab="message" onclick="switchMbTab('message')">1:1 메시지</button>
+          <button class="mb-tab" data-mb-tab="notification" onclick="switchMbTab('notification')">알림</button>
         </div>
-        <div class="mb-tab-content active" id="mb-notification">
-          <div class="mb-list" id="mbNotifList"></div>
-        </div>
-        <div class="mb-tab-content" id="mb-message" style="display:none">
+        <div class="mb-tab-content active" id="mb-message">
           <div class="mb-list" id="mbMsgList"></div>
+        </div>
+        <div class="mb-tab-content" id="mb-notification" style="display:none">
+          <div class="mb-list" id="mbNotifList"></div>
         </div>
       </div>
       <div class="mb-split-right" id="mbSplitRight">
@@ -1581,6 +1581,26 @@
     <div class="chat-input-bar">
       <input type="text" class="chat-input" id="chatInput" placeholder="메시지를 입력하세요" onkeydown="if(event.key==='Enter')sendChat()">
       <button class="chat-send-btn" onclick="sendChat()">전송</button>
+    </div>
+  </div>
+</div>
+
+<!-- Notification Detail Page (Mobile) -->
+<div class="page-container" id="page-notif-detail">
+  <div class="chat-wrap">
+    <nav class="m-nav">
+      <div class="m-nav-title">
+        <svg class="m-nav-back" onclick="closeNotifDetail()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span class="m-nav-title-text">알림 상세</span>
+      </div>
+    </nav>
+    <div class="notif-detail-scroll">
+      <div class="notif-detail-header" id="notifDetailHeader"></div>
+      <div class="notif-detail-meta">
+        <span class="notif-tag" id="notifDetailTag"></span>
+        <span id="notifDetailTime"></span>
+      </div>
+      <div class="notif-detail-body" id="notifDetailBody"></div>
     </div>
   </div>
 </div>
