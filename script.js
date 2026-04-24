@@ -4030,10 +4030,9 @@ initDateRange();
   var grid=document.getElementById('holecardGrid');
   if(!grid)return;
   var ranks=['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
-  var won=['KQo','JTs','TT','T9o','99','88','77','66','55','44','33','22'];
-  var lost=['Q7s'];
-  var wonSet={};won.forEach(function(h){wonSet[h]=1;});
-  var lostSet={};lost.forEach(function(h){lostSet[h]=1;});
+  var won={'KQo':'+15만','Q8s':'+8만','Q7s':'+5만','JTs':'+12만','TT':'+18만'};
+  var even={'88':0,'77':0,'66':0,'55':0,'44':0,'33':0,'22':0};
+  var lost={'T9o':'-7만','99':'-10만'};
   for(var r=0;r<13;r++){
     for(var c=0;c<13;c++){
       var cell=document.createElement('div');
@@ -4042,9 +4041,15 @@ initDateRange();
       if(r===c){label=ranks[r]+ranks[c];}
       else if(c>r){label=ranks[r]+ranks[c]+'s';}
       else{label=ranks[c]+ranks[r]+'o';}
-      cell.textContent=label;
-      if(lostSet[label])cell.classList.add('lost');
-      else if(wonSet[label])cell.classList.add('won');
+      var amount='';
+      if(lost[label]){cell.classList.add('lost');amount=lost[label];}
+      else if(won[label]){cell.classList.add('won');amount=won[label];}
+      else if(label in even){cell.classList.add('even');}
+      if(amount){
+        cell.innerHTML='<span class="hc-label">'+label+'</span><span class="hc-amount">'+amount+'</span>';
+      }else{
+        cell.textContent=label;
+      }
       grid.appendChild(cell);
     }
   }
