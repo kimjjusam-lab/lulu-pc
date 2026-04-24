@@ -242,9 +242,12 @@ body {
 .holecard-cell:hover { transform:scale(1.1); z-index:1; }
 .analytics-summary-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
 .date-range-fields { display:inline-flex; gap:8px; align-items:center; }
-.date-range-box { position:relative; padding:14px 18px; border-radius:12px; border:1px solid var(--color-border); background:var(--color-bg-card); cursor:pointer; transition:all 0.2s; }
-.date-range-box:hover { border-color:rgba(249,98,23,0.3); }
-.date-range-box #dateRangeText { color:var(--color-text-primary); font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif; font-size:14px; font-weight:500; white-space:nowrap; letter-spacing:0.5px; }
+.date-range-box { position:relative; cursor:pointer; }
+.date-range-box > .login-input { padding-right:44px; cursor:pointer; white-space:nowrap; letter-spacing:0.5px; }
+/* Calendar icon inside date/time inputs (matches design-preview Date Picker template) */
+.input-with-cal-icon { position:relative; }
+.input-with-cal-icon > .login-input { padding-right:44px; cursor:pointer; }
+.input-calendar-icon { position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--color-text-muted); pointer-events:none; }
 /* Calendar popup */
 .cal-popup { display:none; position:absolute; top:100%; right:0; margin-top:8px; width:320px; background:#0f0f1a; border:1px solid var(--color-border); border-radius:6px; padding:20px; z-index:200; box-shadow:0 12px 40px rgba(0,0,0,0.6); }
 .cal-popup.open { display:block; }
@@ -1537,7 +1540,6 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .mb-split-left { flex:1; min-width:0; }
 .mb-split-right { flex:1; min-width:0; overflow:hidden; position:relative; }
 .mb-split-placeholder { position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 24px; color:var(--color-text-muted); text-align:center; }
-.mb-split-placeholder-icon { font-size:48px; margin-bottom:16px; opacity:0.4; }
 .mb-split-placeholder p { font-size:14px; }
 .mb-split-notif-detail { position:absolute; top:0; left:0; right:0; bottom:0; padding:32px 28px; overflow-y:auto; background:var(--color-bg-nav); }
 .mb-split-notif-header { font-size:20px; font-weight:800; color:var(--color-text-primary); margin-bottom:12px; line-height:1.4; }
@@ -1848,9 +1850,8 @@ body.chat-open > .m-nav { display:none !important; }
   .holecard-legend { gap:10px; flex-wrap:wrap; }
   .analytics-summary-header { flex-direction:column; align-items:flex-start; gap:12px; }
   .date-range-fields { display:flex; width:100%; gap:6px; }
-  .date-range-box { flex:1; text-align:center; }
-  .date-range-box { padding:12px 12px; }
-  .date-range-box #dateRangeText { font-size:15px; }
+  .date-range-box { flex:1; }
+  .date-range-box > .login-input { text-align:center; font-size:15px; }
   .date-range-btn { padding:13px 14px; font-size:12px; }
   .cal-popup { width:320px; max-width:calc(100vw - 32px); right:auto; left:50%; transform:translateX(-50%); }
   /* --- Chart bars mobile --- */

@@ -482,7 +482,7 @@ function sameDay(a,b) { return a && b && a.getFullYear()===b.getFullYear() && a.
 
 function updateDateRangeText() {
   var el = document.getElementById('dateRangeText');
-  if (el && calState.start && calState.end) el.textContent = formatDateDot(calState.start) + ' ~ ' + formatDateDot(calState.end);
+  if (el && calState.start && calState.end) el.value = formatDateDot(calState.start) + ' ~ ' + formatDateDot(calState.end);
 }
 
 function initDateRange() {
@@ -3037,8 +3037,8 @@ function gsInitDefaults() {
   const displayStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
   const el = document.getElementById('gsStartTime');
   if (el) el.value = dtStr;
-  const textEl = document.getElementById('gsStartTimeText');
-  if (textEl) textEl.textContent = displayStr;
+  const displayEl = document.getElementById('gsStartTimeDisplay');
+  if (displayEl) displayEl.value = displayStr;
   gsBlindData = JSON.parse(JSON.stringify(defaultBlindLevels));
   gsSelectedRow = -1;
   gsRenderBlindTable();
@@ -3112,7 +3112,7 @@ function dtpSelect() {
   const dtStr = dtpYear + '-' + pad(dtpMonth+1) + '-' + pad(dtpDay) + 'T' + pad(dtpHour) + ':' + pad(dtpMinute);
   const displayStr = dtpYear + '-' + pad(dtpMonth+1) + '-' + pad(dtpDay) + ' ' + pad(dtpHour) + ':' + pad(dtpMinute);
   document.getElementById('gsStartTime').value = dtStr;
-  document.getElementById('gsStartTimeText').textContent = displayStr;
+  document.getElementById('gsStartTimeDisplay').value = displayStr;
   dtpClose();
 }
 

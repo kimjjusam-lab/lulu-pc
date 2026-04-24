@@ -212,7 +212,8 @@
     <div class="chart-container" style="margin-bottom:24px"><div class="analytics-summary-header"><div class="chart-title" data-i18n="analytics_summary" style="margin-bottom:0;">내 통계 요약</div>
     <div class="date-range-fields">
       <div class="date-range-box" id="dateRangeBox" onclick="toggleCalendar(event)">
-        <span id="dateRangeText">2026.03.17 ~ 2026.03.24</span>
+        <input type="text" class="login-input" id="dateRangeText" readonly value="2026.03.17 ~ 2026.03.24">
+        <svg class="input-calendar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </div>
       <div class="cal-popup" id="calPopup">
         <div class="cal-header">
@@ -1531,7 +1532,6 @@
       </div>
       <div class="mb-split-right" id="mbSplitRight">
         <div class="mb-split-placeholder" id="mbSplitPlaceholder">
-          <div class="mb-split-placeholder-icon">💬</div>
           <p>대화를 선택하면 채팅이 여기에 표시됩니다</p>
         </div>
         <div class="mb-split-notif-detail" id="mbSplitNotifDetail" style="display:none;">
@@ -1684,9 +1684,9 @@
       <div class="gs-divider"></div>
       <div class="gs-section">
         <label class="gs-label" data-i18n="gs_label_start_time">시작 시간 (자동 시작)</label>
-        <div class="login-input dtp-trigger" id="gsStartTimeDisplay" role="button" tabindex="0" onclick="dtpOpen()">
-          <span id="gsStartTimeText">2025-01-01 14:00</span>
-          <span class="dtp-icon">📅</span>
+        <div class="input-with-cal-icon">
+          <input type="text" class="login-input" id="gsStartTimeDisplay" readonly onclick="dtpOpen()" value="2025-01-01 14:00">
+          <svg class="input-calendar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
         <input type="hidden" id="gsStartTime">
       </div>
