@@ -188,12 +188,11 @@ body {
 .stat-card { background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:6px; padding:16px 20px; display:flex; align-items:center; gap:14px; text-align:left; transition:all 0.25s; position:relative; }
 .stat-card:hover { border-color:rgba(249,98,23,0.2); }
 .stat-card-static, .stat-card-static:hover, .stat-card-static:focus { border-color:transparent; cursor:default; transition:none; }
-.stats-grid-detail { grid-template-columns:repeat(8,1fr); gap:12px; }
-.stats-grid-detail .stat-card { flex-direction:column; text-align:center; padding:14px 8px; gap:8px; }
-.stats-grid-detail .stat-icon img { width:36px; height:36px; }
-.stats-grid-detail .stat-info { align-items:center; }
-.stats-grid-detail .stat-value { font-size:18px; justify-content:center; }
-.stats-grid-detail .stat-label { font-size:10px; }
+.stats-grid-detail { grid-template-columns:repeat(7,1fr); gap:8px; }
+.stats-grid-detail .stat-card { flex-direction:column; align-items:flex-start; text-align:left; padding:14px 14px; gap:6px; }
+.stats-grid-detail .stat-info { align-items:flex-start; }
+.stats-grid-detail .stat-value { font-size:18px; justify-content:flex-start; }
+.stats-grid-detail .stat-label { font-size:11px; text-transform:none; letter-spacing:0; }
 .stat-card-link { cursor:pointer; }
 .stat-card-link:hover { border-color:rgba(249,98,23,0.4); background:var(--color-bg-card-hover); }
 .stat-shortcut { display:flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:6px; background:rgba(255,255,255,0.08); font-size:11px; color:var(--color-text-secondary); font-weight:600; flex-shrink:0; transition:all 0.2s; }
@@ -2157,12 +2156,12 @@ body.chat-open > .m-nav { display:none !important; }
 
   /* --- Stats: 2x2 grid --- */
   .stats-grid { grid-template-columns:1fr 1fr; gap:10px; }
-  .stats-grid-detail { grid-template-columns:repeat(2,1fr); }
+  .stats-grid-detail { grid-template-columns:repeat(2,1fr); gap:8px; }
   .stats-grid-detail .stat-card-mobile-hide { display:none; }
-  .stats-grid-detail .stat-card { flex-direction:column; text-align:center; padding:8px 8px; gap:6px; min-height:100px; justify-content:center; }
-  .stats-grid-detail .stat-info { align-items:center; }
-  .stats-grid-detail .stat-value { font-size:16px; justify-content:center; }
-  .stats-grid-detail .stat-label { font-size:10px; word-break:keep-all; }
+  .stats-grid-detail .stat-card { flex-direction:column; align-items:flex-start; text-align:left; padding:14px 16px; gap:4px; min-height:72px; justify-content:center; }
+  .stats-grid-detail .stat-info { align-items:flex-start; }
+  .stats-grid-detail .stat-value { font-size:18px; justify-content:flex-start; }
+  .stats-grid-detail .stat-label { font-size:11px; word-break:keep-all; text-transform:none; letter-spacing:0; }
   .stat-card { padding:12px 14px; border-radius:6px; gap:10px; }
   .stat-icon { font-size:22px; }
   .stat-icon img { width:36px; height:36px; }
