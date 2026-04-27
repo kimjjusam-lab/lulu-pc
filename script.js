@@ -2318,28 +2318,30 @@ function tdRenderDetailInline(container) {
     for (var i = 0; i < itm.players; i++) {
       demoPlayers.push({ name: playerNames[i % playerNames.length], level: Math.floor(Math.random()*20)+5, chips: (Math.floor(Math.random()*50)+10)*1000, avatar: _avatarList[i % _avatarList.length] });
     }
+    var myRank = tnGetMyRank(itm);
+    var myChips = (((itm.id * 7) % 40) + 10) * 1000;
+    if (itm.registered && myRank && demoPlayers[myRank - 1]) {
+      demoPlayers[myRank - 1] = { name: '나', chips: myChips, isMe: true };
+    }
     var list = ct.querySelector('#tdPlayerList');
     if (!list) return;
     if (demoPlayers.length === 0) { list.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:32px 0;color:var(--text-muted);">' + (t.td_no_players || '아직 참가자가 없습니다') + '</td></tr>'; return; }
     list.innerHTML = demoPlayers.map(function(p, idx) {
-      return '<tr><td>'+(idx+1)+'</td><td><div style="display:flex;align-items:center;gap:8px;"><img class="td-player-avatar" src="images/'+p.avatar+'.png" alt="">'+p.name+'</div></td><td style="color:var(--accent-gold);font-weight:600;">'+p.chips.toLocaleString()+'</td></tr>';
-    }).join('');
-    var myTbody = ct.querySelector('#tdMyRankTbody');
-    if (myTbody) {
-      var myRank = tnGetMyRank(itm);
-      if (itm.registered && myRank) {
-        var myAvatar = _avatarList[itm.id % _avatarList.length];
-        var myChips = (((itm.id * 7) % 40) + 10) * 1000;
-        myTbody.innerHTML = '<tr>' +
-          '<td><span class="td-my-rank-num">'+myRank+'</span></td>'+
-          '<td><div class="td-my-rank-name"><img class="td-player-avatar" src="images/'+myAvatar+'.png" alt="">나<span class="td-player-row-me-label">ME</span></div></td>'+
-          '<td>'+myChips.toLocaleString()+'</td>'+
-        '</tr>';
-        myTbody.style.display = '';
-      } else {
-        myTbody.style.display = 'none';
-        myTbody.innerHTML = '';
+      if (p.isMe) {
+        return '<tr class="td-player-row-me"><td>'+(idx+1)+'</td><td>나<span class="td-player-row-me-label">ME</span></td><td>'+p.chips.toLocaleString()+'</td></tr>';
       }
+      return '<tr><td>'+(idx+1)+'</td><td>'+p.name+'</td><td style="color:var(--accent-gold);font-weight:600;">'+p.chips.toLocaleString()+'</td></tr>';
+    }).join('');
+    var myBar = ct.querySelector('#tdMyRankBar');
+    if (myBar) {
+      if (itm.registered && myRank) {
+        var posEl = ct.querySelector('#tdMyRankBarPos');
+        var chipsEl = ct.querySelector('#tdMyRankBarChips');
+        if (posEl) posEl.textContent = myRank + '위';
+        if (chipsEl) chipsEl.textContent = myChips.toLocaleString();
+      }
+      var playersTabActive = ct.querySelector('#td-players') && ct.querySelector('#td-players').classList.contains('active');
+      myBar.style.display = (itm.registered && myRank && playersTabActive) ? '' : 'none';
     }
   }
   function tdRenderBlindTableIn(ct) {
@@ -2347,9 +2349,9 @@ function tdRenderDetailInline(container) {
     if (!tbody) return;
     var html = '';
     defaultBlindLevels.forEach(function(row) {
-      html += '<tr><td>'+row.lv+'</td><td>'+row.sb.toLocaleString()+' / '+row.bb.toLocaleString()+'</td><td>'+row.time+'min</td></tr>';
+      html += '<tr><td>'+row.lv+'</td><td>'+row.sb.toLocaleString()+' / '+row.bb.toLocaleString()+'</td><td>'+row.ante.toLocaleString()+'</td><td>'+row.time+'min</td></tr>';
       if (_blindBreaks[row.lv]) {
-        html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="3" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 '+_blindBreaks[row.lv]+'분</td></tr>';
+        html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="4" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 '+_blindBreaks[row.lv]+'분</td></tr>';
       }
     });
     tbody.innerHTML = html;
@@ -2386,6 +2388,8 @@ function tdRenderDetailInline(container) {
       btn.classList.add('active');
       var tabId = btn.getAttribute('data-td-tab');
       container.querySelector('#td-' + tabId).classList.add('active');
+      var myBar = container.querySelector('#tdMyRankBar');
+      if (myBar) myBar.style.display = (tabId === 'players' && item.registered && tnGetMyRank(item)) ? '' : 'none';
     };
   });
 
@@ -2403,6 +2407,12 @@ function switchTnDetailTab(tab) {
   document.querySelectorAll('.td-tab-content').forEach(function(e) { e.classList.remove('active'); });
   document.querySelector('.td-tab[data-td-tab="' + tab + '"]').classList.add('active');
   document.getElementById('td-' + tab).classList.add('active');
+  var myBar = document.getElementById('tdMyRankBar');
+  if (myBar) {
+    var item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
+    var show = (tab === 'players') && item && item.registered && tnGetMyRank(item);
+    myBar.style.display = show ? '' : 'none';
+  }
 }
 
 var _avatarList = ['avatar_a','avatar_b','avatar_c','avatar_d','avatar_e','avatar_f','avatar_g','avatar_h','avatar_i','avatar_j','avatar_k','avatar_l','avatar_m','avatar_n','avatar_o','avatar_p'];
@@ -2421,6 +2431,12 @@ function tdRenderPlayerList(item) {
     });
   }
 
+  var myRank = tnGetMyRank(item);
+  var myChips = (((item.id * 7) % 40) + 10) * 1000;
+  if (item.registered && myRank && demoPlayers[myRank - 1]) {
+    demoPlayers[myRank - 1] = { name: '나', chips: myChips, isMe: true };
+  }
+
   var list = document.getElementById('tdPlayerList');
   if (demoPlayers.length === 0) {
     list.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:32px 0;color:var(--text-muted);">' + (t.td_no_players || '아직 참가자가 없습니다') + '</td></tr>';
@@ -2428,29 +2444,31 @@ function tdRenderPlayerList(item) {
   }
 
   list.innerHTML = demoPlayers.map(function(p, idx) {
+    if (p.isMe) {
+      return '<tr class="td-player-row-me">' +
+        '<td>' + (idx + 1) + '</td>' +
+        '<td>나<span class="td-player-row-me-label">ME</span></td>' +
+        '<td>' + p.chips.toLocaleString() + '</td>' +
+      '</tr>';
+    }
     return '<tr>' +
       '<td>' + (idx + 1) + '</td>' +
-      '<td><div style="display:flex;align-items:center;gap:8px;"><img class="td-player-avatar" src="images/' + p.avatar + '.png" alt="">' + p.name + '</div></td>' +
+      '<td>' + p.name + '</td>' +
       '<td style="color:var(--accent-gold);font-weight:600;">' + p.chips.toLocaleString() + '</td>' +
     '</tr>';
   }).join('');
 
-  var myTbody = document.getElementById('tdMyRankTbody');
-  if (myTbody) {
-    var myRank = tnGetMyRank(item);
+  var myBar = document.getElementById('tdMyRankBar');
+  if (myBar) {
     if (item.registered && myRank) {
-      var myAvatar = _avatarList[item.id % _avatarList.length];
-      var myChips = (((item.id * 7) % 40) + 10) * 1000;
-      myTbody.innerHTML = '<tr>' +
-        '<td><span class="td-my-rank-num">' + myRank + '</span></td>' +
-        '<td><div class="td-my-rank-name"><img class="td-player-avatar" src="images/' + myAvatar + '.png" alt="">나<span class="td-player-row-me-label">ME</span></div></td>' +
-        '<td>' + myChips.toLocaleString() + '</td>' +
-      '</tr>';
-      myTbody.style.display = '';
-    } else {
-      myTbody.style.display = 'none';
-      myTbody.innerHTML = '';
+      var posEl = document.getElementById('tdMyRankBarPos');
+      var chipsEl = document.getElementById('tdMyRankBarChips');
+      if (posEl) posEl.textContent = myRank + '위';
+      if (chipsEl) chipsEl.textContent = myChips.toLocaleString();
     }
+    var playersTab = document.getElementById('td-players');
+    var playersTabActive = playersTab && playersTab.classList.contains('active');
+    myBar.style.display = (item.registered && myRank && playersTabActive) ? '' : 'none';
   }
 }
 
@@ -2463,10 +2481,11 @@ function tdRenderBlindTable() {
     html += '<tr>' +
       '<td>' + row.lv + '</td>' +
       '<td>' + row.sb.toLocaleString() + ' / ' + row.bb.toLocaleString() + '</td>' +
+      '<td>' + row.ante.toLocaleString() + '</td>' +
       '<td>' + row.time + 'min</td>' +
     '</tr>';
     if (_blindBreaks[row.lv]) {
-      html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="3" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 ' + _blindBreaks[row.lv] + '분</td></tr>';
+      html += '<tr style="background:rgba(249,98,23,0.06);"><td colspan="4" style="text-align:center;color:var(--accent-orange);font-weight:700;font-size:12px;">휴식 ' + _blindBreaks[row.lv] + '분</td></tr>';
     }
   });
   tbody.innerHTML = html;

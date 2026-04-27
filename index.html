@@ -1355,7 +1355,6 @@
                 <th>칩/상금</th>
               </tr>
             </thead>
-            <tbody class="td-my-rank-tbody" id="tdMyRankTbody" style="display:none;"></tbody>
             <tbody id="tdPlayerList"></tbody>
           </table>
         </div>
@@ -1371,6 +1370,7 @@
               <tr>
                 <th>레벨</th>
                 <th>블라인드</th>
+                <th>앤티</th>
                 <th>시간</th>
               </tr>
             </thead>
@@ -1401,9 +1401,16 @@
 
     <!-- 하단 참가 버튼 -->
     <div class="td-bottom-bar">
-      <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">착석</button>
-      <button class="td-spectate-btn" id="tdSpectateBtn" onclick="tdSpectate()" data-i18n="td_spectate">관전</button>
-      <button class="td-cancel-btn" id="tdCancelBtn" onclick="tdCancelRegister()" style="display:none;" data-i18n="td_cancel_register">등록 취소</button>
+      <div class="td-my-rank-bar" id="tdMyRankBar" style="display:none;">
+        <span class="td-my-rank-bar-pos" id="tdMyRankBarPos"></span>
+        <span class="td-my-rank-bar-name">나<span class="td-player-row-me-label">ME</span></span>
+        <span class="td-my-rank-bar-chips" id="tdMyRankBarChips"></span>
+      </div>
+      <div class="td-bottom-buttons">
+        <button class="td-register-btn" id="tdRegisterBtn" onclick="tdRegister()" data-i18n="td_register">착석</button>
+        <button class="td-spectate-btn" id="tdSpectateBtn" onclick="tdSpectate()" data-i18n="td_spectate">관전</button>
+        <button class="td-cancel-btn" id="tdCancelBtn" onclick="tdCancelRegister()" style="display:none;" data-i18n="td_cancel_register">등록 취소</button>
+      </div>
     </div>
   </div>
 </div>
