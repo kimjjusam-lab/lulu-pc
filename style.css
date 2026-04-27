@@ -1852,9 +1852,9 @@ body.chat-open > .m-nav { display:none !important; }
   /* --- Analytics mobile --- */
   .chart-container { padding:20px 16px; }
   .holecard-grid { gap:1px; }
-  .holecard-cell { font-size:9px; border-radius:2px; }
-  .holecard-cell .hc-label { font-size:8px; }
-  .holecard-cell .hc-amount { font-size:7px; }
+  .holecard-cell { font-size:11px; border-radius:2px; }
+  .holecard-cell .hc-label { font-size:11px; }
+  .holecard-cell .hc-amount { display:none; }
   .holecard-legend { gap:10px; flex-wrap:wrap; }
   .date-range-fields { display:flex; width:100%; gap:6px; }
   .date-range-box { flex:1; }
