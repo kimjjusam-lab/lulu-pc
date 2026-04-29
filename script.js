@@ -227,6 +227,8 @@ const i18n = {
     skin_royal_red_desc: '프리미엄 레드 테이블',
     skin_cosmic_black: '코스믹 블랙',
     skin_cosmic_black_desc: '우주 컨셉 한정 스킨',
+    skin_coral_bay: '코랄 베이',
+    skin_coral_bay_desc: '산호가 비치는 따뜻한 만',
     shop_card_skins: '카드 스킨',
     skin_gold_card: '골드 카드',
     skin_gold_card_desc: '고급 골드 카드 뒷면',
@@ -3703,6 +3705,7 @@ const shopItemsData = [
   { id:101, nameKey:'skin_classic_green', descKey:'skin_classic_green_desc', category:'table', icon:'🟢', gradient:'linear-gradient(135deg,#0a200a,#0d300d)', currency:'gold', price:2000 },
   { id:102, nameKey:'skin_royal_red', descKey:'skin_royal_red_desc', category:'table', icon:'🔴', gradient:'linear-gradient(135deg,#200a0a,#300d0d)', currency:'gold', price:5000 },
   { id:103, nameKey:'skin_cosmic_black', descKey:'skin_cosmic_black_desc', category:'table', icon:'🌌', gradient:'linear-gradient(135deg,#1a0533,#2d1058)', currency:'gold', price:10000 },
+  { id:114, nameKey:'skin_coral_bay', descKey:'skin_coral_bay_desc', category:'table', icon:'🪸', gradient:'linear-gradient(135deg,#0e7490,#fb7185)', currency:'gold', price:4000 },
   { id:104, nameKey:'skin_gold_card', descKey:'skin_gold_card_desc', category:'card', icon:'🃏', gradient:'linear-gradient(135deg,#1a1500,#2d2200)', currency:'diamond', price:80 },
   { id:105, nameKey:'skin_brick_pattern', descKey:'skin_brick_pattern_desc', category:'card', icon:'🧱', gradient:'linear-gradient(135deg,#78350f,#b45309)', currency:'diamond', price:120 },
   { id:106, nameKey:'skin_diamond_card', descKey:'skin_diamond_card_desc', category:'card', icon:'🎆', gradient:'linear-gradient(135deg,#200510,#350a1a)', currency:'diamond', price:300 },
@@ -4017,5 +4020,32 @@ initDateRange();
       }
       grid.appendChild(cell);
     }
+  }
+})();
+
+// Notice Popup
+function openWelcomePopup(){
+  var p=document.getElementById('welcomePopup');
+  if(p) p.classList.add('active');
+}
+function closeWelcomePopup(){
+  var p=document.getElementById('welcomePopup');
+  if(!p) return;
+  var hide=document.getElementById('welcomePopupHide');
+  if(hide && hide.checked){
+    try{ localStorage.setItem('welcomePopupHideUntil', String(Date.now()+24*60*60*1000)); }catch(e){}
+  }
+  p.classList.remove('active');
+}
+(function(){
+  try{
+    var until=parseInt(localStorage.getItem('welcomePopupHideUntil')||'0',10);
+    if(until && Date.now()<until) return;
+  }catch(e){}
+  var run=function(){ setTimeout(openWelcomePopup, 300); };
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', run);
+  }else{
+    run();
   }
 })();
