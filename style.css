@@ -2384,6 +2384,20 @@ body.chat-open > .m-nav { display:none !important; }
 
 }
 
+/* Limit Setting Modal */
+.limit-card { max-width:340px; }
+.limit-body { padding:18px 24px 8px; }
+.limit-desc { font-size:13px; color:var(--color-text-secondary); line-height:1.5; margin:0 0 16px; padding-left:12px; text-indent:-12px; }
+.limit-desc::before { content:"• "; color:var(--color-text-secondary); }
+#limitOptions.gs-tabs { margin:0 0 8px; }
+
+/* Alert pattern extensions: input + helper + disabled + warn span */
+.alert-input { width:100%; padding:12px 14px; background:var(--color-bg-depth-250); border:1px solid var(--color-border); border-radius:10px; color:var(--color-text-primary); font-size:14px; font-family:'Pretendard Variable',Pretendard,sans-serif; text-align:left; outline:none; transition:border-color 0.2s; box-sizing:border-box; margin:0 0 10px; }
+.alert-input:focus { border-color:var(--color-primary); }
+.alert-helper { font-size:12px; color:var(--color-text-secondary); text-align:center; margin:0 0 20px; font-weight:500; }
+.alert-btn:disabled { opacity:0.45; cursor:not-allowed; transform:none; box-shadow:none; }
+.alert-message-error { color:var(--color-sys-error); }
+
 /* Notice Popup */
 .welcome-popup-card { max-width:420px; padding:0; }
 .welcome-popup-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:20px 24px 12px; }

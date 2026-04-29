@@ -325,6 +325,14 @@ const i18n = {
     nickname_modal_error_duplicate: '이미 사용 중인 닉네임입니다',
     avatar_modal_quit_text: '게임 탈퇴를 하려면?',
     avatar_modal_quit_btn: '계정삭제',
+    del_acc_title: '계정삭제',
+    del_acc_warning: '정말로 계정을 삭제하시겠습니까? 탈퇴 시 재가입이 불가합니다.',
+    del_acc_helper: "확인하려면 'DELETE'를 정확히 입력하세요.",
+    del_acc_cancel: '취소',
+    del_acc_confirm: '계정삭제',
+    limit_title: '일일 손실한도 설정',
+    limit_desc: '일일 기준 손실한도를 3,500억 또는 500억으로 설정할 수 있습니다.',
+    limit_apply: '설정',
     avatar_modal_limit_text: '1일 한도를 바꾸고 싶다면?',
     avatar_modal_limit_btn: '한도설정',
 
@@ -1706,6 +1714,67 @@ function closeAvatarModal() {
   document.getElementById('avatarModal').classList.remove('active');
   document.body.style.overflow = '';
   document.body.style.paddingRight = '';
+}
+
+// === DELETE ACCOUNT MODAL (V2) ===
+function openDeleteAccountModal() {
+  closeAvatarModal();
+  const input = document.getElementById('deleteAccountInput');
+  const btn = document.getElementById('deleteAccountConfirmBtn');
+  if (input) input.value = '';
+  if (btn) btn.disabled = true;
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollbarWidth + 'px';
+  document.getElementById('deleteAccountModal').classList.add('active');
+  if (input) setTimeout(function(){ input.focus(); }, 100);
+}
+
+function closeDeleteAccountModal() {
+  document.getElementById('deleteAccountModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function confirmDeleteAccount() {
+  const input = document.getElementById('deleteAccountInput');
+  if (!input || input.value.trim().toUpperCase() !== 'DELETE') return;
+  closeDeleteAccountModal();
+  if (typeof handleLogout === 'function') handleLogout();
+}
+
+(function(){
+  document.addEventListener('input', function(e){
+    if (e.target && e.target.id === 'deleteAccountInput') {
+      const btn = document.getElementById('deleteAccountConfirmBtn');
+      if (btn) btn.disabled = e.target.value.trim().toUpperCase() !== 'DELETE';
+    }
+  });
+})();
+
+// === LIMIT SETTING MODAL ===
+function openLimitSettingModal() {
+  closeAvatarModal();
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollbarWidth + 'px';
+  document.getElementById('limitSettingModal').classList.add('active');
+}
+
+function closeLimitSettingModal() {
+  document.getElementById('limitSettingModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function selectLimitOption(btn) {
+  const opts = document.querySelectorAll('#limitOptions .gs-tab');
+  opts.forEach(function(o){ o.classList.remove('active'); });
+  btn.classList.add('active');
+}
+
+function applyLimitSetting() {
+  closeLimitSettingModal();
 }
 
 function selectAvatar(el) {

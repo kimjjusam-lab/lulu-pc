@@ -2806,6 +2806,42 @@
   </div>
 </div>
 
+<!-- Limit Setting Modal -->
+<div class="modal-overlay" id="limitSettingModal">
+  <div class="modal-card limit-card">
+    <div class="modal-header">
+      <h3 data-i18n="limit_title">일일 손실한도 설정</h3>
+      <button class="modal-close" onclick="closeLimitSettingModal()" aria-label="닫기">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.6347 0.234208C14.9471 -0.078008 15.4532 -0.0781309 15.7656 0.234208C16.0779 0.54656 16.0778 1.05263 15.7656 1.36507L9.13275 7.99788L15.7695 14.6346C16.0819 14.947 16.0819 15.454 15.7695 15.7664C15.4571 16.0787 14.951 16.0786 14.6386 15.7664L8.00189 9.12874L1.36517 15.7664C1.05276 16.0786 0.546657 16.0787 0.234315 15.7664C-0.0781139 15.454 -0.0780958 14.947 0.234315 14.6346L6.87006 7.99788L0.238221 1.36507C-0.0740051 1.05263 -0.0741314 0.54656 0.238221 0.234208C0.550579 -0.0781309 1.05665 -0.078008 1.36908 0.234208L8.00189 6.86702L14.6347 0.234208Z" fill="#FEFEFE"/></svg>
+      </button>
+    </div>
+    <div class="limit-body">
+      <p class="limit-desc" data-i18n="limit_desc">일일 기준 손실한도를 3,500억 또는 500억으로 설정할 수 있습니다.</p>
+      <div class="gs-tabs" id="limitOptions">
+        <button class="gs-tab active" data-value="3500" onclick="selectLimitOption(this)">3,500억</button>
+        <button class="gs-tab" data-value="500" onclick="selectLimitOption(this)">500억</button>
+      </div>
+    </div>
+    <button class="modal-apply-btn" data-i18n="limit_apply" onclick="applyLimitSetting()">설정</button>
+  </div>
+</div>
+
+<!-- Delete Account Modal -->
+<div class="modal-overlay" id="deleteAccountModal">
+  <div class="modal-card alert-card">
+    <div class="alert-body">
+      <h3 class="alert-title" data-i18n="del_acc_title">계정삭제</h3>
+      <p class="alert-message alert-message-error" data-i18n="del_acc_warning">정말로 계정을 삭제하시겠습니까?<br>탈퇴 시 재가입이 불가합니다.</p>
+      <input type="text" class="alert-input" id="deleteAccountInput" autocomplete="off" spellcheck="false">
+      <p class="alert-helper" data-i18n="del_acc_helper">확인하려면 'DELETE'를 정확히 입력하세요.</p>
+      <div class="alert-buttons">
+        <button class="alert-btn alert-btn-cancel" data-i18n="del_acc_cancel" onclick="closeDeleteAccountModal()">취소</button>
+        <button class="alert-btn alert-btn-confirm" id="deleteAccountConfirmBtn" data-i18n="del_acc_confirm" onclick="confirmDeleteAccount()" disabled>계정삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Nickname Edit Modal -->
 <div class="modal-overlay" id="nicknameModal">
   <div class="modal-card" style="max-width:340px;">
@@ -2923,11 +2959,11 @@
     <div class="modal-bottom-links">
       <div class="modal-bottom-row">
         <span data-i18n="avatar_modal_quit_text">게임 탈퇴를 하려면?</span>
-        <button class="modal-link-btn" data-i18n="avatar_modal_quit_btn">계정삭제</button>
+        <button class="modal-link-btn" data-i18n="avatar_modal_quit_btn" onclick="openDeleteAccountModal()">계정삭제</button>
       </div>
       <div class="modal-bottom-row">
         <span data-i18n="avatar_modal_limit_text">1일 한도를 바꾸고 싶다면?</span>
-        <button class="modal-link-btn" data-i18n="avatar_modal_limit_btn">한도설정</button>
+        <button class="modal-link-btn" data-i18n="avatar_modal_limit_btn" onclick="openLimitSettingModal()">한도설정</button>
       </div>
     </div>
     </div>
@@ -3121,7 +3157,7 @@
       </button>
     </div>
     <div class="welcome-popup-body">
-      <p class="welcome-popup-date" data-i18n="welcome_popup_date">2026.04.28 18:00</p>
+      <p class="welcome-popup-date" data-i18n="welcome_popup_date">2026.04.29 13:47</p>
       <ul class="welcome-popup-list">
         <li>컨셉 : (민)은 덜 캐주얼, (의)는 더 캐주얼한 방향</li>
         <li>만약 더 캐주얼로 변경될 경우 라이트 모드 추가 진행</li>
