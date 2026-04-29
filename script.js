@@ -249,7 +249,6 @@ const i18n = {
     // MY 페이지
     my_title: 'MY 룰루',
     my_desc: '내 프로필과 게임 정보를 관리하세요',
-    my_info_sub: '가입일: 2025.01.15 · 레벨 23',
     my_profile: '회원정보 수정',
     my_history: '거래 내역',
     my_friends: '친구 관리',
@@ -1528,10 +1527,8 @@ function updateMyPage() {
   if (!session) return;
   const nicknameEl = document.getElementById('myNickname');
   const emailEl = document.getElementById('myEmail');
-  const joinEl = document.getElementById('myJoinInfo');
   if (nicknameEl) nicknameEl.textContent = session.nickname;
   if (emailEl) emailEl.textContent = session.email || session.id;
-  if (joinEl) joinEl.textContent = '가입일: ' + session.joinDate + ' · 레벨 1';
 }
 
 // 페이지 로드 시 인증 상태 확인
