@@ -2746,7 +2746,7 @@ function tdHostCopy() {
   if (!item || (item.status !== 'canceled' && item.status !== 'finished')) return;
   showAlert({
     title: '토너먼트 복사',
-    message: '이 토너먼트의 설정을 복사하여 새로운 임시저장 토너먼트를 생성합니다.',
+    message: '이 토너먼트 스트럭쳐를 복사하시겠습니까?',
     cancelText: '돌아가기',
     confirmText: '복사',
     onConfirm: function() {
