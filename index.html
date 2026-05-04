@@ -1445,7 +1445,13 @@
   <div class="content-wrapper">
     <div class="gs-back" role="button" tabindex="0" onclick="switchPage('lobby')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
     <div class="gs-hero">
-      <h2 data-i18n="hd_title">홀덤</h2>
+      <div class="gs-hero-title-row">
+        <h2 data-i18n="hd_title">홀덤</h2>
+        <div class="tn-round-toggle hd-round-toggle" role="tablist" aria-label="홀덤 회차">
+          <button class="tn-round-btn hd-round-btn active" data-hd-round="1" onclick="switchHoldemRound('1')">1차</button>
+          <button class="tn-round-btn hd-round-btn" data-hd-round="2" onclick="switchHoldemRound('2')">2차</button>
+        </div>
+      </div>
       <!-- <p data-i18n="hd_desc">캐시게임에 참여하고 승부하세요</p> -->
     </div>
     <div class="tn-split-layout">
@@ -3151,6 +3157,13 @@
   </div>
 </div>
 
+<!-- Holdem Detail Modal (Mobile only) -->
+<div class="modal-overlay" id="hdDetailModal" onclick="if(event.target===this)closeHdDetailModal()">
+  <div class="modal-card hd-detail-modal-card">
+    <div id="hdMobileDetailMount" class="hd-detail-mobile"></div>
+  </div>
+</div>
+
 <!-- Alert Modal (범용 확인 다이얼로그) -->
 <div class="modal-overlay" id="alertModal">
   <div class="modal-card alert-card">
@@ -3241,14 +3254,14 @@
       </button>
     </div>
     <div class="welcome-popup-body">
-      <p class="welcome-popup-date" data-i18n="welcome_popup_date">2026.04.29 13:47</p>
+      <p class="welcome-popup-date" data-i18n="welcome_popup_date">2026.05.04 11:41</p>
       <ul class="welcome-popup-list">
         <li>컨셉 : (민)은 덜 캐주얼, (의)는 더 캐주얼한 방향</li>
         <li>만약 더 캐주얼로 변경될 경우 라이트 모드 추가 진행</li>
         <li>상점 관련 모달은 v2 기준으로 제작</li>
         <li><s>마이 룰루 > 호스트 상세 페이지 제작</s></li>
         <li><s>마이 룰루 > 히스토리 상세 페이지 수정</s></li>
-        <li>홀덤(링게임) 상세 페이지 및 관련 모달 추가</li>
+        <li><s>홀덤(링게임) 상세 페이지 및 관련 모달 추가</s></li>
         <li>상점 아이템 콘텐츠 전반 수정</li>
         <li>1차/2차 디자인은 토글 버튼으로 구분 가능한 기능 추가</li>
         <li>아바타 게임 리소스는 v3 기준으로 업데이트</li>

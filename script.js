@@ -651,7 +651,7 @@ function switchPage(p) {
   if (p === 'game-setup') { gsInitDefaults(); }
   if (p === 'tournament') { tnRenderList(); switchTournamentTab('all'); tnApplyRoundVisibility(); tnStartCountdown(); }
   else { if (typeof tnStopCountdown === 'function') tnStopCountdown(); }
-  if (p === 'holdem') { hdRenderList(); }
+  if (p === 'holdem') { hdApplyRoundVisibility(); }
   if (p === 'tn-history') { tnRenderHistory(); }
   if (p === 'tn-history-detail') { thdRenderDetail(); }
   if (p === 'ticket') { tkRenderList(); }
@@ -736,6 +736,11 @@ function mSyncNavTitle(page) {
       titleHtml += '<span class="m-nav-round-toggle" role="tablist" aria-label="토너먼트 회차">' +
         '<button class="m-nav-round-btn tn-round-btn' + (activeRound === '1' ? ' active' : '') + '" data-tn-round="1" onclick="event.stopPropagation();switchTournamentRound(\'1\')">1차</button>' +
         '<button class="m-nav-round-btn tn-round-btn' + (activeRound === '2' ? ' active' : '') + '" data-tn-round="2" onclick="event.stopPropagation();switchTournamentRound(\'2\')">2차</button>' +
+        '</span>';
+    } else if (page === 'holdem') {
+      titleHtml += '<span class="m-nav-round-toggle" role="tablist" aria-label="홀덤 회차">' +
+        '<button class="m-nav-round-btn tn-round-btn hd-round-btn' + (currentHdRound === '1' ? ' active' : '') + '" data-hd-round="1" onclick="event.stopPropagation();switchHoldemRound(\'1\')">1차</button>' +
+        '<button class="m-nav-round-btn tn-round-btn hd-round-btn' + (currentHdRound === '2' ? ' active' : '') + '" data-hd-round="2" onclick="event.stopPropagation();switchHoldemRound(\'2\')">2차</button>' +
         '</span>';
     }
     title.innerHTML = titleHtml;
@@ -1627,6 +1632,7 @@ window.addEventListener('resize', function() {
   } else {
     bannerTrack.style.transform = 'translateX(-' + (currentSlide * 100 / TOTAL_SLIDES) + '%)';
   }
+  if (typeof hdHandleResize === 'function') hdHandleResize();
 });
 
 // === TOUCH SWIPE (mobile only) ===
@@ -2124,6 +2130,42 @@ const demoHoldem = [
   { id:'h16', event:'B', blinds:'25/50',     participants:31,  buyin:'5천',  fee2:'1,200',  maxType:'9max' },
   { id:'h17', event:'A', blinds:'200/400',   participants:74,  buyin:'4만',  maxType:'9max' },
   { id:'h18', event:'C', blinds:'500/1000',  participants:9,   buyin:'10만', maxType:'6max' },
+  { id:'h19', event:'A', blinds:'25/50',     participants:38,  buyin:'5천',  maxType:'9max' },
+  { id:'h20', event:'B', blinds:'100/200',   participants:44,  buyin:'2만',  fee2:'4,800',  maxType:'6max' },
+  { id:'h21', event:'A', blinds:'50/100',    participants:62,  buyin:'1만',  maxType:'9max' },
+  { id:'h22', event:'C', blinds:'25/50',     participants:11,  buyin:'5천',  maxType:'6max' },
+  { id:'h23', event:'A', blinds:'200/400',   participants:29,  buyin:'4만',  maxType:'9max' },
+  { id:'h24', event:'B', blinds:'500/1000',  participants:17,  buyin:'10만', fee2:'24,000', maxType:'6max' },
+  { id:'h25', event:'A', blinds:'100/200',   participants:47,  buyin:'2만',  maxType:'6max' },
+  { id:'h26', event:'C', blinds:'100/200',   participants:23,  buyin:'2만',  maxType:'9max' },
+  { id:'h27', event:'A', blinds:'500/1000',  participants:14,  buyin:'10만', maxType:'9max' },
+  { id:'h28', event:'B', blinds:'50/100',    participants:39,  buyin:'1만',  fee2:'2,400',  maxType:'6max' },
+  { id:'h29', event:'A', blinds:'1000/2000', participants:8,   buyin:'20만', maxType:'9max' },
+  { id:'h30', event:'C', blinds:'200/400',   participants:26,  buyin:'4만',  maxType:'9max' },
+  { id:'h31', event:'A', blinds:'50/100',    participants:54,  buyin:'1만',  maxType:'6max' },
+  { id:'h32', event:'B', blinds:'200/400',   participants:32,  buyin:'4만',  fee2:'9,600',  maxType:'6max' },
+  { id:'h33', event:'A', blinds:'100/200',   participants:71,  buyin:'2만',  maxType:'6max' },
+  { id:'h34', event:'C', blinds:'500/1000',  participants:7,   buyin:'10만', maxType:'9max' },
+  { id:'h35', event:'A', blinds:'200/400',   participants:43,  buyin:'4만',  maxType:'6max' },
+  { id:'h36', event:'B', blinds:'25/50',     participants:25,  buyin:'5천',  fee2:'1,200',  maxType:'6max' },
+  { id:'h37', event:'A', blinds:'25/50',     participants:55,  buyin:'5천',  maxType:'9max' },
+  { id:'h38', event:'C', blinds:'50/100',    participants:16,  buyin:'1만',  maxType:'6max' },
+  { id:'h39', event:'A', blinds:'500/1000',  participants:27,  buyin:'10만', maxType:'6max' },
+  { id:'h40', event:'B', blinds:'100/200',   participants:36,  buyin:'2만',  fee2:'4,800',  maxType:'9max' },
+  { id:'h41', event:'A', blinds:'100/200',   participants:65,  buyin:'2만',  maxType:'9max' },
+  { id:'h42', event:'C', blinds:'1000/2000', participants:6,   buyin:'20만', maxType:'6max' },
+  { id:'h43', event:'A', blinds:'50/100',    participants:49,  buyin:'1만',  maxType:'6max' },
+  { id:'h44', event:'B', blinds:'500/1000',  participants:13,  buyin:'10만', fee2:'24,000', maxType:'9max' },
+  { id:'h45', event:'A', blinds:'200/400',   participants:60,  buyin:'4만',  maxType:'9max' },
+  { id:'h46', event:'C', blinds:'200/400',   participants:20,  buyin:'4만',  maxType:'9max' },
+  { id:'h47', event:'A', blinds:'1000/2000', participants:10,  buyin:'20만', maxType:'6max' },
+  { id:'h48', event:'B', blinds:'50/100',    participants:37,  buyin:'1만',  fee2:'2,400',  maxType:'9max' },
+  { id:'h49', event:'A', blinds:'25/50',     participants:46,  buyin:'5천',  maxType:'6max' },
+  { id:'h50', event:'C', blinds:'25/50',     participants:30,  buyin:'5천',  maxType:'9max' },
+  { id:'h51', event:'A', blinds:'500/1000',  participants:40,  buyin:'10만', maxType:'9max' },
+  { id:'h52', event:'B', blinds:'100/200',   participants:50,  buyin:'2만',  fee2:'4,800',  maxType:'6max' },
+  { id:'h53', event:'A', blinds:'100/200',   participants:53,  buyin:'2만',  maxType:'6max' },
+  { id:'h54', event:'C', blinds:'50/100',    participants:34,  buyin:'1만',  maxType:'6max' },
 ];
 
 const hdTypeMap = {
@@ -2135,7 +2177,8 @@ const hdTypeMap = {
 function hdBuildCard(item) {
   var type = hdTypeMap[item.event] || hdTypeMap.A;
   var fee2Html = item.fee2 ? '<div class="hd-card-fee2">참가비 <strong>' + item.fee2 + '</strong></div>' : '';
-  return '<div class="tn-card hd-card">' +
+  var activeClass = (currentHdDetailId === item.id) ? ' tn-card-active' : '';
+  return '<div class="tn-card hd-card' + activeClass + '" onclick="openHdDetail(\'' + item.id + '\')">' +
     '<div class="hd-card-main">' +
       '<div class="hd-card-title">' + type.name + ' ' + item.blinds +
         '<span class="hd-card-participants">참가인원 ' + item.participants + '</span>' +
@@ -2150,6 +2193,215 @@ function hdBuildCard(item) {
       fee2Html +
     '</div>' +
   '</div>';
+}
+
+function hdFormatNumber(n) {
+  if (n >= 10000 && n % 10000 === 0) return (n / 10000) + '만';
+  return n.toLocaleString();
+}
+
+function hdGetDetails(item) {
+  var type = hdTypeMap[item.event] || hdTypeMap.A;
+  var typeFullName = type.name === '홀덤' ? '텍사스 홀덤' : (type.name === '72' ? '72게임' : '오징어 게임');
+  // 데모 테이블 (id 마지막 글자 기반 deterministic 개수)
+  var lastCh = item.id.charCodeAt(item.id.length - 1);
+  var tableCount = 5 + (lastCh % 4); // 5~8개
+  var seats = item.maxType === '9max' ? 9 : 6;
+  var tables = [];
+  for (var i = 1; i <= tableCount; i++) {
+    tables.push({ name: '테이블 ' + i, players: seats, avgPot: 12, avgPotBB: 0 });
+  }
+  var bb = parseInt(item.blinds.split('/')[1], 10) || 100;
+  var minBuyin = bb * 20;
+  var maxBuyin = bb * 100;
+  return {
+    type: type,
+    typeFullName: typeFullName,
+    tables: tables,
+    rules: {
+      gameType: typeFullName,
+      blinds: item.blinds,
+      actionTime: '15초',
+      tableSize: item.maxType,
+      minBuyin: hdFormatNumber(minBuyin),
+      maxBuyin: hdFormatNumber(maxBuyin),
+    },
+  };
+}
+
+let currentHdDetailId = null;
+let currentHdDetailTab = 'tables'; // 'tables' | 'rules'
+
+function hdIsPcSplit() {
+  if (window.innerWidth < 1024) return false;
+  var split = document.getElementById('hdSplitRight');
+  return !!(split && split.offsetParent);
+}
+
+function hdBuildDetailHTML(item, mode) {
+  var d = hdGetDetails(item);
+  var headerHtml =
+    '<div class="hd-detail-header">' +
+      '<div class="hd-detail-title">' + d.typeFullName.replace('텍사스 ', '') + ' ' + item.blinds + '</div>' +
+      '<div class="hd-detail-tags">' +
+        '<span class="hd-tag ' + d.type.cls + '">' + d.type.name + '</span>' +
+        '<span class="hd-tag hd-tag-max">' + item.maxType + '</span>' +
+      '</div>' +
+    '</div>';
+  var tabsHtml =
+    '<div class="hd-detail-tabs">' +
+      '<button class="hd-detail-tab' + (currentHdDetailTab === 'tables' ? ' active' : '') + '" onclick="hdSwitchDetailTab(\'tables\')">테이블</button>' +
+      '<button class="hd-detail-tab' + (currentHdDetailTab === 'rules' ? ' active' : '') + '" onclick="hdSwitchDetailTab(\'rules\')">규칙</button>' +
+    '</div>';
+  var seatIcon = '<svg class="hd-tables-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6v.5H2V14z"/></svg>';
+  var tablesRows = d.tables.map(function(tb) {
+    return '<div class="hd-tables-row">' +
+      '<span class="hd-tables-name">' + tb.name + '</span>' +
+      '<span class="hd-tables-players">' + seatIcon + tb.players + '</span>' +
+      '<span class="hd-tables-pot"><strong>' + tb.avgPot + '</strong> <span class="hd-tables-bb">(' + tb.avgPotBB + 'BB)</span></span>' +
+    '</div>';
+  }).join('');
+  var tablesHtml =
+    '<div class="hd-detail-content hd-tables" data-pane="tables"' + (currentHdDetailTab === 'tables' ? '' : ' style="display:none;"') + '>' +
+      '<div class="hd-tables-head">' +
+        '<span class="hd-tables-name">테이블</span>' +
+        '<span class="hd-tables-players">참가</span>' +
+        '<span class="hd-tables-pot">평균 팟</span>' +
+      '</div>' +
+      '<div class="hd-tables-list">' + tablesRows + '</div>' +
+      (mode === 'pc' ? '<div class="hd-detail-notice">서버가 조건에 맞는 테이블을 자동 배정합니다. 개별 테이블 선택은 불가능합니다.</div>' : '') +
+    '</div>';
+  var rulesRows =
+    '<div class="hd-rules-row"><span class="hd-rules-key">게임 유형</span><span class="hd-rules-val">' + d.rules.gameType + '</span></div>' +
+    '<div class="hd-rules-row"><span class="hd-rules-key">블라인드</span><span class="hd-rules-val">' + d.rules.blinds + '</span></div>' +
+    '<div class="hd-rules-row"><span class="hd-rules-key">액션 타임</span><span class="hd-rules-val">' + d.rules.actionTime + '</span></div>' +
+    '<div class="hd-rules-row"><span class="hd-rules-key">테이블 크기</span><span class="hd-rules-val">' + d.rules.tableSize + '</span></div>' +
+    '<div class="hd-rules-row"><span class="hd-rules-key">최소 바이인</span><span class="hd-rules-val">' + d.rules.minBuyin + '</span></div>' +
+    '<div class="hd-rules-row"><span class="hd-rules-key">최대 바이인</span><span class="hd-rules-val">' + d.rules.maxBuyin + '</span></div>';
+  var rulesHtml =
+    '<div class="hd-detail-content hd-rules" data-pane="rules"' + (currentHdDetailTab === 'rules' ? '' : ' style="display:none;"') + '>' +
+      rulesRows +
+    '</div>';
+  var bottomHtml;
+  if (mode === 'pc') {
+    bottomHtml = '<div class="hd-detail-bottom hd-detail-bottom-pc">' +
+      '<button class="hd-detail-btn hd-detail-btn-join" onclick="hdJoinDetail()">참가</button>' +
+    '</div>';
+  } else {
+    bottomHtml = '<div class="hd-detail-bottom hd-detail-bottom-mobile alert-buttons">' +
+      '<button class="alert-btn alert-btn-cancel" onclick="hdCancelDetail()">취소</button>' +
+      '<button class="alert-btn alert-btn-confirm" onclick="hdJoinDetail()">참가</button>' +
+    '</div>';
+  }
+  return {
+    header: headerHtml,
+    tabs: tabsHtml,
+    body: tablesHtml + rulesHtml,
+    bottom: bottomHtml,
+  };
+}
+
+function openHdDetail(holdemId) {
+  currentHdDetailId = holdemId;
+  currentHdDetailTab = 'tables';
+  var item = demoHoldem.find(function(h) { return h.id === holdemId; });
+  if (!item) return;
+  if (hdIsPcSplit()) {
+    var splitDetail = document.getElementById('hdSplitDetail');
+    var placeholder = document.getElementById('hdSplitPlaceholder');
+    if (!splitDetail) return;
+    var parts = hdBuildDetailHTML(item, 'pc');
+    splitDetail.innerHTML =
+      parts.header +
+      parts.tabs +
+      '<div class="hd-detail-scroll">' + parts.body + '</div>' +
+      parts.bottom;
+    splitDetail.style.display = 'flex';
+    if (placeholder) placeholder.style.display = 'none';
+    hdRenderList();
+  } else {
+    var mobileMount = document.getElementById('hdMobileDetailMount');
+    if (mobileMount) {
+      var partsM = hdBuildDetailHTML(item, 'mobile');
+      mobileMount.innerHTML =
+        partsM.header +
+        partsM.tabs +
+        '<div class="hd-detail-scroll">' + partsM.body + '</div>' +
+        partsM.bottom;
+    }
+    var modal = document.getElementById('hdDetailModal');
+    if (modal) modal.classList.add('active');
+  }
+}
+
+function closeHdDetailModal() {
+  var modal = document.getElementById('hdDetailModal');
+  if (modal) modal.classList.remove('active');
+  currentHdDetailId = null;
+  hdRenderList();
+}
+
+// 브라우저 리사이즈로 모바일↔PC가 바뀔 때 상세를 적절한 위치로 이동
+function hdHandleResize() {
+  if (!currentHdDetailId) return;
+  var holdemPage = document.getElementById('page-holdem');
+  if (!holdemPage || !holdemPage.classList.contains('active')) return;
+  var item = demoHoldem.find(function(h) { return h.id === currentHdDetailId; });
+  if (!item) return;
+  var modal = document.getElementById('hdDetailModal');
+  var modalActive = modal && modal.classList.contains('active');
+  var splitDetail = document.getElementById('hdSplitDetail');
+  var placeholder = document.getElementById('hdSplitPlaceholder');
+  var splitVisible = splitDetail && splitDetail.style.display && splitDetail.style.display !== 'none';
+  if (hdIsPcSplit()) {
+    // PC 모드로 전환 — 모달 닫고 인라인 패널에 표시
+    if (modalActive) modal.classList.remove('active');
+    if (splitDetail && !splitVisible) {
+      var parts = hdBuildDetailHTML(item, 'pc');
+      splitDetail.innerHTML = parts.header + parts.tabs + '<div class="hd-detail-scroll">' + parts.body + '</div>' + parts.bottom;
+      splitDetail.style.display = 'flex';
+      if (placeholder) placeholder.style.display = 'none';
+    }
+  } else {
+    // 모바일 모드로 전환 — 인라인 숨기고 모달 열기
+    if (splitVisible) {
+      splitDetail.style.display = 'none';
+      if (placeholder) placeholder.style.display = '';
+    }
+    if (modal && !modalActive) {
+      var mount = document.getElementById('hdMobileDetailMount');
+      if (mount) {
+        var partsM = hdBuildDetailHTML(item, 'mobile');
+        mount.innerHTML = partsM.header + partsM.tabs + '<div class="hd-detail-scroll">' + partsM.body + '</div>' + partsM.bottom;
+      }
+      modal.classList.add('active');
+    }
+  }
+}
+
+function hdSwitchDetailTab(tab) {
+  currentHdDetailTab = tab;
+  // 활성 탭 표시 + 콘텐츠 토글 (PC/모바일 동일하게 .hd-detail-tab 사용)
+  document.querySelectorAll('.hd-detail-tab').forEach(function(btn) {
+    var isActive = btn.textContent.trim() === (tab === 'tables' ? '테이블' : '규칙');
+    btn.classList.toggle('active', isActive);
+  });
+  document.querySelectorAll('.hd-detail-content').forEach(function(pane) {
+    pane.style.display = pane.getAttribute('data-pane') === tab ? '' : 'none';
+  });
+}
+
+function hdJoinDetail() {
+  // 데모: 임시 알림. 실제 라우팅은 추후.
+  if (typeof showAlert === 'function') {
+    showAlert({ title: '참가', message: '테이블 참가 기능은 준비 중입니다.' });
+  } else {
+    alert('테이블 참가 기능은 준비 중입니다.');
+  }
+}
+
+function hdCancelDetail() {
+  closeHdDetailModal();
 }
 function switchHoldemTab(tab) {
   var allTab = document.querySelector('#page-holdem .tn-tab[data-hd-tab="all"]');
@@ -2167,6 +2419,31 @@ function switchHoldemTab(tab) {
   hdRenderList();
 }
 
+var currentHdRound = '1';
+
+function switchHoldemRound(round) {
+  currentHdRound = round;
+  document.querySelectorAll('.hd-round-btn').forEach(function(b) {
+    if (b.getAttribute('data-hd-round') === round) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+  hdApplyRoundVisibility();
+}
+
+function hdApplyRoundVisibility() {
+  var page = document.getElementById('page-holdem');
+  if (page) page.classList.toggle('tn-hide-tabs', currentHdRound !== '2');
+  document.querySelectorAll('#page-holdem .tn-tabs').forEach(function(el) {
+    el.style.display = (currentHdRound === '2') ? '' : 'none';
+  });
+  if (currentHdRound !== '2') {
+    var allTab = document.querySelector('#page-holdem .tn-tab[data-hd-tab="all"]');
+    document.querySelectorAll('#page-holdem .tn-tab[data-hd-tab^="event"].active').forEach(function(e) { e.classList.remove('active'); });
+    if (allTab) allTab.classList.add('active');
+  }
+  hdRenderList();
+}
+
 function hdRenderList() {
   var el = document.getElementById('hdFilteredList');
   if (!el) return;
@@ -2179,6 +2456,7 @@ function hdRenderList() {
     });
   }
   var cards = demoHoldem.filter(function(item) {
+    if (currentHdRound === '1' && item.event !== 'A') return false;
     return allowedEvents === null || allowedEvents.indexOf(item.event) !== -1;
   });
   if (!cards.length) {
