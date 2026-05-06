@@ -1623,8 +1623,11 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .dtp-dropdown { position:relative; }
 .dtp-dropdown-btn { background:transparent; border:none; color:var(--color-text-primary); font-size:15px; font-weight:600; cursor:pointer; padding:6px 10px; border-radius:8px; transition:background 0.2s; }
 .dtp-dropdown-btn:hover { background:rgba(255,255,255,0.05); }
-.dtp-dropdown-list { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:12px; max-height:200px; overflow-y:auto; z-index:20; min-width:80px; box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+.dtp-dropdown-list { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:12px; max-height:200px; overflow-y:auto; z-index:20; min-width:80px; box-shadow:0 8px 24px rgba(0,0,0,0.4); scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.1) transparent; }
 .dtp-dropdown-list.active { display:block; }
+.dtp-dropdown-list::-webkit-scrollbar { width:4px; }
+.dtp-dropdown-list::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
+.dtp-dropdown-list::-webkit-scrollbar-track { background:transparent; }
 .dtp-dropdown-list div { padding:8px 16px; cursor:pointer; font-size:13px; color:var(--color-text-secondary); white-space:nowrap; text-align:center; transition:background 0.15s, color 0.15s; }
 .dtp-dropdown-list div:first-child { border-radius:12px 12px 0 0; }
 .dtp-dropdown-list div:last-child { border-radius:0 0 12px 12px; }
