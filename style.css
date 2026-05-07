@@ -1581,14 +1581,32 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .tk-summary-info { display:flex; flex-direction:column; gap:4px; }
 .tk-summary-label { font-size:13px; color:var(--color-text-muted); }
 .tk-summary-value { font-size:28px; font-weight:800; color:var(--color-text-primary); }
-.tk-list { display:flex; flex-direction:column; gap:10px; max-width:700px; margin:0 auto; padding-bottom:48px; }
-.tk-item { display:flex; align-items:center; gap:16px; padding:16px 20px; background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:6px; cursor:pointer; transition:all 0.2s; }
-.tk-item:hover { border-color:rgba(249,98,23,0.3); background:var(--color-bg-card-hover); }
-.tk-item-icon { font-size:24px; flex-shrink:0; }
-.tk-item-info { flex:1; display:flex; flex-direction:column; gap:3px; }
-.tk-item-name { font-size:14px; font-weight:700; color:var(--color-text-primary); }
-.tk-item-expire { font-size:12px; color:var(--color-text-muted); }
-.tk-item-arrow { color:var(--color-text-muted); flex-shrink:0; }
+.tk-list { display:flex; flex-direction:column; gap:14px; max-width:700px; margin:0 auto; padding:0 4px 48px; }
+.tk-item { position:relative; cursor:pointer; transition:transform 0.2s; }
+.tk-item:hover { transform:translateY(-1px); }
+.tk-item-inner { position:relative; display:flex; align-items:stretch; background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:12px; min-height:80px; transition:background 0.2s, border-color 0.2s;
+  -webkit-mask-image:
+    radial-gradient(circle 7px at 96px 0,    transparent 7px, #000 7.5px),
+    radial-gradient(circle 7px at 96px 100%, transparent 7px, #000 7.5px);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(circle 7px at 96px 0,    transparent 7px, #000 7.5px),
+    radial-gradient(circle 7px at 96px 100%, transparent 7px, #000 7.5px);
+  mask-composite: intersect;
+}
+.tk-item:hover .tk-item-inner { border-color:rgba(249,98,23,0.35); background:var(--color-bg-card-hover); }
+/* Arc borders tracing the cutout edges (not masked, lives on outer .tk-item) */
+.tk-item::before, .tk-item::after { content:''; position:absolute; width:14px; height:7px; left:89px; pointer-events:none; border:1px solid var(--color-border); transition:border-color 0.2s; z-index:1; }
+.tk-item::before { top:0; border-top:none; border-radius:0 0 7px 7px; }
+.tk-item::after  { bottom:0; border-bottom:none; border-radius:7px 7px 0 0; }
+.tk-item:hover::before, .tk-item:hover::after { border-color:rgba(249,98,23,0.35); }
+.tk-item-icon { position:relative; flex-shrink:0; display:flex; align-items:center; justify-content:center; width:96px; align-self:stretch; background:var(--color-overlay-soft); border:none; border-radius:11px 0 0 11px; }
+.tk-item-icon::after { content:''; position:absolute; right:-0.75px; top:14px; bottom:14px; border-right:1.5px dashed var(--color-border-light); }
+.tk-item-icon img { display:block; width:48px; height:48px; }
+.tk-item-info { flex:1; display:flex; flex-direction:column; gap:4px; justify-content:center; padding:14px 18px; min-width:0; }
+.tk-item-name { font-size:15px; font-weight:800; color:var(--color-text-primary); letter-spacing:-0.2px; }
+.tk-item-expire { font-size:12px; color:var(--color-text-muted); display:flex; align-items:center; }
+.tk-item-arrow { display:flex; align-items:center; padding:0 18px 0 0; color:var(--color-text-muted); flex-shrink:0; }
 
 /* ===================== */
 /* Game Setup Page       */
@@ -2216,6 +2234,7 @@ body.chat-open > .m-nav { display:none !important; }
   .shop-hero, .my-page-hero, .gs-hero, .analytics-hero { display:none; }
   .gs-back, .login-back, .find-account-pc-header { display:none; }
   #page-tn-history .content-wrapper { padding-top:0; }
+  #page-ticket-detail .content-wrapper { padding-top:0; }
   .find-account-header { padding-top:32px; border-top:none; }
   .shop-tab-emoji { display:none; }
   .m-nav-right { display:flex; align-items:center; gap:8px; }

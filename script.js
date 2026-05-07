@@ -3524,49 +3524,38 @@ const demoTickets = [
   { id: 25, series: 'Series A',    expire: '2026-03-04' },
 ];
 
-function tkBuildCard(item) {
-  var lang = currentLang || 'ko';
-  var t = i18n[lang] || i18n.ko;
-  var statusMap = {
-    registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
-    ongoing:     { label: t.tn_status_ongoing || '진행중',     cls: 'ongoing' },
-    lateReg:     { label: t.tn_status_late_reg || '추가등록',  cls: 'lateReg' },
-    finished:    { label: t.tn_status_finished || '종료',      cls: 'finished' },
-  };
-  var s = statusMap[item.status] || statusMap.registering;
-  var buyinLabel = t.tn_buyin || '바이인';
-  var prizeLabel = t.host_total_prize || '총 상금';
-  var playersLabel = t.tn_players || '참가인원';
-  var buyinValue = (item.fee === 'free' || !item.fee) ? 'Free' : hostFormatAmount(item.fee);
-  var prizeValue = (!item.prize || item.prize === '-') ? 'None' : hostFormatAmount(item.prize);
-  var prizeIsNone = prizeValue === 'None';
-  var playersValue = (item.players != null && item.maxPlayers) ? (item.players + ' / ' + item.maxPlayers) : (item.maxPlayers || '-');
-  return '<div class="tn-card host-card tk-card" onclick="openTnDetail(' + item.id + ')">' +
-    '<div class="host-card-main">' +
-      '<span class="tn-badge ' + s.cls + '">' + s.label + '</span>' +
-      '<div class="host-card-title">' + item.name + '</div>' +
-    '</div>' +
-    '<div class="host-card-info">' +
-      '<div class="host-card-info-row"><span class="host-card-info-label">' + buyinLabel + '</span><span class="host-card-info-value">' + buyinValue + '</span></div>' +
-      '<div class="host-card-info-row"><span class="host-card-info-label">' + prizeLabel + '</span><span class="host-card-info-value' + (prizeIsNone ? ' is-none' : '') + '">' + prizeValue + '</span></div>' +
-      '<div class="host-card-info-row"><span class="host-card-info-label">' + playersLabel + '</span><span class="host-card-info-value">' + playersValue + '</span></div>' +
-    '</div>' +
-  '</div>';
-}
-
 function tkRenderList() {
   var lang = currentLang || 'ko';
   var t = i18n[lang] || i18n.ko;
-  var allowed = { registering:1, ongoing:1, lateReg:1, finished:1 };
-  var ownedSeries = {};
-  demoTickets.forEach(function(tk) { ownedSeries[tk.series] = true; });
-  var items = demoTournaments.filter(function(tn) {
-    return tn.requiredTicketSeries && ownedSeries[tn.requiredTicketSeries] && allowed[tn.status];
-  });
-  var emptyMsg = t.tk_empty || '참여 가능한 토너먼트가 없습니다';
+  var expireLabel = t.tk_expire || '만료일';
+  var dayLabel = t.tk_days_left || '일 남음';
+  var today = new Date();
+  today.setHours(0,0,0,0);
+
+  var totalPrefix = lang === 'ko' ? '총 ' : lang === 'ja' ? '合計 ' : '';
+  var totalSuffix = lang === 'ko' ? '장' : lang === 'ja' ? '枚' : ' total';
+  var countEl = document.getElementById('tkTicketCount');
+  if (countEl) countEl.textContent = totalPrefix + demoTickets.length + totalSuffix;
+
+  var html = demoTickets.map(function(tk) {
+    var expDate = new Date(tk.expire);
+    var diff = Math.ceil((expDate - today) / (1000 * 60 * 60 * 24));
+    var daysLeft = diff > 0 ? diff : 0;
+    var safeSeries = tk.series.replace(/'/g, "\\'");
+    return '<div class="tk-item" role="button" tabindex="0" onclick="openTicketDetail(\'' + safeSeries + '\')">' +
+      '<div class="tk-item-inner">' +
+        '<span class="tk-item-icon"><img src="images/ticket_series_a.svg" alt="" width="40" height="40"></span>' +
+        '<div class="tk-item-info">' +
+          '<span class="tk-item-name">' + tk.series + '</span>' +
+          '<span class="tk-item-expire">' + expireLabel + ': ' + tk.expire + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-left:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + daysLeft + dayLabel + '</span>' +
+        '</div>' +
+        '<span class="tk-item-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
   var listEl = document.getElementById('tkTicketList');
-  if (!listEl) return;
-  listEl.innerHTML = items.length ? items.map(tkBuildCard).join('') : '<div class="tn-empty">' + emptyMsg + '</div>';
+  if (listEl) listEl.innerHTML = html;
 }
 
 // === TICKET DETAIL PAGE ===
@@ -3585,15 +3574,13 @@ function ticketDetailRender() {
   var listEl = document.getElementById('ticketDetailList');
   if (!listEl) return;
   if (!series) { listEl.innerHTML = ''; return; }
+  var allowed = { registering:1, ongoing:1, lateReg:1 };
   var items = demoTournaments.filter(function(tn) {
-    return tn.requiredTicketSeries === series && (tn.status === 'finished' || tn.status === 'canceled');
+    return tn.requiredTicketSeries === series && allowed[tn.status];
   });
   var emptyMsg = t.tkd_empty || '참여 가능한 토너먼트가 없습니다';
   listEl.innerHTML = items.length
-    ? items.map(function(item, idx) {
-        var displayName = items.length > 1 ? series + ' #' + (idx + 1) : series;
-        return tnBuildCard(Object.assign({}, item, { name: displayName }));
-      }).join('')
+    ? items.map(function(item) { return hostBuildCard(item); }).join('')
     : '<div class="tn-empty">' + emptyMsg + '</div>';
 }
 

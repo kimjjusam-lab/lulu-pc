@@ -1243,7 +1243,14 @@
     <div class="gs-hero">
       <h2 data-i18n="tk_title">티켓</h2>
     </div>
-    <div class="tn-list" id="tkTicketList" style="max-width:700px;margin:0 auto;"></div>
+    <div class="tk-summary">
+      <span class="tk-summary-icon">🎫</span>
+      <div class="tk-summary-info">
+        <span class="tk-summary-label" data-i18n="tk_summary_label">보유 티켓</span>
+        <span class="tk-summary-value" id="tkTicketCount">25장</span>
+      </div>
+    </div>
+    <div class="tk-list" id="tkTicketList"></div>
   </div>
 </div>
 
@@ -1251,6 +1258,9 @@
 <div class="page-container" id="page-ticket-detail">
   <div class="content-wrapper">
     <div class="gs-back" role="button" tabindex="0" onclick="switchPage('ticket')"><span>←</span> <span data-i18n="gs_back">돌아가기</span></div>
+    <div class="gs-hero">
+      <h2 data-i18n="tkd_title">티켓 상세</h2>
+    </div>
     <div class="tn-list" id="ticketDetailList" style="max-width:700px;margin:0 auto;"></div>
   </div>
 </div>
