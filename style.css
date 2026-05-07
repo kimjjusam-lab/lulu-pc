@@ -189,6 +189,23 @@ body {
 .dot { width:13px; height:5px; border-radius:3px; background:rgba(255,255,255,0.5); cursor:pointer; transition:all 0.3s; }
 .dot.active { background:rgba(255,255,255,0.9); width:55px; }
 
+/* Light theme: softer carousel mood */
+[data-theme="light"] .banner-slide:nth-child(1)::before { background:rgba(15,5,32,0.2); }
+[data-theme="light"] .banner-slide:nth-child(2)::before { background:rgba(10,22,40,0.2); }
+[data-theme="light"] .banner-slide:nth-child(3)::before { background:rgba(26,10,0,0.18); }
+[data-theme="light"] .banner-slide:nth-child(4)::before { background:rgba(5,10,21,0.2); }
+[data-theme="light"] .banner-slide:nth-child(5)::before { background:rgba(21,5,10,0.18); }
+[data-theme="light"] .banner-slide::after { background:
+  linear-gradient(to top, transparent 90%, rgba(255,255,255,0.25) 100%); }
+[data-theme="light"] .dot { background:rgba(255,255,255,0.55); }
+[data-theme="light"] .dot.active { background:rgba(255,255,255,0.95); }
+[data-theme="light"] .banner-badge { background:rgba(249,98,23,0.7); border-color:rgba(249,98,23,0.9); color:#fff; }
+[data-theme="light"] .carousel-arrow { display:none; }
+@media (min-width:769px) {
+  [data-theme="light"] .banner-carousel { border-radius:6px; }
+  [data-theme="light"] .hero-section { margin-top:24px; }
+}
+
 /* SECTIONS */
 .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
 .section-title { font-size:22px; font-weight:800; letter-spacing:-0.5px; }
