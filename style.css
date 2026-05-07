@@ -1677,7 +1677,8 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .gs-blind-table tbody tr:hover { background:var(--color-overlay-soft); }
 .gs-blind-table tbody tr.selected { background:rgba(249,98,23,0.08); outline:1px solid rgba(249,98,23,0.3); outline-offset:-1px; }
 .gs-blind-table tbody tr.break-row { background:rgba(107,114,128,0.08); color:var(--color-text-muted); font-style:italic; }
-.gs-blind-table td input { width:100%; max-width:60px; padding:6px 8px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-bg-body); color:var(--color-text-primary); font-size:12px; letter-spacing:-0.2px; text-align:center; font-family:'Pretendard Variable',Pretendard,sans-serif; outline:none; -moz-appearance:textfield; appearance:textfield; }
+.gs-blind-table td input { width:100%; max-width:90px; padding:6px 8px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-bg-body); color:var(--color-text-primary); font-size:12px; letter-spacing:-0.2px; text-align:center; font-family:'Pretendard Variable',Pretendard,sans-serif; outline:none; -moz-appearance:textfield; appearance:textfield; }
+.gs-blind-table td input.gs-time-input { max-width:40px; padding:6px 4px; }
 .gs-blind-table td input::-webkit-outer-spin-button,
 .gs-blind-table td input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 .login-input[type=number] { -moz-appearance:textfield; appearance:textfield; }
@@ -1685,7 +1686,7 @@ img.shop-tab-emoji { width:24px; height:24px; object-fit:contain; }
 .login-input[type=number]::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 .gs-blind-table td input:focus { border-color:var(--color-primary); }
 .gs-blind-table td .gs-sb-bb { display:flex; align-items:center; justify-content:center; gap:4px; }
-.gs-blind-table td .gs-sb-bb input { max-width:80px; }
+.gs-blind-table td .gs-sb-bb input { max-width:100px; }
 
 /* Blind Actions — SM(h32) Ghost per design system */
 .gs-blind-table tbody tr.gs-blind-actions-row { cursor:default; background:rgba(249,98,23,0.04); }

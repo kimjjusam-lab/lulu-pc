@@ -3692,9 +3692,9 @@ function gsRenderBlindTable() {
     const inputAttrs = ' onclick="event.stopPropagation()" onfocus="gsFocusBlindRow(' + idx + ')"';
     if (row.isBreak) {
       tr.className = 'break-row';
-      tr.innerHTML = '<td>-</td><td colspan="2" style="font-style:italic;color:var(--text-muted)">BREAK</td><td><input type="number" value="' + row.time + '" onchange="gsUpdateBlind(' + idx + ',\'time\',this.value)"' + inputAttrs + '></td>';
+      tr.innerHTML = '<td>-</td><td colspan="2" style="font-style:italic;color:var(--text-muted)">BREAK</td><td><input type="number" class="gs-time-input" value="' + row.time + '" onchange="gsUpdateBlind(' + idx + ',\'time\',this.value)"' + inputAttrs + '></td>';
     } else {
-      tr.innerHTML = '<td>' + row.lv + '</td><td><div class="gs-sb-bb"><input type="number" value="' + row.sb + '" onchange="gsUpdateBlind(' + idx + ',\'sb\',this.value)"' + inputAttrs + '> / <input type="number" value="' + row.bb + '" onchange="gsUpdateBlind(' + idx + ',\'bb\',this.value)"' + inputAttrs + '></div></td><td><input type="number" value="' + row.ante + '" onchange="gsUpdateBlind(' + idx + ',\'ante\',this.value)"' + inputAttrs + '></td><td><input type="number" value="' + row.time + '" onchange="gsUpdateBlind(' + idx + ',\'time\',this.value)"' + inputAttrs + '></td>';
+      tr.innerHTML = '<td>' + row.lv + '</td><td><div class="gs-sb-bb"><input type="number" value="' + row.sb + '" onchange="gsUpdateBlind(' + idx + ',\'sb\',this.value)"' + inputAttrs + '> / <input type="number" value="' + row.bb + '" onchange="gsUpdateBlind(' + idx + ',\'bb\',this.value)"' + inputAttrs + '></div></td><td><input type="number" value="' + row.ante + '" onchange="gsUpdateBlind(' + idx + ',\'ante\',this.value)"' + inputAttrs + '></td><td><input type="number" class="gs-time-input" value="' + row.time + '" onchange="gsUpdateBlind(' + idx + ',\'time\',this.value)"' + inputAttrs + '></td>';
     }
     tr.addEventListener('click', function(e) {
       if (e.target.tagName === 'INPUT') return;
