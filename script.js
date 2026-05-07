@@ -4824,3 +4824,20 @@ function closeWelcomePopup(){
     run();
   }
 })();
+
+/* ===== Theme Toggle ===== */
+(function(){
+  try {
+    var saved = localStorage.getItem('lulu-theme');
+    if (saved === 'light' || saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  var next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('lulu-theme', next); } catch(e) {}
+}
