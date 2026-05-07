@@ -3544,7 +3544,7 @@ function tkRenderList() {
     var safeSeries = tk.series.replace(/'/g, "\\'");
     return '<div class="tk-item" role="button" tabindex="0" onclick="openTicketDetail(\'' + safeSeries + '\')">' +
       '<div class="tk-item-inner">' +
-        '<span class="tk-item-icon"><img src="images/ticket_series_a.svg" alt="" width="40" height="40"></span>' +
+        '<span class="tk-item-icon"><img src="images/ticket_series_a.svg" alt="" width="44" height="44"></span>' +
         '<div class="tk-item-info">' +
           '<span class="tk-item-name">' + tk.series + '</span>' +
           '<span class="tk-item-expire">' + expireLabel + ': ' + tk.expire + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-left:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + daysLeft + dayLabel + '</span>' +
