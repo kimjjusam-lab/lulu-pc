@@ -201,6 +201,18 @@ body {
 [data-theme="light"] .dot.active { background:rgba(255,255,255,0.95); }
 [data-theme="light"] .banner-badge { background:rgba(249,98,23,0.7); border-color:rgba(249,98,23,0.9); color:#fff; }
 [data-theme="light"] .carousel-arrow { display:none; }
+[data-theme="light"] .card-visual-icon:has(+ .coming-badge) img,
+[data-theme="light"] .m-game-icon:has(> .coming-badge) img { opacity:1 !important; }
+[data-theme="light"] .chart-container .stat-card-static { background:var(--color-surface-1) !important; }
+[data-theme="light"] .nav-avatar,
+[data-theme="light"] .my-avatar,
+[data-theme="light"] .slide-menu-avatar,
+[data-theme="light"] .m-tab-my-avatar,
+[data-theme="light"] .mb-msg-avatar,
+[data-theme="light"] .mb-split-chat-avatar,
+[data-theme="light"] .chat-avatar,
+[data-theme="light"] .modal-avatar-item img,
+[data-theme="light"] .signup-avatar-item img { background:#64748b; }
 
 /* Light theme: tab active states need dark bg for contrast (surface-1 ≈ light gray clashes with #fff text) */
 [data-theme="light"] .tab-slider { background:var(--color-border-active); border-color:var(--color-border-active); }
