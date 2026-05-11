@@ -83,7 +83,7 @@ const i18n = {
     tk_title: '티켓',
     tk_desc: '보유 중인 티켓을 확인하세요',
     tk_summary_label: '보유 티켓',
-    tk_expire: '만료일',
+    tk_expire: '만료일시',
     tk_days_left: '일 남음',
     tkd_desc: '이 티켓으로 참여할 수 있는 토너먼트입니다.',
     tkd_empty: '참여 가능한 토너먼트가 없습니다',
@@ -3501,37 +3501,47 @@ function thdRenderDetail() {
 // === TICKET PAGE ===
 
 const demoTickets = [
-  { id: 1,  series: 'Series A',    expire: '2026-05-20' },
-  { id: 2,  series: 'Series A',    expire: '2026-05-25' },
-  { id: 3,  series: 'Series B',    expire: '2026-06-01' },
-  { id: 4,  series: 'Series B',    expire: '2026-06-05' },
-  { id: 5,  series: 'Series C',    expire: '2026-06-15' },
-  { id: 6,  series: 'Series C',    expire: '2026-06-20' },
-  { id: 7,  series: 'Series D',    expire: '2026-06-28' },
-  { id: 8,  series: 'Series D',    expire: '2026-07-02' },
-  { id: 9,  series: 'Satellite A', expire: '2026-05-22' },
-  { id: 10, series: 'Satellite A', expire: '2026-05-28' },
-  { id: 11, series: 'Satellite B', expire: '2026-06-08' },
-  { id: 12, series: 'Satellite B', expire: '2026-06-12' },
-  { id: 13, series: 'Satellite C', expire: '2026-06-22' },
-  { id: 14, series: 'Satellite C', expire: '2026-06-26' },
-  { id: 15, series: 'Satellite D', expire: '2026-07-05' },
-  { id: 16, series: 'Satellite D', expire: '2026-07-10' },
-  { id: 17, series: 'Series A',    expire: '2026-05-30' },
-  { id: 18, series: 'Satellite A', expire: '2026-06-03' },
-  { id: 19, series: 'Series B',    expire: '2026-06-10' },
-  { id: 20, series: 'Satellite B', expire: '2026-06-18' },
-  { id: 21, series: 'Series C',    expire: '2026-06-24' },
-  { id: 22, series: 'Satellite C', expire: '2026-06-30' },
-  { id: 23, series: 'Series D',    expire: '2026-07-08' },
-  { id: 24, series: 'Satellite D', expire: '2026-07-15' },
-  { id: 25, series: 'Series A',    expire: '2026-05-18' },
+  // 1730일 남음 (장기)
+  { id: 101, series: 'Series A',    expire: '2031-02-04 22:00' },
+  { id: 102, series: 'Series A',    expire: '2031-02-04 22:00' },
+  // 만료 임박
+  { id: 103, series: 'Series B',    expire: '2026-05-13 22:00', urgent: true },
+  { id: 104, series: 'Satellite A', expire: '2026-05-14 21:00', urgent: true },
+  // 무기한
+  { id: 105, series: 'Series C',    expire: 'unlimited' },
+  { id: 106, series: 'Satellite B', expire: 'unlimited' },
+  // 일반 남은일수
+  { id: 1,  series: 'Series A',    expire: '2026-05-20 21:00' },
+  { id: 2,  series: 'Series A',    expire: '2026-05-25 19:30' },
+  { id: 3,  series: 'Series B',    expire: '2026-06-01 20:00' },
+  { id: 4,  series: 'Series B',    expire: '2026-06-05 22:00' },
+  { id: 5,  series: 'Series C',    expire: '2026-06-15 18:00' },
+  { id: 6,  series: 'Series C',    expire: '2026-06-20 20:30' },
+  { id: 7,  series: 'Series D',    expire: '2026-06-28 21:00' },
+  { id: 8,  series: 'Series D',    expire: '2026-07-02 19:00' },
+  { id: 9,  series: 'Satellite A', expire: '2026-05-22 20:00' },
+  { id: 10, series: 'Satellite A', expire: '2026-05-28 22:30' },
+  { id: 11, series: 'Satellite B', expire: '2026-06-08 19:30' },
+  { id: 12, series: 'Satellite B', expire: '2026-06-12 21:30' },
+  { id: 13, series: 'Satellite C', expire: '2026-06-22 18:30' },
+  { id: 14, series: 'Satellite C', expire: '2026-06-26 20:00' },
+  { id: 15, series: 'Satellite D', expire: '2026-07-05 21:00' },
+  { id: 16, series: 'Satellite D', expire: '2026-07-10 22:00' },
+  { id: 17, series: 'Series A',    expire: '2026-05-30 19:00' },
+  { id: 18, series: 'Satellite A', expire: '2026-06-03 20:30' },
+  { id: 19, series: 'Series B',    expire: '2026-06-10 21:00' },
+  { id: 20, series: 'Satellite B', expire: '2026-06-18 22:00' },
+  { id: 21, series: 'Series C',    expire: '2026-06-24 19:30' },
+  { id: 22, series: 'Satellite C', expire: '2026-06-30 21:30' },
+  { id: 23, series: 'Series D',    expire: '2026-07-08 20:00' },
+  { id: 24, series: 'Satellite D', expire: '2026-07-15 22:30' },
+  { id: 25, series: 'Series A',    expire: '2026-05-18 20:00' },
 ];
 
 function tkRenderList() {
   var lang = currentLang || 'ko';
   var t = i18n[lang] || i18n.ko;
-  var expireLabel = t.tk_expire || '만료일';
+  var expireLabel = t.tk_expire || '만료일시';
   var dayLabel = t.tk_days_left || '일 남음';
   var today = new Date();
   today.setHours(0,0,0,0);
@@ -3541,17 +3551,37 @@ function tkRenderList() {
   var countEl = document.getElementById('tkTicketCount');
   if (countEl) countEl.textContent = totalPrefix + demoTickets.length + totalSuffix;
 
+  var clockSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
   var html = demoTickets.map(function(tk) {
-    var expDate = new Date(tk.expire);
-    var diff = Math.ceil((expDate - today) / (1000 * 60 * 60 * 24));
-    var daysLeft = diff > 0 ? diff : 0;
     var safeSeries = tk.series.replace(/'/g, "\\'");
+    var mainText, daysHtml;
+    if (tk.expire === 'unlimited') {
+      mainText = expireLabel + ': 무기한';
+      daysHtml = '';
+    } else {
+      var parts = (tk.expire || '').split(' ');
+      var dateStr = parts[0] || '';
+      var timeStr = parts[1] || '';
+      var dateTimeStr = timeStr ? dateStr + ' ' + timeStr : dateStr;
+      mainText = expireLabel + ': ' + dateTimeStr;
+      if (tk.urgent) {
+        daysHtml = '<span class="tk-item-daysleft is-urgent">' + clockSvg + '만료 임박</span>';
+      } else {
+        var expDate = new Date(dateStr);
+        var diff = Math.ceil((expDate - today) / (1000 * 60 * 60 * 24));
+        var daysLeft = diff > 0 ? diff : 0;
+        daysHtml = '<span class="tk-item-daysleft">' + clockSvg + daysLeft + dayLabel + '</span>';
+      }
+    }
     return '<div class="tk-item" role="button" tabindex="0" onclick="openTicketDetail(\'' + safeSeries + '\')">' +
       '<div class="tk-item-inner">' +
         '<span class="tk-item-icon"><img src="images/ticket_series_a.svg" alt="" width="44" height="44"></span>' +
         '<div class="tk-item-info">' +
           '<span class="tk-item-name">' + tk.series + '</span>' +
-          '<span class="tk-item-expire">' + expireLabel + ': ' + tk.expire + '<span class="tk-item-daysleft"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-left:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + daysLeft + dayLabel + '</span></span>' +
+          '<span class="tk-item-expire">' +
+            '<span class="tk-item-expire-main">' + mainText + '</span>' +
+            daysHtml +
+          '</span>' +
         '</div>' +
         '<span class="tk-item-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>' +
       '</div>' +
@@ -4765,9 +4795,26 @@ function confirmPurchase() {
   setTimeout(closePurchaseModal, 1500);
 }
 
-function openPackagePayModal(name, price) {
+function openPackagePayModal(name, price, imageSrc, composeItems) {
   document.getElementById('spPkgName').textContent = name;
   document.getElementById('spPkgPrice').textContent = price;
+  var imgEl = document.getElementById('spPkgImage');
+  if (imgEl) {
+    imgEl.src = imageSrc || '';
+    imgEl.alt = name || '';
+    imgEl.style.display = imageSrc ? '' : 'none';
+  }
+  var composeEl = document.getElementById('spPkgCompose');
+  if (composeEl) {
+    var items = Array.isArray(composeItems) ? composeItems : [];
+    composeEl.innerHTML = items.map(function(text) {
+      return '<span class="sp-pay-compose-item">' + text + '</span>';
+    }).join('');
+  }
+  var agree = document.getElementById('spPkgAgree');
+  if (agree) agree.checked = false;
+  var confirmBtn = document.getElementById('spPkgConfirm');
+  if (confirmBtn) confirmBtn.disabled = true;
   const scrollW = window.innerWidth - document.documentElement.clientWidth;
   document.body.style.overflow = 'hidden';
   document.body.style.paddingRight = scrollW + 'px';
@@ -4779,7 +4826,16 @@ function closePackagePayModal() {
   document.body.style.paddingRight = '';
 }
 
+function updatePackagePayConfirm() {
+  var agree = document.getElementById('spPkgAgree');
+  var btn = document.getElementById('spPkgConfirm');
+  if (!agree || !btn) return;
+  btn.disabled = !agree.checked;
+}
+
 function confirmPackagePayment() {
+  var agree = document.getElementById('spPkgAgree');
+  if (agree && !agree.checked) return;
   var name = document.getElementById('spPkgName').textContent;
   var price = document.getElementById('spPkgPrice').textContent;
   closePackagePayModal();
@@ -4814,7 +4870,13 @@ document.querySelectorAll('.pkg-buy-btn').forEach(function(btn) {
     var card = this.closest('.pkg-card');
     var name = card.querySelector('.pkg-name') ? card.querySelector('.pkg-name').textContent : '';
     var price = card.querySelector('.pkg-price') ? card.querySelector('.pkg-price').textContent : '';
-    openPackagePayModal(name, price);
+    var imgEl = card.querySelector('.pkg-image img');
+    var imageSrc = imgEl ? imgEl.getAttribute('src') : '';
+    var composeItems = Array.prototype.map.call(
+      card.querySelectorAll('.pkg-contents li > span:last-child'),
+      function(el) { return el.textContent.trim(); }
+    );
+    openPackagePayModal(name, price, imageSrc, composeItems);
   });
 });
 

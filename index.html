@@ -3247,24 +3247,35 @@
 
 <!-- Package Payment Modal -->
 <div class="modal-overlay" id="packagePayModal">
-  <div class="modal-card" style="max-width:380px;">
-    <div class="modal-header">
-      <h3 data-i18n="sp_pay_title">결제 확인</h3>
-      <button class="modal-close" onclick="closePackagePayModal()">✕</button>
+  <div class="modal-card sp-pay-card" style="max-width:380px;">
+    <button class="modal-close sp-pay-close" onclick="closePackagePayModal()" aria-label="close">✕</button>
+    <div class="sp-pay-image">
+      <img id="spPkgImage" src="" alt="">
     </div>
-    <div class="sp-modal-body">
-      <div class="sp-item-preview">
-        <div class="sp-item-icon" id="spPkgIcon" style="background:rgba(249,98,23,0.15)">📦</div>
-        <div class="sp-item-details">
-          <div class="sp-item-name" id="spPkgName"></div>
-          <div class="sp-item-desc" id="spPkgPrice"></div>
+    <div class="sp-pay-body">
+      <h3 class="sp-pay-name" id="spPkgName"></h3>
+      <div class="sp-pay-rows">
+        <div class="sp-pay-row">
+          <span class="sp-pay-label">수량</span>
+          <span class="sp-pay-value">1개</span>
+        </div>
+        <div class="sp-pay-row sp-pay-row-compose">
+          <span class="sp-pay-label">구성</span>
+          <div class="sp-pay-compose" id="spPkgCompose"></div>
+        </div>
+        <div class="sp-pay-row">
+          <span class="sp-pay-label">가격</span>
+          <span class="sp-pay-value sp-pay-price-value" id="spPkgPrice"></span>
         </div>
       </div>
-      <div class="sp-divider"></div>
-      <p class="sp-pay-notice" data-i18n="sp_pay_notice">결제 페이지로 이동합니다</p>
+      <label class="sp-pay-agree">
+        <input type="checkbox" id="spPkgAgree" onchange="updatePackagePayConfirm()">
+        <span class="sp-pay-agree-check" aria-hidden="true"></span>
+        <span class="sp-pay-agree-text">아이템 사용 후 환불이 불가능함에 동의합니다.</span>
+      </label>
       <div class="sp-buttons">
         <button class="sp-cancel-btn" onclick="closePackagePayModal()" data-i18n="sp_cancel">취소</button>
-        <button class="sp-confirm-btn" onclick="confirmPackagePayment()" data-i18n="sp_pay_btn">결제하기</button>
+        <button class="sp-confirm-btn" id="spPkgConfirm" onclick="confirmPackagePayment()" disabled>구매하기</button>
       </div>
     </div>
   </div>
