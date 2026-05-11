@@ -3501,31 +3501,31 @@ function thdRenderDetail() {
 // === TICKET PAGE ===
 
 const demoTickets = [
-  { id: 1,  series: 'Series A',    expire: '2026-03-02' },
-  { id: 2,  series: 'Series A',    expire: '2026-03-05' },
-  { id: 3,  series: 'Series B',    expire: '2026-03-10' },
-  { id: 4,  series: 'Series B',    expire: '2026-03-12' },
-  { id: 5,  series: 'Series C',    expire: '2026-03-18' },
-  { id: 6,  series: 'Series C',    expire: '2026-03-20' },
-  { id: 7,  series: 'Series D',    expire: '2026-03-25' },
-  { id: 8,  series: 'Series D',    expire: '2026-03-27' },
-  { id: 9,  series: 'Satellite A', expire: '2026-03-03' },
-  { id: 10, series: 'Satellite A', expire: '2026-03-08' },
-  { id: 11, series: 'Satellite B', expire: '2026-03-14' },
-  { id: 12, series: 'Satellite B', expire: '2026-03-16' },
-  { id: 13, series: 'Satellite C', expire: '2026-03-22' },
-  { id: 14, series: 'Satellite C', expire: '2026-03-24' },
-  { id: 15, series: 'Satellite D', expire: '2026-03-26' },
-  { id: 16, series: 'Satellite D', expire: '2026-03-28' },
-  { id: 17, series: 'Series A',    expire: '2026-03-07' },
-  { id: 18, series: 'Satellite A', expire: '2026-03-11' },
-  { id: 19, series: 'Series B',    expire: '2026-03-15' },
-  { id: 20, series: 'Satellite B', expire: '2026-03-19' },
-  { id: 21, series: 'Series C',    expire: '2026-03-21' },
-  { id: 22, series: 'Satellite C', expire: '2026-03-23' },
-  { id: 23, series: 'Series D',    expire: '2026-03-26' },
-  { id: 24, series: 'Satellite D', expire: '2026-03-27' },
-  { id: 25, series: 'Series A',    expire: '2026-03-04' },
+  { id: 1,  series: 'Series A',    expire: '2026-05-20' },
+  { id: 2,  series: 'Series A',    expire: '2026-05-25' },
+  { id: 3,  series: 'Series B',    expire: '2026-06-01' },
+  { id: 4,  series: 'Series B',    expire: '2026-06-05' },
+  { id: 5,  series: 'Series C',    expire: '2026-06-15' },
+  { id: 6,  series: 'Series C',    expire: '2026-06-20' },
+  { id: 7,  series: 'Series D',    expire: '2026-06-28' },
+  { id: 8,  series: 'Series D',    expire: '2026-07-02' },
+  { id: 9,  series: 'Satellite A', expire: '2026-05-22' },
+  { id: 10, series: 'Satellite A', expire: '2026-05-28' },
+  { id: 11, series: 'Satellite B', expire: '2026-06-08' },
+  { id: 12, series: 'Satellite B', expire: '2026-06-12' },
+  { id: 13, series: 'Satellite C', expire: '2026-06-22' },
+  { id: 14, series: 'Satellite C', expire: '2026-06-26' },
+  { id: 15, series: 'Satellite D', expire: '2026-07-05' },
+  { id: 16, series: 'Satellite D', expire: '2026-07-10' },
+  { id: 17, series: 'Series A',    expire: '2026-05-30' },
+  { id: 18, series: 'Satellite A', expire: '2026-06-03' },
+  { id: 19, series: 'Series B',    expire: '2026-06-10' },
+  { id: 20, series: 'Satellite B', expire: '2026-06-18' },
+  { id: 21, series: 'Series C',    expire: '2026-06-24' },
+  { id: 22, series: 'Satellite C', expire: '2026-06-30' },
+  { id: 23, series: 'Series D',    expire: '2026-07-08' },
+  { id: 24, series: 'Satellite D', expire: '2026-07-15' },
+  { id: 25, series: 'Series A',    expire: '2026-05-18' },
 ];
 
 function tkRenderList() {
@@ -3551,7 +3551,7 @@ function tkRenderList() {
         '<span class="tk-item-icon"><img src="images/ticket_series_a.svg" alt="" width="44" height="44"></span>' +
         '<div class="tk-item-info">' +
           '<span class="tk-item-name">' + tk.series + '</span>' +
-          '<span class="tk-item-expire">' + expireLabel + ': ' + tk.expire + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-left:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + daysLeft + dayLabel + '</span>' +
+          '<span class="tk-item-expire">' + expireLabel + ': ' + tk.expire + '<span class="tk-item-daysleft"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-left:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + daysLeft + dayLabel + '</span></span>' +
         '</div>' +
         '<span class="tk-item-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>' +
       '</div>' +

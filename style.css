@@ -1650,6 +1650,7 @@ label.my-menu-item-toggle { user-select:none; -webkit-tap-highlight-color:transp
 .tk-item-info { flex:1; display:flex; flex-direction:column; gap:4px; justify-content:center; padding:14px 18px; min-width:0; }
 .tk-item-name { font-size:15px; font-weight:800; color:var(--color-text-primary); letter-spacing:-0.2px; }
 .tk-item-expire { font-size:12px; color:var(--color-text-muted); display:flex; align-items:center; }
+.tk-item-daysleft { color:var(--color-accent-gold); font-weight:700; display:inline-flex; align-items:center; }
 .tk-item-arrow { display:flex; align-items:center; padding:0 18px 0 0; color:var(--color-text-muted); flex-shrink:0; }
 
 /* ===================== */
