@@ -370,8 +370,9 @@ body {
 .date-range-fields.analytics-date-range { display:flex; max-width:708px; margin:0 auto 24px; width:100%; }
 .date-range-fields.analytics-date-range .date-range-box { flex:1; }
 .date-range-fields { display:inline-flex; gap:8px; align-items:center; }
-.date-range-box { position:relative; cursor:pointer; }
-.date-range-box > .login-input { padding-right:44px; cursor:pointer; white-space:nowrap; letter-spacing:0.5px; min-width:30ch; }
+.date-range-box { position:relative; }
+.date-range-box > .login-input { white-space:nowrap; letter-spacing:0.5px; min-width:30ch; }
+.date-range-box > .login-input:focus { border-color:var(--color-border); outline:none; box-shadow:none; }
 /* Calendar icon inside date/time inputs (matches design-preview Date Picker template) */
 .input-with-cal-icon { position:relative; }
 .input-with-cal-icon > .login-input { padding-right:44px; cursor:pointer; }

@@ -218,9 +218,8 @@
   <div class="content-wrapper">
     <div class="analytics-hero"><h2 data-i18n="analytics_title">통계</h2><!-- <p data-i18n="analytics_desc">게임 기록과 성과를 한눈에 확인하세요</p> --></div>
     <div class="date-range-fields analytics-date-range">
-      <div class="date-range-box" id="dateRangeBox" onclick="toggleCalendar(event)">
+      <div class="date-range-box" id="dateRangeBox">
         <input type="text" class="login-input" id="dateRangeText" readonly value="2026.03.17 ~ 2026.03.24">
-        <svg class="input-calendar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </div>
       <div class="cal-popup" id="calPopup">
         <div class="cal-header">
@@ -235,7 +234,7 @@
           <button class="cal-confirm" onclick="calConfirm()">확인</button>
         </div>
       </div>
-      <button class="date-range-btn" onclick="searchDateRange()" data-i18n="date_range_btn">조회</button>
+      <button class="date-range-btn" onclick="toggleCalendar(event)" data-i18n="date_range_btn">조회</button>
     </div>
     <div class="chart-container" style="margin-bottom:24px">
       <div class="chart-title" data-i18n="analytics_summary">내 통계 요약</div>
