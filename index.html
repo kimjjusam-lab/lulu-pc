@@ -3247,26 +3247,28 @@
 
 <!-- Package Payment Modal -->
 <div class="modal-overlay" id="packagePayModal">
-  <div class="modal-card sp-pay-card" style="max-width:380px;">
-    <button class="modal-close sp-pay-close" onclick="closePackagePayModal()" aria-label="close">✕</button>
-    <div class="sp-pay-image">
-      <img id="spPkgImage" src="" alt="">
+  <div class="modal-card" style="max-width:380px;">
+    <div class="modal-header">
+      <h3 data-i18n="sp_pay_title">결제 확인</h3>
+      <button class="modal-close" onclick="closePackagePayModal()">✕</button>
     </div>
-    <div class="sp-pay-body">
-      <h3 class="sp-pay-name" id="spPkgName"></h3>
-      <div class="sp-pay-rows">
-        <div class="sp-pay-row">
-          <span class="sp-pay-label">수량</span>
-          <span class="sp-pay-value">1개</span>
-        </div>
-        <div class="sp-pay-row sp-pay-row-compose">
-          <span class="sp-pay-label">구성</span>
-          <div class="sp-pay-compose" id="spPkgCompose"></div>
-        </div>
-        <div class="sp-pay-row">
-          <span class="sp-pay-label">가격</span>
-          <span class="sp-pay-value sp-pay-price-value" id="spPkgPrice"></span>
-        </div>
+    <div class="sp-modal-body">
+      <div class="sp-pay-image">
+        <img id="spPkgImage" src="" alt="">
+      </div>
+      <div class="sp-pay-name" id="spPkgName"></div>
+      <div class="sp-divider"></div>
+      <div class="sp-price-row">
+        <span>수량</span>
+        <span class="sp-pay-value">1개</span>
+      </div>
+      <div class="sp-price-row sp-price-row-compose">
+        <span>구성</span>
+        <div class="sp-pay-compose" id="spPkgCompose"></div>
+      </div>
+      <div class="sp-price-row">
+        <span>가격</span>
+        <span class="sp-price-value" id="spPkgPrice"></span>
       </div>
       <label class="sp-pay-agree">
         <input type="checkbox" id="spPkgAgree" onchange="updatePackagePayConfirm()">

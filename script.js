@@ -4810,9 +4810,7 @@ function openPackagePayModal(name, price, imageSrc, composeItems) {
   var composeEl = document.getElementById('spPkgCompose');
   if (composeEl) {
     var items = Array.isArray(composeItems) ? composeItems : [];
-    composeEl.innerHTML = items.map(function(text) {
-      return '<span class="sp-pay-compose-item">' + text + '</span>';
-    }).join('');
+    composeEl.textContent = items.join(', ');
   }
   var agree = document.getElementById('spPkgAgree');
   if (agree) agree.checked = false;
