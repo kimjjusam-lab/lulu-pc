@@ -3584,7 +3584,7 @@ function ticketDetailRender() {
   });
   var emptyMsg = t.tkd_empty || '참여 가능한 토너먼트가 없습니다';
   listEl.innerHTML = items.length
-    ? items.map(function(item) { return hostBuildCard(item); }).join('')
+    ? items.map(function(item) { return hostBuildCard(item, 'ticket'); }).join('')
     : '<div class="tn-empty">' + emptyMsg + '</div>';
 }
 
@@ -4419,6 +4419,25 @@ function hostBuildCard(item, context) {
     onClickAttr = "openTnDetail(" + item.id + ", 'host')";
   } else {
     onClickAttr = 'openTnDetail(' + item.id + ')';
+  }
+  if (context === 'ticket') {
+    const startTimeLabel = t.td_start_time || '시작 시간';
+    const startTimeValue = '수동시작';
+    const playersLabel = t.tn_players || '참가인원';
+    const playersCount = item.players != null ? item.players : 0;
+    const maxPlayers = item.maxPlayers != null ? item.maxPlayers : '-';
+    return '<div class="tn-card host-card" onclick="' + onClickAttr + '">' +
+      '<div class="host-card-main">' +
+        '<span class="tn-badge ' + s.cls + '">' + s.label + '</span>' +
+        '<div class="host-card-title">' + item.name + '</div>' +
+        '<div class="host-card-date">' + startTimeLabel + ': ' + startTimeValue + '</div>' +
+      '</div>' +
+      '<div class="host-card-info">' +
+        '<div class="host-card-info-row"><span class="host-card-info-label">' + buyinLabel + '</span><span class="host-card-info-value">' + buyinValue + '</span></div>' +
+        '<div class="host-card-info-row"><span class="host-card-info-label">' + prizeLabel + '</span><span class="host-card-info-value' + (prizeIsNone ? ' is-none' : '') + '">' + prizeValue + '</span></div>' +
+        '<div class="host-card-info-row"><span class="host-card-info-label">' + playersLabel + '</span><span class="host-card-info-value">' + playersCount + ' / ' + maxPlayers + '</span></div>' +
+      '</div>' +
+    '</div>';
   }
   return '<div class="tn-card host-card" onclick="' + onClickAttr + '">' +
     '<div class="host-card-main">' +
