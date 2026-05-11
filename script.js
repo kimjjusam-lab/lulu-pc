@@ -2517,6 +2517,9 @@ function tdRenderDetail() {
   const item = demoTournaments.find(function(tn) { return tn.id === currentTnDetailId; });
   if (!item) return;
 
+  var titleEl = document.getElementById('tdPageTitle');
+  if (titleEl) titleEl.textContent = item.name;
+
   // 요약 카드
   var statusMap = {
     registering: { label: t.tn_status_registering || '등록중', cls: 'registering' },
