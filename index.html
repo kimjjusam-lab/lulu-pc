@@ -3295,6 +3295,11 @@
       <div class="td-test-btns">
         <button class="td-test-btn" onclick="shopPayTestResult('success')">구매 성공</button>
         <button class="td-test-btn" onclick="shopPayTestResult('failed')">구매 실패 (잔액 부족)</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('invalidRequest')">결제 실패 (InvalidRequest)</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('unauthorized')">결제 실패 (Unauthorized)</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('forbidden')">결제 실패 (Forbidden)</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('dailyLossLimit')">일일 손실한도 초과</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('buyinLimit')">바이인 한도 초과</button>
       </div>
     </div>
   </div>

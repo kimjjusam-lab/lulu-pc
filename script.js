@@ -4876,6 +4876,26 @@ function shopPayTestResult(result) {
     openPackagePaySuccessModal(ctx.name || '', ctx.imageSrc || '');
   } else if (result === 'failed') {
     openPackagePayFailModal('보석 100개');
+  } else if (result === 'invalidRequest') {
+    showAlert({ title: '결제에 실패했습니다.', message: 'InvalidRequest Error', cancelText: null });
+  } else if (result === 'unauthorized') {
+    showAlert({ title: '결제에 실패했습니다.', message: 'UnauthorizedError', cancelText: null });
+  } else if (result === 'forbidden') {
+    showAlert({ title: '결제에 실패했습니다.', message: 'ForbiddenError', cancelText: null });
+  } else if (result === 'dailyLossLimit') {
+    showAlert({
+      title: '일일 손실한도 초과',
+      message: '일일 손실 한도를 초과했습니다.\n(일일 손실한도: nnn억 골드)',
+      warning: '일일 손실 한도는 00:00를 기준으로 초기화됩니다.',
+      cancelText: null,
+    });
+  } else if (result === 'buyinLimit') {
+    showAlert({
+      title: '바이인 한도 초과',
+      message: '게임 바이인 한도를 초과했습니다.\n(바이인 한도: 350억 골)',
+      warning: '일일 손실 한도는 00:00를 기준으로 초기화됩니다.',
+      cancelText: null,
+    });
   }
 }
 
