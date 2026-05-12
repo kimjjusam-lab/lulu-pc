@@ -2026,7 +2026,7 @@ body.chat-open > .m-nav { display:none !important; }
 .sp-buttons { display:flex; gap:10px; margin-top:20px; }
 .sp-cancel-btn { flex:1; padding:13px 12px 12px; border:1px solid var(--color-border); border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:var(--color-surface-2); color:var(--color-text-secondary); transition:all 0.2s; line-height:1; }
 .sp-cancel-btn:hover { background:#2d2d44; }
-.sp-confirm-btn { flex:1; padding:13px 12px 12px; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark)); color:#fff; transition:all 0.2s; line-height:1; }
+.sp-confirm-btn { flex:1; padding:13px 12px 12px; border:1px solid transparent; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark)); color:#fff; transition:all 0.2s; line-height:1; }
 .sp-confirm-btn:hover { box-shadow:0 4px 20px var(--glow-orange); transform:translateY(-1px); }
 .sp-confirm-btn:disabled { opacity:0.5; cursor:not-allowed; transform:none; box-shadow:none; }
 .sp-success { padding:40px 24px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px; }
@@ -2047,6 +2047,25 @@ body.chat-open > .m-nav { display:none !important; }
 .sp-pay-agree input:checked + .sp-pay-agree-check { background:var(--color-primary); border-color:var(--color-primary); }
 .sp-pay-agree input:checked + .sp-pay-agree-check::after { display:block; }
 .sp-pay-agree-text { font-size:13px; color:var(--color-text-secondary); font-weight:500; }
+.sp-modal-body-success { padding-top:24px; }
+.sp-modal-body-success .sp-pay-notice { padding:10px 0 4px; }
+
+/* Purchase Fail Modal (잔액 부족 → 추천 상품 안내) */
+.sp-fail-headline { text-align:center; font-size:15px; font-weight:700; color:var(--color-text-primary); margin:0; padding:6px 0 4px; }
+.sp-fail-headline-hl { color:var(--color-accent-gold); }
+.sp-fail-sub { text-align:center; font-size:13px; color:var(--color-text-muted); font-weight:500; margin:0; padding:0 0 14px; }
+.sp-fail-list { display:flex; flex-direction:column; gap:8px; max-height:248px; overflow-y:auto; padding-right:4px; }
+.sp-fail-list::-webkit-scrollbar { width:6px; }
+.sp-fail-list::-webkit-scrollbar-thumb { background:var(--color-overlay-light); border-radius:3px; }
+.sp-fail-list::-webkit-scrollbar-track { background:transparent; }
+.sp-fail-item { display:flex; align-items:center; gap:12px; padding:10px; background:var(--color-overlay-soft); border:1px solid var(--color-overlay-light); border-radius:12px; }
+.sp-fail-thumb { width:60px; height:60px; flex-shrink:0; border-radius:10px; overflow:hidden; background:linear-gradient(135deg,#160e25,#241a3d); display:flex; align-items:center; justify-content:center; }
+.sp-fail-thumb img { width:90%; height:90%; object-fit:contain; display:block; }
+.sp-fail-info { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.sp-fail-name { font-size:14px; font-weight:700; color:var(--color-text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sp-fail-qty { font-size:12px; color:var(--color-text-muted); font-weight:500; }
+.sp-fail-buy { flex-shrink:0; padding:9px 14px; border:none; border-radius:8px; font-size:13px; font-weight:800; cursor:pointer; background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark)); color:#fff; transition:all 0.2s; line-height:1; }
+.sp-fail-buy:hover { box-shadow:0 4px 16px var(--glow-orange); transform:translateY(-1px); }
 
 .shop-item { cursor:pointer; }
 

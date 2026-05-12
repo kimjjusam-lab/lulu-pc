@@ -3283,6 +3283,61 @@
   </div>
 </div>
 
+<!-- Package Payment Test Modal (v3 테스트 — 결제 결과 시뮬레이션) -->
+<div class="modal-overlay" id="shopPayTestModal">
+  <div class="modal-card" style="max-width:340px;">
+    <div class="modal-header">
+      <h3>v3 테스트 팝업</h3>
+      <button class="modal-close" onclick="closeShopPayTestModal()">✕</button>
+    </div>
+    <div class="sp-modal-body">
+      <p class="sp-pay-notice">어떤 결과로 테스트할까요?</p>
+      <div class="td-test-btns">
+        <button class="td-test-btn" onclick="shopPayTestResult('success')">구매 성공</button>
+        <button class="td-test-btn" onclick="shopPayTestResult('failed')">구매 실패 (잔액 부족)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Package Payment Fail Modal (잔액 부족 → 추천 상품 안내) -->
+<div class="modal-overlay" id="packagePayFailModal">
+  <div class="modal-card" style="max-width:380px;">
+    <div class="modal-header">
+      <h3 data-i18n="sp_fail_title">추천 상품</h3>
+      <button class="modal-close" onclick="closePackagePayFailModal()">✕</button>
+    </div>
+    <div class="sp-modal-body">
+      <p class="sp-fail-headline">
+        <span class="sp-fail-headline-hl" id="spFailShortage">보석 100개</span><span data-i18n="sp_fail_shortage">가 부족합니다.</span>
+      </p>
+      <p class="sp-fail-sub" data-i18n="sp_fail_sub">추천 상품 구매 후 교환이 가능합니다.</p>
+      <div class="sp-fail-list" id="spFailList"></div>
+      <div class="sp-divider"></div>
+      <div class="sp-buttons">
+        <button class="sp-confirm-btn" onclick="closePackagePayFailModal()" data-i18n="sp_fail_close">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Package Payment Success Modal -->
+<div class="modal-overlay" id="packagePaySuccessModal">
+  <div class="modal-card" style="max-width:380px;">
+    <div class="sp-modal-body sp-modal-body-success">
+      <div class="sp-pay-image">
+        <img id="spPkgSuccessImage" src="" alt="">
+      </div>
+      <div class="sp-pay-name" id="spPkgSuccessName"></div>
+      <p class="sp-pay-notice" data-i18n="sp_pay_success">상품 구매가 완료되었습니다.</p>
+      <div class="sp-divider"></div>
+      <div class="sp-buttons">
+        <button class="sp-confirm-btn" onclick="closePackagePaySuccessModal()" data-i18n="sp_pay_success_ok">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="termsModal">
   <div class="modal-card" style="max-width:480px;">
     <div class="modal-header">

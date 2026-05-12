@@ -293,6 +293,12 @@ const i18n = {
     sp_pay_title: '결제 확인',
     sp_pay_notice: '결제 페이지로 이동합니다',
     sp_pay_btn: '결제하기',
+    sp_pay_success: '상품 구매가 완료되었습니다.',
+    sp_pay_success_ok: '확인',
+    sp_fail_title: '추천 상품',
+    sp_fail_shortage: '가 부족합니다.',
+    sp_fail_sub: '추천 상품 구매 후 교환이 가능합니다.',
+    sp_fail_close: '닫기',
     tx_title: '거래 내역',
     tx_desc: '골드와 다이아의 충전·소모 내역을 확인하세요',
     tx_tab_all: '전체',
@@ -4834,17 +4840,122 @@ function updatePackagePayConfirm() {
   btn.disabled = !agree.checked;
 }
 
+var currentShopPayContext = null;
+
 function confirmPackagePayment() {
   var agree = document.getElementById('spPkgAgree');
   if (agree && !agree.checked) return;
   var name = document.getElementById('spPkgName').textContent;
-  var price = document.getElementById('spPkgPrice').textContent;
+  var imgEl = document.getElementById('spPkgImage');
+  var imageSrc = imgEl ? imgEl.getAttribute('src') : '';
+  currentShopPayContext = { name: name, imageSrc: imageSrc };
   closePackagePayModal();
-  alert('[' + name + '] ' + price + '\nPG사 결제 페이지로 이동합니다.');
+  openShopPayTestModal();
+}
+
+function openShopPayTestModal() {
+  var modal = document.getElementById('shopPayTestModal');
+  if (!modal) return;
+  var scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  modal.classList.add('active');
+}
+function closeShopPayTestModal() {
+  var modal = document.getElementById('shopPayTestModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function shopPayTestResult(result) {
+  closeShopPayTestModal();
+  var ctx = currentShopPayContext || {};
+  if (result === 'success') {
+    openPackagePaySuccessModal(ctx.name || '', ctx.imageSrc || '');
+  } else if (result === 'failed') {
+    openPackagePayFailModal('보석 100개');
+  }
+}
+
+function getGemRecommendations(minQty) {
+  var cards = document.querySelectorAll('#shop-gems .pkg-card');
+  var out = [];
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var imgEl = card.querySelector('.pkg-image img');
+    var nameSpan = card.querySelector('.pkg-name [data-i18n]') || card.querySelector('.pkg-name');
+    var priceEl = card.querySelector('.pkg-price');
+    var name = nameSpan ? nameSpan.textContent.trim() : '';
+    var match = name.match(/(\d[\d,]*)\s*개/);
+    if (!match) continue;
+    var qtyNum = parseInt(match[1].replace(/,/g, ''), 10);
+    if (minQty && qtyNum < minQty) continue;
+    out.push({
+      img: imgEl ? imgEl.getAttribute('src') : '',
+      name: name,
+      qty: match[1] + '개',
+      price: priceEl ? priceEl.textContent.trim() : ''
+    });
+  }
+  return out;
+}
+
+function openPackagePayFailModal(shortageLabel, items) {
+  var labelEl = document.getElementById('spFailShortage');
+  if (labelEl && shortageLabel) labelEl.textContent = shortageLabel;
+  var minMatch = shortageLabel ? shortageLabel.match(/(\d[\d,]*)\s*개/) : null;
+  var minQty = minMatch ? parseInt(minMatch[1].replace(/,/g, ''), 10) : 0;
+  var listEl = document.getElementById('spFailList');
+  if (listEl) {
+    var recs = Array.isArray(items) && items.length ? items : getGemRecommendations(minQty);
+    listEl.innerHTML = recs.map(function(it) {
+      return '<div class="sp-fail-item">'
+        + '<div class="sp-fail-thumb">' + (it.img ? '<img src="' + it.img + '" alt="">' : '') + '</div>'
+        + '<div class="sp-fail-info">'
+        +   '<div class="sp-fail-name">' + (it.name || '') + '</div>'
+        +   '<div class="sp-fail-qty">' + (it.qty || '') + '</div>'
+        + '</div>'
+        + '<button class="sp-fail-buy">' + (it.price || '') + '</button>'
+        + '</div>';
+    }).join('');
+  }
+  const scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('packagePayFailModal').classList.add('active');
+}
+function closePackagePayFailModal() {
+  document.getElementById('packagePayFailModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function openPackagePaySuccessModal(name, imageSrc) {
+  document.getElementById('spPkgSuccessName').textContent = name || '';
+  var imgEl = document.getElementById('spPkgSuccessImage');
+  if (imgEl) {
+    imgEl.src = imageSrc || '';
+    imgEl.alt = name || '';
+    imgEl.style.display = imageSrc ? '' : 'none';
+  }
+  const scrollW = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollW + 'px';
+  document.getElementById('packagePaySuccessModal').classList.add('active');
+}
+function closePackagePaySuccessModal() {
+  document.getElementById('packagePaySuccessModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
 }
 
 document.getElementById('purchaseModal').addEventListener('click', function(e) { if (e.target === this) closePurchaseModal(); });
 document.getElementById('packagePayModal').addEventListener('click', function(e) { if (e.target === this) closePackagePayModal(); });
+document.getElementById('packagePaySuccessModal').addEventListener('click', function(e) { if (e.target === this) closePackagePaySuccessModal(); });
+document.getElementById('packagePayFailModal').addEventListener('click', function(e) { if (e.target === this) closePackagePayFailModal(); });
+document.getElementById('shopPayTestModal').addEventListener('click', function(e) { if (e.target === this) closeShopPayTestModal(); });
 document.getElementById('tdRegisterModal').addEventListener('click', function(e) { if (e.target === this) closeTdRegisterModal(); });
 
 // 아이템 탭: 게임 재화(골드/다이아)로 구매
