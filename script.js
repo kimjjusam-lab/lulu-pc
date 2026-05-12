@@ -5067,6 +5067,8 @@ function closeWelcomePopup(){
   p.classList.remove('active');
 }
 (function(){
+  var DISABLE_AUTO_OPEN = true; // 시작 팝업 자동 표시 비활성화 — 다시 켜려면 false로
+  if (DISABLE_AUTO_OPEN) return;
   try{
     var until=parseInt(localStorage.getItem('welcomePopupHideUntil')||'0',10);
     if(until && Date.now()<until) return;
